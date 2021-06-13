@@ -11,9 +11,10 @@
       :items="clinics"
       :items-per-page="5"
       class="elevation-1"
-    ></v-data-table>
+    >
+    </v-data-table>
     <v-dialog v-model="dialog" max-width="600px">
-      <v-card>
+      <v-card @submit.prevent="submitData">
         <v-card-title>
           <span
             >Fill out this form to add a new clinic to the database that has a
@@ -76,32 +77,49 @@
                     'Yamanashi',
                   ]"
                   label="Prefecture"
+                  v-model="prefecture"
                 ></v-autocomplete>
               </v-col>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="City*" required></v-text-field>
+                <v-text-field
+                  label="City*"
+                  v-model="city"
+                  required
+                ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Ward*" required></v-text-field>
+                <v-text-field
+                  label="Ward*"
+                  v-model="ward"
+                  required
+                ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Clinic name*" required></v-text-field>
+                <v-text-field
+                  label="Clinic name*"
+                  v-model="name"
+                  required
+                ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Website URL*" required></v-text-field>
+                <v-text-field
+                  label="Website URL*"
+                  v-model="website"
+                  required
+                ></v-text-field>
               </v-col>
             </v-row>
           </v-container>
-          <small>*indicates required field</small>
+          <div><small>*indicates required field</small></div>
+
+          <div>Your submission will be displayed after it's been reviewed!</div>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" text @click="dialog = false">
             Close
           </v-btn>
-          <v-btn color="blue darken-1" text @click="dialog = false">
-            Save
-          </v-btn>
+          <v-btn color="blue darken-1" text @click="submitData"> Save </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -112,6 +130,11 @@
 export default {
   data() {
     return {
+      prefecture: "",
+      city: "",
+      ward: "",
+      name: "",
+      website: "",
       clinics: [],
       dialog: false,
       headers: [
@@ -141,6 +164,27 @@ export default {
         });
       });
   },
-  methods: {},
+  methods: {
+    submitData() {
+      this.dialog = false;
+      const clinic = {
+        prefecture: this.prefecture,
+        city: this.city,
+        ward: this.ward,
+        name: this.name,
+        website: this.website,
+        approved: false,
+      };
+      try {
+        this.$fireModule
+          .firestore()
+          .collection("pending")
+          .add(clinic)
+          .then(() => console.log("added to db"));
+      } catch (err) {
+        console.log(err);
+      }
+    },
+  },
 };
 </script>
