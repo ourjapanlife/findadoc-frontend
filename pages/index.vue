@@ -11,8 +11,8 @@
         v-model="search"
         append-icon="mdi-magnify"
         label="Search"
-        single-line
-        hide-details
+        outlined
+        clearable
       ></v-text-field>
     </div>
     <v-data-table
@@ -162,14 +162,14 @@ export default {
       dialog: false,
       headers: [
         {
-          text: "Clinic Name",
+          text: "Clinic Name:",
           align: "start",
           value: "name",
         },
-        { text: "Prefecture", value: "prefecture" },
-        { text: "City", value: "city" },
-        { text: "Ward", value: "ward" },
-        { text: "Website", value: "website" },
+        { text: "Prefecture:", value: "prefecture" },
+        { text: "City:", value: "city" },
+        { text: "Ward:", value: "ward" },
+        { text: "Website:", value: "website" },
       ],
     };
   },
