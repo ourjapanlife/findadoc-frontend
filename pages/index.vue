@@ -1,12 +1,20 @@
 <template>
   <v-container>
     <h1>Cancellation Waiting Lists in Japan</h1>
-    <ol>
+    <!-- <ol>
       <li :key="index" v-for="(clinic, index) in clinics">
         {{ clinic.prefecture }}{{ clinic.city }}{{ clinic.ward }}{{ clinic.name
         }}{{ clinic.website }}
       </li>
-    </ol>
+    </ol> -->
+    <v-data-table
+      :headers="headers"
+      :items="clinics"
+      :items-per-page="5"
+      class="elevation-1"
+      loading
+      loading-text="Loading... Please wait"
+    ></v-data-table>
   </v-container>
 </template>
 
@@ -15,6 +23,18 @@ export default {
   data() {
     return {
       clinics: [],
+      headers: [
+        {
+          text: "Clinic Name",
+          align: "start",
+          sortable: false,
+          value: "name",
+        },
+        { text: "prefecture", value: "prefecture" },
+        { text: "city", value: "city" },
+        { text: "ward", value: "ward" },
+        { text: "website", value: "website" },
+      ],
     };
   },
   mounted() {
