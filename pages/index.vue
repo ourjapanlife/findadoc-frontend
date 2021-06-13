@@ -168,7 +168,7 @@ export default {
         { text: "Prefecture:", value: "prefecture" },
         { text: "City:", value: "city" },
         { text: "Ward:", value: "ward" },
-        { text: "Website:", value: "website" },
+        { text: "Website:", value: "website", sortable: false },
       ],
     };
   },
