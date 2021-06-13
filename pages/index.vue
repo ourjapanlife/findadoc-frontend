@@ -13,6 +13,11 @@
       class="elevation-1"
       :loading="loading"
     >
+      <template v-slot:[`item.website`]="{ item }">
+        <a target="_blank" :href="item.website">
+          {{ item.website }}
+        </a>
+      </template>
     </v-data-table>
     <v-dialog v-model="dialog" max-width="600px">
       <v-card @submit.prevent="submitData">
@@ -143,13 +148,12 @@ export default {
         {
           text: "Clinic Name",
           align: "start",
-          sortable: false,
           value: "name",
         },
-        { text: "prefecture", value: "prefecture" },
-        { text: "city", value: "city" },
-        { text: "ward", value: "ward" },
-        { text: "website", value: "website" },
+        { text: "Prefecture", value: "prefecture" },
+        { text: "City", value: "city" },
+        { text: "Ward", value: "ward" },
+        { text: "Website", value: "website" },
       ],
     };
   },
@@ -160,9 +164,7 @@ export default {
       .get()
       .then((snap) => {
         snap.forEach((doc) => {
-          //   this.clinics.push({ [doc.id]: doc.data() });
           this.clinics.push(doc.data());
-          console.log("clinics=", this.clinics);
           this.loading = false;
         });
       });

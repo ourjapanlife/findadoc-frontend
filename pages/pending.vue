@@ -31,6 +31,7 @@
 export default {
   data() {
     return {
+      id: "",
       prefecture: "",
       city: "",
       ward: "",
@@ -38,8 +39,8 @@ export default {
       website: "",
       clinics: [],
       dialog: false,
-      dialogDelete: false,
       headers: [
+        { text: "id", value: "id" },
         { text: "name", value: "name" },
         { text: "prefecture", value: "prefecture" },
         { text: "city", value: "city" },
@@ -50,12 +51,17 @@ export default {
   },
   mounted() {
     console.log("STARTING");
+    // const clinic = {};
     const db = this.$fireModule.firestore();
     db.collection("pending")
       .get()
       .then((snap) => {
         snap.forEach((doc) => {
+          //   clinic = doc.data();
+          //   clinic.id = doc.id;
+          //   console.log(clinic);
           this.clinics.push(doc.data());
+          //   this.clinics.push(clinic);
         });
       });
   },
