@@ -1,5 +1,6 @@
 <template>
   <v-app light>
+    <social-head />
     <nuxt />
     <v-footer>
       <span>Find a Doc Japan &copy; {{ new Date().getFullYear() }}</span>
@@ -8,7 +9,9 @@
 </template>
 
 <script>
+import SocialHead from "../components/SocialHead.vue";
 export default {
+  components: { SocialHead },
   data() {
     return {};
   },

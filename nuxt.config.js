@@ -3,17 +3,37 @@ import colors from "vuetify/es5/util/colors";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: "%s - findadoc",
-    title: "findadoc",
+    title: "Find a Doc JAPAN",
+    titleTemplate: "Community-driven database to share clinic information",
     htmlAttrs: {
-      lang: "en"
+      lang: "en",
+      amp: true
     },
     meta: [
       { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" }
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1"
+      },
+      {
+        hid: "description",
+        name: "description",
+        content: "A community database to share clinic information in Japan."
+      }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css?family=Nunito&display=swap"
+      }
+    ],
+    script: [
+      {
+        src: "https://cdn.jsdelivr.net/npm/vue/dist/vue.js",
+        async: true,
+        defer: true
+      }
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
