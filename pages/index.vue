@@ -209,9 +209,3 @@ export default {
 };
 </script>
 
-<style scoped>
-.v-data-table__mobile-row {
-  display: flex;
-  justify-content: left;
-}
-</style>

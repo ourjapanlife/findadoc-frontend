@@ -14,3 +14,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.v-data-table__mobile-row {
+  display: flex;
+  justify-content: left !important;
+}
+</style>
