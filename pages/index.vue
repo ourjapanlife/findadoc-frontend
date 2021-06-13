@@ -6,12 +6,22 @@
         >Submit New Clinic</v-btn
       >
     </div>
+    <div>
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+    </div>
     <v-data-table
       :headers="headers"
       :items="clinics"
       :items-per-page="10"
       class="elevation-1"
       :loading="loading"
+      :search="search"
     >
       <template v-slot:[`item.website`]="{ item }">
         <a target="_blank" :href="item.website">
@@ -136,6 +146,7 @@
 export default {
   data() {
     return {
+      search: "",
       loading: true,
       prefecture: "",
       city: "",
@@ -158,7 +169,6 @@ export default {
     };
   },
   mounted() {
-    console.log("STARTING");
     const db = this.$fireModule.firestore();
     db.collection("clinics")
       .get()
