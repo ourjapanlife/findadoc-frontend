@@ -4,7 +4,9 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Find a Doc JAPAN",
-    titleTemplate: "Community-driven database to share clinic information",
+    description: "A community database to share clinic information in Japan.",
+    titleTemplate: "Community-driven database",
+    image: "assets/img/social-card.jpg",
     htmlAttrs: {
       lang: "en",
       amp: true
@@ -19,6 +21,51 @@ export default {
         hid: "description",
         name: "description",
         content: "A community database to share clinic information in Japan."
+      },
+      {
+        hid: "twitter:title",
+        name: "twitter:title",
+        content: "Find a Doc JAPAN"
+      },
+      {
+        hid: "twitter:description",
+        name: "twitter:description",
+        content: "A community database to share clinic information in Japan."
+      },
+      {
+        hid: "twitter:image",
+        name: "twitter:image",
+        content: "assets/img/social-card.jpg"
+      },
+      {
+        hid: "twitter:image:alt",
+        name: "twitter:image:alt",
+        content: "Find a Doc JAPAN"
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: "Find a Doc JAPAN"
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: "A community database to share clinic information in Japan."
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "assets/img/social-card.jpg"
+      },
+      {
+        hid: "og:image:secure_url",
+        property: "og:image:secure_url",
+        content: "assets/img/social-card.jpg"
+      },
+      {
+        hid: "og:image:alt",
+        property: "og:image:alt",
+        content: "Find a Doc JAPAN"
       }
     ],
     link: [
