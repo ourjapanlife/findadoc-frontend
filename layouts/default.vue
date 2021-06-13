@@ -20,4 +20,9 @@ export default {
   display: flex;
   justify-content: left !important;
 }
+.v-footer {
+  justify-content: center !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  color: rgb(124, 124, 124) !important;
+}
 </style>

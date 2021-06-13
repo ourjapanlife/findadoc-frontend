@@ -21,6 +21,7 @@
       :items-per-page="10"
       class="elevation-2"
       :loading="loading"
+      loading-text="Loading... Please wait"
       :search="search"
     >
       <template v-slot:[`item.name`]="{ item }" align="left">
