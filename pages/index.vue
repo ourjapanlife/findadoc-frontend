@@ -19,10 +19,15 @@
       :headers="headers"
       :items="clinics"
       :items-per-page="10"
-      class="elevation-1"
+      class="elevation-2"
       :loading="loading"
       :search="search"
     >
+      <template v-slot:[`item.name`]="{ item }" align="left">
+        <div class="dflex jusitfy-left">
+          {{ item.name }}
+        </div>
+      </template>
       <template v-slot:[`item.website`]="{ item }">
         <a target="_blank" :href="item.website">
           {{ item.website }}
@@ -203,3 +208,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.v-data-table__mobile-row {
+  display: flex;
+  justify-content: left;
+}
+</style>

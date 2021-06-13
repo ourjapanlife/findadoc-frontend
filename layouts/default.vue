@@ -1,7 +1,7 @@
 <template>
   <v-app light>
     <nuxt />
-    <v-footer :absolute="!fixed" app>
+    <v-footer fixed app>
       <span>Find a Doc Japan &copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
