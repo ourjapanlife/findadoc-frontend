@@ -11,6 +11,7 @@
       :items="clinics"
       :items-per-page="10"
       class="elevation-1"
+      :loading="loading"
     >
     </v-data-table>
     <v-dialog v-model="dialog" max-width="600px">
@@ -130,6 +131,7 @@
 export default {
   data() {
     return {
+      loading: true,
       prefecture: "",
       city: "",
       ward: "",
@@ -161,6 +163,7 @@ export default {
           //   this.clinics.push({ [doc.id]: doc.data() });
           this.clinics.push(doc.data());
           console.log("clinics=", this.clinics);
+          this.loading = false;
         });
       });
   },
