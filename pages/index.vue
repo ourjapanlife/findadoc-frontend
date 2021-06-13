@@ -29,9 +29,7 @@
         </div>
       </template>
       <template v-slot:[`item.website`]="{ item }">
-        <a target="_blank" :href="item.website">
-          {{ item.website }}
-        </a>
+        <a target="_blank" :href="item.website"> Click for more info </a>
       </template>
     </v-data-table>
     <v-dialog v-model="dialog" max-width="600px">
