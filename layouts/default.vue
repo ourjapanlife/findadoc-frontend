@@ -1,9 +1,16 @@
 <template>
-  <v-main>
-    <v-container>
-      <nuxt />
-    </v-container>
-  </v-main>
+  <v-app light>
+    <nuxt />
+    <v-footer :absolute="!fixed" app>
+      <span>Find a Doc Japan &copy; {{ new Date().getFullYear() }}</span>
+    </v-footer>
+  </v-app>
 </template>
 
-
+<script>
+export default {
+  data() {
+    return {};
+  },
+};
+</script>

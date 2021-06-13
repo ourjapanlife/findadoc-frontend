@@ -1,36 +1,35 @@
 <template>
-  <ul>
-    <li :key="item.key" v-for="item in testCollection">{{ item }}</li>
-  </ul>
+  <v-container>
+    <h1>Cancellation Waiting Lists in Japan</h1>
+    <ol>
+      <li :key="index" v-for="(clinic, index) in clinics">
+        {{ clinic.prefecture }}{{ clinic.city }}{{ clinic.ward }}{{ clinic.name
+        }}{{ clinic.website }}
+      </li>
+    </ol>
+  </v-container>
 </template>
 
 <script>
-// import "firebase/firestore";
-
 export default {
   data() {
     return {
-      testCollection: [],
+      clinics: [],
     };
   },
   mounted() {
     console.log("STARTING");
     const db = this.$fireModule.firestore();
-    db.collection("doctors")
+    db.collection("clinics")
       .get()
       .then((snap) => {
         snap.forEach((doc) => {
-          this.testCollection.push({ [doc.id]: doc.data() });
+          //   this.clinics.push({ [doc.id]: doc.data() });
+          this.clinics.push(doc.data());
+          console.log("clinics=", this.clinics);
         });
       });
   },
-  methods: {
-    // getClinics() {
-    //   console.log("STARTING");
-    //   const ref = this.$firestore.collection("doctors").doc(id);
-    //   this.clinics = ref.get();
-    //   console.log("clinics =", this.clinics);
-    // },
-  },
+  methods: {},
 };
 </script>
