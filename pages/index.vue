@@ -9,8 +9,9 @@
     <v-data-table
       :headers="headers"
       :items="clinics"
-      :items-per-page="5"
+      :items-per-page="10"
       class="elevation-1"
+      loading
     >
     </v-data-table>
     <v-dialog v-model="dialog" max-width="600px">
