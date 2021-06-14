@@ -1,11 +1,17 @@
 <template>
   <v-app light>
     <nuxt />
-    <v-footer>
-      <span>Find a Doc Japan &copy; {{ new Date().getFullYear() }}</span>
+    <v-footer app fixed>
+      <span
+        >&copy; {{ new Date().getFullYear() }} —
+        <a href="https://ko-fi.com/theyokohamalife" target="_blank">
+          Buy me a kofi</a
+        ></span
+      >
     </v-footer>
   </v-app>
 </template>
+
 
 <style>
 .v-data-table__mobile-row {
@@ -14,7 +20,10 @@
 }
 .v-footer {
   justify-content: center !important;
-  background-color: rgba(0, 0, 0, 0) !important;
-  color: rgb(124, 124, 124) !important;
+  color: white !important;
+}
+
+.v-data-table {
+  padding-bottom: 30px !important;
 }
 </style>
