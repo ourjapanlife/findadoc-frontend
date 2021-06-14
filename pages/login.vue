@@ -24,15 +24,31 @@
 </template>
 
 <script>
+import "firebase/auth";
+import * as firebase from "firebase/app";
+
 export default {
   data() {
     return {
       email: "",
       password: "",
+      user: "",
     };
   },
   methods: {
-    async login() {},
+    async login() {
+      this.$fireModule
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then((user) => {
+          this.$store.commit("updateUser", user.uid);
+          console.log(user);
+          this.$router.push("/admin/pending");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
     clear() {
       this.name = "";
       this.email = "";
