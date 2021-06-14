@@ -1,29 +1,41 @@
 <template>
-  <v-app light>
-    <nuxt />
-    <v-footer fixed>
-      <span
-        >&copy; {{ new Date().getFullYear() }} —
+  <v-app>
+    <toolbar />
+    <v-main>
+      <div>
+        <v-dialog v-model="dialog" max-width="600px">
+          <clinic-submission />
+        </v-dialog>
+      </div>
+      <Nuxt />
+    </v-main>
+    <v-footer fixed app dark color="#8ea1b9">
+      <div id="kofi">
+        &copy; {{ new Date().getFullYear() }} —
         <a href="https://ko-fi.com/theyokohamalife" target="_blank">
           Buy me a kofi</a
-        ></span
-      >
+        >
+      </div>
     </v-footer>
   </v-app>
 </template>
 
+<script>
+export default {
+  data: () => ({
+    dialog: false,
+  }),
+};
+</script>
 
-<style>
-.v-data-table__mobile-row {
-  display: flex;
-  justify-content: left !important;
-}
+<style scoped>
 .v-footer {
-  justify-content: center !important;
-  color: white !important;
+  display: flex;
+  justify-content: center;
 }
-
-.v-data-table {
-  margin-bottom: 50px !important;
+a {
+  text-decoration: none;
+  color: #1967d2;
+  font-weight: bold;
 }
 </style>

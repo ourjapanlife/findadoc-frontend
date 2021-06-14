@@ -9,11 +9,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@mdi/font": "^5.9.55",
     "@nuxtjs/firebase": "^7.6.1",
     "core-js": "^3.9.1",
     "firebase": "^8.6.7",
-    "isomorphic-fetch": "^3.0.0",
     "nuxt": "^2.15.3"
   },
   "devDependencies": {
