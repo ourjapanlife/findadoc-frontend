@@ -50,21 +50,20 @@ export default {
     };
   },
   mounted() {
-    console.log("STARTING");
-    // const clinic = {};
-    const db = this.$fireModule.firestore();
-    db.collection("pending")
-      .get()
-      .then((snap) => {
-        snap.forEach((doc) => {
-          //   clinic = doc.data();
-          //   clinic.id = doc.id;
-          //   console.log(clinic);
-          this.clinics.push(doc.data());
-          //   this.clinics.push(clinic);
+    if (this.$store.state.user === null) {
+      this.$router.push("/");
+    } else {
+      const db = this.$fireModule.firestore();
+      db.collection("pending")
+        .get()
+        .then((snap) => {
+          snap.forEach((doc) => {
+            this.clinics.push(doc.data());
+          });
         });
-      });
+    }
   },
+  // JmsjB7NYftU04ctiIeUnrmUtnP23
   methods: {
     moderate(row) {
       this.dialog = true;
