@@ -23,6 +23,11 @@ export default {
         content: "A community database to share clinic information in Japan."
       },
       {
+        hid: "twitter:card",
+        name: "twitter:card",
+        content: "summary"
+      },
+      {
         hid: "twitter:title",
         name: "twitter:title",
         content: "Find a Doc JAPAN"
