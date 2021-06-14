@@ -6,7 +6,7 @@ export default {
     title: "Find a Doc JAPAN",
     description: "A community database to share clinic information in Japan.",
     titleTemplate: "Community-driven database",
-    image: "assets/img/social-card.jpg",
+    image: "/assets/img/social-card.jpg",
     htmlAttrs: {
       lang: "en",
       amp: true
@@ -35,7 +35,7 @@ export default {
       {
         hid: "twitter:image",
         name: "twitter:image",
-        content: "assets/img/social-card.jpg"
+        content: "/assets/img/social-card.jpg"
       },
       {
         hid: "twitter:image:alt",
@@ -55,12 +55,12 @@ export default {
       {
         hid: "og:image",
         property: "og:image",
-        content: "assets/img/social-card.jpg"
+        content: "/assets/img/social-card.jpg"
       },
       {
         hid: "og:image:secure_url",
         property: "og:image:secure_url",
-        content: "assets/img/social-card.jpg"
+        content: "/assets/img/social-card.jpg"
       },
       {
         hid: "og:image:alt",
