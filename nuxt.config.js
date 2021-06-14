@@ -3,25 +3,15 @@ import colors from "vuetify/es5/util/colors";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Find a Doc JAPAN",
-    description: "A community database to share clinic information in Japan.",
     titleTemplate: "Community-driven database",
-    image: "https://www.findadoc.jp/social-card.jpg",
+    title: "Find a Doc JAPAN",
     htmlAttrs: {
-      lang: "en",
-      amp: true
+      lang: "en"
     },
     meta: [
       { charset: "utf-8" },
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1"
-      },
-      {
-        hid: "description",
-        name: "description",
-        content: "A community database to share clinic information in Japan."
-      },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" },
       {
         hid: "twitter:card",
         name: "twitter:card",
@@ -73,20 +63,9 @@ export default {
         content: "Find a Doc JAPAN"
       }
     ],
-    link: [
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css?family=Nunito&display=swap"
-      }
-    ],
-    script: [
-      {
-        src: "https://cdn.jsdelivr.net/npm/vue/dist/vue.js",
-        async: true,
-        defer: true
-      }
-    ]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
