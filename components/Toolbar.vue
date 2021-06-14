@@ -1,15 +1,47 @@
 <template>
-  <v-app-bar color="deep-purple accent-4" dense dark app>
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+  <div>
+    <v-app-bar color="deep-purple accent-4" dense dark app>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-    <v-toolbar-title>Find a Doc, JAPAN</v-toolbar-title>
+      <v-toolbar-title>Find a Doc, JAPAN</v-toolbar-title>
 
-    <v-spacer></v-spacer>
-    <nuxt-link to="/add-clinic">
-      <v-btn>add a clinic</v-btn>
-    </nuxt-link>
-  </v-app-bar>
+      <v-spacer></v-spacer>
+      <nuxt-link to="/add-clinic">
+        <v-btn>add a clinic</v-btn>
+      </nuxt-link>
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-list dense>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          :to="item.route"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+  </div>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    drawer: null,
+    items: [
+      { title: "Home", icon: "mdi-home-city", route: "/" },
+      { title: "Login", icon: "mdi-forum", route: "/login" },
+    ],
+  }),
+};
+</script>
 
 <style scoped>
 a {
