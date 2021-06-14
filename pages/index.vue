@@ -1,6 +1,8 @@
 <template>
   <v-container>
-    <h1>COVID-19 Vaccination Cancellation Waiting Lists in Japan</h1>
+    <div align="center">
+      <h1>COVID-19 Vaccination Cancellation Waiting Lists in Japan</h1>
+    </div>
     <div class="my-2" align="center">
       <v-btn large color="primary" dark @click="dialog = !dialog"
         >Submit New Clinic</v-btn

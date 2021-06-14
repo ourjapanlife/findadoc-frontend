@@ -1,7 +1,7 @@
 <template>
   <v-app light>
     <nuxt />
-    <v-footer app fixed>
+    <v-footer fixed>
       <span
         >&copy; {{ new Date().getFullYear() }} —
         <a href="https://ko-fi.com/theyokohamalife" target="_blank">
@@ -24,6 +24,6 @@
 }
 
 .v-data-table {
-  padding-bottom: 30px !important;
+  margin-bottom: 50px !important;
 }
 </style>
