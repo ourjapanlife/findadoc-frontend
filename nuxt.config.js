@@ -40,7 +40,7 @@ export default {
       {
         hid: "twitter:image",
         name: "twitter:image",
-        content: "https://www.findadoc.jp/social-card.jpg"
+        content: "https://www.findadoc.jp/twitter-card.jpg"
       },
       {
         hid: "twitter:image:alt",
