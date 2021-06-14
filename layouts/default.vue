@@ -9,6 +9,14 @@
       </div>
       <Nuxt />
     </v-main>
+    <v-footer fixed app>
+      <span
+        >&copy; {{ new Date().getFullYear() }} —
+        <a href="https://ko-fi.com/theyokohamalife" target="_blank">
+          Buy me a kofi</a
+        ></span
+      >
+    </v-footer>
   </v-app>
 </template>
 

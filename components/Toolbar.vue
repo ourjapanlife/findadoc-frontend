@@ -1,16 +1,22 @@
 <template>
   <div>
-    <v-app-bar color="deep-purple accent-4" dense dark app>
+    <v-app-bar color="blue darken-4" dense dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Find a Doc, JAPAN</v-toolbar-title>
 
       <v-spacer></v-spacer>
       <nuxt-link to="/add-clinic">
-        <v-btn>add a clinic</v-btn>
+        <v-btn color="secondary">add a clinic</v-btn>
       </nuxt-link>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+    <v-navigation-drawer
+      color="#031525"
+      v-model="drawer"
+      absolute
+      temporary
+      dark
+    >
       <v-list dense>
         <v-list-item
           v-for="item in items"
@@ -37,7 +43,7 @@ export default {
     drawer: null,
     items: [
       { title: "Home", icon: "mdi-home-city", route: "/" },
-      { title: "Login", icon: "mdi-forum", route: "/login" },
+      { title: "Login", icon: "mdi-account", route: "/login" },
     ],
   }),
 };
