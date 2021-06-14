@@ -3,19 +3,90 @@ import colors from "vuetify/es5/util/colors";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: "%s - findadoc",
-    title: "findadoc",
+    title: "Find a Doc JAPAN",
+    description: "A community database to share clinic information in Japan.",
+    titleTemplate: "Community-driven database",
+    image: "https://www.findadoc.jp/social-card.jpg",
     htmlAttrs: {
-      lang: "en"
+      lang: "en",
+      amp: true
     },
     meta: [
       { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" }
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1"
+      },
+      {
+        hid: "description",
+        name: "description",
+        content: "A community database to share clinic information in Japan."
+      },
+      {
+        hid: "twitter:card",
+        name: "twitter:card",
+        content: "summary"
+      },
+      {
+        hid: "twitter:title",
+        name: "twitter:title",
+        content: "Find a Doc JAPAN"
+      },
+      {
+        hid: "twitter:description",
+        name: "twitter:description",
+        content: "A community database to share clinic information in Japan."
+      },
+      {
+        hid: "twitter:image",
+        name: "twitter:image",
+        content: "https://www.findadoc.jp/twitter-card.png"
+      },
+      {
+        hid: "twitter:image:alt",
+        name: "twitter:image:alt",
+        content: "Find a Doc JAPAN"
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: "Find a Doc JAPAN"
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: "A community database to share clinic information in Japan."
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "https://www.findadoc.jp/social-card.jpg"
+      },
+      {
+        hid: "og:image:secure_url",
+        property: "og:image:secure_url",
+        content: "https://www.findadoc.jp/social-card.jpg"
+      },
+      {
+        hid: "og:image:alt",
+        property: "og:image:alt",
+        content: "Find a Doc JAPAN"
+      }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css?family=Nunito&display=swap"
+      }
+    ],
+    script: [
+      {
+        src: "https://cdn.jsdelivr.net/npm/vue/dist/vue.js",
+        async: true,
+        defer: true
+      }
+    ]
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
