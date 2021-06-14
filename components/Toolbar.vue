@@ -5,7 +5,14 @@
     <v-toolbar-title>Find a Doc, JAPAN</v-toolbar-title>
 
     <v-spacer></v-spacer>
-
-    <v-btn>add a clinic</v-btn>
+    <nuxt-link to="/add-clinic">
+      <v-btn>add a clinic</v-btn>
+    </nuxt-link>
   </v-app-bar>
 </template>
+
+<style scoped>
+a {
+  text-decoration: none !important;
+}
+</style>

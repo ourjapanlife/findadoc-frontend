@@ -113,7 +113,8 @@ export default {
             .firestore()
             .collection("pending")
             .add(clinic)
-            .then(() => console.log("added to db"));
+            .then(() => console.log("added to db"))
+            .then(this.$router.push("/"));
         } catch (err) {
           console.log(err);
         }

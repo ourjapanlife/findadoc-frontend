@@ -1,22 +1,31 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="items"
-    :items-per-page="10"
-    class="elevation-2"
-    :loading="loading"
-    loading-text="Loading... Please wait"
-    :search="search"
-  >
-    <template v-slot:[`item.name`]="{ item }" align="left">
-      <div class="dflex justify-left">
-        {{ item.name }}
-      </div>
-    </template>
-    <template v-slot:[`item.website`]="{ item }">
-      <a target="_blank" :href="item.website"> Click for more info </a>
-    </template>
-  </v-data-table>
+  <div>
+    <v-text-field
+      v-model="search"
+      append-icon="mdi-magnify"
+      label="Search"
+      outlined
+      clearable
+    ></v-text-field>
+    <v-data-table
+      :headers="headers"
+      :items="items"
+      :items-per-page="10"
+      class="elevation-2"
+      :loading="loading"
+      loading-text="Loading... Please wait"
+      :search="search"
+    >
+      <template v-slot:[`item.name`]="{ item }" align="left">
+        <div class="dflex justify-left">
+          {{ item.name }}
+        </div>
+      </template>
+      <template v-slot:[`item.website`]="{ item }">
+        <a target="_blank" :href="item.website"> Click for more info </a>
+      </template>
+    </v-data-table>
+  </div>
 </template>
 
 <script>
@@ -48,6 +57,7 @@ export default {
       { text: "Ward:", value: "ward" },
       { text: "Website:", value: "website", sortable: false },
     ],
+    search: "",
   }),
 };
 </script>
