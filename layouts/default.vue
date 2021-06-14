@@ -14,7 +14,7 @@
         &copy; {{ new Date().getFullYear() }} —
         <a href="https://ko-fi.com/theyokohamalife" target="_blank">
           Buy me a kofi</a
-        ><v-icon>mdi-coffee</v-icon>
+        >
       </div>
     </v-footer>
   </v-app>
