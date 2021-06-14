@@ -24,6 +24,7 @@
 <script>
 import "firebase/auth";
 import * as firebase from "firebase/app";
+
 export default {
   data() {
     return {

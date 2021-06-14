@@ -1,4 +1,5 @@
 <template>
+
   <v-container v-show="this.$store.state.user !== null">
     <h1>Pending Submissions</h1>
     <v-data-table
@@ -12,9 +13,11 @@
 
     <v-dialog v-model="dialog" persistent max-width="290">
       <v-card>
+
         <v-card-title class="text-h5">
           Approve Submission? {{ id }}</v-card-title
         >
+
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="green darken-1" text @click="approveClinic">
@@ -54,6 +57,7 @@ export default {
   mounted() {
     if (this.$store.state.user === null) {
       this.$router.push("/login");
+
     } else {
       const db = this.$fireModule.firestore();
       db.collection("pending")
@@ -99,6 +103,7 @@ export default {
       }
     },
     deleteClinic() {
+
       console.log(this.id);
       this.dialog = false;
       try {
