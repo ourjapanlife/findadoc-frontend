@@ -5,7 +5,7 @@
     lazy-validation
     @submit.prevent="submitData"
   >
-    <div align="center">
+    <div align="center" id="instructions">
       Fill out this form to add a new clinic to the database that has a
       cancellation waiting list.
     </div>
@@ -59,7 +59,7 @@
       The clinic you submitted will be displayed after it's been reviewed!
     </div>
     <div align="center">
-      <v-btn color="blue darken-1" :disabled="!valid" @click="submitData">
+      <v-btn dark color="blue darken-1" :disabled="!valid" @click="submitData">
         Submit Clinic
       </v-btn>
     </div>
@@ -130,7 +130,13 @@ export default {
 </script>
 
 <style scoped>
-div {
-  padding-top: 20px !important;
+.v-btn {
+  margin-top: 20px !important;
+}
+#instructions {
+  margin-top: 20px;
+}
+.v-form {
+  padding: 10px !important;
 }
 </style>
