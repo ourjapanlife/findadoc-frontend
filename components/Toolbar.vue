@@ -44,6 +44,7 @@ export default {
     items: [
       { title: "Home", icon: "mdi-home-city", route: "/" },
       { title: "Login", icon: "mdi-account", route: "/login" },
+      { title: "About", icon: "mdi-head-question", route: "/about" },
     ],
   }),
 };
