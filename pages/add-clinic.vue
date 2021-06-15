@@ -7,11 +7,13 @@
       @submit.prevent="submitData"
     >
       <div align="center" id="instructions">
-        Fill out this form to add a new clinic to the database that has a
-        cancellation waiting list.
+        <h2>
+          Fill out this form to add a new clinic to the database that has a
+          cancellation waiting list.
+        </h2>
       </div>
       <v-container>
-        <div align="center"><b>Romaji only!</b></div>
+        <div align="center" class="romaji"><b>Romaji only</b></div>
         <v-row>
           <v-col cols="12" sm="6">
             <v-autocomplete
@@ -137,6 +139,9 @@ export default {
 </script>
 
 <style scoped>
+.romaji {
+  color: red;
+}
 .v-btn {
   margin-top: 20px !important;
   margin-bottom: 20px !important;
