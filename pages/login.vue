@@ -24,6 +24,7 @@
 <script>
 import "firebase/auth";
 import * as firebase from "firebase/app";
+
 export default {
   data() {
     return {
@@ -62,3 +63,4 @@ export default {
   padding: 10px !important;
 }
 </style>
+
