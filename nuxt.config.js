@@ -61,6 +61,11 @@ export default {
         hid: "og:image:alt",
         property: "og:image:alt",
         content: "Find a Doc JAPAN"
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: "https://www.findadoc.jp"
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
