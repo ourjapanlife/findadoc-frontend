@@ -107,6 +107,20 @@ export default {
           analytics: true
         }
       }
+    ],
+    [
+      "nuxt-i18n",
+      {
+        locales: [
+          { code: "en", file: "en.json" },
+          { code: "ja", file: "ja.json" }
+        ],
+        defaultLocale: "en",
+        langDir: "i18n",
+        vueI18n: {
+          fallbackLocale: "en"
+        }
+      }
     ]
   ],
 
