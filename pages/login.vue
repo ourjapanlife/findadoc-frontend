@@ -5,7 +5,7 @@
         <v-text-field
           type="text"
           v-model="email"
-          label="Email"
+          :label="$t('login.email')"
           required
         ></v-text-field>
       </div>
@@ -13,13 +13,13 @@
         <v-text-field
           type="password"
           v-model="password"
-          label="Password"
+          :label="$t('login.password')"
           required
         ></v-text-field>
       </div>
       <div align="center">
-        <v-btn @click="login"> Login </v-btn>
-        <v-btn @click="clear"> Clear </v-btn>
+        <v-btn @click="login">{{ $t("login.login") }}</v-btn>
+        <v-btn @click="clear">{{ $t("login.clear") }} </v-btn>
       </div>
     </v-form>
   </v-card>

@@ -7,25 +7,24 @@
       @submit.prevent="submitData"
     >
       <div align="center" id="instructions">
-        <h2>
-          Fill out this form to add a new clinic to the database that has a
-          cancellation waiting list.
-        </h2>
+        <h2>{{ $t("add-clinic.fillForm") }}</h2>
       </div>
       <v-container>
-        <div align="center" class="romaji"><b>Romaji only</b></div>
+        <div align="center" class="romaji">
+          <b>{{ $t("add-clinic.romajiOnly") }}</b>
+        </div>
         <v-row>
           <v-col cols="12" sm="6">
             <v-autocomplete
               :items="prefectureList"
-              label="Prefecture"
+              :label="$t('add-clinic.prefecture')"
               v-model="prefecture"
               required
             ></v-autocomplete>
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
-              label="City*"
+              :label="$t('add-clinic.city')"
               v-model="city"
               required
               :rules="cityRules"
@@ -33,7 +32,7 @@
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
-              label="Ward*"
+              :label="$t('add-clinic.ward')"
               v-model="ward"
               required
               :rules="wardRules"
@@ -41,7 +40,7 @@
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
-              label="Clinic name*"
+              :label="$t('add-clinic.clinicName')"
               v-model="name"
               required
               :rules="nameRules"
@@ -49,7 +48,7 @@
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
-              label="Website URL*"
+              :label="$t('add-clinic.websiteURL')"
               v-model="website"
               required
               :rules="websiteRules"
@@ -59,7 +58,7 @@
       </v-container>
 
       <div align="center">
-        The clinic you submitted will be displayed after it's been reviewed!
+        {{ $t("add-clinic.reviewMessage") }}
       </div>
       <div align="center">
         <v-btn

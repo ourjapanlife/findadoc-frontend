@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div align="center">
-      <h1>COVID-19 Vaccination Cancellation Waiting Lists in Japan</h1>
+      <h1>{{ $t("index.title") }}</h1>
     </div>
     <v-alert prominent type="error">
       <v-row align="center">
