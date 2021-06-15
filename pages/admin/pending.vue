@@ -12,9 +12,8 @@
 
     <v-dialog v-model="dialog" persistent max-width="290">
       <v-card>
-        <v-card-title class="text-h5">
-          Approve Submission? {{ id }}</v-card-title
-        >
+        <v-card-title class="text-h5"> Approve Submission?</v-card-title>
+        <span>ID: {{ id }}</span>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="green darken-1" text @click="approveClinic">
@@ -23,6 +22,7 @@
           <v-btn color="green darken-1" text @click="deleteClinic">
             Delete
           </v-btn>
+          <v-btn color="green darken-1" text @click="cancel"> Cancel </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -42,12 +42,12 @@ export default {
       clinics: [],
       dialog: false,
       headers: [
-        { text: "id", value: "id" },
-        { text: "name", value: "name" },
-        { text: "prefecture", value: "prefecture" },
-        { text: "city", value: "city" },
-        { text: "ward", value: "ward" },
-        { text: "website", value: "website" },
+        { text: "ID", value: "id" },
+        { text: "Name", value: "name" },
+        { text: "Prefecture", value: "prefecture" },
+        { text: "City", value: "city" },
+        { text: "Ward", value: "ward" },
+        { text: "Website", value: "website" },
       ],
     };
   },
@@ -70,7 +70,6 @@ export default {
   methods: {
     moderate(row) {
       this.dialog = true;
-      console.log(row);
       (this.id = row.id),
         (this.prefecture = row.prefecture),
         (this.city = row.city),
@@ -93,13 +92,16 @@ export default {
           .firestore()
           .collection("clinics")
           .add(clinic)
-          .then(() => console.log("added to db"));
+          .then(() => console.log("Approved ID: ", this.id))
+          .then(this.deleteClinic());
       } catch (err) {
         console.log(err);
       }
     },
+    cancel() {
+      this.dialog = false;
+    },
     deleteClinic() {
-      console.log(this.id);
       this.dialog = false;
       try {
         this.$fireModule
@@ -107,7 +109,7 @@ export default {
           .collection("pending")
           .doc(this.id)
           .delete()
-          .then(() => console.log("added to DELETION"));
+          .then(() => console.log("Deleted ID: ", this.id));
       } catch (err) {
         console.log(err);
       }
@@ -115,3 +117,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+span {
+  display: flex;
+  justify-content: center !important;
+}
+</style>
