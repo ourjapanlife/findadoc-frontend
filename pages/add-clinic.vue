@@ -1,69 +1,76 @@
 <template>
-  <v-form
-    ref="form"
-    v-model="valid"
-    lazy-validation
-    @submit.prevent="submitData"
-  >
-    <div align="center" id="instructions">
-      Fill out this form to add a new clinic to the database that has a
-      cancellation waiting list.
-    </div>
-    <v-container>
-      <div align="center"><b>Romaji only!</b></div>
-      <v-row>
-        <v-col cols="12" sm="6">
-          <v-autocomplete
-            :items="prefectureList"
-            label="Prefecture"
-            v-model="prefecture"
-            required
-          ></v-autocomplete>
-        </v-col>
-        <v-col cols="12" sm="6" md="4">
-          <v-text-field
-            label="City*"
-            v-model="city"
-            required
-            :rules="cityRules"
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" sm="6" md="4">
-          <v-text-field
-            label="Ward*"
-            v-model="ward"
-            required
-            :rules="wardRules"
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" sm="6" md="4">
-          <v-text-field
-            label="Clinic name*"
-            v-model="name"
-            required
-            :rules="nameRules"
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" sm="6" md="4">
-          <v-text-field
-            label="Website URL*"
-            v-model="website"
-            required
-            :rules="websiteRules"
-          ></v-text-field>
-        </v-col>
-      </v-row>
-    </v-container>
+  <v-card max-width="600px">
+    <v-form
+      ref="form"
+      v-model="valid"
+      lazy-validation
+      @submit.prevent="submitData"
+    >
+      <div align="center" id="instructions">
+        Fill out this form to add a new clinic to the database that has a
+        cancellation waiting list.
+      </div>
+      <v-container>
+        <div align="center"><b>Romaji only!</b></div>
+        <v-row>
+          <v-col cols="12" sm="6">
+            <v-autocomplete
+              :items="prefectureList"
+              label="Prefecture"
+              v-model="prefecture"
+              required
+            ></v-autocomplete>
+          </v-col>
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field
+              label="City*"
+              v-model="city"
+              required
+              :rules="cityRules"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field
+              label="Ward*"
+              v-model="ward"
+              required
+              :rules="wardRules"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field
+              label="Clinic name*"
+              v-model="name"
+              required
+              :rules="nameRules"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field
+              label="Website URL*"
+              v-model="website"
+              required
+              :rules="websiteRules"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </v-container>
 
-    <div align="center">
-      The clinic you submitted will be displayed after it's been reviewed!
-    </div>
-    <div align="center">
-      <v-btn dark color="blue darken-1" :disabled="!valid" @click="submitData">
-        Submit Clinic
-      </v-btn>
-    </div>
-  </v-form>
+      <div align="center">
+        The clinic you submitted will be displayed after it's been reviewed!
+      </div>
+      <div align="center">
+        <v-btn
+          dark
+          color="blue darken-1"
+          :disabled="!valid"
+          @click="submitData"
+        >
+          Submit Clinic
+        </v-btn>
+      </div>
+    </v-form>
+  </v-card>
 </template>
 
 <script>
@@ -132,11 +139,16 @@ export default {
 <style scoped>
 .v-btn {
   margin-top: 20px !important;
+  margin-bottom: 20px !important;
 }
 #instructions {
   margin-top: 20px;
 }
 .v-form {
   padding: 10px !important;
+}
+.v-card {
+  margin: auto;
+  margin-top: 20px;
 }
 </style>
