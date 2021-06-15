@@ -3,7 +3,9 @@
     <v-app-bar color="blue darken-4" dense dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Find a Doc, JAPAN</v-toolbar-title>
+      <v-toolbar-title
+        ><nuxt-link to="/">Find a Doc, JAPAN</nuxt-link></v-toolbar-title
+      >
 
       <v-spacer></v-spacer>
       <nuxt-link to="/add-clinic">
@@ -52,5 +54,6 @@ export default {
 <style scoped>
 a {
   text-decoration: none !important;
+  color: white !important;
 }
 </style>
