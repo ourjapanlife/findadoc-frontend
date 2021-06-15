@@ -50,12 +50,12 @@ export default {
       {
         hid: "og:image",
         property: "og:image",
-        content: "https://www.findadoc.jp/social-card.jpg"
+        content: "https://www.findadoc.jp/social-card.jpeg"
       },
       {
         hid: "og:image:secure_url",
         property: "og:image:secure_url",
-        content: "https://www.findadoc.jp/social-card.jpg"
+        content: "https://www.findadoc.jp/social-card.jpeg"
       },
       {
         hid: "og:image:alt",
