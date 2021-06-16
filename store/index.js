@@ -1,9 +1,9 @@
 export const state = () => ({
-  user: null
+  user: null,
 });
 
 export const mutations = {
   updateUser(state, googleUser) {
     state.user = googleUser;
-  }
+  },
 };
