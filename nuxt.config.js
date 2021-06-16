@@ -108,6 +108,32 @@ export default {
         },
       },
     ],
+    [
+      "nuxt-i18n",
+      {
+        locales: [
+          { code: "de", file: "de.json" },
+          { code: "en", file: "en.json" },
+          { code: "es", file: "es.json" },
+          { code: "fil", file: "fil.json" },
+          { code: "fr", file: "fr.json" },
+          { code: "id", file: "id.json" },
+          { code: "ja", file: "ja.json" },
+          { code: "ko", file: "ko.json" },
+          { code: "ne", file: "ne.json" },
+          { code: "nl", file: "nl.json" },
+          { code: "pt", file: "pt.json" },
+          { code: "th", file: "th.json" },
+          { code: "vi", file: "vi.json" },
+          { code: "zh_CN", file: "zh_CN.json" },
+        ],
+        defaultLocale: "en",
+        langDir: "i18n",
+        vueI18n: {
+          fallbackLocale: "en",
+        },
+      },
+    ],
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

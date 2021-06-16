@@ -3,10 +3,12 @@
     <v-app-bar color="blue darken-4" dense dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title
-        ><nuxt-link to="/">Find a Doc, JAPAN</nuxt-link></v-toolbar-title
+        ><nuxt-link :to="localePath({ name: 'index' })"
+          >Find a Doc, JAPAN</nuxt-link
+        ></v-toolbar-title
       >
       <v-spacer></v-spacer>
-      <nuxt-link to="/add-clinic">
+      <nuxt-link :to="localePath({ name: 'add-clinic' })">
         <v-btn color="secondary">add a clinic</v-btn>
       </nuxt-link>
     </v-app-bar>
@@ -21,7 +23,7 @@
         <v-list-item
           v-for="item in items"
           :key="item.title"
-          :to="item.route"
+          :to="localePath({ name: item.route })"
           link
         >
           <v-list-item-icon>
@@ -32,6 +34,23 @@
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-group :value="false" prepend-icon="mdi-web">
+          <template v-slot:activator>
+            <v-list-item-title>Languages</v-list-item-title>
+          </template>
+
+          <v-list-item
+            v-for="locale in locales"
+            :key="locale.title"
+            :to="switchLocalePath(locale.value)"
+            link
+          >
+            <v-list-item-content>
+              <v-list-item-title>{{ locale.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
       </v-list>
     </v-navigation-drawer>
   </div>
@@ -42,11 +61,31 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { title: "Home", icon: "mdi-home-city", route: "/" },
-      { title: "Login", icon: "mdi-account", route: "/login" },
-      { title: "About", icon: "mdi-head-question", route: "/about" },
+      { title: "Home", icon: "mdi-home-city", route: "index" },
+      { title: "Login", icon: "mdi-account", route: "login" },
+      { title: "About", icon: "mdi-head-question", route: "about" },
+    ],
+    locales: [
+      { title: "Chinese (Simplified)", value: "zh_CN" },
+      { title: "Dutch", value: "nl" },
+      { title: "English", value: "en" },
+      { title: "Filipino", value: "fil" },
+      { title: "French", value: "fr" },
+      { title: "German", value: "de" },
+      { title: "Indonesian", value: "id" },
+      { title: "Japanese", value: "ja" },
+      { title: "Korean", value: "ko" },
+      { title: "Nepali", value: "ne" },
+      { title: "Portuguese", value: "pt" },
+      { title: "Thai", value: "th" },
+      { title: "Vietnamese", value: "vi" },
     ],
   }),
+  methods: {
+    greet(value) {
+      console.log(value);
+    },
+  },
 };
 </script>
 

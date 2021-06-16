@@ -1,0 +1,49 @@
+{
+  "about": {
+    "creatorA": "This site was created and maintained by me, LaShawn Toyoda! If you have any trouble using the site or come across incorrect or outdated information, please contact me through Twitter: ",
+    "creatorQ": "Who created this website?",
+    "supportA": "The best way to help is by submitting any cancellation waiting lists you come across to the database. If you're feeling extra generous, please buy me a kofi!",
+    "supportQ": "How can I help support the database?",
+    "trustA": "All of the links lead to official resources such as clinic and government websites. Please read them thoroughly before registering your personal information with them.",
+    "trustQ": "Can this information be trusted?",
+    "welcome": "Welcome to Find a Doc!",
+    "whatIsThisA": "This is a community-driven database to help spread information on clinics that are offering waiting lists for vaccinations so they don't go to waste.",
+    "whatIsThisQ": "What is this?"
+  },
+  "add-clinic": {
+    "city": "City",
+    "clinicName": "Clinic name",
+    "fillForm": "Fill out this form to add a new clinic to the database that has a cancellation waiting list.",
+    "prefecture": "Prefecture",
+    "reviewMessage": "The clinic you submitted will be displayed after it's been reviewed!",
+    "romajiOnly": "Romaji only",
+    "submitClinic": "Submit Clinic",
+    "validations": {
+      "cityRequired": "City is required",
+      "cityValidation": "City name must be at least {0} characters",
+      "clinicRequired": "Clinic name is required",
+      "clinicValidation": "Clinic name must be at least {0} characters",
+      "wardRequired": "Ward is required",
+      "wardValidation": "Ward name must be at least {0} characters",
+      "websiteRequired": "Website URL is required",
+      "websiteValidation": "Please enter a valid URL"
+    },
+    "ward": "Ward",
+    "websiteURL": "Website URL"
+  },
+  "admin": {
+    "pending": {
+      "one": "",
+      "other": ""
+    }
+  },
+  "index": {
+    "title": "COVID-19 Vaccination Cancellation Waiting Lists in Japan"
+  },
+  "login": {
+    "clear": "Clear",
+    "email": "Email",
+    "login": "Login",
+    "password": "Password"
+  }
+}
