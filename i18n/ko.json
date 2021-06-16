@@ -1,0 +1,48 @@
+{
+    "about": {
+        "creatorA": "이 사이트는 저, LaShawn Toyoda가 만들고 관리합니다! 사이트 이용에 문제가 있거나, 부정확 혹은 오래된 정보를 발견하면 Twitter {0}로 연락주세요.",
+        "creatorQ": "누가 이 웹 사이트를 만들었나요?",
+        "supportA": "도움을 줄 수 있는 가장 좋은 방법은 새로 찾으신 취소 대기자 명단을 데이터베이스에 추가해 주시는 것입니다. 더 기부하고 싶으시다면 kofi로 부탁드려요.",
+        "supportQ": "데이터베이스 유지를 돕고 싶은데, 어떻게 하면 되나요?",
+        "trustA": "모든 링크는 클리닉 및 정부 웹 사이트와 같은 공식 리소스로 연결됩니다. 각 사이트에서 개인 정보를 등록하기 전에 공지를 잘 읽어 주시기 바랍니다.",
+        "trustQ": "이 정보는 신뢰할 수 있습니까?",
+        "welcome": "Find a Doc에 오신 것을 환영합니다!",
+        "whatIsThisA": "이것은 백신 접종 대기자 명단 등록이 가능한 진료소의 정보를 공유하는 커뮤니티 기반 데이터베이스입니다.",
+        "whatIsThisQ": "이건 어떤 사이트인가요?"
+    },
+    "add-clinic": {
+        "city": "도시",
+        "clinicName": "진료소 이름",
+        "fillForm": "잔여 백신 대기 목록이 있는 데이터베이스에 새 클리닉을 추가하려면 이 양식을 작성해 주세요.",
+        "prefecture": "현",
+        "reviewMessage": "제출하신 진료소는 심사 후 표시됩니다!",
+        "romajiOnly": "영문(로마지)만 지원",
+        "submitClinic": "제출",
+        "validations": {
+            "cityRequired": "도시는 필수 항목입니다.",
+            "cityValidation": "{0} 자 이상이어야합니다.",
+            "clinicRequired": "진료소 이름이 필요합니다.",
+            "clinicValidation": "{0} 자 이상이어야합니다.",
+            "wardRequired": "병동이 필요합니다",
+            "wardValidation": "{0} 자 이상이어야합니다.",
+            "websiteRequired": "웹 사이트 URL이 필요합니다.",
+            "websiteValidation": "유효한 URL을 입력 해주세요"
+        },
+        "ward": "구",
+        "websiteURL": "웹 사이트 주소"
+    },
+    "admin": {
+        "pending": {
+            "other": ""
+        }
+    },
+    "index": {
+        "title": "일본 COVID-19 잔여/취소 백신 대기자 명단"
+    },
+    "login": {
+        "clear": "지우기",
+        "email": "이메일",
+        "login": "로그인",
+        "password": "암호"
+    }
+}
