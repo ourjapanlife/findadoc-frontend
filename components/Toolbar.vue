@@ -4,7 +4,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title
         ><nuxt-link :to="localePath({ name: 'index' })">{{
-          $t('toolbar.title')
+          $t("toolbar.title")
         }}</nuxt-link></v-toolbar-title
       >
       <v-spacer></v-spacer>
@@ -20,6 +20,7 @@
       absolute
       temporary
       dark
+      app
     >
       <v-list dense>
         <v-list-item
@@ -68,6 +69,7 @@ export default {
       { title: "About", icon: "mdi-head-question", route: "about" },
     ],
     locales: [
+      { title: "العربية", value: "ar" },
       { title: "中文", value: "zh_CN" },
       { title: "Nederlands", value: "nl" },
       { title: "English", value: "en" },
@@ -75,6 +77,7 @@ export default {
       { title: "Français", value: "fr" },
       { title: "Deutsch", value: "de" },
       { title: "Bahasa Indonesia", value: "id" },
+      { title: "italiano", value: "it" },
       { title: "日本語", value: "ja" },
       { title: "한국어", value: "ko" },
       { title: "नेपाली", value: "ne" },
@@ -83,11 +86,7 @@ export default {
       { title: "Tiếng Việt", value: "vi" },
     ],
   }),
-  methods: {
-    greet(value) {
-      console.log(value);
-    },
-  },
+  methods: {},
 };
 </script>
 
