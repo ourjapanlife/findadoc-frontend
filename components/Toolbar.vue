@@ -40,9 +40,14 @@
             <v-list-item-title>Languages</v-list-item-title>
           </template>
 
-          <v-list-item v-for="item in locales" :key="item.title" link>
+          <v-list-item
+            v-for="locale in locales"
+            :key="locale.title"
+            :to="switchLocalePath(locale.value)"
+            link
+          >
             <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
+              <v-list-item-title>{{ locale.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
@@ -60,8 +65,16 @@ export default {
       { title: "Login", icon: "mdi-account", route: "/login" },
       { title: "About", icon: "mdi-head-question", route: "/about" },
     ],
-    locales: [{ title: "English" }, { title: "Japanese" }],
+    locales: [
+      { title: "English", value: "en" },
+      { title: "Japanese", value: "ja" },
+    ],
   }),
+  methods: {
+    greet(value) {
+      console.log(value);
+    },
+  },
 };
 </script>
 
