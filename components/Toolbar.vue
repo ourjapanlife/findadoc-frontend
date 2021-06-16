@@ -4,7 +4,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title
         ><nuxt-link :to="localePath({ name: 'index' })">{{
-          $t("toolbar.title")
+          $t('toolbar.title')
         }}</nuxt-link></v-toolbar-title
       >
       <v-spacer></v-spacer>
