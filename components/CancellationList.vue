@@ -33,7 +33,6 @@
 <script>
 export default {
   mounted() {
-    console.log("MOUNTED");
     const db = this.$fireModule.firestore();
     db.collection("clinics")
       .get()
