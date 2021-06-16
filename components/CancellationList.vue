@@ -3,7 +3,7 @@
     <v-text-field
       v-model="search"
       append-icon="mdi-magnify"
-      label="Search"
+      :label="$t('cancelList.search')"
       outlined
       clearable
     ></v-text-field>
@@ -22,7 +22,7 @@
         </div>
       </template>
       <template v-slot:[`item.website`]="{ item }">
-        <a target="_blank" :href="item.website"> Click for more info </a>
+        <a target="_blank" :href="item.website"> {{ $t('cancelList.moreInfo')}} </a>
       </template>
     </v-data-table>
   </div>
