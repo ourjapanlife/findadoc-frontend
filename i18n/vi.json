@@ -1,0 +1,48 @@
+{
+    "about": {
+        "creatorA": "Trang web này được tạo và duy trì bởi tôi, LaShawn Toyoda! Nếu bạn gặp bất kỳ sự cố nào khi sử dụng trang web hoặc gặp thông tin không chính xác hoặc lỗi thời, vui lòng liên hệ với tôi qua Twitter {0}",
+        "creatorQ": "Ai đã tạo ra trang web này?",
+        "supportA": "Cách tốt nhất để trợ giúp là gửi bất kỳ danh sách chờ hủy bỏ nào mà bạn bắt gặp vào cơ sở dữ liệu. Nếu bạn cảm thấy hào phóng hơn, hãy mua cho tôi một kofi!",
+        "supportQ": "Tôi có thể giúp hỗ trợ cơ sở dữ liệu bằng cách nào?",
+        "trustA": "Tất cả các liên kết đều dẫn đến các nguồn chính thức như trang web của phòng khám và chính phủ. Vui lòng đọc kỹ trước khi đăng ký thông tin cá nhân của bạn với họ.",
+        "trustQ": "Thông tin này có thể tin cậy được không?",
+        "welcome": "Chào mừng bạn đến với Find a Doc!",
+        "whatIsThisA": "Đây là cơ sở dữ liệu hướng tới cộng đồng để giúp truyền bá thông tin về các phòng khám đang cung cấp danh sách chờ tiêm chủng để chúng không bị lãng phí.",
+        "whatIsThisQ": "Cái này là cái gì?"
+    },
+    "add-clinic": {
+        "city": "thành phố",
+        "clinicName": "Tên phòng khám",
+        "fillForm": "Điền vào biểu mẫu này để thêm một phòng khám mới vào cơ sở dữ liệu có danh sách chờ hủy bỏ.",
+        "prefecture": "Tỉnh",
+        "reviewMessage": "Phòng khám bạn đã gửi sẽ được hiển thị sau khi nó được xem xét!",
+        "romajiOnly": "Chỉ Romaji",
+        "submitClinic": "Gửi Phòng khám",
+        "validations": {
+            "cityRequired": "Thành phố là bắt buộc",
+            "cityValidation": "Tên thành phố phải có ít nhất {0} ký tự",
+            "clinicRequired": "Tên phòng khám là bắt buộc",
+            "clinicValidation": "Tên phòng khám phải có ít nhất {0} ký tự",
+            "wardRequired": "Phường là bắt buộc",
+            "wardValidation": "Tên phường phải có ít nhất {0} ký tự",
+            "websiteRequired": "URL trang web là bắt buộc",
+            "websiteValidation": "Vui lòng nhập một URL hợp lệ"
+        },
+        "ward": "khu vực",
+        "websiteURL": "URL trang web"
+    },
+    "admin": {
+        "pending": {
+            "other": ""
+        }
+    },
+    "index": {
+        "title": "Danh sách chờ hủy vắc xin COVID-19 ở Nhật Bản"
+    },
+    "login": {
+        "clear": "trong",
+        "email": "Email",
+        "login": "Đăng nhập",
+        "password": "Mật khẩu"
+    }
+}

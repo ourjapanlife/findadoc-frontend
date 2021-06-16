@@ -1,0 +1,48 @@
+{
+    "about": {
+        "creatorA": "这个网站是由我 LaShawn Toyoda 创建和维护的！如果您在使用本网站时遇到任何问题或遇到不正确或过时的信息，请通过 Twitter 与我联系{0}",
+        "creatorQ": "谁创建了这个网站？",
+        "supportA": "最好的帮助方法是将您遇到的任何取消等待列表提交到数据库。如果你觉得特别慷慨，请给我买一杯咖啡！",
+        "supportQ": "我如何帮助支持数据库？",
+        "trustA": "所有链接都指向官方资源，例如诊所和政府网站。在向他们注册您的个人信息之前，请仔细阅读它们。",
+        "trustQ": "这些信息可信吗？",
+        "welcome": "欢迎查找文档！",
+        "whatIsThisA": "这是一个社区驱动的数据库，用于帮助传播有关提供疫苗接种等候名单的诊所的信息，以免浪费。",
+        "whatIsThisQ": "这是什么？"
+    },
+    "add-clinic": {
+        "city": "城市",
+        "clinicName": "诊所名称",
+        "fillForm": "填写此表格以将新诊所添加到具有取消等待名单的数据库中。",
+        "prefecture": "州",
+        "reviewMessage": "您提交的诊所经过审核后会显示出来！",
+        "romajiOnly": "仅罗马字",
+        "submitClinic": "提交诊所",
+        "validations": {
+            "cityRequired": "城市为必填项",
+            "cityValidation": "城市名称必须至少为 {0} 个字符",
+            "clinicRequired": "诊所名称为必填项",
+            "clinicValidation": "诊所名称必须至少为 {0} 个字符",
+            "wardRequired": "病房是必需的",
+            "wardValidation": "病房名称必须至少为 {0} 个字符",
+            "websiteRequired": "需要提供网站URL",
+            "websiteValidation": "请输入有效网址"
+        },
+        "ward": "病房",
+        "websiteURL": "网站URL"
+    },
+    "admin": {
+        "pending": {
+            "other": ""
+        }
+    },
+    "index": {
+        "title": "日本 COVID-19 疫苗接种取消等候名单"
+    },
+    "login": {
+        "clear": "清除",
+        "email": "电子邮件",
+        "login": "登录",
+        "password": "密码"
+    }
+}

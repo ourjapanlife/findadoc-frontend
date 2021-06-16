@@ -3,12 +3,12 @@
     <v-app-bar color="blue darken-4" dense dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title
-        ><nuxt-link :to="localePath('/')"
+        ><nuxt-link :to="localePath({ name: 'index' })"
           >Find a Doc, JAPAN</nuxt-link
         ></v-toolbar-title
       >
       <v-spacer></v-spacer>
-      <nuxt-link :to="localePath('/add-clinic')">
+      <nuxt-link :to="localePath({ name: 'add-clinic' })">
         <v-btn color="secondary">add a clinic</v-btn>
       </nuxt-link>
     </v-app-bar>
@@ -23,7 +23,7 @@
         <v-list-item
           v-for="item in items"
           :key="item.title"
-          :to="item.route"
+          :to="localePath({ name: item.route })"
           link
         >
           <v-list-item-icon>
@@ -61,13 +61,24 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { title: "Home", icon: "mdi-home-city", route: "/" },
-      { title: "Login", icon: "mdi-account", route: "/login" },
-      { title: "About", icon: "mdi-head-question", route: "/about" },
+      { title: "Home", icon: "mdi-home-city", route: "index" },
+      { title: "Login", icon: "mdi-account", route: "login" },
+      { title: "About", icon: "mdi-head-question", route: "about" },
     ],
     locales: [
       { title: "English", value: "en" },
       { title: "Japanese", value: "ja" },
+      { title: "Chinese (Simplified)", value: "zh_CN" },
+      { title: "Dutch", value: "nl" },
+      { title: "Filipino", value: "fil" },
+      { title: "French", value: "fr" },
+      { title: "Indonesian", value: "id" },
+      { title: "Korean", value: "ko" },
+      { title: "Nepali", value: "ne" },
+      { title: "Portuguese", value: "pt" },
+      { title: "Thai", value: "th" },
+      { title: "Vietnamese", value: "vi" },
+      { title: "German", value: "de" },
     ],
   }),
   methods: {

@@ -1,0 +1,49 @@
+{
+  "about": {
+      "creatorA": "¡Este sitio fue creado y mantenido por mí, LaShawn Toyoda! Si tienes algún problema al usar el sitio o te encuentras con información incorrecta o desactualizada, contáctame a través de Twitter {0}",
+      "creatorQ": "¿Quién ha creado este sitio web?",
+      "supportA": "La mejor manera de ayudar es enviando a la base de datos las listas de espera de cancelaciones que encuentres. Si te sientes muy generoso, ¡compárame un kofi!",
+      "supportQ": "¿Cómo puedo ayudar a la base de datos?",
+      "trustA": "Todos los enlaces conducen a recursos oficiales, como sitios web de clínicas y gobiernos. Léalos detenidamente antes de registrar su información personal en ellos.",
+      "trustQ": "¿Se puede confiar en esta información?",
+      "welcome": "¡Bienvenidos a Find a Doc!",
+      "whatIsThisA": "Se trata de una base de datos impulsada por la comunidad para ayudar a difundir información sobre las clínicas que ofrecen listas de espera para las vacunas, de modo que no se desperdicien.",
+      "whatIsThisQ": "¿Qué es eso?"
+  },
+  "add-clinic": {
+      "city": "Ciudad",
+      "clinicName": "Nombre de la clínica",
+      "fillForm": "Rellene este formulario para añadir una nueva clínica a la base de datos que tenga una lista de espera de cancelación.",
+      "prefecture": "Prefectura",
+      "reviewMessage": "La clínica que has enviado se mostrará después de ser revisada.",
+      "romajiOnly": "Sólo usa romaji",
+      "submitClinic": "Enviar una clínica",
+      "validations": {
+          "cityRequired": "Se requiere una ciudad",
+          "cityValidation": "El nombre de la ciudad debe tener al menos {0} caracteres",
+          "clinicRequired": "Se requiere el nombre de la clínica",
+          "clinicValidation": "El nombre de la clínica debe tener al menos {0} caracteres",
+          "wardRequired": "Se requiere un distrito",
+          "wardValidation": "El nombre del distrito debe tener al menos {0} caracteres.",
+          "websiteRequired": "Se requiere la URL del sitio web",
+          "websiteValidation": "Introduzca una URL válida"
+      },
+      "ward": "Distrito",
+      "websiteURL": "URL del sitio web"
+  },
+  "admin": {
+      "pending": {
+          "one": "",
+          "other": ""
+      }
+  },
+  "index": {
+      "title": "Las Listas De Espera Para La Cancelación De La Vacuna COVID-19 En Japón"
+  },
+  "login": {
+      "clear": "Limpiar",
+      "email": "Correo electrónico",
+      "login": "Inicio de sesión",
+      "password": "Contraseña"
+  }
+}
