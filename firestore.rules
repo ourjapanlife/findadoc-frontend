@@ -1,8 +1,8 @@
+rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Allow public read access, but only content owners can write
-    match /some_collection/{document} {
-      allow read: if true
+    match /{document=**} {
+      allow read: if true; 
       allow create: if request.auth.uid == request.resource.data.author_uid;
       allow update, delete: if request.auth.uid == resource.data.author_uid;
     }
