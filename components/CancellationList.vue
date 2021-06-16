@@ -44,20 +44,27 @@ export default {
         });
       });
   },
-  data: () => ({
+  data: (vue) => ({
     items: [],
     loading: true,
     itemsPerPage: 10,
     headers: [
       {
-        text: "Clinic Name:",
+        text: `${vue.$t("cancelList.header.clinicName")}:`,
         align: "start",
         value: "name",
       },
-      { text: "Prefecture:", value: "prefecture" },
-      { text: "City:", value: "city" },
-      { text: "Ward:", value: "ward" },
-      { text: "Website:", value: "website", sortable: false },
+      {
+        text: `${vue.$t("cancelList.header.prefecture")}:`,
+        value: "prefecture",
+      },
+      { text: `${vue.$t("cancelList.header.city")}:`, value: "city" },
+      { text: `${vue.$t("cancelList.header.ward")}:`, value: "ward" },
+      {
+        text: `${vue.$t("cancelList.header.website")}:`,
+        value: "website",
+        sortable: false,
+      },
     ],
     search: "",
   }),

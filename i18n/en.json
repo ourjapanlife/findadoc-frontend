@@ -39,7 +39,14 @@
   },
   "cancelList": {
     "moreInfo": "Click for more info",
-    "search": "Search"
+    "search": "Search",
+    "header" : {
+      "clinicName": "Clinic Name",
+      "city": "City",
+      "prefecture": "Prefecture",
+      "ward": "Ward",
+      "website": "Website"
+    }
   },
   "footer": {
     "kofi": "Buy me a kofi"
