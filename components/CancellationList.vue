@@ -33,18 +33,24 @@
     <v-dialog v-model="dialog" max-width="600px">
       <v-card>
         <v-card-title class="text-h5"> Report this Data </v-card-title>
-        <span>Clinic name: {{ report.name }}</span>
-        <v-textarea
-          required
-          background-color="light-blue lighten-4"
-          color="black"
-          label="Why are you reporting this clinic?"
-        ></v-textarea>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="sendReport"> Report </v-btn>
-          <v-btn color="primary" text @click="cancel"> Cancel </v-btn>
-        </v-card-actions>
+        <v-form v-model="valid" ref="form" lazy-validation>
+          <span><b>Clinic name:</b> {{ report.name }}</span>
+          <v-textarea
+            v-model="report.message"
+            :rules="reportRules"
+            required
+            background-color="light-blue lighten-4"
+            color="black"
+            label="Why are you reporting this clinic?"
+          ></v-textarea>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" :disabled="!valid" text @click="sendReport">
+              Report
+            </v-btn>
+            <v-btn color="primary" text @click="cancel"> Cancel </v-btn>
+          </v-card-actions>
+        </v-form>
       </v-card>
     </v-dialog>
   </div>
@@ -75,7 +81,14 @@ export default {
     report: {
       id: "",
       name: "",
+      message: "",
     },
+    reportRules: [
+      (v) => !!v || "Report message is required",
+      (v) =>
+        (v && v.length >= 5) || "Report message must be at least 5 characters",
+    ],
+    valid: true,
     headers: [
       {
         text: `${vue.$t("cancelList.header.clinicName")}:`,
@@ -117,10 +130,14 @@ export default {
           .firestore()
           .collection("reports")
           .add(this.report)
+          .then((this.dialog = false))
           .then(() => console.log("Reported", this.report));
       } catch (err) {
         console.log(err);
       }
+    },
+    validate() {
+      this.$refs.form.validate();
     },
   },
 };
@@ -133,5 +150,6 @@ export default {
 }
 .v-text-area {
   margin-top: 20px !important;
+  padding-inline: 20px !important;
 }
 </style>
