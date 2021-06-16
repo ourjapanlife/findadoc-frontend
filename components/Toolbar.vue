@@ -39,6 +39,12 @@
           <template v-slot:activator>
             <v-list-item-title>Languages</v-list-item-title>
           </template>
+
+          <v-list-item v-for="item in locales" :key="item.title" link>
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list-group>
       </v-list>
     </v-navigation-drawer>
@@ -54,10 +60,7 @@ export default {
       { title: "Login", icon: "mdi-account", route: "/login" },
       { title: "About", icon: "mdi-head-question", route: "/about" },
     ],
-    locales: [
-      ["Management", "mdi-account-multiple-outline"],
-      ["Settings", "mdi-cog-outline"],
-    ],
+    locales: [{ title: "English" }, { title: "Japanese" }],
   }),
 };
 </script>
