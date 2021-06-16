@@ -3,8 +3,12 @@ service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
       allow read: if true; 
-      allow create: if request.auth.uid == request.resource.data.author_uid;
+      match /pending/{submissions} {
+        allow write;
+      }
+      match /pending/{submissions} {
       allow update, delete: if request.auth.uid == resource.data.author_uid;
+      }
     }
   }
 }
