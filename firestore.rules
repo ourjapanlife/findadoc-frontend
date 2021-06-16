@@ -3,7 +3,12 @@ service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
       allow read: if true; 
+<<<<<<< Updated upstream
       allow write: if true;
+=======
+      allow create: if request.auth.uid == request.resource.data.author_uid;
+      allow update, delete: if request.auth.uid == resource.data.author_uid;
+>>>>>>> Stashed changes
     }
   }
 }
