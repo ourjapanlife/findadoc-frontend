@@ -59,9 +59,15 @@ export default {
       },
       { text: `${vue.$t("cancelList.header.city")}:`, value: "city" },
       { text: `${vue.$t("cancelList.header.ward")}:`, value: "ward" },
+      { text: `${vue.$t("cancelList.header.note")}:`, value: "note" },
       {
         text: `${vue.$t("cancelList.header.website")}:`,
         value: "website",
+        sortable: false,
+      },
+      {
+        text: `${vue.$t("cancelList.header.flag")}:`,
+        value: "flag",
         sortable: false,
       },
     ],
