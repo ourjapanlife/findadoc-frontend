@@ -45,7 +45,9 @@
       "city": "City",
       "prefecture": "Prefecture",
       "ward": "Ward",
-      "website": "Website"
+      "note": "Note",
+      "website": "Website",
+      "flag": "Flag"
     }
   },
   "footer": {
