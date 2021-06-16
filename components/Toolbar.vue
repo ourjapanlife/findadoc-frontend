@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar color="blue darken-4" dense dark app>
+    <v-app-bar color="indigo darken-1" dense dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title
         ><nuxt-link :to="localePath({ name: 'index' })"
@@ -9,7 +9,7 @@
       >
       <v-spacer></v-spacer>
       <nuxt-link :to="localePath({ name: 'add-clinic' })">
-        <v-btn color="secondary">add a clinic</v-btn>
+        <v-btn light color="cyan lighten-3">add a clinic</v-btn>
       </nuxt-link>
     </v-app-bar>
     <v-navigation-drawer
