@@ -10,10 +10,10 @@ service cloud.firestore {
         allow create: if true;
       }
       match /pending/{submissions} {
-      allow update, delete: if request.auth.uid == resource.data.author_uid;
+      allow update, delete: if request.auth.token.admin == true;
       }
       match /reports/{submissions} {
-      allow update, delete: if request.auth.uid == resource.data.author_uid;
+      allow update, delete: if request.auth.token.admin == true;
       }
     }
   }
