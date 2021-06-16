@@ -37,13 +37,42 @@
       "other": ""
     }
   },
+  "cancelList": {
+    "moreInfo": "Click for more info",
+    "search": "Search",
+    "header" : {
+      "clinicName": "Clinic Name",
+      "city": "City",
+      "prefecture": "Prefecture",
+      "ward": "Ward",
+      "website": "Website"
+    }
+  },
+  "footer": {
+    "kofi": "Buy me a kofi"
+  },
+  "error": {
+    "homePage": "Home page",
+    "notFound": "404 Not Found",
+    "otherError": "An error occurred"
+  },
   "index": {
-    "title": "COVID-19 Vaccination Cancellation Waiting Lists in Japan"
+    "title": "COVID-19 Vaccination Cancellation Waiting Lists in Japan",
+    "massSite": "Anyone 18 years or older that has a voucher can now get vaccinated at the Tokyo or Osaka mass vaccination sites.",
+    "register": "Go to Registration Site"
   },
   "login": {
     "clear": "Clear",
     "email": "Email",
     "login": "Login",
     "password": "Password"
+  },
+  "toolbar": {
+    "title": "Find a Doc, JAPAN",
+    "addClinic": "add a clinic",
+    "languages": "Languages",
+    "home": "Home",
+    "login": "Login",
+    "about": "About"
   }
 }

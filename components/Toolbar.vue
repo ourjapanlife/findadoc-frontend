@@ -3,13 +3,15 @@
     <v-app-bar color="indigo darken-1" dense dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title
-        ><nuxt-link :to="localePath({ name: 'index' })"
-          >Find a Doc, JAPAN</nuxt-link
-        ></v-toolbar-title
+        ><nuxt-link :to="localePath({ name: 'index' })">{{
+          $t('toolbar.title')
+        }}</nuxt-link></v-toolbar-title
       >
       <v-spacer></v-spacer>
       <nuxt-link :to="localePath({ name: 'add-clinic' })">
-        <v-btn light color="cyan lighten-3">add a clinic</v-btn>
+        <v-btn light color="cyan lighten-3">{{
+          $t("toolbar.addClinic")
+        }}</v-btn>
       </nuxt-link>
     </v-app-bar>
     <v-navigation-drawer
@@ -37,7 +39,7 @@
 
         <v-list-group :value="false" prepend-icon="mdi-web">
           <template v-slot:activator>
-            <v-list-item-title>Languages</v-list-item-title>
+            <v-list-item-title>{{ $t("toolbar.languages") }}</v-list-item-title>
           </template>
 
           <v-list-item
@@ -66,19 +68,19 @@ export default {
       { title: "About", icon: "mdi-head-question", route: "about" },
     ],
     locales: [
-      { title: "Chinese (Simplified)", value: "zh_CN" },
-      { title: "Dutch", value: "nl" },
+      { title: "中文", value: "zh_CN" },
+      { title: "Nederlands", value: "nl" },
       { title: "English", value: "en" },
       { title: "Filipino", value: "fil" },
-      { title: "French", value: "fr" },
-      { title: "German", value: "de" },
-      { title: "Indonesian", value: "id" },
-      { title: "Japanese", value: "ja" },
-      { title: "Korean", value: "ko" },
-      { title: "Nepali", value: "ne" },
-      { title: "Portuguese", value: "pt" },
-      { title: "Thai", value: "th" },
-      { title: "Vietnamese", value: "vi" },
+      { title: "Français", value: "fr" },
+      { title: "Deutsch", value: "de" },
+      { title: "Bahasa Indonesia", value: "id" },
+      { title: "日本語", value: "ja" },
+      { title: "한국어", value: "ko" },
+      { title: "नेपाली", value: "ne" },
+      { title: "Português", value: "pt" },
+      { title: "ไทย", value: "th" },
+      { title: "Tiếng Việt", value: "vi" },
     ],
   }),
   methods: {
