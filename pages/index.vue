@@ -14,7 +14,7 @@
             color="indigo darken-1"
             href="https://www.mod.go.jp/j/approach/defense/saigai/2020/covid/center.html"
             target="_blank"
-            >{{ $t("index.registration") }}</v-btn
+            >{{ $t("index.register") }}</v-btn
           >
         </v-col>
       </v-row>
