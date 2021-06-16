@@ -6,22 +6,20 @@
     <h1 v-else>
       {{ $t('error.otherError') }}
     </h1>
-    <NuxtLink to="/">
-      {{ $t('error.homePage') }}
-    </NuxtLink>
+    <NuxtLink to="/">{{ $t('error.homePage') }}</NuxtLink>
   </v-app>
 </template>
 
 <script>
 export default {
-  layout: 'empty',
+  layout: "empty",
   props: {
     error: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
-  data () {
+  data() {
     return {
     }
   },

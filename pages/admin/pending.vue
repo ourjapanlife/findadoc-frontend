@@ -12,7 +12,6 @@
 
     <v-dialog v-model="dialog" persistent max-width="290">
       <v-card>
-
         <v-card-title class="text-h5"> Approve Submission?</v-card-title>
         <span>ID: {{ id }}</span>
         <v-card-actions>
@@ -127,4 +126,3 @@ span {
   justify-content: center !important;
 }
 </style>
-
