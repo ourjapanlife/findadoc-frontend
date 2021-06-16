@@ -4,9 +4,15 @@ service cloud.firestore {
     match /{document=**} {
       allow read: if true; 
       match /pending/{submissions} {
-        allow write;
+        allow create;
+      }
+      match /reports/{submissions} {
+        allow create: if true;
       }
       match /pending/{submissions} {
+      allow update, delete: if request.auth.uid == resource.data.author_uid;
+      }
+      match /reports/{submissions} {
       allow update, delete: if request.auth.uid == resource.data.author_uid;
       }
     }
