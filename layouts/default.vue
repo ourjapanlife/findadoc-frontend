@@ -8,7 +8,7 @@
       <div id="kofi">
         &copy; {{ new Date().getFullYear() }} —
         <a href="https://ko-fi.com/theyokohamalife" target="_blank">
-          {{ $t('layout.kofi') }}</a
+          {{ $t("default.kofi") }}</a
         >
       </div>
     </v-footer>

@@ -22,7 +22,9 @@
         </div>
       </template>
       <template v-slot:[`item.website`]="{ item }">
-        <a target="_blank" :href="item.website"> {{ $t('cancelList.moreInfo')}} </a>
+        <a target="_blank" :href="item.website">
+          {{ $t("cancelList.moreInfo") }}
+        </a>
       </template>
     </v-data-table>
   </div>

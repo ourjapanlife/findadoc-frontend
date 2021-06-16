@@ -1,12 +1,12 @@
 <template>
   <v-app dark>
     <h1 v-if="error.statusCode === 404">
-      {{ $t('error.notFound') }}
+      {{ $t("error.notFound") }}
     </h1>
     <h1 v-else>
-      {{ $t('error.otherError') }}
+      {{ $t("error.otherError") }}
     </h1>
-    <NuxtLink to="/">{{ $t('error.homePage') }}</NuxtLink>
+    <NuxtLink to="/">{{ $t("error.homePage") }}</NuxtLink>
   </v-app>
 </template>
 
@@ -20,10 +20,9 @@ export default {
     },
   },
   data() {
-    return {
-    }
+    return {};
   },
-}
+};
 </script>
 
 <style scoped>

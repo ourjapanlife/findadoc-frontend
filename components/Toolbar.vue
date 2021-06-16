@@ -3,13 +3,15 @@
     <v-app-bar color="indigo darken-1" dense dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title
-        ><nuxt-link :to="localePath({ name: 'index' })"
-          >{{ $t('toolbar.title') }}</nuxt-link
-        ></v-toolbar-title
+        ><nuxt-link :to="localePath({ name: 'index' })">{{
+          $t("toolbar.title")
+        }}</nuxt-link></v-toolbar-title
       >
       <v-spacer></v-spacer>
       <nuxt-link :to="localePath({ name: 'add-clinic' })">
-        <v-btn light color="cyan lighten-3">{{ $t('toolbar.addClinic') }}</v-btn>
+        <v-btn light color="cyan lighten-3">{{
+          $t("toolbar.addClinic")
+        }}</v-btn>
       </nuxt-link>
     </v-app-bar>
     <v-navigation-drawer
@@ -37,7 +39,7 @@
 
         <v-list-group :value="false" prepend-icon="mdi-web">
           <template v-slot:activator>
-            <v-list-item-title>{{ $t('toolbar.languages') }}</v-list-item-title>
+            <v-list-item-title>{{ $t("toolbar.languages") }}</v-list-item-title>
           </template>
 
           <v-list-item
