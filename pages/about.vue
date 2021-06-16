@@ -14,8 +14,8 @@
       </div>
       <div>
         <h2>{{ $t("about.creatorQ") }}</h2>
-        {{ $t("about.creatorA", "TODO add interpolation") }}
-        <a href="https://twitter.com/theyokohamalife" target="_blank"
+        {{ $t("about.creatorA")
+        }}<a href="https://twitter.com/theyokohamalife" target="_blank"
           >@theyokohamalife</a
         >
       </div>
