@@ -6,7 +6,7 @@ export default {
     titleTemplate: "Community-driven database",
     title: "Find a Doc JAPAN",
     htmlAttrs: {
-      lang: "en"
+      lang: "en",
     },
     meta: [
       { charset: "utf-8" },
@@ -15,60 +15,60 @@ export default {
       {
         hid: "twitter:card",
         name: "twitter:card",
-        content: "summary"
+        content: "summary",
       },
       {
         hid: "twitter:title",
         name: "twitter:title",
-        content: "Find a Doc JAPAN"
+        content: "Find a Doc JAPAN",
       },
       {
         hid: "twitter:description",
         name: "twitter:description",
-        content: "A community database to share clinic information in Japan."
+        content: "A community database to share clinic information in Japan.",
       },
       {
         hid: "twitter:image",
         name: "twitter:image",
-        content: "https://www.findadoc.jp/twitter-card.png"
+        content: "https://www.findadoc.jp/twitter-card.png",
       },
       {
         hid: "twitter:image:alt",
         name: "twitter:image:alt",
-        content: "Find a Doc JAPAN"
+        content: "Find a Doc JAPAN",
       },
       {
         hid: "og:title",
         property: "og:title",
-        content: "Find a Doc JAPAN"
+        content: "Find a Doc JAPAN",
       },
       {
         hid: "og:description",
         property: "og:description",
-        content: "A community database to share clinic information in Japan."
+        content: "A community database to share clinic information in Japan.",
       },
       {
         hid: "og:image",
         property: "og:image",
-        content: "https://www.findadoc.jp/social-card.jpeg"
+        content: "https://www.findadoc.jp/social-card.jpeg",
       },
       {
         hid: "og:image:secure_url",
         property: "og:image:secure_url",
-        content: "https://www.findadoc.jp/social-card.jpeg"
+        content: "https://www.findadoc.jp/social-card.jpeg",
       },
       {
         hid: "og:image:alt",
         property: "og:image:alt",
-        content: "Find a Doc JAPAN"
+        content: "Find a Doc JAPAN",
       },
       {
         hid: "og:url",
         property: "og:url",
-        content: "https://www.findadoc.jp"
-      }
+        content: "https://www.findadoc.jp",
+      },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -83,7 +83,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
-    "@nuxtjs/vuetify"
+    "@nuxtjs/vuetify",
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -99,14 +99,14 @@ export default {
           storageBucket: "findadoc-bc230.appspot.com",
           messagingSenderId: "871643437476",
           appId: "1:871643437476:web:d7271d01ee125e9f7bc931",
-          measurementId: "G-SN6SHYMJKY"
+          measurementId: "G-SN6SHYMJKY",
         },
         services: {
           auth: true,
           firestore: true,
-          analytics: true
-        }
-      }
+          analytics: true,
+        },
+      },
     ],
     [
       "nuxt-i18n",
@@ -125,15 +125,15 @@ export default {
           { code: "pt", file: "pt.json" },
           { code: "th", file: "th.json" },
           { code: "vi", file: "vi.json" },
-          { code: "zh_CN", file: "zh_CN.json" }
+          { code: "zh_CN", file: "zh_CN.json" },
         ],
         defaultLocale: "en",
         langDir: "i18n",
         vueI18n: {
-          fallbackLocale: "en"
-        }
-      }
-    ]
+          fallbackLocale: "en",
+        },
+      },
+    ],
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -150,7 +150,7 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
         },
         light: {
           primary: colors.blue.darken2,
@@ -159,12 +159,12 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
+          success: colors.green.accent3,
+        },
+      },
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
 };

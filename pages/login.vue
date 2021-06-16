@@ -27,7 +27,6 @@
 
 <script>
 import "firebase/auth";
-import * as firebase from "firebase/app";
 
 export default {
   data() {
@@ -58,7 +57,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped>
 .v-btn {
