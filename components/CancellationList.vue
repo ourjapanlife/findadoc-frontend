@@ -26,7 +26,27 @@
           {{ $t("cancelList.moreInfo") }}
         </a>
       </template>
+      <template v-slot:[`item.flag`]="{ item }" align="left">
+        <v-icon @click="flagData(item)">mdi-flag</v-icon>
+      </template>
     </v-data-table>
+    <v-dialog v-model="dialog" max-width="600px">
+      <v-card>
+        <v-card-title class="text-h5"> Report this Data </v-card-title>
+        <span>Clinic name: {{ report.name }}</span>
+        <v-textarea
+          required
+          background-color="light-blue lighten-4"
+          color="black"
+          label="Why are you reporting this clinic?"
+        ></v-textarea>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" text @click="sendReport"> Report </v-btn>
+          <v-btn color="primary" text @click="cancel"> Cancel </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -38,15 +58,24 @@ export default {
       .get()
       .then((snap) => {
         snap.forEach((doc) => {
+          this.id = doc.id;
           this.items.push(doc.data());
+          this.items[this.items.length - 1].id = this.id;
           this.loading = false;
         });
       });
   },
   data: (vue) => ({
+    dialog: false,
+    id: "",
     items: [],
-    loading: true,
     itemsPerPage: 10,
+    loading: true,
+    search: "",
+    report: {
+      id: "",
+      name: "",
+    },
     headers: [
       {
         text: `${vue.$t("cancelList.header.clinicName")}:`,
@@ -71,7 +100,38 @@ export default {
         sortable: false,
       },
     ],
-    search: "",
   }),
+  methods: {
+    cancel() {
+      this.dialog = false;
+    },
+    flagData(item) {
+      this.report.id = item.id;
+      this.report.name = item.name;
+      // console.log(item);
+      this.dialog = true;
+    },
+    sendReport() {
+      try {
+        this.$fireModule
+          .firestore()
+          .collection("reports")
+          .add(this.report)
+          .then(() => console.log("Reported", this.report));
+      } catch (err) {
+        console.log(err);
+      }
+    },
+  },
 };
 </script>
+
+<style scoped>
+.v-sheet.v-card {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+.v-text-area {
+  margin-top: 20px !important;
+}
+</style>
