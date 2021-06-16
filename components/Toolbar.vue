@@ -34,6 +34,12 @@
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-group :value="false" prepend-icon="mdi-web">
+          <template v-slot:activator>
+            <v-list-item-title>Languages</v-list-item-title>
+          </template>
+        </v-list-group>
       </v-list>
     </v-navigation-drawer>
   </div>
@@ -47,6 +53,10 @@ export default {
       { title: "Home", icon: "mdi-home-city", route: "/" },
       { title: "Login", icon: "mdi-account", route: "/login" },
       { title: "About", icon: "mdi-head-question", route: "/about" },
+    ],
+    locales: [
+      ["Management", "mdi-account-multiple-outline"],
+      ["Settings", "mdi-cog-outline"],
     ],
   }),
 };
