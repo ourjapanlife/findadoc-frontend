@@ -1,6 +1,6 @@
 export const state = () => ({
   user: null,
-  alert: true
+  alert: true,
 });
 
 export const mutations = {
@@ -9,5 +9,5 @@ export const mutations = {
   },
   hideAlert(state, val) {
     state.alert = val;
-  }
+  },
 };

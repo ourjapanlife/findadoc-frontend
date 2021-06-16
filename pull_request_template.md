@@ -1,12 +1,11 @@
-## Resolves #[Issue number]  
-*Use the keyword `Resolves` if the PR completes the entire issue or `Part of #[Issue number]` if not"*
+## Resolves #[Issue number]
 
-
+_Use the keyword `Resolves` if the PR completes the entire issue or `Part of #[Issue number]` if not"_
 
 ### How to test
-*How do the reviewers test these changes? Feel free to write unit tests or describe manual testing steps here*
 
-
+_How do the reviewers test these changes? Feel free to write unit tests or describe manual testing steps here_
 
 ### Screenshots
-*Screenshots of the changes working* 
+
+_Screenshots of the changes working_
