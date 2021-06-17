@@ -1,7 +1,7 @@
 # findadoc
 
-
 ## Initialize submodule for localization files
+
 Note this project uses a git submodule to manage translations. That repository is [here](https://github.com/ourjapanlife/findadoc-localization)
 
 ```bash
