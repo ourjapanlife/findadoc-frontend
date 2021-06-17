@@ -39,6 +39,7 @@ export default {
       ward: "",
       name: "",
       website: "",
+      note: "",
       clinics: [],
       dialog: false,
       headers: [
@@ -47,6 +48,7 @@ export default {
         { text: "Prefecture", value: "prefecture" },
         { text: "City", value: "city" },
         { text: "Ward", value: "ward" },
+        { text: "Note", value: "note" },
         { text: "Website", value: "website" },
       ],
     };
@@ -75,7 +77,9 @@ export default {
         (this.city = row.city),
         (this.ward = row.ward),
         (this.name = row.name),
+        (this.note = row.note),
         (this.website = row.website);
+      console.log(this.note);
     },
     approveClinic() {
       this.dialog = false;
@@ -84,6 +88,7 @@ export default {
         city: this.city,
         ward: this.ward,
         name: this.name,
+        note: this.note,
         website: this.website,
         approved: true,
       };
