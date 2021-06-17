@@ -135,6 +135,7 @@ export default {
           { code: "nl", file: "nl.json" },
           { code: "pt", file: "pt.json" },
           { code: "th", file: "th.json" },
+          { code: "ms", file: "ms.json" },
           { code: "vi", file: "vi.json" },
           { code: "zh_CN", file: "zh_CN.json" },
         ],
