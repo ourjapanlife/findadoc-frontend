@@ -1,17 +1,26 @@
 import colors from "vuetify/es5/util/colors";
 
+const SITE_TITLE = "Find a Doc JAPAN";
+const SITE_DESCRIPTION =
+  "A community database to share clinic information in Japan.";
+
 export default {
+  target: "static",
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: "Community-driven database",
-    title: "Find a Doc JAPAN",
+    titleTemplate: "COVID-19 Vaccination Info",
+    title: SITE_TITLE,
     htmlAttrs: {
       lang: "en",
     },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
+      {
+        hid: "description",
+        name: "description",
+        content: SITE_DESCRIPTION,
+      },
       {
         hid: "twitter:card",
         name: "twitter:card",
@@ -20,12 +29,12 @@ export default {
       {
         hid: "twitter:title",
         name: "twitter:title",
-        content: "Find a Doc JAPAN",
+        content: SITE_TITLE,
       },
       {
         hid: "twitter:description",
         name: "twitter:description",
-        content: "A community database to share clinic information in Japan.",
+        content: SITE_DESCRIPTION,
       },
       {
         hid: "twitter:image",
@@ -35,17 +44,17 @@ export default {
       {
         hid: "twitter:image:alt",
         name: "twitter:image:alt",
-        content: "Find a Doc JAPAN",
+        content: SITE_TITLE,
       },
       {
         hid: "og:title",
         property: "og:title",
-        content: "Find a Doc JAPAN",
+        content: SITE_TITLE,
       },
       {
         hid: "og:description",
         property: "og:description",
-        content: "A community database to share clinic information in Japan.",
+        content: SITE_DESCRIPTION,
       },
       {
         hid: "og:image",
@@ -60,7 +69,7 @@ export default {
       {
         hid: "og:image:alt",
         property: "og:image:alt",
-        content: "Find a Doc JAPAN",
+        content: SITE_TITLE,
       },
       {
         hid: "og:url",
