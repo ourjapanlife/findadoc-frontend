@@ -9,3 +9,14 @@
     </div>
   </v-container>
 </template>
+<script>
+export default {
+  setup() {
+    console.log("in setup method");
+    // onMounted(async () => {
+    //   console.log('in onmounted method')
+    //   await dispatch("refreshUser");
+    // });
+  },
+};
+</script>
