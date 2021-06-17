@@ -77,7 +77,7 @@ export default {
       { title: "Français", value: "fr" },
       { title: "Deutsch", value: "de" },
       { title: "Bahasa Indonesia", value: "id" },
-      { title: "بهاس ملايو", value: "ms" },
+      { title: "Bahasa Melayu", value: "ms" },
       { title: "italiano", value: "it" },
       { title: "日本語", value: "ja" },
       { title: "한국어", value: "ko" },
