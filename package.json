@@ -7,6 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "netlify": "git submodule update --init --recursive && nuxt generate",
     "lint": "eslint . --ext .js,.vue,.json",
     "postinstall": "husky install"
   },
