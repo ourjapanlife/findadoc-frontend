@@ -21,6 +21,24 @@
           {{ item.name }}
         </div>
       </template>
+
+      <template v-slot:[`item.note`]="{ item }" align="left">
+        <div
+          v-if="item.note && item.note.length > 1"
+          class="dflex justify-center"
+        >
+          <v-chip
+            class="ma-2"
+            color="cyan darken-1"
+            label
+            text-color="white"
+            @click="showNote(item.note)"
+          >
+            <v-icon center>mdi-note-text</v-icon>
+          </v-chip>
+        </div>
+      </template>
+
       <template v-slot:[`item.website`]="{ item }">
         <a target="_blank" :href="item.website">
           {{ $t("cancelList.moreInfo") }}
@@ -30,10 +48,10 @@
         <v-icon @click="flagData(item)">mdi-flag</v-icon>
       </template>
     </v-data-table>
-    <v-dialog v-model="dialog" max-width="600px">
+    <v-dialog v-model="showDialog.report" max-width="600px">
       <v-card>
         <v-card-title class="text-h5"> Report this Data </v-card-title>
-        <v-form v-model="valid" ref="form" lazy-validation>
+        <v-form v-model="validReport" ref="form" lazy-validation>
           <span><b>Clinic name:</b> {{ report.name }}</span>
           <v-textarea
             v-model="report.message"
@@ -45,12 +63,23 @@
           ></v-textarea>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :disabled="!valid" text @click="sendReport">
+            <v-btn
+              color="primary"
+              :disabled="!validReport || report.message.length < 5"
+              text
+              @click="sendReport"
+            >
               Report
             </v-btn>
-            <v-btn color="primary" text @click="cancel"> Cancel </v-btn>
+            <v-btn color="primary" text @click="cancelReport"> Cancel </v-btn>
           </v-card-actions>
         </v-form>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-model="showDialog.note" max-width="300px">
+      <v-card id="note" align="center">
+        <v-card-title>Note about this clinic:</v-card-title>
+        {{ this.selectedNote }}
       </v-card>
     </v-dialog>
   </div>
@@ -72,7 +101,11 @@ export default {
       });
   },
   data: (vue) => ({
-    dialog: false,
+    showDialog: {
+      report: false,
+      clinicSubmission: false,
+      note: false,
+    },
     id: "",
     items: [],
     itemsPerPage: 10,
@@ -83,12 +116,14 @@ export default {
       name: "",
       message: "",
     },
+    selectedNote: "",
     reportRules: [
       (v) => !!v || "Report message is required",
       (v) =>
         (v && v.length >= 5) || "Report message must be at least 5 characters",
     ],
     valid: true,
+    validReport: true,
     headers: [
       {
         text: `${vue.$t("cancelList.header.clinicName")}:`,
@@ -115,14 +150,16 @@ export default {
     ],
   }),
   methods: {
-    cancel() {
-      this.dialog = false;
+    cancelReport() {
+      this.showDialog.report = false;
+    },
+    cancelClinicSubmission() {
+      this.showDialog.clinicSubmission = false;
     },
     flagData(item) {
       this.report.id = item.id;
       this.report.name = item.name;
-      // console.log(item);
-      this.dialog = true;
+      this.showDialog.report = true;
     },
     sendReport() {
       try {
@@ -130,11 +167,15 @@ export default {
           .firestore()
           .collection("reports")
           .add(this.report)
-          .then((this.dialog = false))
+          .then((this.showDialog.report = false))
           .then(() => console.log("Reported", this.report));
       } catch (err) {
         console.log(err);
       }
+    },
+    showNote(note) {
+      this.showDialog.note = true;
+      this.selectedNote = note;
     },
     validate() {
       this.$refs.form.validate();
@@ -151,5 +192,8 @@ export default {
 .v-text-area {
   margin-top: 20px !important;
   padding-inline: 20px !important;
+}
+#note {
+  padding-bottom: 20px;
 }
 </style>

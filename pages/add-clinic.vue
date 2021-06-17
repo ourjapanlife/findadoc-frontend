@@ -54,6 +54,15 @@
               :rules="websiteRules"
             ></v-text-field>
           </v-col>
+          <v-col>
+            <v-textarea
+              v-model="note"
+              outlined
+              name="input-7-4"
+              label="Additional information (Optional)"
+              placeholder="Share helpful or important details"
+            ></v-textarea>
+          </v-col>
         </v-row>
       </v-container>
 
@@ -98,6 +107,7 @@ export default {
       (v) =>
         (v && v.length >= 2) || "Clinic name must be at least 2 characters",
     ],
+    note: "",
     website: "",
     websiteRules: [
       (v) => !!v || "Website URL is required",
@@ -114,6 +124,7 @@ export default {
           ward: this.ward,
           name: this.name,
           website: this.website,
+          note: this.note,
           approved: false,
         };
         try {
@@ -121,7 +132,7 @@ export default {
             .firestore()
             .collection("pending")
             .add(clinic)
-            .then(() => console.log("added to db"))
+            .then(() => console.log("added to db", this.clinic))
             .then(this.$router.push("/"));
         } catch (err) {
           console.log(err);
