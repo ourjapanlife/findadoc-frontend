@@ -6,26 +6,26 @@
       :items="clinics"
       :items-per-page="10"
       class="elevation-1"
-      @click:row="moderate"
     >
+      <template v-slot:[`item.action`]="{ item }">
+        <v-dialog v-model="dialog" max-width="500px">
+          <v-card>
+            <v-card-title>Edit Submission</v-card-title>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field
+                v-for="header in headers"
+                v-show="header.value != 'action'"
+                :key="header.value"
+                :label="header.text"
+                v-model="editedItem[header.value]"
+              ></v-text-field>
+            </v-col>
+          </v-card>
+        </v-dialog>
+        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
+        <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+      </template>
     </v-data-table>
-
-    <v-dialog v-model="dialog" persistent max-width="290">
-      <v-card>
-        <v-card-title class="text-h5"> Approve Submission?</v-card-title>
-        <span>ID: {{ id }}</span>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="approveClinic">
-            Approve
-          </v-btn>
-          <v-btn color="green darken-1" text @click="deleteClinic">
-            Delete
-          </v-btn>
-          <v-btn color="green darken-1" text @click="cancel"> Cancel </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
   </v-container>
 </template>
 
@@ -33,15 +33,11 @@
 export default {
   data() {
     return {
-      id: "",
-      prefecture: "",
-      city: "",
-      ward: "",
-      name: "",
-      website: "",
-      note: "",
+      editedIndex: -1,
+      editedItem: {},
       clinics: [],
       dialog: false,
+      dialogDelete: false,
       headers: [
         { text: "ID", value: "id" },
         { text: "Name", value: "name" },
@@ -50,6 +46,7 @@ export default {
         { text: "Ward", value: "ward" },
         { text: "Note", value: "note" },
         { text: "Website", value: "website" },
+        { text: "Actions", value: "action", sortable: false, editable: false },
       ],
     };
   },
@@ -70,6 +67,15 @@ export default {
     }
   },
   methods: {
+    editItem(item) {
+      this.editedIndex = this.clinics.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+      console.log("editedItem: ", this.editedItem);
+    },
+    deleteItem(item) {
+      console.log("delete: ", item);
+    },
     moderate(row) {
       this.dialog = true;
       (this.id = row.id),
