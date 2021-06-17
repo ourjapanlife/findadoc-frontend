@@ -26,29 +26,30 @@
 </template>
 
 <script>
-import "firebase/auth";
-
 export default {
   data() {
     return {
       email: "",
       password: "",
-      user: "",
     };
   },
   methods: {
     async login() {
-      this.$fireModule
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then((user) => {
-          this.$store.commit("updateUser", user.uid);
-          console.log(user);
-          this.$router.push("/admin/pending");
-        })
-        .catch((err) => {
-          console.log(err);
+      try {
+        const isSuccessful = await this.$store.dispatch("login", {
+          email: this.email,
+          password: this.password,
         });
+
+        //TODO: Show a message saying login failed/succeeded
+        isSuccessful
+          ? console.log("successfully logged in!")
+          : console.log("login failed.");
+
+        this.$router.push("/admin/pending");
+      } catch (err) {
+        console.log(err);
+      }
     },
     clear() {
       this.email = "";
