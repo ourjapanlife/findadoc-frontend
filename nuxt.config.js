@@ -130,7 +130,7 @@ export default {
           { code: "zh_CN", file: "zh_CN.json" },
         ],
         defaultLocale: "en",
-        langDir: "i18n",
+        langDir: "i18n/locales",
         vueI18n: {
           fallbackLocale: "en",
         },
