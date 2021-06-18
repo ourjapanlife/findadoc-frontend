@@ -1,8 +1,4 @@
-import {
-  authState,
-  authActions,
-  authMutations,
-} from "./authStore";
+import { authState, authActions, authMutations } from "./authStore";
 
 export const state = () => ({
   alert: true,
