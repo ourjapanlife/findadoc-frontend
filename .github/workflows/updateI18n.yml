@@ -26,7 +26,7 @@ jobs:
           ref: main
           
       - name: Set Branch 
-        run: printf "UPDATE_BRANCH=i18n-updates-${{ env.GITHUB_RUN_NUMBER }}" | tee --append "$GITHUB_ENV"
+        run: printf "UPDATE_BRANCH=i18n-updates-${GITHUB_RUN_NUMBER}" | tee --append "$GITHUB_ENV"
       
       - name: Creating branch ${{ env.UPDATE_BRANCH }}
         uses: peterjgrainger/action-create-branch@v2.0.1
