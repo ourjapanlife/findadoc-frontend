@@ -37,7 +37,7 @@
         </a>
       </template>
       <template v-slot:[`item.flag`]="{ item }" align="left">
-        <v-icon @click="flagData(item)">mdi-alert</v-icon>
+        <v-icon @click="flagData(item)">mdi-flag</v-icon>
       </template>
     </v-data-table>
     <v-dialog v-model="showDialog.report" max-width="600px">
