@@ -24,17 +24,10 @@ jobs:
           
       - name: Set Branch 
         run: printf "UPDATE_BRANCH=i18n-updates-${GITHUB_RUN_NUMBER}" | tee --append "$GITHUB_ENV"
-      
-      - name: Creating branch ${{ env.UPDATE_BRANCH }}
-        uses: peterjgrainger/action-create-branch@v2.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          branch: ${{ env.UPDATE_BRANCH }}
           
       - name: Checkout submodule & Commit changes
         run: |
-          git checkout $UPDATE_BRANCH
+          git checkout -b $UPDATE_BRANCH
           git submodule update --init --recursive --remote 
           git config user.name github-actions
           git config user.email github-actions@github.com
