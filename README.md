@@ -42,7 +42,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 Under the hood, this project uses [nuxt/i18n](https://i18n.nuxtjs.org/) and [vue-i18n](https://kazupon.github.io/vue-i18n/).
 
-The locale files are managed through a seperate repo, incorporated as a submodule. Here is the process for adding new translation keys:
+The locale files are managed through a separate repo, incorporated as a submodule. Here is the process for adding new translation keys:
 
 1. Clone the [findadoc-localization repo](https://github.com/ourjapanlife/findadoc-localization)
 2. Edit the `locales/en.json` to contain the new keys. 
