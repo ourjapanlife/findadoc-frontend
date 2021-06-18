@@ -1,9 +1,18 @@
-import { authState, authActions, authMutations } from "./authStore";
+import {
+  authState,
+  authGetters,
+  authActions,
+  authMutations,
+} from "./authStore";
 
 export const state = () => ({
   alert: true,
   ...authState,
 });
+
+export const getters = {
+  ...authGetters,
+};
 
 export const mutations = {
   hideAlert(state, val) {

@@ -4,8 +4,13 @@ import "firebase/auth";
 
 export const authState = {
   user: {
-    isLoggedIn: false,
     uid: "",
+  },
+};
+
+export const authGetters = {
+  isUserLoggedIn: (state) => {
+    return state.user && state.user.uid;
   },
 };
 
@@ -21,7 +26,6 @@ export const authActions = {
         }
 
         await commit("updateUser", {
-          isLoggedIn: currentUser ? true : false,
           uid: currentUser ? currentUser.uid : "",
         });
       });

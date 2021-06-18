@@ -36,15 +36,15 @@ export default {
   watch: {
     "$store.state.user": {
       deep: true,
-      handler(state) {
-        if (state.isLoggedIn) {
+      handler() {
+        if (this.$store.getters.isUserLoggedIn) {
           this.$router.push("/admin/pending");
         }
       },
     },
   },
   mounted() {
-    if (this.$store.state.user.isLoggedIn) {
+    if (this.$store.getters.isUserLoggedIn) {
       this.$router.push("/admin/pending");
     }
   },
@@ -61,7 +61,6 @@ export default {
           .signInWithEmailAndPassword(this.email, this.password);
 
         this.$store.commit("updateUser", {
-          isLoggedIn: true,
           uid: successfulLoginResult.user.uid,
         });
 
