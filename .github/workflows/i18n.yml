@@ -33,4 +33,4 @@ jobs:
           git config user.email github-actions@github.com
           git add .
           git diff --quiet && git diff --staged --quiet || git commit -m 'chore: updating i18n submodule'
-          git push
+          git diff main --quiet || git push
