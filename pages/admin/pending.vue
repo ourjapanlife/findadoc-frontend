@@ -101,7 +101,7 @@ export default {
       this.dialog = true;
     },
     async deleteItem(item) {
-      let itemIndex = this.clinics.indexOf(item);
+      const itemIndex = this.clinics.indexOf(item);
       try {
         await this.$fireModule
           .firestore()
