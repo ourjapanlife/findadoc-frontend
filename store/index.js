@@ -1,6 +1,5 @@
 import {
   authState,
-  authGetters,
   authActions,
   authMutations,
 } from "./authStore";
@@ -15,10 +14,6 @@ export const mutations = {
     state.alert = val;
   },
   ...authMutations,
-};
-
-export const getters = {
-  ...authGetters,
 };
 
 export const actions = {
