@@ -28,17 +28,27 @@ jobs:
         run: printf "UPDATE_BRANCH=i18n-updates-${GITHUB_RUN_NUMBER}" | tee --append "$GITHUB_ENV"
       
       - name: Creating branch ${{ env.UPDATE_BRANCH }}
-        uses: peterjgrainger/action-create-branch@v2.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
         with:
-          branch: ${{ env.UPDATE_BRANCH }}
+          ref: ${{ env.UPDATE_BRANCH }}
+        #uses: peterjgrainger/action-create-branch@v2.0.1
+        #env:
+        #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #with:
+        #  branch: ${{ env.UPDATE_BRANCH }}
 
       - name: Checkout submodules
         run: git submodule update --init --recursive --remote
         
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ env.UPDATE_BRANCH }}
+      #- name: Commit & Push changes
+      #  uses: actions-js/push@master
+      #  with:
+      #    github_token: ${{ secrets.GITHUB_TOKEN }}
+      #    branch: ${{ env.UPDATE_BRANCH }}
+          
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "chore: updating i18n submodule"
+          git push
