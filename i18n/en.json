@@ -69,6 +69,10 @@
     "login": "Login",
     "password": "Password"
   },
+  "logout": {
+    "message": "Logging you out...",
+    "successMessage": "You've been logged out. See ya!"
+  },
   "toolbar": {
     "title": "Find a Doc, JAPAN",
     "addClinic": "add a clinic",
