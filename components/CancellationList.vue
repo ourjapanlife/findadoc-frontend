@@ -27,9 +27,7 @@
           v-if="item.note && item.note.length > 1"
           class="dflex justify-center"
         >
-          <v-icon @click="showNote(item.note)" center
-            >mdi-note-text</v-icon
-          >
+          <v-icon @click="showNote(item.note)" center>mdi-note-text</v-icon>
         </div>
       </template>
 
