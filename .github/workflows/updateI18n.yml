@@ -23,18 +23,18 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Fetching main
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       
       - name: Creating branch ${{ UPDATE_BRANCH }}
-      - uses: peterjgrainger/action-create-branch@v2.0.1
+        uses: peterjgrainger/action-create-branch@v2.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: ${{ UPDATE_BRANCH }}
 
-      # Runs a set of commands using the runners shell
       - name: Checkout submodules
         run: git submodule update --init --recursive --remote
+        
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
