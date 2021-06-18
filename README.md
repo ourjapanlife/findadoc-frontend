@@ -5,6 +5,20 @@
 
 # findadoc
 
+## Working with the submodule
+
+Note this project uses a git submodule to manage translations. That repository is [here](https://github.com/ourjapanlife/findadoc-localization)
+
+```bash
+# init submodules when running for the first time
+$ git submodule update --init --recursive
+```
+
+```bash
+# run this when you need to update the submodule
+$ git submodule update
+```
+
 ## Build Setup
 
 ```bash
