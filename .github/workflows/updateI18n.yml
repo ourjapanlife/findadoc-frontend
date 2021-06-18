@@ -3,7 +3,11 @@
 name: Update i18n
 
 # Controls when the action will run. 
-on:
+on: 
+
+  push:
+    branches: 
+      - i18n-updates-1
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
