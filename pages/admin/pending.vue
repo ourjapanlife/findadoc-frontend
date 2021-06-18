@@ -11,7 +11,7 @@
         <v-dialog v-model="dialog" max-width="500px">
           <v-card>
             <v-card-title>Edit Submission</v-card-title>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12">
               <v-text-field
                 v-for="header in headers"
                 v-show="header.value != 'action'"
@@ -20,6 +20,13 @@
                 v-model="editedItem[header.value]"
               ></v-text-field>
             </v-col>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" text @click="approve(item)">
+                Approve
+              </v-btn>
+              <v-btn color="blue darken-1" text @click="cancel"> Cancel </v-btn>
+            </v-card-actions>
           </v-card>
         </v-dialog>
         <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
@@ -33,7 +40,15 @@
 export default {
   data() {
     return {
-      editedIndex: -1,
+      pendingItem: {
+        name: "",
+        prefecture: "",
+        city: "",
+        ward: "",
+        note: "",
+        website: "",
+      },
+      // editedIndex: -1,
       editedItem: {},
       clinics: [],
       dialog: false,
@@ -67,64 +82,48 @@ export default {
     }
   },
   methods: {
-    editItem(item) {
-      this.editedIndex = this.clinics.indexOf(item);
-      this.editedItem = Object.assign({}, item);
-      this.dialog = true;
-      console.log("editedItem: ", this.editedItem);
-    },
-    deleteItem(item) {
-      console.log("delete: ", item);
-    },
-    moderate(row) {
-      this.dialog = true;
-      (this.id = row.id),
-        (this.prefecture = row.prefecture),
-        (this.city = row.city),
-        (this.ward = row.ward),
-        (this.name = row.name),
-        (this.note = row.note),
-        (this.website = row.website);
-      console.log(this.note);
-    },
-    approveClinic() {
+    approve(item) {
+      // console.log(item);
       this.dialog = false;
-      const clinic = {
-        prefecture: this.prefecture,
-        city: this.city,
-        ward: this.ward,
-        name: this.name,
-        note: this.note,
-        website: this.website,
-        approved: true,
-      };
       try {
         this.$fireModule
           .firestore()
           .collection("clinics")
-          .add(clinic)
-          .then(() => console.log("Approved ID: ", this.id))
-          .then(this.deleteClinic());
+          .add(this.editedItem)
+          .then(() => console.log("Approved ID: ", this.editedItem.id))
+          .then(this.deleteItem(item));
       } catch (err) {
         console.log(err);
       }
+      console.log("approved =", this.editedItem);
     },
-
-    cancel() {
-      this.dialog = false;
+    editItem(item) {
+      for (const key in item) {
+        this.pendingItem[key] = item[key];
+      }
+      // this.editedIndex = this.clinics.indexOf(item);
+      this.editedItem = Object.assign(item);
+      this.dialog = true;
     },
-    deleteClinic() {
-      this.dialog = false;
+    deleteItem(item) {
+      console.log("delete: ", item);
+      let itemIndex = this.clinics.indexOf(item);
       try {
         this.$fireModule
           .firestore()
           .collection("pending")
-          .doc(this.id)
+          .doc(item.id)
           .delete()
-
-          .then(() => console.log("Deleted ID: ", this.id));
+          .then(this.clinics.splice(itemIndex, 1))
+          .then(() => console.log("Deleted ID: ", item.id));
       } catch (err) {
         console.log(err);
+      }
+    },
+    cancel() {
+      this.dialog = false;
+      for (const key in this.pendingItem) {
+        this.editedItem[key] = this.pendingItem[key];
       }
     },
   },
