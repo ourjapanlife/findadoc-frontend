@@ -48,7 +48,6 @@ export default {
         note: "",
         website: "",
       },
-      // editedIndex: -1,
       editedItem: {},
       clinics: [],
       dialog: false,
@@ -82,40 +81,34 @@ export default {
     }
   },
   methods: {
-    approve(item) {
-      // console.log(item);
+    async approve(item) {
       this.dialog = false;
       try {
-        this.$fireModule
+        await this.$fireModule
           .firestore()
           .collection("clinics")
-          .add(this.editedItem)
-          .then(() => console.log("Approved ID: ", this.editedItem.id))
-          .then(this.deleteItem(item));
+          .add(this.editedItem);
+        await this.deleteItem(item);
       } catch (err) {
         console.log(err);
       }
-      console.log("approved =", this.editedItem);
     },
     editItem(item) {
       for (const key in item) {
         this.pendingItem[key] = item[key];
       }
-      // this.editedIndex = this.clinics.indexOf(item);
       this.editedItem = Object.assign(item);
       this.dialog = true;
     },
-    deleteItem(item) {
-      console.log("delete: ", item);
+    async deleteItem(item) {
       let itemIndex = this.clinics.indexOf(item);
       try {
-        this.$fireModule
+        await this.$fireModule
           .firestore()
           .collection("pending")
           .doc(item.id)
-          .delete()
-          .then(this.clinics.splice(itemIndex, 1))
-          .then(() => console.log("Deleted ID: ", item.id));
+          .delete();
+        await this.clinics.splice(itemIndex, 1);
       } catch (err) {
         console.log(err);
       }
