@@ -31,12 +31,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: ${{ env.UPDATE_BRANCH }}
-
-      - name: Checkout submodules
-        run: git submodule update --init --recursive --remote
           
-      - name: Commit changes
+      - name: Checkout submodule & Commit changes
         run: |
+          git checkout ${env.UPDATE_BRANCH}
+          git submodule update --init --recursive --remote 
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
