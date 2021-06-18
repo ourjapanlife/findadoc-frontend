@@ -33,22 +33,44 @@ export default {
       password: "",
     };
   },
+  watch: {
+    "$store.state.user": {
+      deep: true,
+      handler(state) {
+        if (state.isLoggedIn) {
+          this.$router.push("/admin/pending");
+        }
+      },
+    },
+  },
+  mounted() {
+    if (this.$store.state.user.isLoggedIn) {
+      this.$router.push("/admin/pending");
+    }
+  },
   methods: {
     async login() {
       try {
-        const isSuccessful = await this.$store.dispatch("login", {
-          email: this.email,
-          password: this.password,
+        //set the lifetime of the session to persist when the browser is closed.
+        await this.$fireModule
+          .auth()
+          .setPersistence(this.$fireModule.auth.Auth.Persistence.LOCAL);
+
+        const successfulLoginResult = await this.$fireModule
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password);
+
+        this.$store.commit("updateUser", {
+          isLoggedIn: true,
+          uid: successfulLoginResult.user.uid,
         });
 
-        //TODO: Show a message saying login failed/succeeded
-        isSuccessful
-          ? console.log("successfully logged in!")
-          : console.log("login failed.");
-
+        //TODO: Show the user a message saying login failed/succeeded
+        console.log("successfully logged in!");
         this.$router.push("/admin/pending");
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        //When a firebase login fails, it will throw an error and be handled here.
+        console.log("Login failed.", error);
       }
     },
     clear() {
