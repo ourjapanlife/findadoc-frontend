@@ -22,7 +22,7 @@ export default {
   methods: {
     async logout() {
       try {
-        if (!this.$store.getters.isUserLoggedIn) {
+        if (this.$store.getters.isUserLoggedIn) {
           await this.$fireModule.auth().signOut();
         }
 
