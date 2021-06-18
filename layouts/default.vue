@@ -14,7 +14,13 @@
     </v-footer>
   </v-app>
 </template>
-
+<script>
+export default {
+  async mounted() {
+    await this.$store.dispatch("refreshUser");
+  },
+};
+</script>
 <style scoped>
 .v-footer {
   display: flex;

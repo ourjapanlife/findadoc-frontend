@@ -26,29 +26,51 @@
 </template>
 
 <script>
-import "firebase/auth";
-
 export default {
   data() {
     return {
       email: "",
       password: "",
-      user: "",
     };
+  },
+  watch: {
+    "$store.state.user": {
+      deep: true,
+      handler() {
+        if (this.$store.getters.isUserLoggedIn) {
+          this.$router.push("/admin/pending");
+        }
+      },
+    },
+  },
+  mounted() {
+    if (this.$store.getters.isUserLoggedIn) {
+      this.$router.push("/admin/pending");
+    }
   },
   methods: {
     async login() {
-      this.$fireModule
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then((user) => {
-          this.$store.commit("updateUser", user.uid);
-          console.log(user);
-          this.$router.push("/admin/pending");
-        })
-        .catch((err) => {
-          console.log(err);
+      try {
+        //set the lifetime of the session to persist when the browser is closed.
+        await this.$fireModule
+          .auth()
+          .setPersistence(this.$fireModule.auth.Auth.Persistence.LOCAL);
+
+        const successfulLoginResult = await this.$fireModule
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password);
+
+        this.$store.commit("updateUser", {
+          uid: successfulLoginResult.user.uid,
         });
+
+        //TODO: Show the user a message saying login failed/succeeded
+        console.log("successfully logged in!");
+        this.$router.push("/admin/pending");
+      } catch (error) {
+        //When a firebase login fails, it will throw an error and be handled here.
+        console.log("Login failed.", error);
+      }
     },
     clear() {
       this.email = "";

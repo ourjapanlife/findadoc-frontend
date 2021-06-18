@@ -1,5 +1,5 @@
 <template>
-  <v-container v-show="this.$store.state.user !== null">
+  <v-container v-show="this.$store.getters.isUserLoggedIn">
     <h1>Pending Submissions</h1>
     <v-data-table
       :headers="headers"
@@ -54,7 +54,7 @@ export default {
     };
   },
   mounted() {
-    if (this.$store.state.user === null) {
+    if (!this.$store.getters.isUserLoggedIn) {
       this.$router.push("/login");
     } else {
       const db = this.$fireModule.firestore();
