@@ -4,14 +4,12 @@ name: Update i18n
 
 # Controls when the action will run. 
 on: 
-
   push:
     branches: 
       - i18n-action-1
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "update"
   update:
@@ -28,23 +26,12 @@ jobs:
         run: printf "UPDATE_BRANCH=i18n-updates-${GITHUB_RUN_NUMBER}" | tee --append "$GITHUB_ENV"
       
       - name: Creating branch ${{ env.UPDATE_BRANCH }}
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
         with:
           ref: ${{ env.UPDATE_BRANCH }}
-        #uses: peterjgrainger/action-create-branch@v2.0.1
-        #env:
-        #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #with:
-        #  branch: ${{ env.UPDATE_BRANCH }}
 
       - name: Checkout submodules
         run: git submodule update --init --recursive --remote
-        
-      #- name: Commit & Push changes
-      #  uses: actions-js/push@master
-      #  with:
-      #    github_token: ${{ secrets.GITHUB_TOKEN }}
-      #    branch: ${{ env.UPDATE_BRANCH }}
           
       - run: |
           git config user.name github-actions
