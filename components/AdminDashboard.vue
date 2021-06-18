@@ -33,7 +33,7 @@
             </v-col>
             <template v-slot:[`item.website`]="{ item }">
               <a target="_blank" :href="item.website">
-                {{ truncateWebsite(item.website) }}
+                {{ item.website }}
               </a>
             </template>
             <v-card-actions>
@@ -48,8 +48,8 @@
 
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <!-- <v-card-title class="text-h5"
-              >Are you sure you want to delete this item?</v-card-title
+            <v-card-title class="text-h5"
+              >Are you sure you want to delete ID: {{ item.id }}?</v-card-title
             >
             <v-card-actions>
               <v-spacer></v-spacer>
@@ -60,12 +60,12 @@
                 >Delete</v-btn
               >
               <v-spacer></v-spacer>
-            </v-card-actions> -->
+            </v-card-actions>
           </v-card>
         </v-dialog>
 
         <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
-        <v-icon small @click="dialogDelete"> mdi-delete </v-icon>
+        <v-icon small @click="confirmDelete(item)"> mdi-delete </v-icon>
       </template>
     </v-data-table>
   </v-container>
@@ -138,17 +138,17 @@ export default {
     },
     async deleteItem(item) {
       console.log("deleting ", item);
-      //   const itemIndex = this.clinics.indexOf(item);
-      //   try {
-      //     await this.$fireModule
-      //       .firestore()
-      //       .collection("clinics")
-      //       .doc(item.id)
-      //       .delete();
-      //     await this.clinics.splice(itemIndex, 1);
-      //   } catch (err) {
-      //     console.log(err);
-      //   }
+      const itemIndex = this.clinics.indexOf(item);
+      try {
+        await this.$fireModule
+          .firestore()
+          .collection("clinics")
+          .doc(item.id)
+          .delete();
+        await this.clinics.splice(itemIndex, 1);
+      } catch (err) {
+        console.log(err);
+      }
     },
     cancel() {
       this.dialog = false;
@@ -159,10 +159,13 @@ export default {
     closeDelete() {
       this.dialogDelete = false;
     },
-    truncateWebsite(website) {
-      const truncated = website.match(/^https?:\/\/([^/]*)/);
-      return truncated[1] || website.substring(0, 20) + "...";
+    confirmDelete() {
+      this.dialogDelete = true;
     },
+    // truncateWebsite(website) {
+    //   const truncated = website.match(/^https?:\/\/([^/]*)/);
+    //   return truncated[1] || website.substring(0, 20) + "...";
+    // },
   },
 };
 </script>
