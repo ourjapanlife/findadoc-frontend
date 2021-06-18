@@ -5,7 +5,6 @@ const SITE_DESCRIPTION =
   "A community database to share clinic information in Japan.";
 
 export default {
-  target: "static",
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: "COVID-19 Vaccination Info",
