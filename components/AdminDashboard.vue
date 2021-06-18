@@ -31,6 +31,11 @@
                 v-model="editedItem[header.value]"
               ></v-text-field>
             </v-col>
+            <template v-slot:[`item.website`]="{ item }">
+              <a target="_blank" :href="item.website">
+                {{ truncateWebsite(item.website) }}
+              </a>
+            </template>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="approve(item)">
@@ -40,8 +45,27 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+
+        <v-dialog v-model="dialogDelete" max-width="500px">
+          <v-card>
+            <!-- <v-card-title class="text-h5"
+              >Are you sure you want to delete this item?</v-card-title
+            >
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" text @click="closeDelete"
+                >Cancel</v-btn
+              >
+              <v-btn color="blue darken-1" text @click="deleteItem(item)"
+                >Delete</v-btn
+              >
+              <v-spacer></v-spacer>
+            </v-card-actions> -->
+          </v-card>
+        </v-dialog>
+
         <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
-        <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+        <v-icon small @click="dialogDelete"> mdi-delete </v-icon>
       </template>
     </v-data-table>
   </v-container>
@@ -99,8 +123,8 @@ export default {
         await this.$fireModule
           .firestore()
           .collection("clinics")
-          .add(this.editedItem);
-        await this.deleteItem(item);
+          .doc(item.id)
+          .update(this.editedItem);
       } catch (err) {
         console.log(err);
       }
@@ -113,23 +137,31 @@ export default {
       this.dialog = true;
     },
     async deleteItem(item) {
-      const itemIndex = this.clinics.indexOf(item);
-      try {
-        await this.$fireModule
-          .firestore()
-          .collection("clinics")
-          .doc(item.id)
-          .delete();
-        await this.clinics.splice(itemIndex, 1);
-      } catch (err) {
-        console.log(err);
-      }
+      console.log("deleting ", item);
+      //   const itemIndex = this.clinics.indexOf(item);
+      //   try {
+      //     await this.$fireModule
+      //       .firestore()
+      //       .collection("clinics")
+      //       .doc(item.id)
+      //       .delete();
+      //     await this.clinics.splice(itemIndex, 1);
+      //   } catch (err) {
+      //     console.log(err);
+      //   }
     },
     cancel() {
       this.dialog = false;
       for (const key in this.pendingItem) {
         this.editedItem[key] = this.pendingItem[key];
       }
+    },
+    closeDelete() {
+      this.dialogDelete = false;
+    },
+    truncateWebsite(website) {
+      const truncated = website.match(/^https?:\/\/([^/]*)/);
+      return truncated[1] || website.substring(0, 20) + "...";
     },
   },
 };
