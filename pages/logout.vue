@@ -17,7 +17,7 @@ export default {
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    this.$router.push("/");
+     this.$router.push("/");
   },
   methods: {
     async logout() {
