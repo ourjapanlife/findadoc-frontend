@@ -173,7 +173,7 @@ export default {
     },
     truncateWebsite(website) {
       const truncated = website.match(/^https?:\/\/([^/]*)/);
-      return truncated[1] || website.substring(0, 20) + "..."
+      return truncated[1] || website.substring(0, 20) + "...";
     },
     validate() {
       this.$refs.form.validate();
