@@ -27,7 +27,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Checkout submodules
-        run: git submodule update --init --recursive
+        run: git submodule update --init --recursive --remote
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
