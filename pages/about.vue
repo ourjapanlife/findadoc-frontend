@@ -24,15 +24,17 @@
         {{ $t("about.supportA") }}
       </div>
     </div>
-    <div id="donate">
-      <iframe
-        src="https://ko-fi.com/theyokohamalife/?hidefeed=true&widget=true&embed=true&preview=true"
-        style="border: none; width: 100%; padding: 4px; background: #f9f9f9"
-        height="650"
-        title="theyokohamalife"
-      ></iframe>
+    <div id="widgets">
+      <div id="donate">
+        <iframe
+          src="https://ko-fi.com/theyokohamalife/?hidefeed=true&widget=true&embed=true&preview=true"
+          style="border: none; width: 100%; padding: 4px; background: #f9f9f9"
+          height="650"
+          title="theyokohamalife"
+        ></iframe>
+      </div>
+      <testimonial />
     </div>
-    <testimonial />
   </div>
 </template>
 
