@@ -18,6 +18,11 @@
       :items-per-page="10"
       class="elevation-1"
     >
+      <template v-slot:[`item.website`]="{ item }">
+        <a target="_blank" :href="item.website">
+          {{ truncateWebsite(item.website) }}
+        </a>
+      </template>
       <template v-slot:[`item.action`]="{ item }">
         <v-dialog v-model="dialog" max-width="500px">
           <v-card>
