@@ -1,14 +1,16 @@
 <template>
   <v-container v-show="this.$store.getters.isUserLoggedIn">
     <v-card-title>
-      Flagged Submissions
+      Reported Submissions
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Search"
+        label="Search reported submissions"
         single-line
-        hide-details
+        filled
+        outlined
+        clearable
       ></v-text-field>
     </v-card-title>
     <v-data-table

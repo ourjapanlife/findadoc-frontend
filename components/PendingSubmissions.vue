@@ -6,9 +6,11 @@
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Search"
+        label="Search pending submissions"
         single-line
-        hide-details
+        filled
+        outlined
+        clearable
       ></v-text-field>
     </v-card-title>
     <v-data-table
@@ -19,9 +21,11 @@
       class="elevation-1"
     >
       <template v-slot:[`item.website`]="{ item }">
-        <a target="_blank" :href="item.website">
-          {{ truncateWebsite(item.website) }}
-        </a>
+        <div v-if="item.website">
+          <a target="_blank" :href="item.website">
+            {{ truncateWebsite(item.website) }}
+          </a>
+        </div>
       </template>
       <template v-slot:[`item.action`]="{ item }">
         <v-dialog v-model="dialog" max-width="500px">
@@ -135,6 +139,10 @@ export default {
       for (const key in this.pendingItem) {
         this.editedItem[key] = this.pendingItem[key];
       }
+    },
+    truncateWebsite(website) {
+      const truncated = website.match(/^https?:\/\/([^/]*)/);
+      return truncated[1] || website.substring(0, 20) + "...";
     },
   },
 };

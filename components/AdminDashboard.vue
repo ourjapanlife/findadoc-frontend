@@ -1,14 +1,24 @@
 <template>
   <v-container v-show="this.$store.getters.isUserLoggedIn">
+    <delete-dialog
+      :idToDelete="selectedItem.id"
+      :showDeleteDialog="showDeleteDialog"
+      @on-cancel-btn-pressed="handleCancelBtnPressed()"
+      @on-confirm-delete-btn-pressed="
+        handleConfirmDeleteBtnPressed(selectedItem)
+      "
+    />
     <v-card-title>
       Active Data
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Search"
+        label="Search active data"
         single-line
-        hide-details
+        filled
+        outlined
+        clearable
       ></v-text-field>
     </v-card-title>
     <v-data-table
@@ -20,7 +30,7 @@
     >
       <template v-slot:[`item.website`]="{ item }">
         <a target="_blank" :href="item.website">
-          {{ truncateWebsite(item.website) }}
+          {{ item.website }}
         </a>
       </template>
       <template v-slot:[`item.action`]="{ item }">
@@ -51,40 +61,27 @@
           </v-card>
         </v-dialog>
 
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5"
-              >Are you sure you want to delete ID: {{ item.id }}?</v-card-title
-            >
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete"
-                >Cancel</v-btn
-              >
-              <v-btn color="blue darken-1" text @click="deleteItem(item)"
-                >Delete</v-btn
-              >
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-
         <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
-        <v-icon small @click="confirmDelete(item)"> mdi-delete </v-icon>
+        <v-icon small @click="handleDeleteBtn(item)"> mdi-delete </v-icon>
       </template>
     </v-data-table>
   </v-container>
 </template>
 
+
 <script>
 export default {
+  components: {},
   data() {
     return {
       editedItem: {},
       clinics: [],
       dialog: false,
-      dialogDelete: false,
+      showDeleteDialog: false,
       search: "",
+      selectedItem: {
+        id: "",
+      },
       pendingItem: {
         name: "",
         prefecture: "",
@@ -143,14 +140,14 @@ export default {
     },
     async deleteItem(item) {
       console.log("deleting ", item);
-      const itemIndex = this.clinics.indexOf(item);
+      // const itemIndex = this.clinics.indexOf(item);
       try {
         await this.$fireModule
           .firestore()
           .collection("clinics")
-          .doc(item.id)
+          .doc(item)
           .delete();
-        await this.clinics.splice(itemIndex, 1);
+        // await this.clinics.splice(itemIndex, 1);
       } catch (err) {
         console.log(err);
       }
@@ -161,16 +158,21 @@ export default {
         this.editedItem[key] = this.pendingItem[key];
       }
     },
-    closeDelete() {
-      this.dialogDelete = false;
+    async handleConfirmDeleteBtnPressed(item) {
+      this.deleteItem(item.id);
+      this.showDeleteDialog = false;
     },
-    confirmDelete() {
-      this.dialogDelete = true;
+    handleCancelBtnPressed() {
+      this.showDeleteDialog = false;
     },
-    truncateWebsite(website) {
-      const truncated = website.match(/^https?:\/\/([^/]*)/);
-      return truncated[1] || website.substring(0, 20) + "...";
+    handleDeleteBtn(item) {
+      this.selectedItem = item;
+      this.showDeleteDialog = true;
     },
+    // truncateWebsite(website) {
+    //   const truncated = website.match(/^https?:\/\/([^/]*)/);
+    //   return truncated[1] || website.substring(0, 20) + "...";
+    // },
   },
 };
 </script>
