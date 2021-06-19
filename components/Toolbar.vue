@@ -17,7 +17,6 @@
     <v-navigation-drawer
       color="#031525"
       v-model="drawer"
-      absolute
       temporary
       dark
       app
