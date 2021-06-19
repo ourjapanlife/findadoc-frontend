@@ -17,7 +17,6 @@
     <v-navigation-drawer
       color="#031525"
       v-model="drawer"
-      absolute
       temporary
       dark
       app
@@ -63,11 +62,6 @@
 export default {
   data: () => ({
     drawer: null,
-    items: [
-      { title: "Home", icon: "mdi-home-city", route: "index" },
-      { title: "Login", icon: "mdi-account", route: "login" },
-      { title: "About", icon: "mdi-head-question", route: "about" },
-    ],
     locales: [
       { title: "العربية", value: "ar" },
       { title: "中文", value: "zh_CN" },
@@ -88,6 +82,17 @@ export default {
       { title: "Tiếng Việt", value: "vi" },
     ],
   }),
+  computed: {
+    items() {
+      return [
+        { title: "Home", icon: "mdi-home-city", route: "index" },
+        this.$store.getters.isUserLoggedIn
+          ? { title: "Logout", icon: "mdi-account", route: "logout" }
+          : { title: "Login", icon: "mdi-account", route: "login" },
+        { title: "About", icon: "mdi-head-question", route: "about" },
+      ];
+    },
+  },
   methods: {},
 };
 </script>

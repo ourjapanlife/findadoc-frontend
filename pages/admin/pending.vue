@@ -6,26 +6,33 @@
       :items="clinics"
       :items-per-page="10"
       class="elevation-1"
-      @click:row="moderate"
     >
+      <template v-slot:[`item.action`]="{ item }">
+        <v-dialog v-model="dialog" max-width="500px">
+          <v-card>
+            <v-card-title>Edit Submission</v-card-title>
+            <v-col cols="12">
+              <v-text-field
+                v-for="header in headers"
+                v-show="header.value != 'action'"
+                :key="header.value"
+                :label="header.text"
+                v-model="editedItem[header.value]"
+              ></v-text-field>
+            </v-col>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" text @click="approve(item)">
+                Approve
+              </v-btn>
+              <v-btn color="blue darken-1" text @click="cancel"> Cancel </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
+        <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+      </template>
     </v-data-table>
-
-    <v-dialog v-model="dialog" persistent max-width="290">
-      <v-card>
-        <v-card-title class="text-h5"> Approve Submission?</v-card-title>
-        <span>ID: {{ id }}</span>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="approveClinic">
-            Approve
-          </v-btn>
-          <v-btn color="green darken-1" text @click="deleteClinic">
-            Delete
-          </v-btn>
-          <v-btn color="green darken-1" text @click="cancel"> Cancel </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
   </v-container>
 </template>
 
@@ -33,15 +40,18 @@
 export default {
   data() {
     return {
-      id: "",
-      prefecture: "",
-      city: "",
-      ward: "",
-      name: "",
-      website: "",
-      note: "",
+      pendingItem: {
+        name: "",
+        prefecture: "",
+        city: "",
+        ward: "",
+        note: "",
+        website: "",
+      },
+      editedItem: {},
       clinics: [],
       dialog: false,
+      dialogDelete: false,
       headers: [
         { text: "ID", value: "id" },
         { text: "Name", value: "name" },
@@ -50,6 +60,7 @@ export default {
         { text: "Ward", value: "ward" },
         { text: "Note", value: "note" },
         { text: "Website", value: "website" },
+        { text: "Actions", value: "action", sortable: false, editable: false },
       ],
     };
   },
@@ -70,55 +81,42 @@ export default {
     }
   },
   methods: {
-    moderate(row) {
-      this.dialog = true;
-      (this.id = row.id),
-        (this.prefecture = row.prefecture),
-        (this.city = row.city),
-        (this.ward = row.ward),
-        (this.name = row.name),
-        (this.note = row.note),
-        (this.website = row.website);
-      console.log(this.note);
-    },
-    approveClinic() {
+    async approve(item) {
       this.dialog = false;
-      const clinic = {
-        prefecture: this.prefecture,
-        city: this.city,
-        ward: this.ward,
-        name: this.name,
-        note: this.note,
-        website: this.website,
-        approved: true,
-      };
       try {
-        this.$fireModule
+        await this.$fireModule
           .firestore()
           .collection("clinics")
-          .add(clinic)
-          .then(() => console.log("Approved ID: ", this.id))
-          .then(this.deleteClinic());
+          .add(this.editedItem);
+        await this.deleteItem(item);
       } catch (err) {
         console.log(err);
       }
     },
-
-    cancel() {
-      this.dialog = false;
+    editItem(item) {
+      for (const key in item) {
+        this.pendingItem[key] = item[key];
+      }
+      this.editedItem = Object.assign(item);
+      this.dialog = true;
     },
-    deleteClinic() {
-      this.dialog = false;
+    async deleteItem(item) {
+      const itemIndex = this.clinics.indexOf(item);
       try {
-        this.$fireModule
+        await this.$fireModule
           .firestore()
           .collection("pending")
-          .doc(this.id)
-          .delete()
-
-          .then(() => console.log("Deleted ID: ", this.id));
+          .doc(item.id)
+          .delete();
+        await this.clinics.splice(itemIndex, 1);
       } catch (err) {
         console.log(err);
+      }
+    },
+    cancel() {
+      this.dialog = false;
+      for (const key in this.pendingItem) {
+        this.editedItem[key] = this.pendingItem[key];
       }
     },
   },
