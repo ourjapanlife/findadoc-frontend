@@ -32,6 +32,7 @@
         title="theyokohamalife"
       ></iframe>
     </div>
+    <testimonial />
   </div>
 </template>
 
