@@ -27,21 +27,15 @@
           v-if="item.note && item.note.length > 1"
           class="dflex justify-center"
         >
-          <v-chip
-            class="ma-2"
-            color="cyan darken-1"
-            label
-            text-color="white"
-            @click="showNote(item.note)"
+          <v-icon @click="showNote(item.note)" color="cyan darken-1" center
+            >mdi-note-text</v-icon
           >
-            <v-icon center>mdi-note-text</v-icon>
-          </v-chip>
         </div>
       </template>
 
       <template v-slot:[`item.website`]="{ item }">
         <a target="_blank" :href="item.website">
-          {{ $t("cancelList.moreInfo") }}
+          {{ truncateWebsite(item.website) }}
         </a>
       </template>
       <template v-slot:[`item.flag`]="{ item }" align="left">
@@ -176,6 +170,10 @@ export default {
     showNote(note) {
       this.showDialog.note = true;
       this.selectedNote = note;
+    },
+    truncateWebsite(website) {
+      const truncated = website.match(/^https?:\/\/([^/]*)/);
+      return truncated[1] || website.substring(0, 20) + "...";
     },
     validate() {
       this.$refs.form.validate();
