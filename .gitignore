@@ -92,3 +92,6 @@ sw.*
 # Firebase
 firestore.rules
 functions
+
+# Languages build file
+languages.json
