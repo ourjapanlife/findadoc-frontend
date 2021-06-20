@@ -8,6 +8,14 @@
         handleConfirmDeleteBtnPressed(selectedItem)
       "
     />
+    <edit-dialog
+      :headers="headers"
+      :itemToEdit="selectedItem"
+      :showEditDialog="showEditDialog"
+      @on-cancel-btn-pressed="handleCancelBtnPressed()"
+      @on-approve-btn-pressed="handleApproveBtnPressed(selectedItem)"
+      @item-value-edited="handleEditedValue($event)"
+    />
     <v-card-title>
       Active Data
       <v-spacer></v-spacer>
@@ -34,34 +42,9 @@
         </a>
       </template>
       <template v-slot:[`item.action`]="{ item }">
-        <v-dialog v-model="dialog" max-width="500px">
-          <v-card>
-            <v-card-title>Edit Submission</v-card-title>
-            <v-col cols="12">
-              <v-text-field
-                v-for="header in headers"
-                v-show="header.value != 'action'"
-                :key="header.value"
-                :label="header.text"
-                v-model="editedItem[header.value]"
-              ></v-text-field>
-            </v-col>
-            <template v-slot:[`item.website`]="{ item }">
-              <a target="_blank" :href="item.website">
-                {{ item.website }}
-              </a>
-            </template>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="approve(item)">
-                Approve
-              </v-btn>
-              <v-btn color="blue darken-1" text @click="cancel"> Cancel </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-
-        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
+        <v-icon small class="mr-2" @click="handleEditBtn(item)">
+          mdi-pencil
+        </v-icon>
         <v-icon small @click="handleDeleteBtn(item)"> mdi-delete </v-icon>
       </template>
     </v-data-table>
@@ -77,6 +60,7 @@ export default {
       editedItem: {},
       clinics: [],
       dialog: false,
+      showEditDialog: false,
       showDeleteDialog: false,
       search: "",
       selectedItem: {
@@ -119,13 +103,13 @@ export default {
     }
   },
   methods: {
-    async approve(item) {
-      this.dialog = false;
+    async approve(editedItem) {
+      this.showEditDialog = false;
       try {
         await this.$fireModule
           .firestore()
           .collection("clinics")
-          .doc(item.id)
+          .doc(editedItem.id)
           .update(this.editedItem);
       } catch (err) {
         console.log(err);
@@ -163,11 +147,26 @@ export default {
       this.showDeleteDialog = false;
     },
     handleCancelBtnPressed() {
+      this.showEditDialog = false;
       this.showDeleteDialog = false;
     },
     handleDeleteBtn(item) {
       this.selectedItem = item;
       this.showDeleteDialog = true;
+    },
+    handleApproveBtnPressed(item) {
+      console.log("Approved: ", item.id);
+      this.selectedItem = item;
+      this.showEditDialog = false;
+      this.approve(item);
+    },
+    handleEditBtn(item) {
+      console.log("Editing: ", item);
+      this.selectedItem = item;
+      this.showEditDialog = true;
+    },
+    handleEditedValue($event) {
+      console.log("Emitted item: ", $event);
     },
     // truncateWebsite(website) {
     //   const truncated = website.match(/^https?:\/\/([^/]*)/);
