@@ -8,7 +8,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "netlify": "git submodule update --init --recursive --remote && nuxt generate",
-    "lint": "eslint . --ext .js,.vue,.json",
+    "lint": "eslint . --ext .js,.vue,.json && prettier --write",
     "postinstall": "husky install"
   },
   "dependencies": {
@@ -25,6 +25,16 @@
     "eslint-plugin-json": "^3.0.0",
     "eslint-plugin-vue": "^7.11.1",
     "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "prettier": "2.3.1"
+  },
+  "lint-staged": {
+    "*.js,*.vue": [
+      "eslint",
+      "prettier --write"
+    ],
+    ".json": [
+      "eslint"
+    ]
   }
 }
