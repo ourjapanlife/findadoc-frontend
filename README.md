@@ -19,6 +19,8 @@ $ git submodule update --init --recursive
 $ git submodule update
 ```
 
+If you have more issues with submodules, please check out [TROUBLESHOOTING.md](https://github.com/ourjapanlife/findadoc-frontend/blob/main/TROUBLESHOOTING.md)
+
 ## Build Setup
 
 ```bash
