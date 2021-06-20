@@ -22,7 +22,7 @@
       ></v-text-field>
     </v-card-title>
     <v-data-table
-      :headers="headers"
+      :headers="headerList"
       :items="clinics"
       :items-per-page="10"
       :search="search"
@@ -34,11 +34,11 @@
             <v-card-title>Edit Submission</v-card-title>
             <v-col cols="12">
               <v-text-field
-                v-for="header in headers"
-                v-show="header.value != 'action'"
-                :key="header.value"
-                :label="header.text"
-                v-model="editedItem[header.value]"
+                v-for="(value, name) in selectedItem"
+                :key="name"
+                :label="name"
+                :value="value"
+                v-model="editedItem[name]"
               ></v-text-field>
             </v-col>
             <v-card-actions>
@@ -73,10 +73,21 @@
 
 <script>
 import DeleteDialog from "./DeleteDialog.vue";
+import json from "../data/dbTableHeaders.json";
 export default {
   components: { DeleteDialog },
   data() {
     return {
+      editedItem: {},
+      clinics: [],
+      dialogEdit: false,
+      dialogDelete: false,
+      headerList: json.headers,
+      search: "",
+      showDeleteDialog: false,
+      selectedItem: {
+        id: "",
+      },
       pendingItem: {
         name: "",
         prefecture: "",
@@ -85,25 +96,6 @@ export default {
         note: "",
         website: "",
       },
-      editedItem: {},
-      clinics: [],
-      dialogEdit: false,
-      dialogDelete: false,
-      search: "",
-      selectedItem: {
-        id: "",
-      },
-      showDeleteDialog: false,
-      headers: [
-        { text: "ID", value: "id" },
-        { text: "Name", value: "name" },
-        { text: "Prefecture", value: "prefecture" },
-        { text: "City", value: "city" },
-        { text: "Ward", value: "ward" },
-        { text: "Note", value: "note" },
-        { text: "Website", value: "website" },
-        { text: "Actions", value: "action", sortable: false, editable: false },
-      ],
     };
   },
   mounted() {

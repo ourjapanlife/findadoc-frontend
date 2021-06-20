@@ -1,0 +1,17 @@
+{
+  "headers": [
+    { "text": "ID", "value": "id" },
+    { "text": "Name", "value": "name" },
+    { "text": "Prefecture", "value": "prefecture" },
+    { "text": "City", "value": "city" },
+    { "text": "Ward", "value": "ward" },
+    { "text": "Note", "value": "note" },
+    { "text": "Website", "value": "website" },
+    {
+      "text": "Actions",
+      "value": "action",
+      "sortable": false,
+      "editable": false
+    }
+  ]
+}
