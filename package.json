@@ -8,7 +8,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "netlify": "git submodule update --init --recursive --remote && nuxt generate",
-    "lint": "lint-staged",
+    "lint": "eslint . --ext .js,.vue,.json && prettier --write",
     "postinstall": "husky install"
   },
   "dependencies": {
@@ -16,8 +16,7 @@
     "core-js": "^3.9.1",
     "firebase": "^8.6.7",
     "nuxt": "^2.15.3",
-    "nuxt-i18n": "^6.27.1",
-    "vue-tweet-embed": "^2.4.0"
+    "nuxt-i18n": "^6.27.1"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.3",
