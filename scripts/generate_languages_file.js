@@ -1,4 +1,17 @@
 #!/usr/bin/env node
+
+/*
+ * GENERATE_LANGUAGES_FILE
+ * This script generates a file containing interpolated contents of the internationalization package,
+ * needed for application startup. Running this before build will save a root temp file with all
+ * current localization files as:
+ * {
+ *   name: name,
+ *   code: language code,
+ *   dir:  language direction (if present/applicable)
+ * }
+ */
+
 const fs = require('fs');
 const path = require('path');
 const projectRootPath = path.resolve(__dirname, '../');
