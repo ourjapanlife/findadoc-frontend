@@ -3,7 +3,9 @@
 ![GitHub License](https://img.shields.io/github/license/ourjapanlife/findadoc-frontend)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Ffindadocjp.org/)
 
-# findadoc
+# Find a Doc JAPAN
+
+[Join our slack!](https://join.slack.com/t/find-a-doc/shared_invite/zt-s4744a6o-MGaGHzLN5wB9aXeha3vdsQ)
 
 ## Working with the submodule
 
