@@ -73,7 +73,7 @@
 
 <script>
 import DeleteDialog from "./DeleteDialog.vue";
-import json from "../data/dbTableHeaders.json";
+import json from "../data/adminDbTableHeaders.json";
 export default {
   components: { DeleteDialog },
   data() {
@@ -102,6 +102,7 @@ export default {
     if (!this.$store.getters.isUserLoggedIn) {
       this.$router.push("/login");
     } else {
+      console.log("current user: ", this.$store.state.user);
       const db = this.$fireModule.firestore();
       db.collection("pending")
         .get()
