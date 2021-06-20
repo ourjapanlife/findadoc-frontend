@@ -23,6 +23,12 @@ $ git submodule update
 
 If you have more issues with submodules, please check out [TROUBLESHOOTING.md](https://github.com/ourjapanlife/findadoc-frontend/blob/main/TROUBLESHOOTING.md)
 
+## Environment Setup
+```bash
+$ cp .env.sample .env
+```
+Get the Firebase API key from the project leads and edit the `.env` file to have this value.
+
 ## Build Setup
 
 ```bash
