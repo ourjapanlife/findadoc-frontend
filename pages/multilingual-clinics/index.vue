@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row align="center">
+    <v-row>
       <v-col>
         <v-select
           :items="items"
