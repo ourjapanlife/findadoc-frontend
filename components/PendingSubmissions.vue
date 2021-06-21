@@ -101,21 +101,20 @@ export default {
   mounted() {
     if (!this.$store.getters.isUserLoggedIn) {
       this.$router.push("/login");
-    } else {
-      console.log("current user: ", this.$store.state.user);
-      const db = this.$fireModule.firestore();
-      db.collection("pending")
-        .get()
-        .then((snap) => {
-          snap.forEach((doc) => {
-            this.id = doc.id;
-            this.clinics.push(doc.data());
-            this.clinics[this.clinics.length - 1].id = this.id;
-          });
-        });
     }
+    this.getPendingSubmissions();
   },
   methods: {
+    async getPendingSubmissions() {
+      const db = this.$fireModule.firestore();
+      let pendingRef = db.collection("pending");
+      let pendingClinics = await pendingRef.get();
+      for (const doc of pendingClinics.docs) {
+        this.id = doc.id;
+        this.clinics.push(doc.data());
+        this.clinics[this.clinics.length - 1].id = this.id;
+      }
+    },
     async approve(item) {
       try {
         await this.$fireModule
@@ -146,14 +145,14 @@ export default {
         console.log(err);
       }
     },
-    handleApproveBtnPressed(item) {
+    async handleApproveBtnPressed(item) {
       this.dialogEdit = false;
-      this.approve(item);
+      await this.approve(item);
     },
-    handleEditBtnPressed(item) {
+    async handleEditBtnPressed(item) {
       this.dialogEdit = true;
       this.selectedItem = item;
-      this.editItem(item);
+      await this.editItem(item);
     },
     handleCancelEditBtnPressed() {
       this.dialogEdit = false;
@@ -166,7 +165,7 @@ export default {
       this.showDeleteDialog = true;
     },
     async handleConfirmDeleteBtnPressed(item) {
-      this.deleteItem(item);
+      await this.deleteItem(item);
       this.showDeleteDialog = false;
     },
     handleCancelBtnPressed() {
