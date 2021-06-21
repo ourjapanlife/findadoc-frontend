@@ -90,8 +90,8 @@ export default {
           this.id = doc.id;
           this.items.push(doc.data());
           this.items[this.items.length - 1].id = this.id;
-          this.loading = false;
         });
+        this.loading = false;
       });
   },
   data: (vue) => ({
@@ -173,7 +173,12 @@ export default {
     },
     truncateWebsite(website) {
       const truncated = website.match(/^https?:\/\/([^/]*)/);
-      return truncated[1] || website.substring(0, 20) + "...";
+      if(truncated == null){
+        return website;
+      }
+      else{
+        return truncated[1] || website.substring(0, 20) + "...";
+      }
     },
     validate() {
       this.$refs.form.validate();
