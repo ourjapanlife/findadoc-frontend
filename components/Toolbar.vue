@@ -14,13 +14,7 @@
         }}</v-btn>
       </nuxt-link>
     </v-app-bar>
-    <v-navigation-drawer
-      color="#031525"
-      v-model="drawer"
-      temporary
-      dark
-      app
-    >
+    <v-navigation-drawer color="#031525" v-model="drawer" temporary dark app>
       <v-list dense>
         <v-list-item
           v-for="item in items"
@@ -87,10 +81,18 @@ export default {
       return [
         { title: "Home", icon: "mdi-home-city", route: "index" },
         this.$store.getters.isUserLoggedIn
-          ? { title: "Logout", icon: "mdi-account", route: "logout" }
+          ? [
+              { title: "Logout", icon: "mdi-account", route: "logout" },
+
+              {
+                title: "Admin Dashboard",
+                icon: "mdi-shield-account-variant",
+                route: "admin-pending",
+              },
+            ]
           : { title: "Login", icon: "mdi-account", route: "login" },
         { title: "About", icon: "mdi-head-question", route: "about" },
-      ];
+      ].flat();
     },
   },
   methods: {},
