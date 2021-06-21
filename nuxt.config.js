@@ -140,6 +140,14 @@ export default {
         },
       },
     ],
+    [
+      "nuxt-gmaps",
+      {
+        /* eslint-disable-next-line no-undef */
+        key: process.env.GOOGLE_MAPS_API_KEY,
+        //you can use libraries: ['places']
+      },
+    ],
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
