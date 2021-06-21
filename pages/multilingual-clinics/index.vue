@@ -1,21 +1,12 @@
 <template>
   <v-container>
+    <language-and-specialty />
     <v-row>
-      <v-col>
-        <v-select
-          :items="items"
-          label="Select a language"
-          outlined
-          filled
-        ></v-select>
+      <v-col cols="3">
+        <search-results />
       </v-col>
-      <v-col>
-        <v-select
-          :items="items"
-          label="Select a specialty"
-          outlined
-          filled
-        ></v-select>
+      <v-col cols="9">
+        <map-results />
       </v-col>
     </v-row>
   </v-container>
