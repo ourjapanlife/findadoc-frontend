@@ -80,11 +80,14 @@
         </v-btn>
       </div>
     </v-form>
+    <StatusModal ref="successDialog" title="Success" text="New clinic data successfully inserted to the database." @closed="$router.push('/')"/>
+    <StatusModal ref="errorDialog" title="Error" text="Some Error occurred during insert please try again" />
   </v-card>
 </template>
 
 <script>
 import json from "../data/prefectures.json";
+import StatusModal from '../components/StatusModal.vue';
 export default {
   mounted() {},
   data: () => ({
@@ -132,10 +135,10 @@ export default {
             .firestore()
             .collection("pending")
             .add(clinic)
-            .then(() => console.log("added to db", this.clinic))
-            .then(this.$router.push("/"));
+            .then(() => this.$refs.successDialog.open());
         } catch (err) {
-          console.log(err);
+            console.log(err);
+            this.$refs.errorDialog.open();
         }
       } else {
         alert("Please fill out all of the fields!");
@@ -145,6 +148,9 @@ export default {
       this.$refs.form.validate();
     },
   },
+  components:{
+    StatusModal
+  }
 };
 </script>
 

@@ -76,10 +76,13 @@
         {{ this.selectedNote }}
       </v-card>
     </v-dialog>
+    <StatusModal ref="successDialog" title="Success" text="Clinic Data Reported Successfully"/>
+    <StatusModal ref="errorDialog" title="Error" text="Some error occurred while reporting the clinic. Please try again" />
   </div>
 </template>
 
 <script>
+import StatusModal from './StatusModal.vue';
 export default {
   mounted() {
     const db = this.$fireModule.firestore();
@@ -162,9 +165,10 @@ export default {
           .collection("reports")
           .add(this.report)
           .then((this.showDialog.report = false))
-          .then(() => console.log("Reported", this.report));
+          .then(this.$refs.successDialog.open());
       } catch (err) {
         console.log(err);
+        this.$refs.errorDialog.open();
       }
     },
     showNote(note) {
@@ -184,6 +188,9 @@ export default {
       this.$refs.form.validate();
     },
   },
+  components:{
+    StatusModal
+  }
 };
 </script>
 
