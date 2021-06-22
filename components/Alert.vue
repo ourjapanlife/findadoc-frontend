@@ -23,6 +23,7 @@
         </v-col>
       </v-row>
     </v-alert> -->
+
     <v-alert dismissible border="left" colored-border type="info" elevation="1">
       <v-row align="center">
         <v-col class="grow">
