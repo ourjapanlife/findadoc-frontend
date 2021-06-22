@@ -39,11 +39,11 @@
           <v-list-item
             v-for="locale in locales"
             :key="locale.title"
-            :to="switchLocalePath(locale.value)"
+            :to="switchLocalePath(locale.code)"
             link
           >
             <v-list-item-content>
-              <v-list-item-title>{{ locale.title }}</v-list-item-title>
+              <v-list-item-title>{{ locale.name }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
@@ -53,28 +53,12 @@
 </template>
 
 <script>
+import { languages } from '../i18n/supported_languages.json';
+
 export default {
   data: () => ({
     drawer: null,
-    locales: [
-      { title: "العربية", value: "ar" },
-      { title: "中文", value: "zh_CN" },
-      { title: "Nederlands", value: "nl" },
-      { title: "English", value: "en" },
-      { title: "Filipino", value: "fil" },
-      { title: "Français", value: "fr" },
-      { title: "Deutsch", value: "de" },
-      { title: "Bahasa Indonesia", value: "id" },
-      { title: "Bahasa Melayu", value: "ms" },
-      { title: "italiano", value: "it" },
-      { title: "日本語", value: "ja" },
-      { title: "한국어", value: "ko" },
-      { title: "नेपाली", value: "ne" },
-      { title: "Português", value: "pt" },
-      { title: "Spanish", value: "es" },
-      { title: "ไทย", value: "th" },
-      { title: "Tiếng Việt", value: "vi" },
-    ],
+    locales: languages
   }),
   computed: {
     items() {

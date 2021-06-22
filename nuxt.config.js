@@ -1,4 +1,5 @@
 import colors from "vuetify/es5/util/colors";
+import { languages } from "./i18n/supported_languages.json";
 
 const SITE_TITLE = "Find a Doc JAPAN";
 const SITE_DESCRIPTION =
@@ -120,25 +121,7 @@ export default {
     [
       "nuxt-i18n",
       {
-        locales: [
-          { code: "ar", file: "ar.json", dir: "rtl" },
-          { code: "de", file: "de.json" },
-          { code: "en", file: "en.json" },
-          { code: "es", file: "es.json" },
-          { code: "fil", file: "fil.json" },
-          { code: "fr", file: "fr.json" },
-          { code: "id", file: "id.json" },
-          { code: "it", file: "it.json" },
-          { code: "ja", file: "ja.json" },
-          { code: "ko", file: "ko.json" },
-          { code: "ne", file: "ne.json" },
-          { code: "nl", file: "nl.json" },
-          { code: "pt", file: "pt.json" },
-          { code: "th", file: "th.json" },
-          { code: "ms", file: "ms.json" },
-          { code: "vi", file: "vi.json" },
-          { code: "zh_CN", file: "zh_CN.json" },
-        ],
+        locales: languages,
         defaultLocale: "en",
         langDir: "i18n/locales",
         vueI18n: {
