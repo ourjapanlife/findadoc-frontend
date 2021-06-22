@@ -65,10 +65,17 @@ export default {
       return [
         { title: "Home", icon: "mdi-home-city", route: "index" },
         this.$store.getters.isUserLoggedIn
-          ? { title: "Logout", icon: "mdi-account", route: "logout" }
+          ? [
+              {
+                title: "Admin Dashboard",
+                icon: "mdi-shield-account-variant",
+                route: "admin-pending",
+              },
+              { title: "Logout", icon: "mdi-account", route: "logout" },
+            ]
           : { title: "Login", icon: "mdi-account", route: "login" },
         { title: "About", icon: "mdi-head-question", route: "about" },
-      ];
+      ].flat();
     },
   },
   methods: {},
