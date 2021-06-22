@@ -1,12 +1,13 @@
 <template>
   <v-container>
-    <v-alert dismissible border="left" colored-border type="info" elevation="1">
+    <!-- <v-alert dismissible border="left" colored-border type="info" elevation="1">
       <v-row>
         <v-col class="grow">
           Any resident of Japan with Japanese health insurance and ID card can
           register for a first vaccine shot at Ikebukuro Nagomi Clinic without a
           voucher.
-          <a href="https://twitter.com/theyokohamalife/status/1407176450956873728?s=20"
+          <a
+            href="https://twitter.com/theyokohamalife/status/1407176450956873728?s=20"
           >
             More details.</a
           >
@@ -21,7 +22,8 @@
           >
         </v-col>
       </v-row>
-    </v-alert>
+    </v-alert> -->
+
     <v-alert dismissible border="left" colored-border type="info" elevation="1">
       <v-row align="center">
         <v-col class="grow">
