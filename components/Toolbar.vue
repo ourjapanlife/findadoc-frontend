@@ -58,11 +58,6 @@ import { languages } from '../i18n/supported_languages.json';
 export default {
   data: () => ({
     drawer: null,
-    items: [
-      { title: "Home", icon: "mdi-home-city", route: "index" },
-      { title: "Login", icon: "mdi-account", route: "login" },
-      { title: "About", icon: "mdi-head-question", route: "about" },
-    ],
     locales: languages
   }),
   computed: {
