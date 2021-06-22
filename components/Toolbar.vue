@@ -63,11 +63,11 @@ export default {
   computed: {
     items() {
       return [
-        { title: "Home", icon: "mdi-home-city", route: "index" },
+        { title: this.$t("toolbar.home"), icon: "mdi-home-city", route: "index" },
         this.$store.getters.isUserLoggedIn
-          ? { title: "Logout", icon: "mdi-account", route: "logout" }
-          : { title: "Login", icon: "mdi-account", route: "login" },
-        { title: "About", icon: "mdi-head-question", route: "about" },
+          ? { title: this.$t("toolbar.logout"), icon: "mdi-account", route: "logout" }
+          : { title: this.$t("toolbar.login"), icon: "mdi-account", route: "login" },
+        { title: this.$t("toolbar.about"), icon: "mdi-head-question", route: "about" },
       ];
     },
   },
