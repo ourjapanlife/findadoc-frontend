@@ -4,15 +4,15 @@
     <v-main>
       <Nuxt />
     </v-main>
-    <footer />
+    <site-footer />
   </v-app>
 </template>
 
 <script>
-import Footer from "@/components/Footer.vue";
+import SiteFooter from "@/components/SiteFooter.vue";
 
 export default {
-  compoonents: { Footer },
+  compoonents: { SiteFooter },
   async mounted() {
     await this.$store.dispatch("refreshUser");
   },
