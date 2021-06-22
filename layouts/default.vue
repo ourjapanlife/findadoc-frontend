@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import footer from "@/components/Footer.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
-  compoonents: { footer },
+  compoonents: { Footer },
   async mounted() {
     await this.$store.dispatch("refreshUser");
   },
