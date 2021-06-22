@@ -7,7 +7,7 @@
           register for a first vaccine shot at Ikebukuro Nagomi Clinic without a
           voucher.
           <a
-            href="https://twitter.com/theyokohamalife/status/1407127524639838248?s=20"
+            href="https://twitter.com/theyokohamalife/status/1407176450956873728?s=20"
           >
             More details.</a
           >
