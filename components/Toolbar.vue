@@ -14,13 +14,7 @@
         }}</v-btn>
       </nuxt-link>
     </v-app-bar>
-    <v-navigation-drawer
-      color="#031525"
-      v-model="drawer"
-      temporary
-      dark
-      app
-    >
+    <v-navigation-drawer color="#031525" v-model="drawer" temporary dark app>
       <v-list dense>
         <v-list-item
           v-for="item in items"

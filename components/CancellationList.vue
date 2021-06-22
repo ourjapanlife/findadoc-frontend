@@ -173,10 +173,9 @@ export default {
     },
     truncateWebsite(website) {
       const truncated = website.match(/^https?:\/\/([^/]*)/);
-      if(truncated == null){
+      if (truncated == null) {
         return website;
-      }
-      else{
+      } else {
         return truncated[1] || website.substring(0, 20) + "...";
       }
     },
