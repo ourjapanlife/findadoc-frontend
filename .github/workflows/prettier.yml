@@ -1,0 +1,53 @@
+name: Prettier
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch: 
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  tidy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Prettier Action
+      # You may pin to the exact commit or the version.
+      # uses: creyD/prettier_action@cb975d8aad896ac567efb5dffc07653fb42abdb7
+        uses: creyD/prettier_action@v3.3
+        with:
+          # Commit message, will be ignored if used with same_commit
+          commit_message: "✨Prettified Code✨"
+          # Update the current commit instead of creating a new one
+          same_commit: false
+          # Commit options
+          #commit_options: # optional
+          # File pattern used for `git add`, can't be used with only_changed!
+          # file_pattern: *
+          # Options for the `prettier` command
+          prettier_options: --write **/*.{vue,js}
+          # Running the script in dry mode just shows whether there are files that should be prettified or not
+          # dry: false
+          # Specific version of prettier (by default just use the latest version)
+          #prettier_version: # optional
+          # Only prettify files changed in the last commit, can't be used with file_pattern!
+          # only_changed: true
+          # Install Prettier plugins, i.e. `@prettier/prettier-php @prettier/some-other-plugin`
+          #prettier_plugins: # optional, default is 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
