@@ -46,7 +46,10 @@
       <v-card>
         <v-card-title class="text-h5"> Report this Data </v-card-title>
         <v-form v-model="validReport" ref="form" lazy-validation>
-          <span><b>{{ $t("cancelList.report.clinicName") }}</b> {{ report.name }}</span>
+          <span
+            ><b>{{ $t("cancelList.report.clinicName") }}</b>
+            {{ report.name }}</span
+          >
           <v-textarea
             v-model="report.message"
             :rules="reportRules"
@@ -65,7 +68,9 @@
             >
               {{ $t("cancelList.report.submitReport") }}
             </v-btn>
-            <v-btn color="secondary" text @click="cancelReport"> {{ $t("general.cancel") }} </v-btn>
+            <v-btn color="secondary" text @click="cancelReport">
+              {{ $t("general.cancel") }}
+            </v-btn>
           </v-card-actions>
         </v-form>
       </v-card>
@@ -173,10 +178,9 @@ export default {
     },
     truncateWebsite(website) {
       const truncated = website.match(/^https?:\/\/([^/]*)/);
-      if(truncated == null){
+      if (truncated == null) {
         return website;
-      }
-      else{
+      } else {
         return truncated[1] || website.substring(0, 20) + "...";
       }
     },

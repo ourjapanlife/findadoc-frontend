@@ -67,7 +67,7 @@
       </v-container>
 
       <div align="center">
-        
+        {{ $t("add-clinic.reviewMessage") }}
       </div>
       <div align="center">
         <v-btn
