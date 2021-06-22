@@ -77,7 +77,7 @@
     </v-dialog>
     <v-dialog v-model="showDialog.note" max-width="300px">
       <v-card id="note" align="center">
-        <v-card-title>{{ $t("general.note") }}</v-card-title>
+        <v-card-title>{{ $t("cancelList.header.note") }}</v-card-title>
         {{ this.selectedNote }}
       </v-card>
     </v-dialog>
@@ -142,7 +142,7 @@ export default {
         sortable: false,
       },
       {
-        text: `${vue.$t("cancelList.header.flag")}:`,
+        text: `${vue.$t("cancelList.header.report")}:`,
         value: "flag",
         sortable: false,
       },
