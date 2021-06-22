@@ -4,23 +4,21 @@
     <v-main>
       <Nuxt />
     </v-main>
-    <v-footer fixed app dark color="#8ea1b9">
-      <div id="kofi">
-        &copy; {{ new Date().getFullYear() }} —
-        <a href="https://ko-fi.com/theyokohamalife" target="_blank">
-          {{ $t("footer.kofi") }}</a
-        >
-      </div>
-    </v-footer>
+    <footer />
   </v-app>
 </template>
+
 <script>
+import footer from "@/components/Footer.vue";
+
 export default {
+  compoonents: { footer },
   async mounted() {
     await this.$store.dispatch("refreshUser");
   },
 };
 </script>
+
 <style scoped>
 .v-footer {
   display: flex;
