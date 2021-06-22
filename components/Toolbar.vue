@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import languages from '../languages.json';
+import { languages } from '../i18n/supported_languages.json';
 
 export default {
   data: () => ({
