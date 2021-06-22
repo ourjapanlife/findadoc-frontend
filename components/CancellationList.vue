@@ -142,7 +142,7 @@ export default {
         sortable: false,
       },
       {
-        text: `${vue.$t("cancelList.header.flag")}:`,
+        text: `${vue.$t("cancelList.header.report")}:`,
         value: "flag",
         sortable: false,
       },
