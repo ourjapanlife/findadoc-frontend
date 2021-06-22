@@ -2,16 +2,16 @@
   <v-dialog :value="showDeleteDialog" max-width="500px">
     <v-card>
       <v-card-title class="text-h5"
-        >Are you sure you want to delete ID: {{ idToDelete }}?</v-card-title
+        >{{ $t("delete.dialog", [idToDelete]) }}?</v-card-title
       >
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="blue darken-1" text @click="handleCancelBtnPressed"
-          >Cancel</v-btn
-        >
-        <v-btn color="blue darken-1" text @click="handleConfirmBtnPressed"
-          >Delete</v-btn
-        >
+        <v-btn color="blue darken-1" text @click="handleCancelBtnPressed">{{
+          $t("general.cancel")
+        }}</v-btn>
+        <v-btn color="blue darken-1" text @click="handleConfirmBtnPressed">{{
+          $t("general.delete")
+        }}</v-btn>
         <v-spacer></v-spacer>
       </v-card-actions>
     </v-card>

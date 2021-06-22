@@ -59,7 +59,7 @@
               v-model="note"
               outlined
               name="input-7-4"
-              label="Additional information (Optional)"
+              :label="$t('add-clinic.additionalInfo')"
               placeholder="Share helpful or important details"
             ></v-textarea>
           </v-col>
@@ -76,7 +76,7 @@
           :disabled="!valid"
           @click="submitData"
         >
-          Submit Clinic
+          {{ $t("add-clinic.submitClinic") }}
         </v-btn>
       </div>
     </v-form>
