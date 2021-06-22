@@ -30,7 +30,7 @@ git status
 
 If the changes to the i18n folder no longer show up in status, you are good 👍
 
-### I accidentally commited i18n changes and need to revert them
+### I accidentally committed i18n changes and need to revert them
 
 #### I haven't pushed yet
 
