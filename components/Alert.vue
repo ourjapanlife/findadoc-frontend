@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-alert dismissible border="left" colored-border type="info" elevation="1">
+    <!-- <v-alert dismissible border="left" colored-border type="info" elevation="1">
       <v-row>
         <v-col class="grow">
           Any resident of Japan with Japanese health insurance and ID card can
@@ -22,7 +22,7 @@
           >
         </v-col>
       </v-row>
-    </v-alert>
+    </v-alert> -->
     <v-alert dismissible border="left" colored-border type="info" elevation="1">
       <v-row align="center">
         <v-col class="grow">
