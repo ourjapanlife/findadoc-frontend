@@ -1,7 +1,6 @@
 <template>
-  <v-footer fixed app dark color="#8ea1b9">
-    <v-container fluid>
-      <v-col>
+  <v-footer fixed app dark color="accent">
+      <v-col fluid>
         <v-row>
           <v-col>
             {{ $t("footer.siteTitle", [new Date().getFullYear()]) }}
@@ -26,6 +25,12 @@
           </v-col>
         </v-row>
       </v-col>
-    </v-container>
+
   </v-footer>
 </template>
+
+<style>
+a:link, a:visited {
+  color: white;
+}
+</style>
