@@ -41,7 +41,7 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>{{ $t("footer.github") }}</v-list-item-title>
+            <v-list-item-title>{{ $t("toolbar.github") }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
