@@ -65,10 +65,17 @@ export default {
       return [
         { title: this.$t("toolbar.home"), icon: "mdi-home-city", route: "index" },
         this.$store.getters.isUserLoggedIn
-          ? { title: this.$t("toolbar.logout"), icon: "mdi-account", route: "logout" }
-          : { title: this.$t("toolbar.login"), icon: "mdi-account", route: "login" },
-        { title: this.$t("toolbar.about"), icon: "mdi-head-question", route: "about" },
-      ];
+          ? [
+              {
+                title: "Admin Dashboard",
+                icon: "mdi-shield-account-variant",
+                route: "admin-pending",
+              },
+              { title: "this.$t('toolbar.logout')", icon: "mdi-account", route: "logout" },
+            ]
+          : { title: "this.$t('toolbar.login'), icon: "mdi-account", route: "login" },
+        { title: "this.$t('toolbar.about')", icon: "mdi-head-question", route: "about" },
+      ].flat();
     },
   },
   methods: {},
