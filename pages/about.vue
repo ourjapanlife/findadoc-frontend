@@ -14,10 +14,11 @@
       </div>
       <div>
         <h2>{{ $t("about.creatorQ") }}</h2>
-        {{ $t("about.creatorA")
-        }}<a href="https://twitter.com/theyokohamalife" target="_blank"
-          >@theyokohamalife</a
-        >
+        <i18n path="about.creatorA" tag="span">
+          <a href="https://twitter.com/theyokohamalife" target="_blank"
+            >@theyokohamalife</a
+          >
+        </i18n>
       </div>
       <div>
         <h2>{{ $t("about.supportQ") }}</h2>
