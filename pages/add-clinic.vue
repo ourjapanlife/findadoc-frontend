@@ -1,11 +1,6 @@
 <template>
   <v-card max-width="600px">
-    <v-form
-      ref="form"
-      v-model="valid"
-      lazy-validation
-      @submit.prevent="submitData"
-    >
+    <v-form @submit.prevent="submitData">
       <div align="center" id="instructions">
         <h2>{{ $t("add-clinic.fillForm") }}</h2>
       </div>
@@ -19,39 +14,34 @@
               :items="prefectureList"
               :label="$t('add-clinic.prefecture')"
               v-model="prefecture"
-              required
             ></v-autocomplete>
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
               :label="$t('add-clinic.city')"
-              v-model="city"
-              required
-              :rules="cityRules"
+              :error-messages="errorMessages($v.city, 'city')"
+              v-model="$v.city.$model"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
               :label="$t('add-clinic.ward')"
-              v-model="ward"
-              required
-              :rules="wardRules"
+              :error-messages="errorMessages($v.ward, 'ward')"
+              v-model="$v.ward.$model"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
               :label="$t('add-clinic.clinicName')"
-              v-model="name"
-              required
-              :rules="nameRules"
+              :error-messages="errorMessages($v.clinic, 'clinic')"
+              v-model="$v.clinic.$model"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
               :label="$t('add-clinic.websiteURL')"
-              v-model="website"
-              required
-              :rules="websiteRules"
+              :error-messages="errorMessages($v.website, 'website')"
+              v-model="$v.website.$model"
             ></v-text-field>
           </v-col>
           <v-col>
@@ -73,7 +63,7 @@
         <v-btn
           dark
           color="blue darken-1"
-          :disabled="!valid"
+          :disabled="this.$v.$invalid"
           @click="submitData"
         >
           {{ $t("add-clinic.submitClinic") }}
@@ -85,39 +75,39 @@
 
 <script>
 import json from "../data/prefectures.json";
+import { required, minLength, url } from "vuelidate/lib/validators";
 export default {
-  mounted() {},
   data: () => ({
-    valid: true,
     prefectureList: json.prefectures,
     prefecture: "",
     city: "",
-    cityRules: [
-      (v) => !!v || "City is required",
-      (v) => (v && v.length >= 2) || "City name must be at least 2 characters",
-    ],
     ward: "",
-    wardRules: [
-      (v) => !!v || "Ward is required",
-      (v) => (v && v.length >= 2) || "Ward name must be at least 2 characters",
-    ],
-    name: "",
-    nameRules: [
-      (v) => !!v || "Clinic name is required",
-      (v) =>
-        (v && v.length >= 2) || "Clinic name must be at least 2 characters",
-    ],
+    clinic: "",
     note: "",
     website: "",
-    websiteRules: [
-      (v) => !!v || "Website URL is required",
-      (v) => (v && v.length >= 5) || "Please enter a valid URL",
-    ],
   }),
 
+  validations: {
+    city: {
+      required,
+      minLength: minLength(2),
+    },
+    ward: {
+      required,
+      minLength: minLength(2),
+    },
+    clinic: {
+      required,
+      minLength: minLength(2),
+    },
+    website: {
+      required,
+      url,
+    },
+  },
   methods: {
     submitData() {
-      if (this.$refs.form.validate()) {
+      if (!this.$v.$invalid) {
         const clinic = {
           prefecture: this.prefecture,
           city: this.city,
@@ -141,8 +131,24 @@ export default {
         alert("Please fill out all of the fields!");
       }
     },
-    validate() {
-      this.$refs.form.validate();
+    errorMessages(field, name) {
+      if (field.$dirty && field.$invalid) {
+        return field
+          .$flattenParams()
+          .filter((param) => !field[param.name])
+          .map((param) => {
+            let args = {};
+            if (param.name === "minLength") {
+              args["0"] = field.$params.minLength.min;
+            }
+            return this.$t(
+              `add-clinic.validations.${name}.${param.name}`,
+              args
+            );
+          });
+      } else {
+        return [];
+      }
     },
   },
 };
