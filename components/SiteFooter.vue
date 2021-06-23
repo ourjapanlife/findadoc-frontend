@@ -17,9 +17,7 @@
             {{ $t("footer.github") }}</a
           >
         </v-col>
-      </v-row>
-      <v-row>
-        <v-col id="netlify">
+        <v-col id="netlify" align-content="right">
           <v-icon>mdi-flash</v-icon>
           <a href="https://www.netlify.com/" target="_blank">
             {{ $t("footer.netlify") }}</a
