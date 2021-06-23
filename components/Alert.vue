@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-alert dismissible color="cyan" text prominent outlined>
+    <v-alert dismissible color="cyan" text outlined>
       <v-row align="center">
         <v-col class="grow">
           <slot></slot>
