@@ -2,10 +2,6 @@
   <v-footer fixed app dark color="footer">
     <v-col fluid align-content="center" align="center">
       <v-row>
-        <v-col>
-          <v-icon>mdi-needle</v-icon>
-          {{ "©" + new Date().getFullYear() }}
-        </v-col>
         <v-col id="donate">
           <v-icon>mdi-heart</v-icon>
           <a href="https://ko-fi.com/theyokohamalife" target="_blank">
@@ -18,7 +14,7 @@
             href="https://github.com/ourjapanlife/findadoc-frontend"
             target="_blank"
           >
-            GitHub</a
+            {{ $t("footer.github") }}</a
           >
         </v-col>
       </v-row>
