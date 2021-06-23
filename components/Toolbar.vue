@@ -57,7 +57,7 @@ import { languages } from "../i18n/supported_languages.json";
 
 export default {
   data: () => ({
-    drawer: null,
+    drawer: false,
     locales: languages,
   }),
   computed: {
