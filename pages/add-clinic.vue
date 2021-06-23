@@ -80,10 +80,12 @@
         </v-btn>
       </div>
     </v-form>
+    <NotificationSnackBar :showSnackBar="snackBarData.open" :snackbarText="snackBarData.text" @closeSnackbar="snackBarData.onClosed"/>
   </v-card>
 </template>
 
 <script>
+import NotificationSnackBar from '../components/NotificationSnackBar.vue'
 import json from "../data/prefectures.json";
 export default {
   mounted() {},
@@ -113,8 +115,17 @@ export default {
       (v) => !!v || "Website URL is required",
       (v) => (v && v.length >= 5) || "Please enter a valid URL",
     ],
-  }),
 
+    //SnackBar Notification Data
+    snackBarData: {
+      open: false,
+      text: '',
+      onClosed: ()=>{}
+    }
+  }),
+  components:{
+    NotificationSnackBar
+  },
   methods: {
     submitData() {
       if (this.$refs.form.validate()) {
@@ -132,10 +143,26 @@ export default {
             .firestore()
             .collection("pending")
             .add(clinic)
-            .then(() => console.log("added to db", this.clinic))
-            .then(this.$router.push("/"));
+            .then(() => {
+              console.log("added to db", this.clinic)
+              this.snackBarData = {
+                open: true,
+                text: "Added Successfully to the database",
+                onClosed: () => {
+                  this.snackBarData.open = false;
+                  this.$router.push("/")
+                }
+              }
+            }); 
         } catch (err) {
           console.log(err);
+          this.snackBarData = {
+            open: true,
+            text: "Some Error Occurred, Please try again",
+            onClosed: () => {
+              this.snackBarData.open = false;
+            }
+          }
         }
       } else {
         alert("Please fill out all of the fields!");

@@ -76,10 +76,12 @@
         {{ this.selectedNote }}
       </v-card>
     </v-dialog>
+    <NotificationSnackBar :showSnackBar="snackBarData.open" :snackbarText="snackBarData.text" @closeSnackbar="snackBarData.onClosed"/>
   </div>
 </template>
 
 <script>
+import NotificationSnackBar from '../components/NotificationSnackBar.vue'
 export default {
   mounted() {
     const db = this.$fireModule.firestore();
@@ -142,7 +144,16 @@ export default {
         sortable: false,
       },
     ],
+    //SnackBar Notification Data
+    snackBarData: {
+      open: false,
+      text: '',
+      onClosed: ()=>{}
+    }
   }),
+  components:{
+    NotificationSnackBar
+  },
   methods: {
     cancelReport() {
       this.showDialog.report = false;
@@ -162,9 +173,24 @@ export default {
           .collection("reports")
           .add(this.report)
           .then((this.showDialog.report = false))
-          .then(() => console.log("Reported", this.report));
+          .then(() => {console.log("Reported", this.report);
+            this.snackBarData = {
+              open: true,
+              text: "Reported Successfully",
+              onClosed: () => {
+                this.snackBarData.open = false;
+              }
+            }
+          });
       } catch (err) {
         console.log(err);
+        this.snackBarData = {
+          open: true,
+          text: "Some Error Occurrred, Please try again.",
+          onClosed: () => {
+            this.snackBarData.open = false;
+          }
+        }
       }
     },
     showNote(note) {
