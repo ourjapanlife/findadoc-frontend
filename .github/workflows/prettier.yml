@@ -35,9 +35,10 @@ jobs:
       - name: Set new branch name
         run: printf "UPDATE_BRANCH=prettier-update-${GITHUB_RUN_NUMBER}" | tee --append "$GITHUB_ENV"
           
-      - name: Checkout new branch
+      - name: Checkout new branch and set remote
         run: |
           git checkout -b $UPDATE_BRANCH
+          git push -u origin $UPDATE_BRANCH
 
       - name: Prettier Action
       # You may pin to the exact commit or the version.
