@@ -1,11 +1,12 @@
 <template>
   <div>
-    <v-app-bar color="indigo darken-1" dense dark app>
+    <v-app-bar dense light app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title
-        ><nuxt-link :to="localePath({ name: 'index' })">{{
-          $t("toolbar.title")
-        }}</nuxt-link></v-toolbar-title
+      <v-toolbar-title>
+        <!-- Set a mobile breakpoint for the name? -->
+        <nuxt-link :to="localePath({ name: 'index' })"
+          >Find a Doc</nuxt-link
+        ></v-toolbar-title
       >
       <v-spacer></v-spacer>
       <nuxt-link :to="localePath({ name: 'add-clinic' })">
@@ -63,7 +64,11 @@ export default {
   computed: {
     items() {
       return [
-        { title: this.$t("toolbar.home"), icon: "mdi-home-city", route: "index" },
+        {
+          title: this.$t("toolbar.home"),
+          icon: "mdi-home-city",
+          route: "index",
+        },
         this.$store.getters.isUserLoggedIn
           ? [
               {
@@ -71,10 +76,22 @@ export default {
                 icon: "mdi-shield-account-variant",
                 route: "admin-pending",
               },
-              { title: this.$t("toolbar.logout"), icon: "mdi-account", route: "logout" },
+              {
+                title: this.$t("toolbar.logout"),
+                icon: "mdi-account",
+                route: "logout",
+              },
             ]
-          : { title: this.$t("toolbar.login"), icon: "mdi-account", route: "login" },
-        { title: this.$t("toolbar.about"), icon: "mdi-head-question", route: "about" },
+          : {
+              title: this.$t("toolbar.login"),
+              icon: "mdi-account",
+              route: "login",
+            },
+        {
+          title: this.$t("toolbar.about"),
+          icon: "mdi-head-question",
+          route: "about",
+        },
       ].flat();
     },
   },
@@ -85,6 +102,6 @@ export default {
 <style scoped>
 a {
   text-decoration: none !important;
-  color: white !important;
+  color: black !important;
 }
 </style>

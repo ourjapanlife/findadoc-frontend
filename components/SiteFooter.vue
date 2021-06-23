@@ -1,11 +1,7 @@
 <template>
-  <v-footer fixed app dark color="accent">
-    <v-col fluid>
+  <v-footer fixed app dark color="footer">
+    <v-col fluid align-content="center" align="center">
       <v-row>
-        <v-col>
-          <v-icon>mdi-needle</v-icon>
-          {{ $t("footer.siteTitle", [new Date().getFullYear()]) }}
-        </v-col>
         <v-col id="donate">
           <v-icon>mdi-heart</v-icon>
           <a href="https://ko-fi.com/theyokohamalife" target="_blank">
@@ -21,7 +17,7 @@
             {{ $t("footer.github") }}</a
           >
         </v-col>
-        <v-col id="netlify">
+        <v-col id="netlify" align-content="right">
           <v-icon>mdi-flash</v-icon>
           <a href="https://www.netlify.com/" target="_blank">
             {{ $t("footer.netlify") }}</a
@@ -32,9 +28,13 @@
   </v-footer>
 </template>
 
-<style>
+<style scoped>
 a:link,
 a:visited {
   color: white;
+  text-decoration: none;
+}
+.col {
+  padding: 6px !important;
 }
 </style>
