@@ -1,14 +1,14 @@
 <template>
   <v-container>
-    <v-alert dismissible border="left" colored-border type="info" elevation="1">
+    <v-alert dismissible color="cyan" text outlined>
       <v-row align="center">
         <v-col class="grow">
           <slot></slot>
         </v-col>
         <v-col class="shrink">
           <v-btn
-            dark
-            color="indigo darken-1"
+            light
+            color="cyan lighten-1"
             :href="buttonUrl"
             target="_blank"
             >{{ buttonText }}</v-btn
