@@ -48,7 +48,7 @@ export default {
       headerList: [
         { text: "ID", value: "id" },
         { text: "Name", value: "name" },
-        { text: "Message", value: "message", width: "30%" },
+        { text: "Message", value: "message", width: "60%" },
         {
           text: "Actions",
           value: "action",
