@@ -3,12 +3,12 @@
     <v-container fluid>
       <v-col>
         <v-row>
-          <v-col id="kofi">
+          <v-col>
             {{ $t("footer.siteTitle", [new Date().getFullYear()]) }}
           </v-col>
-          <v-col>
+          <v-col id="donate">
             <a href="https://ko-fi.com/theyokohamalife" target="_blank">
-              {{ $t("footer.kofi") }}</a
+              {{ $t("footer.donate") }}</a
             >
           </v-col>
           <v-col id="github">
