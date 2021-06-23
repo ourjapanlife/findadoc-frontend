@@ -31,6 +31,19 @@
           </v-list-item-content>
         </v-list-item>
 
+        <v-list-item
+          href="https://github.com/ourjapanlife/findadoc-frontend"
+          target="_blank"
+        >
+          <v-list-item-icon>
+            <v-icon>mdi-github</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ $t("footer.github") }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-list-group :value="false" prepend-icon="mdi-web">
           <template v-slot:activator>
             <v-list-item-title>{{ $t("toolbar.languages") }}</v-list-item-title>
@@ -63,7 +76,11 @@ export default {
   computed: {
     items() {
       return [
-        { title: this.$t("toolbar.home"), icon: "mdi-home-city", route: "index" },
+        {
+          title: this.$t("toolbar.home"),
+          icon: "mdi-home-city",
+          route: "index",
+        },
         this.$store.getters.isUserLoggedIn
           ? [
               {
@@ -71,10 +88,22 @@ export default {
                 icon: "mdi-shield-account-variant",
                 route: "admin-pending",
               },
-              { title: this.$t("toolbar.logout"), icon: "mdi-account", route: "logout" },
+              {
+                title: this.$t("toolbar.logout"),
+                icon: "mdi-account",
+                route: "logout",
+              },
             ]
-          : { title: this.$t("toolbar.login"), icon: "mdi-account", route: "login" },
-        { title: this.$t("toolbar.about"), icon: "mdi-head-question", route: "about" },
+          : {
+              title: this.$t("toolbar.login"),
+              icon: "mdi-account",
+              route: "login",
+            },
+        {
+          title: this.$t("toolbar.about"),
+          icon: "mdi-head-question",
+          route: "about",
+        },
       ].flat();
     },
   },
