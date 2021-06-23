@@ -53,12 +53,12 @@
 </template>
 
 <script>
-import { languages } from '../i18n/supported_languages.json';
+import { languages } from "../i18n/supported_languages.json";
 
 export default {
   data: () => ({
     drawer: null,
-    locales: languages
+    locales: languages,
   }),
   computed: {
     items() {
