@@ -32,6 +32,19 @@
           </v-list-item-content>
         </v-list-item>
 
+        <v-list-item
+          href="https://github.com/ourjapanlife/findadoc-frontend"
+          target="_blank"
+        >
+          <v-list-item-icon>
+            <v-icon>mdi-github</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ $t("toolbar.github") }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-list-group :value="false" prepend-icon="mdi-web">
           <template v-slot:activator>
             <v-list-item-title>{{ $t("toolbar.languages") }}</v-list-item-title>
@@ -58,7 +71,7 @@ import { languages } from "../i18n/supported_languages.json";
 
 export default {
   data: () => ({
-    drawer: null,
+    drawer: false,
     locales: languages,
   }),
   computed: {

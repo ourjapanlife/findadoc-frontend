@@ -8,15 +8,6 @@
             {{ $t("footer.donate") }}</a
           >
         </v-col>
-        <v-col id="github">
-          <v-icon>mdi-github</v-icon>
-          <a
-            href="https://github.com/ourjapanlife/findadoc-frontend"
-            target="_blank"
-          >
-            {{ $t("footer.github") }}</a
-          >
-        </v-col>
         <v-col id="netlify" align-content="right">
           <v-icon>mdi-flash</v-icon>
           <a href="https://www.netlify.com/" target="_blank">
