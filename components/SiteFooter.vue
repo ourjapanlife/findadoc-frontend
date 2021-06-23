@@ -8,7 +8,7 @@
             {{ $t("footer.donate") }}</a
           >
         </v-col>
-        <v-col id="netlify">
+        <v-col id="netlify" align-content="right">
           <v-icon>mdi-flash</v-icon>
           <a href="https://www.netlify.com/" target="_blank">
             {{ $t("footer.netlify") }}</a
