@@ -75,7 +75,9 @@
 
 <script>
 import json from "../data/prefectures.json";
-import { required, minLength, url } from "vuelidate/lib/validators";
+import { required, minLength, url, helpers } from "vuelidate/lib/validators";
+// https://medium.com/@annkilzer/validating-japanese-input-with-vuelidate-and-vue-js-ccdb91d70d36
+const validChars = helpers.regex("validChars", /^[A-Za-z0-9\- \.,'"„“’]*$/);
 export default {
   data: () => ({
     prefectureList: json.prefectures,
@@ -91,14 +93,17 @@ export default {
     city: {
       required,
       minLength: minLength(2),
+      validChars,
     },
     ward: {
       required,
       minLength: minLength(2),
+      validChars,
     },
     clinic: {
       required,
       minLength: minLength(2),
+      validChars,
     },
     website: {
       required,
