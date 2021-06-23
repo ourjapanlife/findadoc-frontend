@@ -11,6 +11,14 @@ and here: https://github.blog/2016-02-01-working-with-submodules/
 
 ### There are i18n changes locally but I don't want to commit them
 
+#### The easy way
+
+```sh
+ git submodule update
+```
+
+#### The slow way
+
 1. Go to the main branch and figure out what commit the submodule is at:
 
 ```sh
