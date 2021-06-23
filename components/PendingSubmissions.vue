@@ -9,7 +9,7 @@
       "
     />
     <v-card-title>
-      Pending Submissions
+      {{ $t("pending.title") }}
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
@@ -31,7 +31,7 @@
       <template v-slot:[`item.action`]="{ item }">
         <v-dialog v-model="dialogEdit" max-width="500px">
           <v-card>
-            <v-card-title>Edit Submission</v-card-title>
+            <v-card-title>{{ $t("pending.edit") }}</v-card-title>
             <v-col cols="12">
               <v-text-field
                 v-for="(value, name) in selectedItem"
@@ -48,14 +48,14 @@
                 text
                 @click="handleApproveBtnPressed(item)"
               >
-                Approve
+                {{ $t("general.approve") }}
               </v-btn>
               <v-btn
                 color="blue darken-1"
                 text
                 @click="handleCancelEditBtnPressed"
               >
-                Cancel
+                {{ $t("general.cancel") }}
               </v-btn>
             </v-card-actions>
           </v-card>

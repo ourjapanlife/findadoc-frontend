@@ -67,7 +67,7 @@ export default {
         this.$store.getters.isUserLoggedIn
           ? [
               {
-                title: "Admin Dashboard",
+                title: this.$t("toolbar.adminDashboard"),
                 icon: "mdi-shield-account-variant",
                 route: "admin-pending",
               },

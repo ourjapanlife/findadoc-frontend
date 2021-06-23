@@ -44,7 +44,7 @@
     </v-data-table>
     <v-dialog v-model="showDialog.report" max-width="600px">
       <v-card>
-        <v-card-title class="text-h5"> Report this Data </v-card-title>
+        <v-card-title class="text-h5">{{ $t("cancelList.report.title") }}</v-card-title>
         <v-form v-model="validReport" ref="form" lazy-validation>
           <span
             ><b>{{ $t("cancelList.report.clinicName") }}</b>
