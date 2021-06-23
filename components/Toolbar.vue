@@ -71,10 +71,10 @@ export default {
                 icon: "mdi-shield-account-variant",
                 route: "admin-pending",
               },
-              { title: "this.$t('toolbar.logout')", icon: "mdi-account", route: "logout" },
+              { title: this.$t("toolbar.logout"), icon: "mdi-account", route: "logout" },
             ]
-          : { title: "this.$t('toolbar.login'), icon: "mdi-account", route: "login" },
-        { title: "this.$t('toolbar.about')", icon: "mdi-head-question", route: "about" },
+          : { title: this.$t("toolbar.login"), icon: "mdi-account", route: "login" },
+        { title: this.$t("toolbar.about")", icon: "mdi-head-question", route: "about" },
       ].flat();
     },
   },
