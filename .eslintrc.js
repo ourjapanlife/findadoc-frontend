@@ -6,7 +6,7 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
-    "plugin:vue/essential",
+    "plugin:vue/recommended",
     "plugin:json/recommended",
   ],
   parserOptions: {
