@@ -1,8 +1,8 @@
 <template>
-  <v-container v-show="this.$store.getters.isUserLoggedIn">
+  <v-container v-show="$store.getters.isUserLoggedIn">
     <delete-dialog
-      :idToDelete="selectedItem.id"
-      :showDeleteDialog="showDeleteDialog"
+      :id-to-delete="selectedItem.id"
+      :show-delete-dialog="showDeleteDialog"
       @on-cancel-btn-pressed="handleCancelBtnPressed()"
       @on-confirm-delete-btn-pressed="
         handleConfirmDeleteBtnPressed(selectedItem)
@@ -10,7 +10,7 @@
     />
     <v-card-title>
       {{ $t("pending.title") }}
-      <v-spacer></v-spacer>
+      <v-spacer />
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
@@ -19,7 +19,7 @@
         filled
         outlined
         clearable
-      ></v-text-field>
+      />
     </v-card-title>
     <v-data-table
       :headers="headerList"
@@ -28,7 +28,7 @@
       :search="search"
       class="elevation-1"
     >
-      <template v-slot:[`item.action`]="{ item }">
+      <template #[`item.action`]="{ item }">
         <v-dialog v-model="dialogEdit" max-width="500px">
           <v-card>
             <v-card-title>{{ $t("pending.edit") }}</v-card-title>
@@ -36,13 +36,13 @@
               <v-text-field
                 v-for="(value, name) in selectedItem"
                 :key="name"
+                v-model="editedItem[name]"
                 :label="name"
                 :value="value"
-                v-model="editedItem[name]"
-              ></v-text-field>
+              />
             </v-col>
             <v-card-actions>
-              <v-spacer></v-spacer>
+              <v-spacer />
               <v-btn
                 color="primary"
                 text

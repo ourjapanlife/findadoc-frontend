@@ -1,8 +1,8 @@
 <template>
-  <v-container v-show="this.$store.getters.isUserLoggedIn">
+  <v-container v-show="$store.getters.isUserLoggedIn">
     <v-card-title>
       Active Clinic Data
-      <v-spacer></v-spacer>
+      <v-spacer />
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
@@ -11,7 +11,7 @@
         filled
         outlined
         clearable
-      ></v-text-field>
+      />
     </v-card-title>
     <v-data-table
       :headers="headerList"
@@ -20,13 +20,13 @@
       :search="search"
       class="elevation-1"
     >
-      <template v-slot:[`item.website`]="{ item }">
+      <template #[`item.website`]="{ item }">
         <a target="_blank" :href="item.website">
           {{ truncateWebsite(item.website) }}
         </a>
       </template>
 
-      <template v-slot:[`item.action`]="{ item }">
+      <template #[`item.action`]="{ item }">
         <v-dialog v-model="dialogEdit" max-width="500px" :retain-focus="false">
           <v-card>
             <v-card-title>Edit Clinic</v-card-title>
@@ -34,13 +34,13 @@
               <v-text-field
                 v-for="(value, name) in selectedItem"
                 :key="name"
+                v-model="editedItem[name]"
                 :label="name"
                 :value="value"
-                v-model="editedItem[name]"
-              ></v-text-field>
+              />
             </v-col>
             <v-card-actions>
-              <v-spacer></v-spacer>
+              <v-spacer />
               <v-btn
                 color="primary"
                 text

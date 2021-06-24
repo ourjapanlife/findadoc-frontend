@@ -6,7 +6,7 @@
       :label="$t('cancelList.search')"
       outlined
       clearable
-    ></v-text-field>
+    />
     <v-data-table
       :headers="headers"
       :items="items"
@@ -16,38 +16,38 @@
       loading-text="Loading... Please wait"
       :search="search"
     >
-      <template v-slot:[`item.name`]="{ item }" align="left">
+      <template #[`item.name`]="{ item }" align="left">
         <div class="dflex justify-left">
           {{ item.name }}
         </div>
       </template>
 
-      <template v-slot:[`item.note`]="{ item }" align="left">
+      <template #[`item.note`]="{ item }" align="left">
         <div
           v-if="item.note && item.note.length > 1"
           class="dflex justify-center"
         >
-          <v-icon @click="showNote(item.note)" color="cyan darken-1" center
-            >mdi-note-text</v-icon
-          >
+          <v-icon color="cyan darken-1" center @click="showNote(item.note)">
+            mdi-note-text
+          </v-icon>
         </div>
       </template>
 
-      <template v-slot:[`item.website`]="{ item }">
+      <template #[`item.website`]="{ item }">
         <a target="_blank" :href="item.website">
           {{ truncateWebsite(item.website) }}
         </a>
       </template>
-      <template v-slot:[`item.flag`]="{ item }" align="left">
-        <v-icon @click="flagData(item)">mdi-flag</v-icon>
+      <template #[`item.flag`]="{ item }" align="left">
+        <v-icon @click="flagData(item)"> mdi-flag </v-icon>
       </template>
     </v-data-table>
     <v-dialog v-model="showDialog.report" max-width="600px">
       <v-card>
-        <v-card-title class="text-h5">{{
-          $t("cancelList.report.title")
-        }}</v-card-title>
-        <v-form v-model="validReport" ref="form" lazy-validation>
+        <v-card-title class="text-h5">
+          {{ $t("cancelList.report.title") }}
+        </v-card-title>
+        <v-form ref="form" v-model="validReport" lazy-validation>
           <span
             ><b>{{ $t("cancelList.report.clinicName") }}</b>
             {{ report.name }}</span
@@ -59,9 +59,9 @@
             background-color="light-blue lighten-5"
             color="black"
             :label="$t('cancelList.report.reason')"
-          ></v-textarea>
+          />
           <v-card-actions>
-            <v-spacer></v-spacer>
+            <v-spacer />
             <v-btn
               :disabled="!validReport || report.message.length < 5"
               text
@@ -79,7 +79,7 @@
     <v-dialog v-model="showDialog.note" max-width="300px">
       <v-card id="note" align="center">
         <v-card-title>{{ $t("cancelList.header.note") }}</v-card-title>
-        {{ this.selectedNote }}
+        {{ selectedNote }}
       </v-card>
     </v-dialog>
   </div>
@@ -87,19 +87,6 @@
 
 <script>
 export default {
-  mounted() {
-    const db = this.$fireModule.firestore();
-    db.collection("clinics")
-      .get()
-      .then((snap) => {
-        snap.forEach((doc) => {
-          this.id = doc.id;
-          this.items.push(doc.data());
-          this.items[this.items.length - 1].id = this.id;
-        });
-        this.loading = false;
-      });
-  },
   data: (vue) => ({
     showDialog: {
       report: false,
@@ -149,6 +136,19 @@ export default {
       },
     ],
   }),
+  mounted() {
+    const db = this.$fireModule.firestore();
+    db.collection("clinics")
+      .get()
+      .then((snap) => {
+        snap.forEach((doc) => {
+          this.id = doc.id;
+          this.items.push(doc.data());
+          this.items[this.items.length - 1].id = this.id;
+        });
+        this.loading = false;
+      });
+  },
   methods: {
     cancelReport() {
       this.showDialog.report = false;

@@ -32,7 +32,7 @@
           style="border: none; width: 100%; padding: 4px; background: #f9f9f9"
           height="650"
           title="theyokohamalife"
-        ></iframe>
+        />
       </div>
       <testimonial />
     </div>

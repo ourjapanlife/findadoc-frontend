@@ -3,23 +3,27 @@
     <v-form>
       <div class="d-flex flex-row justify-content-center">
         <v-text-field
-          type="text"
           v-model="email"
+          type="text"
           :label="$t('login.email')"
           required
-        ></v-text-field>
+        />
       </div>
       <div class="d-flex flex-row justify-content-center">
         <v-text-field
-          type="password"
           v-model="password"
+          type="password"
           :label="$t('login.password')"
           required
-        ></v-text-field>
+        />
       </div>
       <div align="center">
-        <v-btn @click="login">{{ $t("login.login") }}</v-btn>
-        <v-btn @click="clear">{{ $t("login.clear") }} </v-btn>
+        <v-btn @click="login">
+          {{ $t("login.login") }}
+        </v-btn>
+        <v-btn @click="clear">
+          {{ $t("login.clear") }}
+        </v-btn>
       </div>
     </v-form>
   </v-card>

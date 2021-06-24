@@ -6,7 +6,7 @@
       lazy-validation
       @submit.prevent="submitData"
     >
-      <div align="center" id="instructions">
+      <div id="instructions" align="center">
         <h2>{{ $t("add-clinic.fillForm") }}</h2>
       </div>
       <v-container>
@@ -16,43 +16,43 @@
         <v-row>
           <v-col cols="12" sm="6">
             <v-autocomplete
+              v-model="prefecture"
               :items="prefectureList"
               :label="$t('add-clinic.prefecture')"
-              v-model="prefecture"
               required
-            ></v-autocomplete>
+            />
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
-              :label="$t('add-clinic.city')"
               v-model="city"
+              :label="$t('add-clinic.city')"
               required
               :rules="cityRules"
-            ></v-text-field>
+            />
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
-              :label="$t('add-clinic.ward')"
               v-model="ward"
+              :label="$t('add-clinic.ward')"
               required
               :rules="wardRules"
-            ></v-text-field>
+            />
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
-              :label="$t('add-clinic.clinicName')"
               v-model="name"
+              :label="$t('add-clinic.clinicName')"
               required
               :rules="nameRules"
-            ></v-text-field>
+            />
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
-              :label="$t('add-clinic.websiteURL')"
               v-model="website"
+              :label="$t('add-clinic.websiteURL')"
               required
               :rules="websiteRules"
-            ></v-text-field>
+            />
           </v-col>
           <v-col>
             <v-textarea
@@ -61,7 +61,7 @@
               name="input-7-4"
               :label="$t('add-clinic.additionalInfo')"
               placeholder="Share helpful or important details"
-            ></v-textarea>
+            />
           </v-col>
         </v-row>
       </v-container>
@@ -86,7 +86,6 @@
 <script>
 import json from "../data/prefectures.json";
 export default {
-  mounted() {},
   data: () => ({
     valid: true,
     prefectureList: json.prefectures,
@@ -114,6 +113,7 @@ export default {
       (v) => (v && v.length >= 5) || "Please enter a valid URL",
     ],
   }),
+  mounted() {},
 
   methods: {
     submitData() {
