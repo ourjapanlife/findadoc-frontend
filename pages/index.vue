@@ -13,4 +13,9 @@
 #page-title {
   margin: 1em 0 1em 0;
 }
+@media only screen and (max-width: 600px) {
+  #page-title {
+    margin: 0px;
+  }
+}
 </style>
