@@ -56,7 +56,7 @@
             v-model="report.message"
             :rules="reportRules"
             required
-            background-color="light-blue lighten-4"
+            background-color="light-blue lighten-5"
             color="black"
             :label="$t('cancelList.report.reason')"
           ></v-textarea>
