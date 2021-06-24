@@ -10,7 +10,7 @@
         <h2>{{ $t("add-clinic.fillForm") }}</h2>
       </div>
       <v-container>
-        <div align="center" class="romaji">
+        <div align="center" class="red--text text--darken-4">
           <b>{{ $t("add-clinic.romajiOnly") }}</b>
         </div>
         <v-row>
@@ -71,8 +71,8 @@
       </div>
       <div align="center">
         <v-btn
-          dark
-          color="blue darken-1"
+          color="accent"
+          class="black--text"
           :disabled="!valid"
           @click="submitData"
         >
@@ -149,9 +149,6 @@ export default {
 </script>
 
 <style scoped>
-.romaji {
-  color: red;
-}
 .v-btn {
   margin-top: 20px !important;
   margin-bottom: 20px !important;

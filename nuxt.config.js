@@ -139,24 +139,32 @@ export default {
       light: true,
       themes: {
         dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken2,
+          // material trio
+          primary: "#031525",
+          accent: colors.cyan.lighten1,
+          secondary: colors.indigo.darken2,
+          // alert colors
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
+          // misc
+          alertCard: colors.cyan.lighten4,
+          alertButton: colors.cyan.lighten1,
         },
         light: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-          toolbar: colors.indigo.lighten1,
-          footer: colors.indigo.darken2,
+          // material trio
+          primary: "#031525",
+          accent: colors.cyan.lighten3,
+          secondary: colors.indigo.darken2,
+          // alert colors
+          info: colors.teal.darken2,
+          warning: colors.orange.darken4,
+          error: colors.red.darken4,
+          success: colors.green.darken3,
+          // misc
+          alertCard: colors.cyan.lighten4,
+          alertButton: colors.cyan.lighten1,
         },
       },
     },

@@ -56,21 +56,20 @@
             v-model="report.message"
             :rules="reportRules"
             required
-            background-color="light-blue lighten-4"
+            background-color="light-blue lighten-5"
             color="black"
             :label="$t('cancelList.report.reason')"
           ></v-textarea>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
-              color="primary"
               :disabled="!validReport || report.message.length < 5"
               text
               @click="sendReport"
             >
               {{ $t("cancelList.report.submitReport") }}
             </v-btn>
-            <v-btn color="secondary" text @click="cancelReport">
+            <v-btn text @click="cancelReport">
               {{ $t("general.cancel") }}
             </v-btn>
           </v-card-actions>

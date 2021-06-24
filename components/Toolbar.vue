@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar dense light app>
+    <v-app-bar dense app id="topbar">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>
         <!-- Set a mobile breakpoint for the name? -->
@@ -10,12 +10,20 @@
       >
       <v-spacer></v-spacer>
       <nuxt-link :to="localePath({ name: 'add-clinic' })">
-        <v-btn light color="cyan lighten-3">{{
+        <v-btn color="accent" class="black--text">{{
           $t("toolbar.addClinic")
         }}</v-btn>
       </nuxt-link>
     </v-app-bar>
-    <v-navigation-drawer color="#031525" v-model="drawer" temporary dark app>
+
+    <v-navigation-drawer
+      color="primary"
+      v-model="drawer"
+      temporary
+      dark
+      app
+      id="sidebar"
+    >
       <v-list dense>
         <v-list-item
           v-for="item in items"

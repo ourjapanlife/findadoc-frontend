@@ -44,17 +44,13 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
-                color="blue darken-1"
+                color="primary"
                 text
                 @click="handleApproveBtnPressed(item)"
               >
                 {{ $t("general.approve") }}
               </v-btn>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="handleCancelEditBtnPressed"
-              >
+              <v-btn color="primary" text @click="handleCancelEditBtnPressed">
                 {{ $t("general.cancel") }}
               </v-btn>
             </v-card-actions>
