@@ -1,6 +1,6 @@
 <template>
   <v-footer fixed app dark color="footer">
-    <v-col fluid align-content="center" align="center">
+    <v-col>
       <v-row>
         <v-col id="donate">
           <a href="https://ko-fi.com/theyokohamalife" target="_blank">
@@ -26,6 +26,9 @@ a:visited {
   text-decoration: none;
 }
 .col {
-  padding: 6px !important;
+  display: flex !important;
+  justify-content: space-evenly !important;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 </style>
