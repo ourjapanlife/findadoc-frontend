@@ -1,5 +1,5 @@
 <template>
-  <v-container class="alerts-list">
+  <v-container class="pb-sm-0 ma-sm-0">
     <alert
       :buttonText="$t('index.register')"
       buttonUrl="https://www.mod.go.jp/j/approach/defense/saigai/2020/covid/center.html"
@@ -14,17 +14,3 @@
     </alert>
   </v-container>
 </template>
-<style>
-.alerts-list {
-  margin: 0.5em 0 2em 0;
-}
-
-@media only screen and (max-width: 600px) {
-  .alerts-list {
-    margin: 0px;
-  }
-  .container {
-    padding-bottom: 8px;
-  }
-}
-</style>
