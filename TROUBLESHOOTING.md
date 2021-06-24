@@ -1,9 +1,8 @@
 # Troubleshooting :sob: :sob: :sob: => 😊 :blush: 😊
 
-
 ## Submodule Troubleshooting
 
-In general we do not update the submodule outside of the workflow described on the README page. 
+In general we do not update the submodule outside of the workflow described on the README page.
 Here are some tips on how to get out of an accidental commit or submodule update.
 
 There is also lots of documentation here: https://git-scm.com/book/en/v2/Git-Tools-Submodules
@@ -43,10 +42,12 @@ If the changes to the i18n folder no longer show up in status, you are good 👍
 #### I haven't pushed yet
 
 1. Revert the commit
+
 ```sh
 git reset HEAD~
 git stash
 ```
+
 2. Follow the steps from [the previous item](#There-are-i18n-changes-locally-but-I-don't-want-to-commit-them)
 
 #### I pushed the changes upstream
@@ -75,5 +76,3 @@ git diff main
 git push
 
 ```
-
-
