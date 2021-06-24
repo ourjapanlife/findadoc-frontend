@@ -30,7 +30,7 @@
   },
   "lint-staged": {
     "**/*.{js,vue,json}": [
-      "eslint --fix"
+      "eslint"
     ],
     "**/*.{js,vue,json,css,md}": [
       "prettier --write"
