@@ -1,5 +1,5 @@
 <template>
-  <v-footer fixed app dark color="footer">
+  <v-footer fixed app dark color="secondary">
     <v-col>
       <v-row>
         <v-col id="donate">

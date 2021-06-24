@@ -63,14 +63,13 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
-              color="primary"
               :disabled="!validReport || report.message.length < 5"
               text
               @click="sendReport"
             >
               {{ $t("cancelList.report.submitReport") }}
             </v-btn>
-            <v-btn color="secondary" text @click="cancelReport">
+            <v-btn text @click="cancelReport">
               {{ $t("general.cancel") }}
             </v-btn>
           </v-card-actions>

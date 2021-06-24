@@ -6,10 +6,10 @@
       >
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="blue darken-1" text @click="handleCancelBtnPressed">{{
+        <v-btn color="primary" text @click="handleCancelBtnPressed">{{
           $t("general.cancel")
         }}</v-btn>
-        <v-btn color="blue darken-1" text @click="handleConfirmBtnPressed">{{
+        <v-btn color="primary" text @click="handleConfirmBtnPressed">{{
           $t("general.delete")
         }}</v-btn>
         <v-spacer></v-spacer>
