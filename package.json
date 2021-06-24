@@ -29,12 +29,11 @@
     "prettier": "2.3.1"
   },
   "lint-staged": {
-    "*.js,*.vue": [
-      "eslint",
-      "prettier --write"
+    "**/*.{js,vue,json}": [
+      "eslint --fix"
     ],
-    ".json": [
-      "eslint"
+    "**/*.{js,vue,json,css,md}": [
+      "prettier --write"
     ]
   }
 }
