@@ -10,7 +10,7 @@ const fs = require('fs').promises;
 const firebase = require("firebase");
 require('firebase/firestore');
 
-const FIXTURES_DIR = __dirname + '/fixtures/';
+const FIXTURES_DIR = __dirname + '/../fixtures/';
 
 const fixtures = [
     {
