@@ -1,6 +1,9 @@
 <template>
   <v-container class="pb-sm-0 ma-sm-0">
-    <alert>
+    <alert
+      buttonText="view license"
+      buttonUrl="https://github.com/ourjapanlife/findadoc-frontend/blob/main/LICENSE"
+    >
       The only vaccines approved in Japan are Moderna and Pfizer. Be wary of
       clinics offering SinoVac or others, or promiming referal bonuses. The
       content on this site is user generated and while we do our best to
