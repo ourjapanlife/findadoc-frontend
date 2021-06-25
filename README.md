@@ -64,8 +64,8 @@ FIREBASE_APP_ID="1:625586025312:web:bb04b01ccb5ad69b223558"
 node scripts/setup_firebase.js
 ```
 9. Checking your firestore should now show collections populated for `clinics`, and other databases used by the application.
-9. Turn on Authentication for your project in Firebase, and add yourself as a user, setting a password. This will allow you to log in to the admin panel in the project.
-10. Voilà. You can now continue to build and locally run your project. See below for how to build.
+10. Turn on Authentication for your project in Firebase, and add yourself as a user, setting a password. This will allow you to log in to the admin panel in the project.
+11. Voilà. You can now continue to build and locally run your project. See below for how to build.
 
 ## Build Setup
 
