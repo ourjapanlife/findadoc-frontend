@@ -103,12 +103,12 @@ export default {
         config: {
           /* eslint-disable-next-line no-undef */
           apiKey: process.env.FIREBASE_API_KEY,
-          authDomain: "findadoc-bc230.firebaseapp.com",
-          databaseURL: "https://findadoc-bc230-default-rtdb.firebaseio.com",
-          projectId: "findadoc-bc230",
-          storageBucket: "findadoc-bc230.appspot.com",
-          messagingSenderId: "871643437476",
-          appId: "1:871643437476:web:d7271d01ee125e9f7bc931",
+          authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+          databaseURL: process.env.FIREBASE_DATABASE_URL,
+          projectId: process.env.FIREBASE_PROJECT_ID,
+          storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+          messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+          appId: process.env.FIREBASE_APP_ID,
           measurementId: "G-SN6SHYMJKY",
         },
         services: {

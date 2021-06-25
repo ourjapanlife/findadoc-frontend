@@ -24,13 +24,48 @@ $ git submodule update
 
 If you have more issues with submodules, please check out [TROUBLESHOOTING.md](https://github.com/ourjapanlife/findadoc-frontend/blob/main/TROUBLESHOOTING.md)
 
-## Environment Setup
+## Environment and Firebase Setup
+
+These steps will allow you to set up your application environment and database to be able to develop on the findadoc project.
+We use firebase for both data storage and authentication, and you can set up an account for free to have your own sandbox.
+
+1. Copy the below file to have the configuation values that you'll fill in in the next steps:
 
 ```bash
 $ cp .env.sample .env
 ```
 
-Get the Firebase API key from the project leads and edit the `.env` file to have this value.
+2. Setup a free-tier account on [firebase](https://firebase.google.com/). If you have an existing account, proceed to 2.
+3. Create new project with a unique name for your local findadoc development.
+4. Create an application (Go to project > Settings (gear icon) > My Apps > Create a new Web app). You won't need to set up analytics.
+5. In your new application, go to Firestore and create a database.
+6. Set permissions to allow script access the database from the Firestore console. Change false in the below to true.
+```
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+```
+7. Fill in the keys found in your firebase console into the `.env` file you created. An example would look like the below (these are example values):
+```
+FIREBASE_API_KEY="Your API Key"
+FIREBASE_AUTH_DOMAIN="your-dev-app.firebaseapp.com"
+FIREBASE_DATABASE_URL="https://your-dev-default-rtdb.firebaseio.com"
+FIREBASE_PROJECT_ID="your-dev-app"
+FIREBASE_STORAGE_BUCKET="your-dev-app.appspot.com"
+FIREBASE_MESSAGING_SENDER_ID="625586025312"
+FIREBASE_APP_ID="1:625586025312:web:bb04b01ccb5ad69b223558"
+```
+8. Run the script to populate your database with example entries, like this:
+```bash
+node scripts/setup_firebase.js
+```
+9. Checking your firestore should now show collections populated for `clinics`, and other databases used by the application.
+9. Turn on Authentication for your project in Firebase, and add yourself as a user, setting a password. This will allow you to log in to the admin panel in the project.
+10. Voilà. You can now continue to build and locally run your project. See below for how to build.
 
 ## Build Setup
 
