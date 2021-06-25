@@ -6,7 +6,7 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
-    "plugin:vue/essential",
+    "plugin:vue/recommended",
     "plugin:json/recommended",
     "prettier", // Make sure "prettier" is the last element in this list.
   ],
@@ -16,6 +16,8 @@ module.exports = {
   },
   plugins: ["vue"],
   rules: {
-    "vue/this-in-template": 1,
+    "vue/attributes-order": 0,
+    "vue/v-slot-style": 0,
+    "vue/order-in-components": 0,
   },
 };
