@@ -6,8 +6,9 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
-    "plugin:vue/recommended",
+    "plugin:vue/essential",
     "plugin:json/recommended",
+    "prettier", // Make sure "prettier" is the last element in this list.
   ],
   parserOptions: {
     ecmaVersion: 12,
@@ -15,10 +16,6 @@ module.exports = {
   },
   plugins: ["vue"],
   rules: {
-    // most of these are disabled because they fight with prettier
-    "vue/max-attributes-per-line": 0,
-    "vue/singleline-html-element-content-newline": 0,
-    "vue/html-indent": 0,
-    "vue/html-closing-bracket-newline": 0,
+    "vue/this-in-template": 1,
   },
 };
