@@ -2,7 +2,7 @@
 
 /***
  * This script will populate test entries in your firebase firestore for use for developing on the findadoc app.
- * See details in Contributing.md.
+ * See details in README.md.
  * */
 
 require("dotenv").config({path: __dirname + '/../.env'});
@@ -31,13 +31,6 @@ const fixtures = [
     }
 ];
 
-if(process.env.FIREBASE_PROJECT_ID == "findadoc-bc230" || process.env.FIREBASE_DATABASE_URL == "https://findadoc-bc230-default-rtdb.firebaseio.com") {
-
-    console.log("You're currently using the production database. This script will exit with no changes to avoid data loss.")
-    return;
-}
-
-
 const initialize = () => {
     console.log(`Initializing using firebase API key ${process.env.FIREBASE_API_KEY}`)
     firebase.initializeApp({
@@ -61,7 +54,7 @@ const storeToFirestore = async (collectionData, collectionName) => {
     try {
         const db = firebase.firestore();
         let count = 0;
-        for (item of collectionData) {
+        for (let item of collectionData) {
             let docRef = await db.collection(collectionName).add(item);
             console.log(`Successfully persisted to ${collectionName} as: ${docRef.id}`);
             count++;
@@ -72,9 +65,18 @@ const storeToFirestore = async (collectionData, collectionName) => {
     }
 }
 
+const isProd = () => {
+    let productionResourcesUsed = process.env.FIREBASE_PROJECT_ID == "findadoc-bc230" || process.env.FIREBASE_DATABASE_URL == "https://findadoc-bc230-default-rtdb.firebaseio.com";
+    if(productionResourcesUsed) {
+        console.log("You're currently using the production database. This script will exit with no changes to avoid data loss.")
+    }
+    return productionResourcesUsed;
+}
+
 const main = async () => {
+    if (isProd()) { return }
     initialize();
-    for (fixture of fixtures) {
+    for (let fixture of fixtures) {
         let records = await loadFixture(fixture.file);
         storeToFirestore(records, fixture.collection);
     }
