@@ -76,6 +76,18 @@
           </v-list-item>
         </v-list-group>
       </v-list>
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-btn :to="localePath(loginItem.route)" block color="secondary">
+            <v-icon color="white">
+              {{ loginItem.icon }}
+            </v-icon>
+            <h5 class="white--text">
+              {{ loginItem.title }}
+            </h5>
+          </v-btn>
+        </div>
+      </template>
     </v-navigation-drawer>
   </div>
 </template>
@@ -90,37 +102,39 @@ export default {
   }),
   computed: {
     items() {
-      return [
+      let menuItems = [
         {
           title: this.$t("toolbar.home"),
           icon: "mdi-home-city",
           route: "index",
         },
-        this.$store.getters.isUserLoggedIn
-          ? [
-              {
-                title: this.$t("toolbar.adminDashboard"),
-                icon: "mdi-shield-account-variant",
-                route: "admin-pending",
-              },
-              {
-                title: this.$t("toolbar.logout"),
-                icon: "mdi-account",
-                route: "logout",
-              },
-            ]
-          : {
-              title: this.$t("toolbar.login"),
-              icon: "mdi-account",
-              route: "login",
-            },
         {
           title: this.$t("toolbar.about"),
           icon: "mdi-head-question",
           route: "about",
         },
-      ].flat();
+      ];
+      if (this.$store.getters.isUserLoggedIn) {
+        menuItems.push({
+          title: this.$t("toolbar.adminDashboard"),
+          icon: "mdi-shield-account-variant",
+          route: "admin-pending",
+        });
+      }
+      return menuItems.flat();
     },
+    loginItem: function() {
+      return this.$store.getters.isUserLoggedIn ?
+        {
+          title: this.$t("toolbar.logout"),
+          icon: "mdi-logout",
+          route: "logout",
+        } : {
+          title: this.$t("toolbar.login"),
+          icon: "mdi-account",
+          route: "login"
+        };
+    }
   },
   methods: {},
 };
