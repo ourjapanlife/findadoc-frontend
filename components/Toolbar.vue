@@ -78,7 +78,7 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn :to="localePath(loginItem.route)" block dark>
+          <v-btn :to="localePath(loginItem.route)" block color="secondary">
             <v-icon color="white">
               {{ loginItem.icon }}
             </v-icon>
