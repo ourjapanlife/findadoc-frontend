@@ -7,8 +7,8 @@
       moderate it, it may contain errors. Please use proper judgement before
       entering your personal data on any of third party sites. We are not liable
       for inaccurate information from these community submissions. Please use
-      the report feature, or tweet to @theyokohamalife or @stonecoldkilzer if
-      you find fraud.
+      the report feature, or tweet to @theyokohamalife, @stonecoldkilzer, or
+      @philipermish if you find fraud.
     </alert>
     <alert
       :buttonText="$t('index.register')"
