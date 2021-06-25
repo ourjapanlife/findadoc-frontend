@@ -17,8 +17,8 @@
 <script>
 export default {
   props: {
-    buttonText: String,
-    buttonUrl: String,
+    buttonText: { type: String, default: "" },
+    buttonUrl: { type: String, default: "" },
   },
 };
 </script>
