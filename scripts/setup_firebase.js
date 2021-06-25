@@ -78,8 +78,11 @@ const main = async () => {
     initialize();
     for (let fixture of fixtures) {
         let records = await loadFixture(fixture.file);
-        storeToFirestore(records, fixture.collection);
+        await storeToFirestore(records, fixture.collection);
     }
 }
 
-main();
+(async () => {
+    await main();
+    console.log("Done.");
+})();
