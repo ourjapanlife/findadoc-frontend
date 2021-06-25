@@ -5,6 +5,7 @@
     </div>
     <alerts-list />
     <div>
+      <disclaimer />
       <cancellation-list />
     </div>
   </v-container>
