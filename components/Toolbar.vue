@@ -1,26 +1,28 @@
 <template>
   <div>
-    <v-app-bar id="topbar" dense app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+    <v-app-bar dense app id="topbar">
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>
         <!-- Set a mobile breakpoint for the name? -->
-        <nuxt-link :to="localePath({ name: 'index' })"> Find a Doc </nuxt-link>
-      </v-toolbar-title>
-      <v-spacer />
+        <nuxt-link :to="localePath({ name: 'index' })"
+          >Find a Doc</nuxt-link
+        ></v-toolbar-title
+      >
+      <v-spacer></v-spacer>
       <nuxt-link :to="localePath({ name: 'add-clinic' })">
-        <v-btn color="accent" class="black--text">
-          {{ $t("toolbar.addClinic") }}
-        </v-btn>
+        <v-btn color="accent" class="black--text">{{
+          $t("toolbar.addClinic")
+        }}</v-btn>
       </nuxt-link>
     </v-app-bar>
 
     <v-navigation-drawer
-      id="sidebar"
-      v-model="drawer"
       color="primary"
+      v-model="drawer"
       temporary
       dark
       app
+      id="sidebar"
     >
       <v-list dense>
         <v-list-item
@@ -52,7 +54,7 @@
         </v-list-item>
 
         <v-list-group :value="false" prepend-icon="mdi-web">
-          <template #activator>
+          <template v-slot:activator>
             <v-list-item-title>{{ $t("toolbar.languages") }}</v-list-item-title>
           </template>
 

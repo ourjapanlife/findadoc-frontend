@@ -6,9 +6,7 @@
     <h1 v-else>
       {{ $t("error.otherError") }}
     </h1>
-    <NuxtLink to="/">
-      {{ $t("error.homePage") }}
-    </NuxtLink>
+    <NuxtLink to="/">{{ $t("error.homePage") }}</NuxtLink>
   </v-app>
 </template>
 

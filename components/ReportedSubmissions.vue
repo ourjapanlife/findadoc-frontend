@@ -1,8 +1,8 @@
 <template>
-  <v-container v-show="$store.getters.isUserLoggedIn">
+  <v-container v-show="this.$store.getters.isUserLoggedIn">
     <delete-dialog
-      :id-to-delete="selectedItem.id"
-      :show-delete-dialog="showDeleteDialog"
+      :idToDelete="selectedItem.id"
+      :showDeleteDialog="showDeleteDialog"
       @on-cancel-btn-pressed="handleCancelBtnPressed()"
       @on-confirm-delete-btn-pressed="
         handleConfirmDeleteBtnPressed(selectedItem)
@@ -10,7 +10,7 @@
     />
     <v-card-title>
       Reported Submissions
-      <v-spacer />
+      <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
@@ -19,7 +19,7 @@
         filled
         outlined
         clearable
-      />
+      ></v-text-field>
     </v-card-title>
     <v-data-table
       :headers="headerList"
@@ -28,7 +28,7 @@
       :search="search"
       class="elevation-1"
     >
-      <template #[`item.action`]="{ item }">
+      <template v-slot:[`item.action`]="{ item }">
         <v-icon small @click="handleDeleteBtnPressed(item)">
           mdi-delete
         </v-icon>
