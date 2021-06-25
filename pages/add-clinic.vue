@@ -5,7 +5,7 @@
         <h2>{{ $t("add-clinic.fillForm") }}</h2>
       </div>
       <v-container>
-        <div align="center" class="romaji">
+        <div align="center" class="red--text text--darken-4">
           <b>{{ $t("add-clinic.romajiOnly") }}</b>
         </div>
         <v-row>
@@ -61,8 +61,8 @@
       </div>
       <div align="center">
         <v-btn
-          dark
-          color="blue darken-1"
+          color="accent"
+          class="black--text"
           :disabled="this.$v.$invalid"
           @click="submitData"
         >
@@ -77,7 +77,7 @@
 import json from "../data/prefectures.json";
 import { required, minLength, url, helpers } from "vuelidate/lib/validators";
 // https://medium.com/@annkilzer/validating-japanese-input-with-vuelidate-and-vue-js-ccdb91d70d36
-const validChars = helpers.regex("validChars", /^[A-Za-z0-9\- \.,'"„“’]*$/);
+const validChars = helpers.regex("validChars", /^[A-Za-z0-9\- .,'"„“’]*$/);
 export default {
   data: () => ({
     prefectureList: json.prefectures,
@@ -160,9 +160,6 @@ export default {
 </script>
 
 <style scoped>
-.romaji {
-  color: red;
-}
 .v-btn {
   margin-top: 20px !important;
   margin-bottom: 20px !important;

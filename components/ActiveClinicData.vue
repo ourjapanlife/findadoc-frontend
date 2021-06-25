@@ -1,20 +1,12 @@
 <template>
   <v-container v-show="this.$store.getters.isUserLoggedIn">
-    <delete-dialog
-      :idToDelete="selectedItem.id"
-      :showDeleteDialog="showDeleteDialog"
-      @on-cancel-btn-pressed="handleCancelBtnPressed()"
-      @on-confirm-delete-btn-pressed="
-        handleConfirmDeleteBtnPressed(selectedItem)
-      "
-    />
     <v-card-title>
-      {{ $t("pending.title") }}
+      Active Clinic Data
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Search pending submissions"
+        label="Search active clinic data"
         single-line
         filled
         outlined
@@ -28,10 +20,16 @@
       :search="search"
       class="elevation-1"
     >
+      <template v-slot:[`item.website`]="{ item }">
+        <a target="_blank" :href="item.website">
+          {{ truncateWebsite(item.website) }}
+        </a>
+      </template>
+
       <template v-slot:[`item.action`]="{ item }">
-        <v-dialog v-model="dialogEdit" max-width="500px">
+        <v-dialog v-model="dialogEdit" max-width="500px" :retain-focus="false">
           <v-card>
-            <v-card-title>{{ $t("pending.edit") }}</v-card-title>
+            <v-card-title>Edit Clinic</v-card-title>
             <v-col cols="12">
               <v-text-field
                 v-for="(value, name) in selectedItem"
@@ -48,10 +46,10 @@
                 text
                 @click="handleApproveBtnPressed(item)"
               >
-                {{ $t("general.approve") }}
+                Approve
               </v-btn>
               <v-btn color="primary" text @click="handleCancelEditBtnPressed">
-                {{ $t("general.cancel") }}
+                Cancel
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -59,32 +57,25 @@
         <v-icon small class="mr-2" @click="handleEditBtnPressed(item)">
           mdi-pencil
         </v-icon>
-        <v-icon small @click="handleDeleteBtnPressed(item)">
-          mdi-delete
-        </v-icon>
       </template>
     </v-data-table>
   </v-container>
 </template>
 
 <script>
-import DeleteDialog from "./DeleteDialog.vue";
 import json from "../data/adminDbTableHeaders.json";
 export default {
-  components: { DeleteDialog },
   data() {
     return {
       editedItem: {},
       clinics: [],
       dialogEdit: false,
-      dialogDelete: false,
       headerList: json.headers,
       search: "",
-      showDeleteDialog: false,
       selectedItem: {
         id: "",
       },
-      pendingItem: {
+      originalItem: {
         name: "",
         prefecture: "",
         city: "",
@@ -98,47 +89,34 @@ export default {
     if (!this.$store.getters.isUserLoggedIn) {
       this.$router.push("/login");
     }
-    this.getPendingSubmissions();
+    this.getActiveClinicData();
   },
   methods: {
-    async getPendingSubmissions() {
+    async getActiveClinicData() {
       const db = this.$fireModule.firestore();
-      let pendingRef = db.collection("pending");
-      let pendingClinics = await pendingRef.get();
-      for (const doc of pendingClinics.docs) {
+      let clinicRef = db.collection("clinics");
+      let activeClinics = await clinicRef.get();
+      for (const doc of activeClinics.docs) {
         this.id = doc.id;
         this.clinics.push(doc.data());
         this.clinics[this.clinics.length - 1].id = this.id;
       }
     },
-    async approve(item) {
+    async approve() {
       try {
         await this.$fireModule
           .firestore()
           .collection("clinics")
-          .add(this.editedItem);
-        await this.deleteItem(item);
+          .doc(this.editedItem.id)
+          .update(this.editedItem);
       } catch (err) {
         console.log(err);
       }
     },
     editItem(item) {
       for (const key in item) {
-        this.pendingItem[key] = item[key];
-      }
-      this.editedItem = Object.assign(item);
-    },
-    async deleteItem(item) {
-      const itemIndex = this.clinics.indexOf(item);
-      try {
-        await this.$fireModule
-          .firestore()
-          .collection("pending")
-          .doc(item.id)
-          .delete();
-        await this.clinics.splice(itemIndex, 1);
-      } catch (err) {
-        console.log(err);
+        this.originalItem[key] = item[key];
+        this.editedItem[key] = item[key];
       }
     },
     async handleApproveBtnPressed(item) {
@@ -150,23 +128,24 @@ export default {
       this.selectedItem = item;
       await this.editItem(item);
     },
-    handleCancelEditBtnPressed() {
+    async handleCancelEditBtnPressed() {
       this.dialogEdit = false;
-      for (const key in this.pendingItem) {
-        this.editedItem[key] = this.pendingItem[key];
+      for (const key in this.originalItem) {
+        this.editedItem[key] = this.originalItem[key];
       }
-    },
-    handleDeleteBtnPressed(item) {
-      this.selectedItem = item;
-      this.showDeleteDialog = true;
-    },
-    async handleConfirmDeleteBtnPressed(item) {
-      await this.deleteItem(item);
-      this.showDeleteDialog = false;
+      await this.$forceUpdate(); // Had a problem with stackoverflow. Not sure if this fixes it.
     },
     handleCancelBtnPressed() {
       this.showEditDialog = false;
       this.showDeleteDialog = false;
+    },
+    truncateWebsite(website) {
+      const truncated = website.match(/^https?:\/\/([^/]*)/);
+      if (truncated == null) {
+        return website;
+      } else {
+        return truncated[1] || website.substring(0, 20) + "...";
+      }
     },
   },
 };

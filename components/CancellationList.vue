@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="waiting-lists-table">
     <v-text-field
       v-model="search"
       append-icon="mdi-magnify"
@@ -44,7 +44,9 @@
     </v-data-table>
     <v-dialog v-model="showDialog.report" max-width="600px">
       <v-card>
-        <v-card-title class="text-h5"> Report this Data </v-card-title>
+        <v-card-title class="text-h5">{{
+          $t("cancelList.report.title")
+        }}</v-card-title>
         <v-form v-model="validReport" ref="form" lazy-validation>
           <span
             ><b>{{ $t("cancelList.report.clinicName") }}</b>
@@ -54,21 +56,20 @@
             v-model="report.message"
             :rules="reportRules"
             required
-            background-color="light-blue lighten-4"
+            background-color="light-blue lighten-5"
             color="black"
             :label="$t('cancelList.report.reason')"
           ></v-textarea>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
-              color="primary"
               :disabled="!validReport || report.message.length < 5"
               text
               @click="sendReport"
             >
               {{ $t("cancelList.report.submitReport") }}
             </v-btn>
-            <v-btn color="secondary" text @click="cancelReport">
+            <v-btn text @click="cancelReport">
               {{ $t("general.cancel") }}
             </v-btn>
           </v-card-actions>
@@ -202,5 +203,8 @@ export default {
 }
 #note {
   padding-bottom: 20px;
+}
+#waiting-lists-table {
+  margin-bottom: 20px;
 }
 </style>

@@ -25,9 +25,11 @@ $ git submodule update
 If you have more issues with submodules, please check out [TROUBLESHOOTING.md](https://github.com/ourjapanlife/findadoc-frontend/blob/main/TROUBLESHOOTING.md)
 
 ## Environment Setup
+
 ```bash
 $ cp .env.sample .env
 ```
+
 Get the Firebase API key from the project leads and edit the `.env` file to have this value.
 
 ## Build Setup
@@ -56,7 +58,7 @@ Under the hood, this project uses [nuxt/i18n](https://i18n.nuxtjs.org/) and [vue
 The locale files are managed through a separate repo, incorporated as a submodule. Here is the process for adding new translation keys:
 
 1. Clone the [findadoc-localization repo](https://github.com/ourjapanlife/findadoc-localization)
-2. Edit the `locales/en.json` to contain the new keys. 
+2. Edit the `locales/en.json` to contain the new keys.
 3. If you know another language, feel free to add the same key and translation to the appropriate locale file. Omit if you don't know it; we use English as the [fallback language](https://kazupon.github.io/vue-i18n/guide/fallback.html) so nothing will break.
 4. Make a pull request to the localization repo and wait for it to be merged to `main`
 5. Update the submodule (see above) to get the latest keys

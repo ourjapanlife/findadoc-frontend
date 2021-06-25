@@ -1,18 +1,14 @@
 <template>
   <v-container>
-    <v-alert dismissible border="left" colored-border type="info" elevation="1">
+    <v-alert dismissible color="alertCard">
       <v-row align="center">
         <v-col class="grow">
           <slot></slot>
         </v-col>
         <v-col class="shrink">
-          <v-btn
-            dark
-            color="indigo darken-1"
-            :href="buttonUrl"
-            target="_blank"
-            >{{ buttonText }}</v-btn
-          >
+          <v-btn light color="alertButton" :href="buttonUrl" target="_blank">{{
+            buttonText
+          }}</v-btn>
         </v-col>
       </v-row>
     </v-alert>
