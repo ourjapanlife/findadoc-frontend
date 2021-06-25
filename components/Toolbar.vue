@@ -30,6 +30,7 @@
           :key="item.title"
           :to="localePath({ name: item.route })"
           link
+          active-class="cyan--text text--accent-1"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -53,7 +54,11 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-group :value="false" prepend-icon="mdi-web">
+        <v-list-group
+          :value="false"
+          prepend-icon="mdi-web"
+          active-class="cyan--text text--accent-1"
+        >
           <template v-slot:activator>
             <v-list-item-title>{{ $t("toolbar.languages") }}</v-list-item-title>
           </template>
@@ -63,6 +68,7 @@
             :key="locale.title"
             :to="switchLocalePath(locale.code)"
             link
+            active-class="cyan--text text--accent-1"
           >
             <v-list-item-content>
               <v-list-item-title>{{ locale.name }}</v-list-item-title>
