@@ -144,7 +144,7 @@ export default {
           .map((param) => {
             let args = {};
             if (param.name === "minLength") {
-              args["min"] = field.$params.minLength.min;
+              args["0"] = field.$params.minLength.min;
             }
             return this.$t(
               `add-clinic.validations.${name}.${param.name}`,
