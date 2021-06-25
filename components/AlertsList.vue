@@ -13,7 +13,7 @@
     >
       {{ $t("index.prevaccinationScreening") }}
     </alert>
-    <div>
+    <div id="disclaimer">
       The only vaccines approved in Japan are Moderna and Pfizer. Be wary of
       clinics offering SinoVac or others. The content on this site is user generated and while
       we do our best to moderate it, it may contain errors or unverified
@@ -23,3 +23,9 @@
     </div>
   </v-container>
 </template>
+
+<style scoped>
+#disclaimer {
+  padding-bottom: 8px;
+}
+</style>
