@@ -5,64 +5,86 @@
       v-model="valid"
       lazy-validation
       @submit.prevent="submitData"
+      class="mb-8 mt-8"
     >
       <div align="center" id="instructions">
         <h2>{{ $t("add-clinic.fillForm") }}</h2>
       </div>
       <v-container>
-        <div align="center" class="red--text text--darken-4">
+        <v-row class="red--text text--darken-4 mb-4 justify-center">
           <b>{{ $t("add-clinic.romajiOnly") }}</b>
-        </div>
+        </v-row>
         <v-row>
-          <v-col cols="12" sm="6">
-            <v-autocomplete
-              :items="prefectureList"
-              :label="$t('add-clinic.prefecture')"
-              v-model="prefecture"
-              required
-            ></v-autocomplete>
-          </v-col>
-          <v-col cols="12" sm="6" md="4">
-            <v-text-field
-              :label="$t('add-clinic.city')"
-              v-model="city"
-              required
-              :rules="cityRules"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6" md="4">
-            <v-text-field
-              :label="$t('add-clinic.ward')"
-              v-model="ward"
-              required
-              :rules="wardRules"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6" md="4">
-            <v-text-field
-              :label="$t('add-clinic.clinicName')"
-              v-model="name"
-              required
-              :rules="nameRules"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6" md="4">
-            <v-text-field
-              :label="$t('add-clinic.websiteURL')"
-              v-model="website"
-              required
-              :rules="websiteRules"
-            ></v-text-field>
+          <v-autocomplete
+            :items="prefectureList"
+            :label="$t('add-clinic.prefecture')"
+            v-model="prefecture"
+            required
+            outlined
+          ></v-autocomplete>
+        </v-row>
+        <v-row>
+          <v-text-field
+            :label="$t('add-clinic.city')"
+            v-model="city"
+            required
+            filled
+            :rules="cityRules"
+          ></v-text-field>
+        </v-row>
+        <v-row>
+          <v-text-field
+            :label="$t('add-clinic.ward')"
+            v-model="ward"
+            required
+            filled
+            :rules="wardRules"
+          ></v-text-field>
+        </v-row>
+        <v-row>
+          <v-text-field
+            :label="$t('add-clinic.clinicName')"
+            v-model="name"
+            required
+            filled
+            :rules="nameRules"
+          ></v-text-field>
+        </v-row>
+        <v-row>
+          <v-text-field
+            :label="$t('add-clinic.websiteURL')"
+            v-model="website"
+            required
+            filled
+            :rules="websiteRules"
+          ></v-text-field>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-switch
+              v-model="voucher.required"
+              inset
+              :label="`Voucher required: ${voucher.text}`"
+              @change="handleVoucherSwitch"
+            ></v-switch>
           </v-col>
           <v-col>
-            <v-textarea
-              v-model="note"
-              outlined
-              name="input-7-4"
-              :label="$t('add-clinic.additionalInfo')"
-              placeholder="Share helpful or important details"
-            ></v-textarea>
+            <v-switch
+              v-model="wardResidency.required"
+              inset
+              :label="`Ward residency required: ${wardResidency.text}`"
+              @change="handleWardResidencySwitch"
+            ></v-switch>
           </v-col>
+        </v-row>
+        <v-row>
+          <v-textarea
+            v-model="note"
+            outlined
+            name="input-7-4"
+            :label="$t('add-clinic.additionalInfo')"
+            placeholder="Share helpful or important details"
+          ></v-textarea>
         </v-row>
       </v-container>
 
@@ -89,6 +111,14 @@ export default {
   mounted() {},
   data: () => ({
     valid: true,
+    voucher: {
+      required: false,
+      text: "No",
+    },
+    wardResidency: {
+      required: false,
+      text: "No",
+    },
     prefectureList: json.prefectures,
     prefecture: "",
     city: "",
@@ -116,6 +146,20 @@ export default {
   }),
 
   methods: {
+    handleVoucherSwitch() {
+      if (this.voucher.required) {
+        this.voucher.text = "Yes";
+      } else {
+        this.voucher.text = "No";
+      }
+    },
+    handleWardResidencySwitch() {
+      if (this.wardResidency.required) {
+        this.wardResidency.text = "Yes";
+      } else {
+        this.wardResidency.text = "No";
+      }
+    },
     submitData() {
       if (this.$refs.form.validate()) {
         const clinic = {
@@ -125,7 +169,8 @@ export default {
           name: this.name,
           website: this.website,
           note: this.note,
-          approved: false,
+          voucherRequired: this.voucher.required,
+          wardResidencyRequired: this.wardResidency.required,
         };
         try {
           this.$fireModule
