@@ -18,8 +18,30 @@
     >
       <template v-slot:[`item.name`]="{ item }" align="left">
         <div class="dflex justify-left">
-          {{ item.name }}
+          <a target="_blank" :href="item.website">
+            {{ item.name }}
+          </a>
         </div>
+      </template>
+      <template v-slot:[`item.voucherRequired`]="{ item }" align="left">
+        <v-chip
+          v-if="item.voucherRequired === true"
+          class="ma-2"
+          color="pink"
+          label
+          text-color="white"
+        >
+          Required
+        </v-chip>
+        <v-chip
+          v-if="item.voucherRequired === false"
+          class="ma-2"
+          color="green"
+          label
+          text-color="white"
+        >
+          Not Required
+        </v-chip>
       </template>
 
       <template v-slot:[`item.note`]="{ item }" align="left">
@@ -136,6 +158,14 @@ export default {
       },
       { text: `${vue.$t("cancelList.header.city")}:`, value: "city" },
       { text: `${vue.$t("cancelList.header.ward")}:`, value: "ward" },
+      {
+        text: `${vue.$t("cancelList.header.voucherRequired")}:`,
+        value: "voucherRequired",
+      },
+      // {
+      //   text: `${vue.$t("cancelList.header.wardResidencyRequired")}:`,
+      //   value: "wardResidencyRequired",
+      // },
       { text: `${vue.$t("cancelList.header.note")}:`, value: "note" },
       {
         text: `${vue.$t("cancelList.header.website")}:`,
