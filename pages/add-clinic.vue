@@ -64,7 +64,7 @@
             <v-switch
               v-model="voucher.required"
               inset
-              :label="`Voucher required: ${voucher.text}`"
+              :label="$t('add-clinic.voucherRequired') + `${voucher.text}`"
               @change="handleVoucherSwitch"
             ></v-switch>
           </v-col>
@@ -72,7 +72,9 @@
             <v-switch
               v-model="wardResidency.required"
               inset
-              :label="`Ward residency required: ${wardResidency.text}`"
+              :label="
+                $t('add-clinic.wardResidencyRequired') + `${wardResidency.text}`
+              "
               @change="handleWardResidencySwitch"
             ></v-switch>
           </v-col>
@@ -83,7 +85,7 @@
             outlined
             name="input-7-4"
             :label="$t('add-clinic.additionalInfo')"
-            placeholder="Share helpful or important details"
+            :placeholder="$t('add-clinic.note')"
           ></v-textarea>
         </v-row>
       </v-container>
@@ -109,15 +111,15 @@
 import json from "../data/prefectures.json";
 export default {
   mounted() {},
-  data: () => ({
+  data: (vue) => ({
     valid: true,
     voucher: {
       required: false,
-      text: "No",
+      text: `${vue.$t("add-clinic.no")}`,
     },
     wardResidency: {
       required: false,
-      text: "No",
+      text: `${vue.$t("add-clinic.no")}`,
     },
     prefectureList: json.prefectures,
     prefecture: "",
