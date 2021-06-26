@@ -90,6 +90,8 @@ export default {
         city: "",
         ward: "",
         note: "",
+        voucherRequired: "",
+        wardResidencyRequired: "",
         website: "",
       },
     };
