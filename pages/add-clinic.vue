@@ -144,11 +144,14 @@ export default {
         .$flattenParams()
         .filter((param) => !field[param.name]);
       const errMsgs = fieldErrs.map((param) => {
-        const args = {};
+        const templateArgs = {};
         if (param.name === "minLength") {
-          args["0"] = field.$params.minLength.min;
+          templateArgs["0"] = field.$params.minLength.min;
         }
-        return this.$t(`add-clinic.validations.${name}.${param.name}`, args);
+        return this.$t(
+          `add-clinic.validations.${name}.${param.name}`,
+          templateArgs
+        );
       });
       return errMsgs;
     },
