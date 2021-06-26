@@ -140,16 +140,17 @@ export default {
       if (!field.$error) {
         return [];
       }
-      return field
+      const fieldErrs = field
         .$flattenParams()
-        .filter((param) => !field[param.name])
-        .map((param) => {
-          let args = {};
-          if (param.name === "minLength") {
-            args["0"] = field.$params.minLength.min;
-          }
-          return this.$t(`add-clinic.validations.${name}.${param.name}`, args);
-        });
+        .filter((param) => !field[param.name]);
+      const errMsgs = fieldErrs.map((param) => {
+        const args = {};
+        if (param.name === "minLength") {
+          args["0"] = field.$params.minLength.min;
+        }
+        return this.$t(`add-clinic.validations.${name}.${param.name}`, args);
+      });
+      return errMsgs;
     },
   },
 };
