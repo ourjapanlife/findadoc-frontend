@@ -17,7 +17,7 @@ export const authGetters = {
 
 export const authActions = {
   async refreshUser({ commit }) {
-    logger.info("Refreshing current user.");
+    logger.debug("Refreshing current user.");
     try {
       //This is a non-awaitable observer.
       //auth() sets the current user as a background task and this observable will be triggered async.
