@@ -25,21 +25,21 @@ const createProdLogger = (logLevel) => {
     if (logLevel !== "debug") return;
 
     const currentTime = new Date().toLocaleTimeString();
-    console.log(`${currentTime}: ${message}`);
+    console.log(`DEBUG - ${currentTime}: ${message}`);
   };
 
   const infoLogFunction = (message) => {
     if (logLevel !== "debug" || logLevel !== "default") return;
 
     const currentTime = new Date().toLocaleTimeString();
-    console.log(`${currentTime}: ${message}`);
+    console.log(`INFO - ${currentTime}: ${message}`);
   };
 
   const warnLogFunction = (message) => {
     if (logLevel !== "debug" || logLevel !== "default") return;
 
     const currentTime = new Date().toLocaleTimeString();
-    console.log(`${currentTime}: ${message}`);
+    console.log(`WARN - ${currentTime}: ${message}`);
   };
 
   const errorLogFunction = (message, error) => {
@@ -49,7 +49,7 @@ const createProdLogger = (logLevel) => {
     const fullErrorMessage = error
       ? message + `\n actual error: ${error.message} \n ${error.stack}`
       : message;
-    console.log(`${currentTime}: ${fullErrorMessage}`);
+    console.log(`ERROR - ${currentTime}: ${fullErrorMessage}`);
   };
 
   return {
@@ -65,21 +65,21 @@ const createDevLogger = (logLevel) => {
     if (logLevel !== "debug") return;
 
     const currentTime = new Date().toLocaleTimeString();
-    console.log(`${currentTime}: ${message}`);
+    console.log(`DEBUG - ${currentTime}: ${message}`);
   };
 
   const infoLogFunction = (message) => {
     if (logLevel !== "debug" || logLevel !== "default") return;
 
     const currentTime = new Date().toLocaleTimeString();
-    console.log(`${currentTime}: ${message}`);
+    console.log(`INFO - ${currentTime}: ${message}`);
   };
 
   const warnLogFunction = (message) => {
     if (logLevel !== "debug" || logLevel !== "default") return;
 
     const currentTime = new Date().toLocaleTimeString();
-    console.log(`${currentTime}: ${message}`);
+    console.log(`WARN - ${currentTime}: ${message}`);
   };
 
   const errorLogFunction = (message, error) => {
@@ -89,7 +89,7 @@ const createDevLogger = (logLevel) => {
     const fullErrorMessage = error
       ? message + `\n actual error: ${error.message} \n ${error.stack}`
       : message;
-    console.log(`${currentTime}: ${fullErrorMessage}`);
+    console.log(`ERROR - ${currentTime}: ${fullErrorMessage}`);
   };
 
   return {

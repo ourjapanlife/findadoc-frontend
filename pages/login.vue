@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import logger from "../utils/logger";
+import logger from "../services/logger";
 
 export default {
   data() {
