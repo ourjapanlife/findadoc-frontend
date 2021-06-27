@@ -197,14 +197,14 @@ export default {
 
 <style scoped>
 .v-btn {
-  margin-top: 20px !important;
-  margin-bottom: 20px !important;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 #instructions {
   margin-top: 20px;
 }
 .v-form {
-  padding: 10px !important;
+  padding: 10px;
 }
 .v-card {
   margin: auto;
