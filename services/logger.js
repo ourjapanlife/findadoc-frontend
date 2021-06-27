@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const createLogger = () => {
   const isProdMode =
     process.env.NODE_ENV === "prod" || process.env.NODE_ENV !== "development";
