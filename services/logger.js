@@ -17,13 +17,13 @@ const createLogger = () => {
   return createDevLogger(logLevel);
 };
 
-const createProdLogger = (currentLogLevel) => {
+const createProdLogger = (logLevel) => {
   //TODO: read log destination from env. (QA/Prod might be different destination, but log the same)
   //TODO: implement a real Prod logger
 
   const debugLogFunction = (message) => {
     const loggableLevels = ["debug"];
-    const shouldLog = loggableLevels.includes(currentLogLevel);
+    const shouldLog = loggableLevels.includes(logLevel);
     if (!shouldLog) return;
 
     const currentTime = new Date().toLocaleTimeString();
@@ -32,7 +32,7 @@ const createProdLogger = (currentLogLevel) => {
 
   const infoLogFunction = (message) => {
     const loggableLevels = ["debug", "default"];
-    const shouldLog = loggableLevels.includes(currentLogLevel);
+    const shouldLog = loggableLevels.includes(logLevel);
     if (!shouldLog) return;
 
     const currentTime = new Date().toLocaleTimeString();
@@ -41,7 +41,7 @@ const createProdLogger = (currentLogLevel) => {
 
   const warnLogFunction = (message) => {
     const loggableLevels = ["debug", "default"];
-    const shouldLog = loggableLevels.includes(currentLogLevel);
+    const shouldLog = loggableLevels.includes(logLevel);
     if (!shouldLog) return;
 
     const currentTime = new Date().toLocaleTimeString();
@@ -50,7 +50,7 @@ const createProdLogger = (currentLogLevel) => {
 
   const errorLogFunction = (message, error) => {
     const loggableLevels = ["debug", "default"];
-    const shouldLog = loggableLevels.includes(currentLogLevel);
+    const shouldLog = loggableLevels.includes(logLevel);
     if (!shouldLog) return;
 
     const currentTime = new Date().toLocaleTimeString();
@@ -68,10 +68,10 @@ const createProdLogger = (currentLogLevel) => {
   };
 };
 
-const createDevLogger = (currentLogLevel) => {
+const createDevLogger = (logLevel) => {
   const debugLogFunction = (message) => {
     const loggableLevels = ["debug"];
-    const shouldLog = loggableLevels.includes(currentLogLevel);
+    const shouldLog = loggableLevels.includes(logLevel);
     if (!shouldLog) return;
 
     const currentTime = new Date().toLocaleTimeString();
@@ -80,7 +80,7 @@ const createDevLogger = (currentLogLevel) => {
 
   const infoLogFunction = (message) => {
     const loggableLevels = ["debug", "default"];
-    const shouldLog = loggableLevels.includes(currentLogLevel);
+    const shouldLog = loggableLevels.includes(logLevel);
     if (!shouldLog) return;
 
     const currentTime = new Date().toLocaleTimeString();
@@ -89,7 +89,7 @@ const createDevLogger = (currentLogLevel) => {
 
   const warnLogFunction = (message) => {
     const loggableLevels = ["debug", "default"];
-    const shouldLog = loggableLevels.includes(currentLogLevel);
+    const shouldLog = loggableLevels.includes(logLevel);
     if (!shouldLog) return;
 
     const currentTime = new Date().toLocaleTimeString();
@@ -98,7 +98,7 @@ const createDevLogger = (currentLogLevel) => {
 
   const errorLogFunction = (message, error) => {
     const loggableLevels = ["debug", "default"];
-    const shouldLog = loggableLevels.includes(currentLogLevel);
+    const shouldLog = loggableLevels.includes(logLevel);
     if (!shouldLog) return;
 
     const currentTime = new Date().toLocaleTimeString();
