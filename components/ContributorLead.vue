@@ -52,10 +52,19 @@ const getGithubProfileUrl = function(handle){
 
 export default {
     props: {
-        githubHandle: String,
+        githubHandle: {
+          type: String,
+          required: true
+        },
+        name: {
+          type: String,
+          required: true
+        },
+        role: {
+          type: String,
+          required: true
+        },
         twitterHandle: String,
-        name: String,
-        role: String,
         customPic: String
     },
     computed: {
