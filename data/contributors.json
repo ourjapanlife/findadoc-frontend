@@ -1,0 +1,35 @@
+{
+    "leads": [
+        {
+          "name": "LaShawn Toyoda",
+          "githubHandle": "theyokohamalife",
+          "twitterHandle": "theyokohamalife",
+          "role": "Project Originator and Lead Developer"
+        },
+        {
+          "name": "Ann Kilzer",
+          "githubHandle": "ann-kilzer",
+          "twitterHandle": "stonecoldkilzer",
+          "role": "Dev, tooling, and localization design",
+          "customPic": "ann-kilzer.jpg"
+        },
+        {
+          "name": "Phillip Ermish",
+          "githubHandle": "ermish",
+          "role": "Dev, and ops design",
+          "customPic": "ermish.jpg"
+        },
+        {
+          "name": "Derek Barncard",
+          "githubHandle": "renderf0x",
+          "twitterHandle": "derekryansound",
+          "role": "Dev and build",
+          "customPic": "derek-barncard.jpg"
+        },
+        {
+          "name": "Teresa",
+          "githubHandle": "thehamspecial",
+          "role": "UI/UX Design"
+        }
+      ]
+}
