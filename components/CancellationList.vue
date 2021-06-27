@@ -227,13 +227,16 @@ export default {
   padding-left: 20px;
   padding-right: 20px;
 }
+
 .v-text-area {
   margin-top: 20px;
   padding-inline: 20px;
 }
+
 #note {
   padding-bottom: 20px;
 }
+
 #waiting-lists-table {
   margin-bottom: 20px;
 }

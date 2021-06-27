@@ -200,12 +200,15 @@ export default {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 #instructions {
   margin-top: 20px;
 }
+
 .v-form {
   padding: 10px;
 }
+
 .v-card {
   margin: auto;
   margin-top: 20px;

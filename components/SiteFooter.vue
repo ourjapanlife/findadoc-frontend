@@ -25,6 +25,7 @@ a:visited {
   color: white;
   text-decoration: none;
 }
+
 .col {
   display: flex;
   justify-content: space-evenly;

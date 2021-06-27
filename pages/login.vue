@@ -88,12 +88,14 @@ export default {
   margin: 10px;
   justify-content: center;
 }
+
 .v-form {
   padding: 10px;
 }
+
 .v-card {
   margin: auto;
   margin-top: 20px;
-  max-width: 600px !important;
+  max-width: 600px;
 }
 </style>

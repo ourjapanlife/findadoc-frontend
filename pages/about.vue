@@ -47,9 +47,11 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
 #info {
   max-width: 600px;
 }
+
 div {
   padding: 10px;
 }
