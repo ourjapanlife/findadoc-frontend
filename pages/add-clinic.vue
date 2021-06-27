@@ -168,7 +168,7 @@ export default {
       // Simple URL pattern check: it must starts with either "http" or
       // "https" and contains one character after the prefix.
       // Regex can be tested on https://regex101.com/
-      const urlPattern = /^http[s]?:\/\/(.+)/g;
+      const urlPattern = /^http[s]?:\/\/(.+)/;
 
       return [
         (v) => !!v || this.$i18n.t("add-clinic.validations.websiteRequired"),
