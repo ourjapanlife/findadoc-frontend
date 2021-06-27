@@ -124,28 +124,60 @@ export default {
     prefectureList: json.prefectures,
     prefecture: "",
     city: "",
-    cityRules: [
-      (v) => !!v || "City is required",
-      (v) => (v && v.length >= 2) || "City name must be at least 2 characters",
-    ],
     ward: "",
-    wardRules: [
-      (v) => !!v || "Ward is required",
-      (v) => (v && v.length >= 2) || "Ward name must be at least 2 characters",
-    ],
     name: "",
-    nameRules: [
-      (v) => !!v || "Clinic name is required",
-      (v) =>
-        (v && v.length >= 2) || "Clinic name must be at least 2 characters",
-    ],
     note: "",
     website: "",
-    websiteRules: [
-      (v) => !!v || "Website URL is required",
-      (v) => (v && v.length >= 5) || "Please enter a valid URL",
-    ],
   }),
+
+  computed: {
+    cityRules() {
+      const minLength = 2;
+
+      return [
+        (v) => !!v || this.$i18n.t("add-clinic.validations.cityRequired"),
+        (v) =>
+          (v && v.length >= minLength) ||
+          this.$i18n.t("add-clinic.validations.cityValidation", [minLength]),
+      ];
+    },
+
+    wardRules() {
+      const minLength = 2;
+
+      return [
+        (v) => !!v || this.$i18n.t("add-clinic.validations.wardRequired"),
+        (v) =>
+          (v && v.length >= minLength) ||
+          this.$i18n.t("add-clinic.validations.wardValidation", [minLength]),
+      ];
+    },
+
+    nameRules() {
+      const minLength = 2;
+
+      return [
+        (v) => !!v || this.$i18n.t("add-clinic.validations.clinicRequired"),
+        (v) =>
+          (v && v.length >= minLength) ||
+          this.$i18n.t("add-clinic.validations.clinicValidation", [minLength]),
+      ];
+    },
+
+    websiteRules() {
+      // Simple URL pattern check: it must starts with either "http" or
+      // "https" and contains one character after the prefix.
+      // Regex can be tested on https://regex101.com/
+      const urlPattern = /^http[s]?:\/\/(.+)/g;
+
+      return [
+        (v) => !!v || this.$i18n.t("add-clinic.validations.websiteRequired"),
+        (v) =>
+          urlPattern.test(v) ||
+          this.$i18n.t("add-clinic.validations.websiteValidation"),
+      ];
+    },
+  },
 
   methods: {
     handleVoucherSwitch() {
