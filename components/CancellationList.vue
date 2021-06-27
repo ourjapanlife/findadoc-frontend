@@ -31,7 +31,7 @@
           label
           text-color="white"
         >
-          Required
+          {{ $t("cancelList.voucher.required") }}
         </v-chip>
         <v-chip
           v-if="item.voucherRequired === false"
@@ -40,7 +40,7 @@
           label
           text-color="white"
         >
-          Not Required
+          {{ $t("cancelList.voucher.notRequired") }}
         </v-chip>
       </template>
 
