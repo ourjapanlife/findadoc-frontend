@@ -127,6 +127,13 @@ export default {
       {
         locales: languages,
         defaultLocale: "en",
+        // https://i18n.nuxtjs.org/options-reference/#detectbrowserlanguage
+        detectBrowserLanguage: {
+          alwaysRedirect: true, // user selected locale takes precedence
+          fallbackLocale: "en",
+          onlyOnRoot: true, // recommended for SEO
+          useCookie: true,
+        },
         langDir: "i18n/locales",
         vueI18n: {
           fallbackLocale: "en",
