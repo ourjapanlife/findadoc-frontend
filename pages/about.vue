@@ -25,7 +25,7 @@
         {{ $t("about.supportA") }}
       </div>
       <div>
-        <h2>Who developed this site?</h2>
+        <h2>{{ $t("about.contributorQ") }}</h2>
         <contributors-list />
       </div>
     </div>

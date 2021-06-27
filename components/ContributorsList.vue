@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row class="ma-2">
-      <h3>Project Leads</h3>
+      <h3>{{ $t("about.contributorLeads") }}</h3>
     </v-row>
     <v-row>
       <v-col sm="4" md="5" lg="6" v-for="lead in leads" :key="lead.name">
