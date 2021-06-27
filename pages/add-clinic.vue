@@ -109,6 +109,8 @@
 
 <script>
 import json from "../data/prefectures.json";
+import logger from "../services/logger";
+
 export default {
   mounted() {},
   data: (vue) => ({
@@ -179,10 +181,10 @@ export default {
             .firestore()
             .collection("pending")
             .add(clinic)
-            .then(() => console.log("added to db", this.clinic))
+            .then(() => logger.info(`Added to DB: ${clinic}`))
             .then(this.$router.push("/"));
         } catch (err) {
-          console.log(err);
+          logger.error(err);
         }
       } else {
         alert("Please fill out all of the fields!");

@@ -39,6 +39,8 @@
 
 <script>
 import DeleteDialog from "./DeleteDialog.vue";
+import logger from "../services/logger";
+
 export default {
   components: { DeleteDialog },
   data() {
@@ -91,9 +93,9 @@ export default {
           .doc(item.id)
           .delete();
         await this.reportedClinics.splice(itemIndex, 1);
-        await console.log("Deleted ", item.id);
+        logger.info(`Deleted. ${item.id}`);
       } catch (err) {
-        console.log(err);
+        logger.error(err);
       }
     },
     handleDeleteBtnPressed(item) {

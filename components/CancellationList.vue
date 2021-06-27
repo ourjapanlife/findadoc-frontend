@@ -108,6 +108,8 @@
 </template>
 
 <script>
+import logger from "../services/logger";
+
 export default {
   mounted() {
     const db = this.$fireModule.firestore();
@@ -198,9 +200,9 @@ export default {
           .collection("reports")
           .add(this.report)
           .then((this.showDialog.report = false))
-          .then(() => console.log("Reported", this.report));
+          .then(() => logger.info(`Reported. ${this.report}`));
       } catch (err) {
-        console.log(err);
+        logger.error(err);
       }
     },
     showNote(note) {

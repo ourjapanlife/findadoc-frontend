@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import logger from "../services/logger";
+
 export default {
   data() {
     return {
@@ -31,11 +33,10 @@ export default {
         });
 
         this.message = this.$t("logout.successMessage");
-
-        console.log("successfully logged out!");
+        logger.info("Successfully logged out!");
       } catch (error) {
         //When a firebase login fails, it will throw an error and be handled here.
-        console.log("Log out failed.", error);
+        logger.error("Log out failed.", error);
       }
     },
   },

@@ -70,6 +70,7 @@
 <script>
 import DeleteDialog from "./DeleteDialog.vue";
 import json from "../data/adminDbTableHeaders.json";
+import logger from "../services/logger";
 export default {
   components: { DeleteDialog },
   data() {
@@ -121,7 +122,7 @@ export default {
           .add(this.editedItem);
         await this.deleteItem(item);
       } catch (err) {
-        console.log(err);
+        logger.error(err);
       }
     },
     editItem(item) {
@@ -140,7 +141,7 @@ export default {
           .delete();
         await this.clinics.splice(itemIndex, 1);
       } catch (err) {
-        console.log(err);
+        logger.error(err);
       }
     },
     async handleApproveBtnPressed(item) {
