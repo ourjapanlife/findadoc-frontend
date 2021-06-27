@@ -1,8 +1,6 @@
 const createLogger = () => {
   const isProdMode =
-    process.env.NODE_ENV === "prod" || process.env.NODE_ENV !== "development"
-      ? true
-      : false;
+    process.env.NODE_ENV === "prod" || process.env.NODE_ENV !== "development";
 
   // level "debug" = debug
   // level "default" = default
