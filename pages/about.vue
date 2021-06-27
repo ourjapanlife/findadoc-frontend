@@ -6,26 +6,17 @@
       </div>
       <div>
         <h2>{{ $t("about.whatIsThisQ") }}</h2>
-        {{ $t("about.whatIsThisA") }}
+        <p v-html="$t('about.whatIsThisA')"></p>
       </div>
       <div>
         <h2>{{ $t("about.trustQ") }}</h2>
-        {{ $t("about.trustA") }}
-      </div>
-      <div>
-        <h2>{{ $t("about.creatorQ") }}</h2>
-        <i18n path="about.creatorA" tag="span">
-          <a href="https://twitter.com/theyokohamalife" target="_blank"
-            >@theyokohamalife</a
-          >
-        </i18n>
+        <p v-html="$t('about.trustA')"></p>
       </div>
       <div>
         <h2>{{ $t("about.supportQ") }}</h2>
-        {{ $t("about.supportA") }}
+        <p v-html="$t('about.supportA')"></p>
       </div>
       <div>
-        <h2>Who developed this site?</h2>
         <contributors-list />
       </div>
     </div>

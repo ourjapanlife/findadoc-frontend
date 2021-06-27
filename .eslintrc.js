@@ -9,7 +9,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:vue/recommended",
     "plugin:json/recommended",
-    "prettier", // Make sure "prettier" is the last element in this list.
+    // "prettier", // Make sure "prettier" is the last element in this list.
   ],
   parserOptions: {
     ecmaVersion: 12,
