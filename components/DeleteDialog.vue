@@ -21,7 +21,7 @@
 <script>
 export default {
   props: {
-    idToDelete: String,
+    idToDelete: { type: String, default: "" },
     showDeleteDialog: Boolean,
   },
   methods: {

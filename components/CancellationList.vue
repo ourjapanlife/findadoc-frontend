@@ -101,7 +101,7 @@
     <v-dialog v-model="showDialog.note" max-width="300px">
       <v-card id="note" align="center">
         <v-card-title>{{ $t("cancelList.header.note") }}</v-card-title>
-        {{ this.selectedNote }}
+        {{ selectedNote }}
       </v-card>
     </v-dialog>
   </div>
