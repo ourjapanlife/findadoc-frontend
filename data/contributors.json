@@ -10,13 +10,14 @@
       "name": "Ann Kilzer",
       "githubHandle": "ann-kilzer",
       "twitterHandle": "stonecoldkilzer",
-      "role": "Dev, tooling, and localization design",
+      "role": "Code Admin",
       "customPic": "ann-kilzer.jpg"
     },
     {
       "name": "Phillip Ermish",
       "githubHandle": "ermish",
-      "role": "Dev, and ops design",
+      "twitterHandle": "philipermish",
+      "role": "Code Admin",
       "customPic": "ermish.jpg"
     },
     {
@@ -27,9 +28,10 @@
       "customPic": "derek-barncard.jpg"
     },
     {
-      "name": "Teresa",
+      "name": "Teresa Fong",
       "githubHandle": "thehamspecial",
-      "role": "UI/UX Design"
+      "role": "UI/UX Design",
+      "customPic": "teresa-fong.png"
     }
   ]
 }
