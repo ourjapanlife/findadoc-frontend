@@ -1,5 +1,5 @@
 <template>
-  <h1 class="logout-message">{{ this.message }}</h1>
+  <h1 class="logout-message">{{ message }}</h1>
 </template>
 
 <script>

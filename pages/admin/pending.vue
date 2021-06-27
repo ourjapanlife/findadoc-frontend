@@ -1,5 +1,5 @@
 <template>
-  <v-container v-show="this.$store.getters.isUserLoggedIn">
+  <v-container v-show="$store.getters.isUserLoggedIn">
     <pending-submissions />
     <reported-submissions />
     <active-clinic-data />

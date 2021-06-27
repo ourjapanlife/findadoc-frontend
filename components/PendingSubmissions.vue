@@ -1,8 +1,8 @@
 <template>
-  <v-container v-show="this.$store.getters.isUserLoggedIn">
+  <v-container v-show="$store.getters.isUserLoggedIn">
     <delete-dialog
-      :idToDelete="selectedItem.id"
-      :showDeleteDialog="showDeleteDialog"
+      :id-to-delete="selectedItem.id"
+      :show-delete-dialog="showDeleteDialog"
       @on-cancel-btn-pressed="handleCancelBtnPressed()"
       @on-confirm-delete-btn-pressed="
         handleConfirmDeleteBtnPressed(selectedItem)

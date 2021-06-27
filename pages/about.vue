@@ -24,6 +24,10 @@
         <h2>{{ $t("about.supportQ") }}</h2>
         {{ $t("about.supportA") }}
       </div>
+      <div>
+        <h2>Who developed this site?</h2>
+        <contributors-list />
+      </div>
     </div>
     <div id="widgets">
       <div id="donate">

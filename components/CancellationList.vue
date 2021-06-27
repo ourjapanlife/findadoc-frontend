@@ -11,7 +11,7 @@
       :headers="headers"
       :items="items"
       :items-per-page="10"
-      class="elevation-2"
+      class="clinics-table elevation-2"
       :loading="loading"
       loading-text="Loading... Please wait"
       :search="search"
@@ -101,7 +101,7 @@
     <v-dialog v-model="showDialog.note" max-width="300px">
       <v-card id="note" align="center">
         <v-card-title>{{ $t("cancelList.header.note") }}</v-card-title>
-        {{ this.selectedNote }}
+        {{ selectedNote }}
       </v-card>
     </v-dialog>
   </div>
@@ -224,7 +224,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .v-sheet.v-card {
   padding-left: 20px !important;
   padding-right: 20px !important;
@@ -238,5 +238,11 @@ export default {
 }
 #waiting-lists-table {
   margin-bottom: 20px;
+}
+
+::v-deep .clinics-table {
+  table > thead > tr > th {
+    font-size: 0.875rem;
+  }
 }
 </style>
