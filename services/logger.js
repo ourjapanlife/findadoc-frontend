@@ -23,7 +23,7 @@ const createProdLogger = (logLevel) => {
     if (logLevel !== "debug") return;
 
     const currentTime = new Date().toLocaleTimeString();
-    console.log(`DEBUG - ${currentTime}: ${message}`);
+    console.debug(`DEBUG - ${currentTime}: ${message}`);
   };
 
   const infoLogFunction = (message) => {
