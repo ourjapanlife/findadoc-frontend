@@ -12,7 +12,7 @@
 import SiteFooter from "@/components/SiteFooter.vue";
 
 export default {
-  compoonents: { SiteFooter },
+  components: { SiteFooter },
   async mounted() {
     await this.$store.dispatch("refreshUser");
   },
