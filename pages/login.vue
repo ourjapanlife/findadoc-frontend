@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import logger from "../services/logger";
+
 export default {
   data() {
     return {
@@ -65,11 +67,12 @@ export default {
         });
 
         //TODO: Show the user a message saying login failed/succeeded
-        console.log("successfully logged in!");
+
+        logger.info("successfully logged in!");
         this.$router.push("/admin/pending");
       } catch (error) {
         //When a firebase login fails, it will throw an error and be handled here.
-        console.log("Login failed.", error);
+        logger.warn("Login failed.", error);
       }
     },
     clear() {
