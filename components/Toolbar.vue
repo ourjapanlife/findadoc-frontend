@@ -123,18 +123,19 @@ export default {
       }
       return menuItems.flat();
     },
-    loginItem: function() {
-      return this.$store.getters.isUserLoggedIn ?
-        {
-          title: this.$t("toolbar.logout"),
-          icon: "mdi-logout",
-          route: "logout",
-        } : {
-          title: this.$t("toolbar.login"),
-          icon: "mdi-account",
-          route: "login"
-        };
-    }
+    loginItem: function () {
+      return this.$store.getters.isUserLoggedIn
+        ? {
+            title: this.$t("toolbar.logout"),
+            icon: "mdi-logout",
+            route: "logout",
+          }
+        : {
+            title: this.$t("toolbar.login"),
+            icon: "mdi-account",
+            route: "login",
+          };
+    },
   },
   methods: {},
 };
