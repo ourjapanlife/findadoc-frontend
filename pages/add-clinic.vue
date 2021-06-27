@@ -135,10 +135,10 @@ export default {
       const minLength = 2;
 
       return [
-        (v) => !!v || this.$i18n.t("add-clinic.validations.cityRequired"),
+        (v) => !!v || this.$t("add-clinic.validations.cityRequired"),
         (v) =>
           (v && v.length >= minLength) ||
-          this.$i18n.t("add-clinic.validations.cityValidation", [minLength]),
+          this.$t("add-clinic.validations.cityValidation", [minLength]),
       ];
     },
 
@@ -146,10 +146,10 @@ export default {
       const minLength = 2;
 
       return [
-        (v) => !!v || this.$i18n.t("add-clinic.validations.wardRequired"),
+        (v) => !!v || this.$t("add-clinic.validations.wardRequired"),
         (v) =>
           (v && v.length >= minLength) ||
-          this.$i18n.t("add-clinic.validations.wardValidation", [minLength]),
+          this.$t("add-clinic.validations.wardValidation", [minLength]),
       ];
     },
 
@@ -157,10 +157,10 @@ export default {
       const minLength = 2;
 
       return [
-        (v) => !!v || this.$i18n.t("add-clinic.validations.clinicRequired"),
+        (v) => !!v || this.$t("add-clinic.validations.clinicRequired"),
         (v) =>
           (v && v.length >= minLength) ||
-          this.$i18n.t("add-clinic.validations.clinicValidation", [minLength]),
+          this.$t("add-clinic.validations.clinicValidation", [minLength]),
       ];
     },
 
@@ -171,10 +171,10 @@ export default {
       const urlPattern = /^http[s]?:\/\/(.+)/;
 
       return [
-        (v) => !!v || this.$i18n.t("add-clinic.validations.websiteRequired"),
+        (v) => !!v || this.$t("add-clinic.validations.websiteRequired"),
         (v) =>
           urlPattern.test(v) ||
-          this.$i18n.t("add-clinic.validations.websiteValidation"),
+          this.$t("add-clinic.validations.websiteValidation"),
       ];
     },
   },
