@@ -240,7 +240,7 @@ export default {
 
 ::v-deep .clinics-table {
   table > thead > tr > th {
-    font-size: 1rem;
+    font-size: 0.875rem;
   }
 }
 </style>
