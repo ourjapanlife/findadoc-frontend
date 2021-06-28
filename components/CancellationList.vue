@@ -43,6 +43,26 @@
           {{ $t("cancelList.voucher.notRequired") }}
         </v-chip>
       </template>
+      <template v-slot:[`item.wardResidencyRequired`]="{ item }" align="left">
+        <v-chip
+          v-if="item.wardResidencyRequired === true"
+          class="ma-2"
+          color="pink"
+          label
+          text-color="white"
+        >
+          {{ $t("cancelList.wardResidency.required") }}
+        </v-chip>
+        <v-chip
+          v-if="item.wardResidencyRequired === false"
+          class="ma-2"
+          color="green"
+          label
+          text-color="white"
+        >
+          {{ $t("cancelList.wardResidency.notRequired") }}
+        </v-chip>
+      </template>
 
       <template v-slot:[`item.note`]="{ item }" align="left">
         <div
@@ -164,10 +184,10 @@ export default {
         text: `${vue.$t("cancelList.header.voucherRequired")}:`,
         value: "voucherRequired",
       },
-      // {
-      //   text: `${vue.$t("cancelList.header.wardResidencyRequired")}:`,
-      //   value: "wardResidencyRequired",
-      // },
+      {
+        text: `${vue.$t("cancelList.header.wardResidencyRequired")}:`,
+        value: "wardResidencyRequired",
+      },
       { text: `${vue.$t("cancelList.header.note")}:`, value: "note" },
       {
         text: `${vue.$t("cancelList.header.website")}:`,
