@@ -7,7 +7,7 @@ Welcome to Findadoc Japan! We're grateful for our volunteers 😊
 👉️ Developers 💻️
 
 1. Fork the repo and build the source by following the [README](https://github.com/ourjapanlife/findadoc-frontend#readme)
-2. Find a good issue by checking out the [latest Project Board](https://github.com/ourjapanlife/findadoc-frontend/projects/2), or looking for something tagged "Good First Issue"
+2. Find a good issue by checking out the [latest Project Board](https://github.com/ourjapanlife/findadoc-frontend/projects), or looking for something tagged "Good First Issue"
 3. Submit a PR and work with the team to merge it
    🙌🏻
 
