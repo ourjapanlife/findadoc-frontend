@@ -2,6 +2,7 @@
   "name": "findadoc",
   "version": "1.0.0",
   "private": true,
+  "license": "BSD-3",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
