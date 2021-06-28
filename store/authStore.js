@@ -1,6 +1,7 @@
 //TODO: in v9 of firebase this can be modularized/tree shaken
 import firebase from "firebase/app";
 import "firebase/auth";
+import logger from "../services/logger";
 
 export const authState = {
   user: {
@@ -16,7 +17,7 @@ export const authGetters = {
 
 export const authActions = {
   async refreshUser({ commit }) {
-    console.log("refreshing current user.");
+    logger.debug("Refreshing current user.");
     try {
       //This is a non-awaitable observer.
       //auth() sets the current user as a background task and this observable will be triggered async.
@@ -30,8 +31,7 @@ export const authActions = {
         });
       });
     } catch (error) {
-      console.log("error retrieving current user", error);
-      return;
+      logger.error("Error retrieving current user", error);
     }
   },
 };

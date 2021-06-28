@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const createLogger = () => {
   const isProdMode =
     process.env.NODE_ENV === "prod" || process.env.NODE_ENV !== "development";
@@ -27,21 +29,21 @@ const createProdLogger = (logLevel) => {
   };
 
   const infoLogFunction = (message) => {
-    if (logLevel !== "debug" || logLevel !== "default") return;
+    if (logLevel !== "debug" && logLevel !== "default") return;
 
     const currentTime = new Date().toLocaleTimeString();
     console.log(`INFO - ${currentTime}: ${message}`);
   };
 
   const warnLogFunction = (message) => {
-    if (logLevel !== "debug" || logLevel !== "default") return;
+    if (logLevel !== "debug" && logLevel !== "default") return;
 
     const currentTime = new Date().toLocaleTimeString();
     console.log(`WARN - ${currentTime}: ${message}`);
   };
 
   const errorLogFunction = (message, error) => {
-    if (logLevel !== "debug" || logLevel !== "default") return;
+    if (logLevel !== "debug" && logLevel !== "default") return;
 
     const currentTime = new Date().toLocaleTimeString();
     const fullErrorMessage = error
@@ -67,21 +69,21 @@ const createDevLogger = (logLevel) => {
   };
 
   const infoLogFunction = (message) => {
-    if (logLevel !== "debug" || logLevel !== "default") return;
+    if (logLevel !== "debug" && logLevel !== "default") return;
 
     const currentTime = new Date().toLocaleTimeString();
     console.log(`INFO - ${currentTime}: ${message}`);
   };
 
   const warnLogFunction = (message) => {
-    if (logLevel !== "debug" || logLevel !== "default") return;
+    if (logLevel !== "debug" && logLevel !== "default") return;
 
     const currentTime = new Date().toLocaleTimeString();
     console.log(`WARN - ${currentTime}: ${message}`);
   };
 
   const errorLogFunction = (message, error) => {
-    if (logLevel !== "debug" || logLevel !== "default") return;
+    if (logLevel !== "debug" && logLevel !== "default") return;
 
     const currentTime = new Date().toLocaleTimeString();
     const fullErrorMessage = error

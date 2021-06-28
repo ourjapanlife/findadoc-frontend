@@ -20,5 +20,6 @@ module.exports = {
     "vue/attributes-order": 0,
     "vue/v-slot-style": 0,
     "vue/order-in-components": 0,
+    "no-console": "error",
   },
 };

@@ -64,6 +64,8 @@
 
 <script>
 import json from "../data/adminDbTableHeaders.json";
+import logger from "../services/logger";
+
 export default {
   data() {
     return {
@@ -110,7 +112,7 @@ export default {
           .doc(this.editedItem.id)
           .update(this.editedItem);
       } catch (err) {
-        console.log(err);
+        logger.error(err);
       }
     },
     editItem(item) {
