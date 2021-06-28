@@ -10,7 +10,7 @@
     "generate": "nuxt generate",
     "netlify": "git submodule update --init --recursive --remote && nuxt generate",
     "lint": "eslint . --ext .js,.vue,.json && prettier --write **/*.{js,vue,json,scss,md}",
-    "postinstall": "husky install"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@nuxtjs/firebase": "^7.6.1",
