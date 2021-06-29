@@ -1,5 +1,5 @@
 import colors from "vuetify/es5/util/colors";
-import { languages } from "./i18n/supported_languages.json";
+import { languages } from "@ourjapanlife/findadoc-localization/supported_languages.json";
 
 const SITE_TITLE = "Find a Doc JAPAN";
 const SITE_DESCRIPTION =
