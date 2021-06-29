@@ -1,10 +1,12 @@
 <template>
   <v-card>
     <v-form>
+      <h1 class="login-fields">{{ $t("login.adminLogin") }}</h1>
       <div class="d-flex flex-row justify-content-center">
         <v-text-field
           type="text"
           v-model="email"
+          color="secondary"
           :label="$t('login.email')"
           required
         ></v-text-field>
@@ -13,12 +15,13 @@
         <v-text-field
           type="password"
           v-model="password"
+          color="secondary"
           :label="$t('login.password')"
           required
         ></v-text-field>
       </div>
       <div align="center">
-        <v-btn @click="login">{{ $t("login.login") }}</v-btn>
+        <v-btn color="secondary" @click="login">{{ $t("login.login") }}</v-btn>
         <v-btn @click="clear">{{ $t("login.clear") }} </v-btn>
       </div>
     </v-form>
@@ -89,11 +92,18 @@ export default {
   justify-content: center;
 }
 .v-form {
-  padding: 10px !important;
+  padding: 1.25rem;
+  letter-spacing: 0.15rem;
 }
 .v-card {
   margin: auto;
-  margin-top: 20px;
+  margin-top: 8%;
   max-width: 600px !important;
+}
+.v-text-field {
+  padding-top: 1.2rem;
+}
+.login-fields {
+  text-align: center;
 }
 </style>
