@@ -2,7 +2,7 @@
   <v-container>
     <v-alert dismissible color="alertCard">
       <v-row align="center" no-gutters>
-        <v-col class="grow" :cols="$vuetify.breakpoint.sm ? '2' : auto">
+        <v-col class="grow" :cols="$vuetify.breakpoint.xs ? '12' : auto">
           <slot></slot>
         </v-col>
         <v-col class="shrink">
