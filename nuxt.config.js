@@ -134,7 +134,7 @@ export default {
           onlyOnRoot: true, // recommended for SEO
           useCookie: true,
         },
-        langDir: "i18n/locales",
+        langDir: "node_modules/@ourjapanlife/findadoc-localization/locales",
         vueI18n: {
           fallbackLocale: "en",
         },
