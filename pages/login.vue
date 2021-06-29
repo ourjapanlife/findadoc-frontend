@@ -93,7 +93,7 @@ export default {
 }
 .v-form {
   padding: 1.25rem;
-  letter-spacing: 3px;
+  letter-spacing: 0.15rem;
 }
 .v-card {
   margin: auto;
