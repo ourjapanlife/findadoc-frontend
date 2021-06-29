@@ -1,8 +1,8 @@
 <template>
-  <v-container v-show="this.$store.getters.isUserLoggedIn">
+  <v-container v-show="$store.getters.isUserLoggedIn">
     <delete-dialog
-      :idToDelete="selectedItem.id"
-      :showDeleteDialog="showDeleteDialog"
+      :id-to-delete="selectedItem.id"
+      :show-delete-dialog="showDeleteDialog"
       @on-cancel-btn-pressed="handleCancelBtnPressed()"
       @on-confirm-delete-btn-pressed="
         handleConfirmDeleteBtnPressed(selectedItem)
@@ -70,6 +70,7 @@
 <script>
 import DeleteDialog from "./DeleteDialog.vue";
 import json from "../data/adminDbTableHeaders.json";
+import logger from "../services/logger";
 export default {
   components: { DeleteDialog },
   data() {
@@ -90,6 +91,8 @@ export default {
         city: "",
         ward: "",
         note: "",
+        voucherRequired: "",
+        wardResidencyRequired: "",
         website: "",
       },
     };
@@ -119,7 +122,7 @@ export default {
           .add(this.editedItem);
         await this.deleteItem(item);
       } catch (err) {
-        console.log(err);
+        logger.error(err);
       }
     },
     editItem(item) {
@@ -138,7 +141,7 @@ export default {
           .delete();
         await this.clinics.splice(itemIndex, 1);
       } catch (err) {
-        console.log(err);
+        logger.error(err);
       }
     },
     async handleApproveBtnPressed(item) {

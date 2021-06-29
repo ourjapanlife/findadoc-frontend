@@ -11,15 +11,57 @@
       :headers="headers"
       :items="items"
       :items-per-page="10"
-      class="elevation-2"
+      class="clinics-table elevation-2"
       :loading="loading"
       loading-text="Loading... Please wait"
       :search="search"
     >
       <template v-slot:[`item.name`]="{ item }" align="left">
         <div class="dflex justify-left">
-          {{ item.name }}
+          <a target="_blank" :href="item.website">
+            {{ item.name }}
+          </a>
         </div>
+      </template>
+      <template v-slot:[`item.voucherRequired`]="{ item }" align="left">
+        <v-chip
+          v-if="item.voucherRequired === true"
+          class="ma-2"
+          color="pink"
+          label
+          text-color="white"
+        >
+          {{ $t("cancelList.voucher.required") }}
+        </v-chip>
+        <v-chip
+          v-if="item.voucherRequired === false"
+          class="ma-2"
+          color="green"
+          label
+          text-color="white"
+        >
+          {{ $t("cancelList.voucher.notRequired") }}
+        </v-chip>
+      </template>
+      <template v-slot:[`item.wardResidencyRequired`]="{ item }" align="left">
+        <v-chip
+          v-if="item.wardResidencyRequired === true"
+          class="ma-2"
+          color="pink"
+          label
+          text-color="white"
+        >
+          {{ $t("cancelList.wardResidency.required") }}
+        </v-chip>
+        <v-chip
+          v-if="item.wardResidencyRequired === false"
+          class="ma-2"
+          color="green"
+          label
+          text-color="white"
+        >
+          {{ $t("cancelList.wardResidency.notRequired") }}
+        </v-chip>
       </template>
 
       <template v-slot:[`item.note`]="{ item }" align="left">
@@ -79,13 +121,15 @@
     <v-dialog v-model="showDialog.note" max-width="300px">
       <v-card id="note" align="center">
         <v-card-title>{{ $t("cancelList.header.note") }}</v-card-title>
-        {{ this.selectedNote }}
+        {{ selectedNote }}
       </v-card>
     </v-dialog>
   </div>
 </template>
 
 <script>
+import logger from "../services/logger";
+
 export default {
   mounted() {
     const db = this.$fireModule.firestore();
@@ -136,6 +180,14 @@ export default {
       },
       { text: `${vue.$t("cancelList.header.city")}:`, value: "city" },
       { text: `${vue.$t("cancelList.header.ward")}:`, value: "ward" },
+      {
+        text: `${vue.$t("cancelList.header.voucherRequired")}:`,
+        value: "voucherRequired",
+      },
+      {
+        text: `${vue.$t("cancelList.header.wardResidencyRequired")}:`,
+        value: "wardResidencyRequired",
+      },
       { text: `${vue.$t("cancelList.header.note")}:`, value: "note" },
       {
         text: `${vue.$t("cancelList.header.website")}:`,
@@ -168,9 +220,9 @@ export default {
           .collection("reports")
           .add(this.report)
           .then((this.showDialog.report = false))
-          .then(() => console.log("Reported", this.report));
+          .then(() => logger.info(`Reported. ${this.report}`));
       } catch (err) {
-        console.log(err);
+        logger.error(err);
       }
     },
     showNote(note) {
@@ -192,7 +244,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .v-sheet.v-card {
   padding-left: 20px !important;
   padding-right: 20px !important;
@@ -206,5 +258,11 @@ export default {
 }
 #waiting-lists-table {
   margin-bottom: 20px;
+}
+
+::v-deep .clinics-table {
+  table > thead > tr > th {
+    font-size: 0.875rem;
+  }
 }
 </style>

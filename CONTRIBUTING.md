@@ -7,7 +7,7 @@ Welcome to Findadoc Japan! We're grateful for our volunteers 😊
 👉️ Developers 💻️
 
 1. Fork the repo and build the source by following the [README](https://github.com/ourjapanlife/findadoc-frontend#readme)
-2. Find a good issue by checking out the [latest Project Board](https://github.com/ourjapanlife/findadoc-frontend/projects/2), or looking for something tagged "Good First Issue"
+2. Find a good issue by checking out the [latest Project Board](https://github.com/ourjapanlife/findadoc-frontend/projects), or looking for something tagged "Good First Issue"
 3. Submit a PR and work with the team to merge it
    🙌🏻
 
@@ -23,7 +23,7 @@ Welcome to Findadoc Japan! We're grateful for our volunteers 😊
 
 ## What if I get stuck?
 
-- Developers: Check out the [TROUBLESHOOTING Guide](https://github.com/ourjapanlife/findadoc-frontend/blob/main/TROUBLESHOOTING.md) or ask in Slack
+- Developers: Check out the [TROUBLESHOOTING Guide](https://github.com/ourjapanlife/findadoc-frontend/wiki/Troubleshooting-%F0%9F%98%AD-%F0%9F%98%AD-%F0%9F%98%AD-%F0%9F%91%89%EF%B8%8F-%F0%9F%98%8A-%F0%9F%98%8A--%F0%9F%98%8A) or ask in Slack
 - Translators: Ask in slack in the #localization channel
 - Everyone: Ask in Slack
 

@@ -5,6 +5,8 @@
     { "text": "Prefecture", "value": "prefecture" },
     { "text": "City", "value": "city" },
     { "text": "Ward", "value": "ward" },
+    { "text": "Voucher Required", "value": "voucherRequired" },
+    { "text": "Ward Residency Required", "value": "wardResidencyRequired" },
     { "text": "Note", "value": "note" },
     { "text": "Website", "value": "website" },
     {

@@ -1,5 +1,5 @@
 <template>
-  <v-container v-show="this.$store.getters.isUserLoggedIn">
+  <v-container v-show="$store.getters.isUserLoggedIn">
     <v-card-title>
       Active Clinic Data
       <v-spacer></v-spacer>
@@ -64,6 +64,8 @@
 
 <script>
 import json from "../data/adminDbTableHeaders.json";
+import logger from "../services/logger";
+
 export default {
   data() {
     return {
@@ -110,7 +112,7 @@ export default {
           .doc(this.editedItem.id)
           .update(this.editedItem);
       } catch (err) {
-        console.log(err);
+        logger.error(err);
       }
     },
     editItem(item) {
