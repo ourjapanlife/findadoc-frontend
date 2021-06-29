@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-alert dismissible color="alertCard">
-      <v-row align="center">
-        <v-col class="grow">
+      <v-row align="center" no-gutters>
+        <v-col class="grow" cols="auto" xs="2">
           <slot></slot>
         </v-col>
         <v-col class="shrink">
