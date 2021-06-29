@@ -5,13 +5,13 @@
       v-model="valid"
       lazy-validation
       @submit.prevent="submitData"
-      class="mb-8 mt-8"
+      class="add-clinic-form"
     >
-      <div align="center" id="instructions">
+      <div align="center" class="add-clinic-instructions">
         <h2>{{ $t("add-clinic.fillForm") }}</h2>
       </div>
       <v-container>
-        <v-row class="red--text text--darken-4 mb-4 justify-center">
+        <v-row class="romaji-only-text">
           <b>{{ $t("add-clinic.romajiOnly") }}</b>
         </v-row>
         <v-row>
@@ -86,7 +86,7 @@
       <div align="center">
         <v-btn
           color="accent"
-          class="black--text"
+          class="submit-clinic-btn"
           :disabled="this.$v.$invalid"
           @click="submitData"
         >
@@ -211,19 +211,22 @@ export default {
 };
 </script>
 
-<style scoped>
-.v-btn {
-  margin-top: 20px !important;
-  margin-bottom: 20px !important;
+<style scoped lang="scss">
+@import "~vuetify/src/styles/main.sass";
+
+.add-clinic-form {
+  @extend .mb-8, .mt-8, .pl-8, .pr-8;
 }
-#instructions {
-  margin-top: 20px;
+.romaji-only-text {
+  @extend .red--text, .text--darken-4, .mb-4, .justify-center;
 }
-.v-form {
-  padding: 10px !important;
+.submit-clinic-btn {
+  @extend .mt-4, .mb-6, .black--text;
+}
+.add-clinic-instructions {
+  @extend .pt-6;
 }
 .v-card {
-  margin: auto;
-  margin-top: 20px;
+  @extend .ma-auto;
 }
 </style>
