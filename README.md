@@ -8,7 +8,7 @@
 
 [Join our slack!](https://join.slack.com/t/find-a-doc/shared_invite/zt-s4744a6o-MGaGHzLN5wB9aXeha3vdsQ)
 
-## Working with the submodule
+## Working with the submodule (will be deprecated after #195)
 
 Note this project uses a git submodule to manage translations. That repository is [here](https://github.com/ourjapanlife/findadoc-localization)
 
