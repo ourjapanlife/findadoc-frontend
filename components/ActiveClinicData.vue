@@ -54,9 +54,21 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-        <v-icon small class="mr-2" @click="handleEditBtnPressed(item)">
-          mdi-pencil
-        </v-icon>
+        <v-menu>
+          <template v-slot:activator="{ attrs, on }">
+            <v-btn color="indigo" icon v-bind="attrs" v-on="on">
+              <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item v-for="action in adminActions" :key="action" link>
+              <v-list-item-title
+                v-text="action.label"
+                @click="handleEditBtnPressed(item)"
+              ></v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </template>
     </v-data-table>
   </v-container>
@@ -69,6 +81,10 @@ import logger from "../services/logger";
 export default {
   data() {
     return {
+      adminActions: [
+        { label: "Edit", action: this.handleEditBtnPressed },
+        // { label: "Delete", action: this.handleDeleteBtnPressed }, // This will be implemented once deleted data is logged.
+      ],
       editedItem: {},
       clinics: [],
       dialogEdit: false,
