@@ -19,34 +19,44 @@
             :items="prefectureList"
             :label="$t('add-clinic.prefecture')"
             v-model="prefecture"
+            required
+            outlined
           ></v-autocomplete>
         </v-row>
         <v-row>
           <v-text-field
             :label="$t('add-clinic.city')"
-            :error-messages="errorMessages($v.city, 'city')"
-            v-model="$v.city.$model"
+            v-model="city"
+            required
+            filled
+            :rules="cityRules"
           ></v-text-field>
         </v-row>
         <v-row>
           <v-text-field
             :label="$t('add-clinic.ward')"
-            :error-messages="errorMessages($v.ward, 'ward')"
-            v-model="$v.ward.$model"
+            v-model="ward"
+            required
+            filled
+            :rules="wardRules"
           ></v-text-field>
         </v-row>
         <v-row>
           <v-text-field
             :label="$t('add-clinic.clinicName')"
-            :error-messages="errorMessages($v.clinic, 'clinic')"
-            v-model="$v.clinic.$model"
+            v-model="name"
+            required
+            filled
+            :rules="nameRules"
           ></v-text-field>
         </v-row>
         <v-row>
           <v-text-field
             :label="$t('add-clinic.websiteURL')"
-            :error-messages="errorMessages($v.website, 'website')"
-            v-model="$v.website.$model"
+            v-model="website"
+            required
+            filled
+            :rules="websiteRules"
           ></v-text-field>
         </v-row>
         <v-row>
@@ -87,7 +97,7 @@
         <v-btn
           color="accent"
           class="black--text"
-          :disabled="this.$v.$invalid"
+          :disabled="!valid"
           @click="submitData"
         >
           {{ $t("add-clinic.submitClinic") }}
@@ -99,12 +109,7 @@
 
 <script>
 import json from "../data/prefectures.json";
-import { required, minLength, url, helpers } from "vuelidate/lib/validators";
 import logger from "../services/logger";
-
-// https://medium.com/@annkilzer/validating-japanese-input-with-vuelidate-and-vue-js-ccdb91d70d36
-const validChars = helpers.regex("validChars", /^[A-Za-z0-9\- .,'"„“’]*$/);
-
 export default {
   mounted() {},
   data: (vue) => ({
@@ -120,33 +125,28 @@ export default {
     prefectureList: json.prefectures,
     prefecture: "",
     city: "",
+    cityRules: [
+      (v) => !!v || "City is required",
+      (v) => (v && v.length >= 2) || "City name must be at least 2 characters",
+    ],
     ward: "",
-    clinic: "",
+    wardRules: [
+      (v) => !!v || "Ward is required",
+      (v) => (v && v.length >= 2) || "Ward name must be at least 2 characters",
+    ],
+    name: "",
+    nameRules: [
+      (v) => !!v || "Clinic name is required",
+      (v) =>
+        (v && v.length >= 2) || "Clinic name must be at least 2 characters",
+    ],
     note: "",
     website: "",
+    websiteRules: [
+      (v) => !!v || "Website URL is required",
+      (v) => (v && v.length >= 5) || "Please enter a valid URL",
+    ],
   }),
-
-  validations: {
-    city: {
-      required,
-      minLength: minLength(2),
-      validChars,
-    },
-    ward: {
-      required,
-      minLength: minLength(2),
-      validChars,
-    },
-    clinic: {
-      required,
-      minLength: minLength(2),
-      validChars,
-    },
-    website: {
-      required,
-      url,
-    },
-  },
   methods: {
     handleVoucherSwitch() {
       if (this.voucher.required) {
@@ -163,7 +163,7 @@ export default {
       }
     },
     submitData() {
-      if (!this.$v.$invalid) {
+      if (this.$refs.form.validate()) {
         const clinic = {
           prefecture: this.prefecture,
           city: this.city,
@@ -188,24 +188,8 @@ export default {
         alert("Please fill out all of the fields!");
       }
     },
-    errorMessages(field, name) {
-      if (!field.$error) {
-        return [];
-      }
-      const fieldErrs = field
-        .$flattenParams()
-        .filter((param) => !field[param.name]);
-      const errMsgs = fieldErrs.map((param) => {
-        const templateArgs = {};
-        if (param.name === "minLength") {
-          templateArgs["0"] = field.$params.minLength.min;
-        }
-        return this.$t(
-          `add-clinic.validations.${name}.${param.name}`,
-          templateArgs
-        );
-      });
-      return errMsgs;
+    validate() {
+      this.$refs.form.validate();
     },
   },
 };
