@@ -145,6 +145,7 @@ export default {
       {
         /* eslint-disable-next-line no-undef */
         key: process.env.GOOGLE_MAPS_API_KEY,
+        map_ids: process.env.GOOGLE_MAPS_ID,
         //you can use libraries: ['places']
       },
     ],

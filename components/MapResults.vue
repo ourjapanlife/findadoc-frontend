@@ -1,10 +1,11 @@
 <template>
   <GMap
     ref="gMap"
+    map-type-id="terrain"
     language="en"
     :cluster="{ options: { styles: clusterStyle } }"
     :center="{ lat: locations[0].lat, lng: locations[0].lng }"
-    :options="{ fullscreenControl: true, styles: mapStyle }"
+    :options="options"
     :zoom="8"
   >
     <GMapMarker
@@ -26,9 +27,14 @@
 
 <script>
 export default {
+  mounted() {
+    this.geolocate();
+  },
   data() {
     return {
-      mapID: "8f5d2e0511f0e754",
+      options: {
+        mapId: "8f5d2e0511f0e754",
+      },
       currentLocation: {},
       // circleOptions: {},
       locations: [
@@ -51,6 +57,15 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    geolocate() {
+      navigator.geolocation.getCurrentPosition((position) => {
+        (this.currentLocation.lat = position.coords.latitude)(
+          (this.currentLocation.lng = position.coords.longitude)
+        );
+      });
+    },
   },
 };
 </script>
