@@ -35,6 +35,7 @@ export default {
       options: {
         mapId: "8f5d2e0511f0e754",
       },
+      // currentLocation: {},
       currentLocation: { lat: 0, lng: 0 },
       // circleOptions: {},
       locations: [],
@@ -56,17 +57,15 @@ export default {
     };
   },
   methods: {
-    geolocate() {
-      // console.log("GEOLOCATE!!!!!");
-      navigator.geolocation.getCurrentPosition((position) => {
-        // console.log("position =", position);
+    async geolocate() {
+      await navigator.geolocation.getCurrentPosition((position) => {
+        // console.log("POSITION", position);
         this.currentLocation = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
-        // console.log("currentLocation =", this.currentLocation);
+        // this.currentLocation = position;
         this.locations.push(this.currentLocation);
-        // console.log("locations =", this.locations);
       });
     },
   },
