@@ -4,8 +4,8 @@
     language="en"
     :cluster="{ options: { styles: clusterStyle } }"
     :center="{ lat: locations[0].lat, lng: locations[0].lng }"
-    :options="{ fullscreenControl: false, styles: mapStyle }"
-    :zoom="6"
+    :options="{ fullscreenControl: true, styles: mapStyle }"
+    :zoom="8"
   >
     <GMapMarker
       v-for="location in locations"
@@ -54,3 +54,13 @@ export default {
   },
 };
 </script>
+
+<style>
+.GMap__Wrapper {
+  min-height: 100vh !important;
+  min-width: 100vw !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  overflow: visible !important;
+}
+</style>
