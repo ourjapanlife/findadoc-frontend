@@ -4,9 +4,9 @@
     map-type-id="terrain"
     language="en"
     :cluster="{ options: { styles: clusterStyle } }"
-    :center="{ lat: locations[0].lat, lng: locations[0].lng }"
+    :center="{ lat: currentLocation.lat, lng: currentLocation.lng }"
     :options="options"
-    :zoom="8"
+    :zoom="2"
   >
     <GMapMarker
       v-for="location in locations"
@@ -21,7 +21,7 @@
         <code> lat: {{ location.lat }}, lng: {{ location.lng }} </code>
       </GMapInfoWindow>
     </GMapMarker>
-    <GMapCircle :options="circleOptions" />
+    <!-- <GMapCircle :options="circleOptions" /> -->
   </GMap>
 </template>
 
@@ -35,17 +35,14 @@ export default {
       options: {
         mapId: "8f5d2e0511f0e754",
       },
-      currentLocation: {},
+      currentLocation: { lat: 0, lng: 0 },
       // circleOptions: {},
-      locations: [
-        {
-          lat: 35.65820822589608,
-          lng: 139.70168944238335,
-        },
-      ],
+      locations: [],
       pins: {
-        selected: "data:image/png;base64,iVBORw0KGgo...",
-        notSelected: "data:image/png;base64,iVBORw0KGgo...",
+        selected:
+          "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        notSelected:
+          "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
       },
       // mapStyle: [...],
       clusterStyle: [
@@ -60,10 +57,16 @@ export default {
   },
   methods: {
     geolocate() {
+      // console.log("GEOLOCATE!!!!!");
       navigator.geolocation.getCurrentPosition((position) => {
-        (this.currentLocation.lat = position.coords.latitude)(
-          (this.currentLocation.lng = position.coords.longitude)
-        );
+        // console.log("position =", position);
+        this.currentLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        // console.log("currentLocation =", this.currentLocation);
+        this.locations.push(this.currentLocation);
+        // console.log("locations =", this.locations);
       });
     },
   },
