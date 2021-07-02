@@ -4,9 +4,9 @@
     map-type-id="terrain"
     language="en"
     :cluster="{ options: { styles: clusterStyle } }"
-    :center="{ lat: currentLocation.lat, lng: currentLocation.lng }"
+    :center="{ lat: locations[0].lat, lng: locations[0].lng }"
     :options="options"
-    :zoom="2"
+    :zoom="10"
   >
     <GMapMarker
       v-for="location in locations"
@@ -38,7 +38,7 @@ export default {
       // currentLocation: {},
       currentLocation: { lat: 0, lng: 0 },
       // circleOptions: {},
-      locations: [],
+      locations: [{ lat: 35.45876386849445, lng: 139.57797929721434 }],
       pins: {
         selected:
           "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
