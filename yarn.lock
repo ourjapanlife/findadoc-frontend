@@ -1674,9 +1674,9 @@
     stack-trace "0.0.10"
 
 "@ourjapanlife/findadoc-localization@^1.0.0":
-  version "1.0.0"
-  resolved "https://npm.pkg.github.com/download/@ourjapanlife/findadoc-localization/1.0.0/20fa1ac8d9991b36e75708c4fe7d48632506d66314c568351e1739023575dbcb#ff36341b7484d1a9660b9c580f3a017fd75d8ec5"
-  integrity sha512-0SqRolUxl4gB+4Eh3ZeEK6hb4OWgFgWazOqRXInsdh9Kmhn9kZ2XyzsyHB5LQW1xxXoXdCPpGeljMvdHeAlABw==
+  version "1.0.2"
+  resolved "https://npm.pkg.github.com/download/@ourjapanlife/findadoc-localization/1.0.2/a04096dd06407481e4601619a229ed15707a3d3e29b8aa4c40339c35e75ab22c#f286a94b26ac52d3357d16a47b5f72103efcd7ab"
+  integrity sha512-Zu9AEzgJixJQ9jVolc/w8AskdoEf+wa/AT9iy6Qd4bRphOGjbeM7fcQ8PLB8J7ESgh4QFMDr1WK8G33Hr6kSVA==
 
 "@panva/asn1.js@^1.0.0":
   version "1.0.0"
