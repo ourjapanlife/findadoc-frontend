@@ -111,7 +111,16 @@
 import json from "../data/prefectures.json";
 import logger from "../services/logger";
 export default {
-  mounted() {},
+  async mounted() {
+    try {
+      await this.$recaptcha.init();
+    } catch (error) {
+      logger.error(error);
+    }
+  },
+  beforeDestroy() {
+    this.$recaptcha.destroy();
+  },
   data: (vue) => ({
     valid: true,
     voucher: {
@@ -162,7 +171,7 @@ export default {
         this.wardResidency.text = "No";
       }
     },
-    submitData() {
+    async submitData() {
       if (this.$refs.form.validate()) {
         const clinic = {
           prefecture: this.prefecture,
@@ -175,6 +184,8 @@ export default {
           wardResidencyRequired: this.wardResidency.required,
         };
         try {
+          const token = await this.$recaptcha.execute({ action: "submit" });
+          logger.info("token", token);
           this.$fireModule
             .firestore()
             .collection("pending")

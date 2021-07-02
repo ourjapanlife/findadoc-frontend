@@ -15,6 +15,7 @@
   "dependencies": {
     "@nuxtjs/firebase": "^7.6.1",
     "@ourjapanlife/findadoc-localization": "https://github.com/ourjapanlife/findadoc-localization",
+    "@nuxtjs/recaptcha": "^1.0.4",
     "core-js": "^3.9.1",
     "firebase": "^8.6.7",
     "nuxt": "^2.15.3",

@@ -141,6 +141,14 @@ export default {
         },
       },
     ],
+    [
+      "@nuxtjs/recaptcha",
+      {
+        hideBadge: true,
+        siteKey: process.env.RECAPTCHA_SITE_KEY,
+        version: 3,
+      },
+    ],
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
