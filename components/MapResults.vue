@@ -40,10 +40,8 @@ export default {
       // circleOptions: {},
       locations: [{ lat: 35.45876386849445, lng: 139.57797929721434 }],
       pins: {
-        selected:
-          "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-        notSelected:
-          "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        selected: "/svg/doctor.svg",
+        notSelected: "/svg/doctor.svg",
       },
       // mapStyle: [...],
       clusterStyle: [
