@@ -6,7 +6,7 @@
     <v-row>
       <v-col sm="4" md="5" lg="6" v-for="lead in leads" :key="lead.name">
         <contributor-lead
-          :githubHandle="lead.githubHandle"
+          :github-handle="lead.githubHandle"
           :twitterHandle="lead.twitterHandle"
           :name="lead.name"
           :role="lead.role"
