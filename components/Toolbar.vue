@@ -143,7 +143,7 @@ export default {
 
 <style scoped>
 a {
-  text-decoration: none !important;
-  color: black !important;
+  text-decoration: none;
+  color: black;
 }
 </style>

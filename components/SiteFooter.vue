@@ -25,9 +25,10 @@ a:visited {
   color: white;
   text-decoration: none;
 }
+
 .col {
-  display: flex !important;
-  justify-content: space-evenly !important;
+  display: flex;
+  justify-content: space-evenly;
   padding-left: 6px;
   padding-right: 6px;
 }

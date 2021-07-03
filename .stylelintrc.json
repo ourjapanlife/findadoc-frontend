@@ -1,0 +1,12 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "declaration-no-important": true,
+    "declaration-block-trailing-semicolon": [
+      "always",
+      {
+        "ignore": ["single-declaration"]
+      }
+    ]
+  }
+}
