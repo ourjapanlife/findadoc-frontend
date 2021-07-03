@@ -10,6 +10,6 @@ jobs:
       - name: Install modules
         run: yarn
       - name: Register Matcher
-        run: echo "::add-matcher::eslint-compact.json"
+        run: echo "::add-matcher::.github/eslint-compact.json"
       - name: Run ESLint
         run: yarn run eslint . --ext .js,.vue,.ts,.json
