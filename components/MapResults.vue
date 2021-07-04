@@ -12,9 +12,6 @@
       v-for="location in locations"
       :key="location.id"
       :position="{ lat: location.lat, lng: location.lng }"
-      :options="{
-        icon: location === currentLocation ? pins.selected : pins.notSelected,
-      }"
       @click="currentLocation = location"
     >
       <GMapInfoWindow :options="{ maxWidth: 200 }">
@@ -38,18 +35,26 @@ export default {
       // currentLocation: {},
       currentLocation: { lat: 0, lng: 0 },
       // circleOptions: {},
-      locations: [{ lat: 35.45876386849445, lng: 139.57797929721434 }],
+      locations: [
+        { lat: 35.45876386849445, lng: 139.57797929721434 },
+        {
+          lat: 35.43730728960548,
+          lng: 139.6514779981999,
+          clinicName: "The Bluff Medical & Dental Clinic",
+        },
+      ],
       pins: {
-        selected: "/svg/doctor.svg",
-        notSelected: "/svg/doctor.svg",
+        selected: "/svg/person-pin.svg",
+        notSelected: "/svg/person-pin.svg",
       },
       // mapStyle: [...],
       clusterStyle: [
         {
           url: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m1.png",
-          width: 56,
-          height: 56,
+          width: 54,
+          height: 54,
           textColor: "#fff",
+          textStyle: "bold",
         },
       ],
     };
@@ -57,12 +62,10 @@ export default {
   methods: {
     async geolocate() {
       await navigator.geolocation.getCurrentPosition((position) => {
-        // console.log("POSITION", position);
         this.currentLocation = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
-        // this.currentLocation = position;
         this.locations.push(this.currentLocation);
       });
     },
