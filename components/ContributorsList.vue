@@ -6,11 +6,11 @@
     <v-row>
       <v-col sm="4" md="5" lg="6" v-for="lead in leads" :key="lead.name">
         <contributor-lead
-          :githubHandle="lead.githubHandle"
-          :twitterHandle="lead.twitterHandle"
+          :github-handle="lead.githubHandle"
+          :twitter-handle="lead.twitterHandle"
           :name="lead.name"
           :role="lead.role"
-          :customPic="lead.customPic"
+          :custom-pic="lead.customPic"
         />
       </v-col>
     </v-row>
