@@ -19,8 +19,6 @@
 <script>
 import { leads } from "../data/contributors.json";
 
-var j = 0;
-
 export default {
   data() {
     return {
