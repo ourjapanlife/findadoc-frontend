@@ -1,25 +1,27 @@
 <template>
-  <GMap
-    ref="gMap"
-    map-type-id="terrain"
-    language="en"
-    :cluster="{ options: { styles: clusterStyle } }"
-    :center="{ lat: locations[0].lat, lng: locations[0].lng }"
-    :options="options"
-    :zoom="10"
-  >
-    <GMapMarker
-      v-for="location in locations"
-      :key="location.id"
-      :position="{ lat: location.lat, lng: location.lng }"
-      @click="currentLocation = location"
+  <v-container>
+    <GMap
+      ref="gMap"
+      map-type-id="terrain"
+      language="en"
+      :cluster="{ options: { styles: clusterStyle } }"
+      :center="{ lat: locations[0].lat, lng: locations[0].lng }"
+      :options="options"
+      :zoom="10"
     >
-      <GMapInfoWindow :options="{ maxWidth: 200 }">
-        <code> lat: {{ location.lat }}, lng: {{ location.lng }} </code>
-      </GMapInfoWindow>
-    </GMapMarker>
-    <!-- <GMapCircle :options="circleOptions" /> -->
-  </GMap>
+      <GMapMarker
+        v-for="location in locations"
+        :key="location.id"
+        :position="{ lat: location.lat, lng: location.lng }"
+        @click="currentLocation = location"
+      >
+        <GMapInfoWindow :options="{ maxWidth: 200 }">
+          <code> lat: {{ location.lat }}, lng: {{ location.lng }} </code>
+        </GMapInfoWindow>
+      </GMapMarker>
+      <!-- <GMapCircle :options="circleOptions" /> -->
+    </GMap>
+  </v-container>
 </template>
 
 <script>
@@ -29,6 +31,7 @@ export default {
   },
   data() {
     return {
+      googleMapsURL: "",
       options: {
         mapId: "8f5d2e0511f0e754",
       },
@@ -69,6 +72,9 @@ export default {
         this.locations.push(this.currentLocation);
       });
     },
+    // async submitBtnPressed() {
+    //   console.log("googleMapsURL =", this.googleMapsURL);
+    // },
   },
 };
 </script>
