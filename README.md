@@ -63,5 +63,5 @@ The locale files are managed through a separate repo, incorporated as a submodul
 2. Edit the `locales/en.json` to contain the new keys.
 3. If you know another language, feel free to add the same key and translation to the appropriate locale file. Omit if you don't know it; we use English as the [fallback language](https://kazupon.github.io/vue-i18n/guide/fallback.html) so nothing will break.
 4. Make a pull request to the localization repo and wait for it to be merged to `main`
-5. Update the submodule (see above) to get the latest keys
+5. Update the package inside `package.json` to get the latest keys imported and run `yarn install`
 6. Make your change in this repo with the new i18n keys and submit your PR 🎉
