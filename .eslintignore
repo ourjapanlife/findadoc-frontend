@@ -2,3 +2,5 @@
 
 # Firebase Directory
 functions/*
+
+dist/*

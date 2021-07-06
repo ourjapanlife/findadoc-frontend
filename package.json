@@ -1,18 +1,20 @@
 {
-  "name": "findadoc",
+  "name": "@ourjapanlife/findadoc-frontend",
   "version": "1.0.0",
   "private": true,
+  "license": "BSD-3",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "netlify": "git submodule update --init --recursive --remote && nuxt generate",
+    "netlify": "nuxt generate",
     "lint": "eslint . --ext .js,.vue,.json && prettier --write **/*.{js,vue,json,scss,md}",
-    "postinstall": "husky install"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@nuxtjs/firebase": "^7.6.1",
+    "@ourjapanlife/findadoc-localization": "https://github.com/ourjapanlife/findadoc-localization",
     "core-js": "^3.9.1",
     "firebase": "^8.6.7",
     "nuxt": "^2.15.3",

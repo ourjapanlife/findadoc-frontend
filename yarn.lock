@@ -1673,6 +1673,10 @@
     mustache "^2.3.0"
     stack-trace "0.0.10"
 
+"@ourjapanlife/findadoc-localization@https://github.com/ourjapanlife/findadoc-localization":
+  version "1.0.2"
+  resolved "https://github.com/ourjapanlife/findadoc-localization#6ef5c6817518c70ba69ed18f77f6cf3b27f4d4ff"
+
 "@panva/asn1.js@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@panva/asn1.js/-/asn1.js-1.0.0.tgz#dd55ae7b8129e02049f009408b97c61ccf9032f6"
