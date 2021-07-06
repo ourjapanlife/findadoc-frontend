@@ -113,7 +113,7 @@ export default {
           storageBucket: "findadoc-bc230.appspot.com",
           messagingSenderId: "871643437476",
           appId: "1:871643437476:web:d7271d01ee125e9f7bc931",
-          measurementId: "G-SN6SHYMJKY",
+          measurementId: "G-4PJ823JSZ1",
         },
         services: {
           auth: true,
