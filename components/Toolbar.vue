@@ -113,10 +113,10 @@ export default {
   }),
   computed: {
     clinicDatabase() {
-      if (this.$route.path === "/multilingual-clinics/") {
-        return true;
-      } else {
+      if (this.$route.path === "/" || this.$route.path === "/add-clinic") {
         return false;
+      } else {
+        return true;
       }
     },
     items() {

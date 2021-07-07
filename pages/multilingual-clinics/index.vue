@@ -1,1 +1,5 @@
-<template><div>hey</div></template>
+<template>
+  <div>
+    <multilingual-clinic-search />
+  </div>
+</template>
