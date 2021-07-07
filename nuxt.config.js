@@ -99,12 +99,7 @@ export default {
     "@nuxtjs/vuetify",
   ],
   env: {
-    FIREBASE_ENV:
-      process.env.FIREBASE_PROJECT_ID == "findadoc"
-        ? "PROD"
-        : process.env.FIREBASE_PROJECT_ID == "findadoc-test"
-        ? "TEST"
-        : "UNDEFINED",
+    FIREBASE_ENV: process.env.FIREBASE_ENV,
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
