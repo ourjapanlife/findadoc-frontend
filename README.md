@@ -26,19 +26,11 @@ $ git submodule update
 
 If you have more issues with submodules, please check out [the wiki troubleshooting page](https://github.com/ourjapanlife/findadoc-frontend/wiki/Troubleshooting-%F0%9F%98%AD-%F0%9F%98%AD-%F0%9F%98%AD-%F0%9F%91%89%EF%B8%8F-%F0%9F%98%8A-%F0%9F%98%8A--%F0%9F%98%8A)
 
-## Environment Setup
-
-```bash
-$ cp .env.sample .env
-```
-
-Get the Firebase API key from the project leads and edit the `.env` file to have this value.
-
-## Build Setup
+## Getting started / Running the app
 
 ```bash
 # install dependencies
-$ yarn install
+$ yarn
 
 # serve with hot reload at localhost:3000
 $ yarn dev
@@ -50,6 +42,8 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
+
+**NOTE**: To see current environment you are connected to, check the console logs.
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 

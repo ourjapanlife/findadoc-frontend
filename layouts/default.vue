@@ -14,6 +14,9 @@ import SiteFooter from "@/components/SiteFooter.vue";
 export default {
   components: { SiteFooter },
   async mounted() {
+    // eslint-disable-next-line
+    console.log(`connected to firebase env: ${process.env.FIREBASE_ENV}`);
+
     await this.$store.dispatch("refreshUser");
   },
 };
