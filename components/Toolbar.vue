@@ -9,7 +9,18 @@
         ></v-toolbar-title
       >
       <v-spacer></v-spacer>
-      <nuxt-link :to="localePath({ name: 'add-clinic' })">
+      <nuxt-link
+        v-if="clinicDatabase === false"
+        :to="localePath({ name: 'add-waiting-list' })"
+      >
+        <v-btn color="accent" class="black--text">{{
+          $t("toolbar.addWaitingList")
+        }}</v-btn>
+      </nuxt-link>
+      <nuxt-link
+        v-else
+        :to="localePath({ name: 'multilingual-clinics/add-clinic' })"
+      >
         <v-btn color="accent" class="black--text">{{
           $t("toolbar.addClinic")
         }}</v-btn>
@@ -101,6 +112,13 @@ export default {
     locales: languages,
   }),
   computed: {
+    clinicDatabase() {
+      if (this.$route.path === "/multilingual-clinics/") {
+        return true;
+      } else {
+        return false;
+      }
+    },
     items() {
       let menuItems = [
         {
