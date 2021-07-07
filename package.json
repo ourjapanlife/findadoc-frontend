@@ -4,7 +4,7 @@
   "private": true,
   "license": "BSD-3",
   "scripts": {
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --dotenv .env.test",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",

@@ -100,7 +100,11 @@ export default {
   ],
   env: {
     FIREBASE_ENV:
-      process.env.FIREBASE_PROJECT_ID == "findadoc" ? "PROD" : "TEST",
+      process.env.FIREBASE_PROJECT_ID == "findadoc"
+        ? "PROD"
+        : process.env.FIREBASE_PROJECT_ID == "findadoc-test"
+        ? "TEST"
+        : "UNDEFINED",
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
