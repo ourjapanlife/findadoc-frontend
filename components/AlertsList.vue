@@ -19,8 +19,8 @@
     >
       <h2>URGENT!!</h2>
       <br />
-      Vaccine slots available starting from July 8th that will go to waste if
-      not booked for immediately!
+      <b>Shin-Yokohama</b> vaccine slots available from <b>July 8th</b> that
+      will go to waste if not booked for immediately!
     </alert>
   </v-container>
 </template>
