@@ -98,7 +98,9 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     "@nuxtjs/vuetify",
   ],
-
+  env: {
+    FIREBASE_ENV: process.env.FIREBASE_ENV,
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     [
@@ -107,13 +109,12 @@ export default {
         config: {
           /* eslint-disable-next-line no-undef */
           apiKey: process.env.FIREBASE_API_KEY,
-          authDomain: "findadoc-bc230.firebaseapp.com",
-          databaseURL: "https://findadoc-bc230-default-rtdb.firebaseio.com",
-          projectId: "findadoc-bc230",
-          storageBucket: "findadoc-bc230.appspot.com",
-          messagingSenderId: "871643437476",
-          appId: "1:871643437476:web:d7271d01ee125e9f7bc931",
-          measurementId: "G-4PJ823JSZ1",
+          authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+          projectId: process.env.FIREBASE_PROJECT_ID,
+          storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+          messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+          appId: process.env.FIREBASE_APP_ID,
+          measurementId: process.env.FIREBASE_MEASUREMENT_ID,
         },
         services: {
           auth: true,
