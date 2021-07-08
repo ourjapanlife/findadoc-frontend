@@ -1,6 +1,6 @@
 <template>
   <v-container class="pb-sm-0 ma-sm-0">
-    <alert
+    <!-- <alert
       :button-text="$t('index.register')"
       button-url="https://www.mod.go.jp/j/approach/defense/saigai/2020/covid/center.html"
     >
@@ -11,6 +11,16 @@
       button-url="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_tagengo.html"
     >
       {{ $t("index.prevaccinationScreening") }}
+    </alert> -->
+
+    <alert
+      button-text="Book Vaccine"
+      button-url="https://mukogaoka.yamabiko-group.or.jp/index.html"
+    >
+      <h2>URGENT!!</h2>
+      <br />
+      Vaccine slots available starting from July 8th that will go to waste if
+      not booked for immediately!
     </alert>
   </v-container>
 </template>
