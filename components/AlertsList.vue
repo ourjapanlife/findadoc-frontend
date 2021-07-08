@@ -25,7 +25,7 @@
       <a
         href="https://v-sys.mhlw.go.jp/application/change-region.html"
         target="_blank"
-        >click here fill out and print the request form.</a
+        >click here to fill out and print the request form.</a
       >
       Then book the vaccine!
     </alert>
