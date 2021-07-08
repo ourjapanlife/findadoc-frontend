@@ -15,7 +15,7 @@
 
     <alert
       :button-text="$t('message.shinYokohamaBookVaccine')"
-      button-url="https://mukogaoka.yamabiko-group.or.jp/index.html"
+      button-url="https://yamabikovaccine.reserve.ne.jp/sp/index.php?"
     >
       <p v-html="$t('message.shinYokohamaAlert')"></p>
     </alert>
