@@ -20,7 +20,14 @@
       <h2>URGENT!!</h2>
       <br />
       <b>Shin-Yokohama</b> vaccine slots available from <b>July 8th</b> that
-      will go to waste if not booked for immediately!
+      will go to waste if not booked for immediately! If you live outside
+      Yokohama,
+      <a
+        href="https://v-sys.mhlw.go.jp/application/change-region.html"
+        target="_blank"
+        >click here fill out and print the request form.</a
+      >
+      Then book the vaccine!
     </alert>
   </v-container>
 </template>
