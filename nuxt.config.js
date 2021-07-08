@@ -141,6 +141,7 @@ export default {
         },
       },
     ],
+    ['@nuxt/http'],
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

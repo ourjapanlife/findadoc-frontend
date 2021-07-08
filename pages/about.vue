@@ -30,6 +30,7 @@
         ></iframe>
       </div>
       <testimonial />
+      <new-testimonial />
     </div>
   </div>
 </template>
