@@ -14,20 +14,10 @@
     </alert> -->
 
     <alert
-      button-text="Book Vaccine"
+      :button-text="$t('message.shinYokohamaBookVaccine')"
       button-url="https://mukogaoka.yamabiko-group.or.jp/index.html"
     >
-      <h2>URGENT!!</h2>
-      <br />
-      <b>Shin-Yokohama</b> vaccine slots available from <b>July 8th</b> that
-      will go to waste if not booked for immediately! If you live outside
-      Yokohama,
-      <a
-        href="https://v-sys.mhlw.go.jp/application/change-region.html"
-        target="_blank"
-        >click here to fill out and print the request form.</a
-      >
-      Then book the vaccine!
+      <p v-html="$t('message.shinYokohamaAlert')"></p>
     </alert>
   </v-container>
 </template>
