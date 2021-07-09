@@ -120,7 +120,7 @@ export default {
           .firestore()
           .collection("clinics")
           .add(this.editedItem);
-        await this.deleteItem(item);
+        logger.info("submitted: ", item);
       } catch (err) {
         logger.error(err);
       }
