@@ -27,6 +27,7 @@ export default {
   display: flex;
   justify-content: center;
 }
+
 a {
   text-decoration: none;
   color: #1967d2;

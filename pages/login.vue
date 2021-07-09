@@ -88,21 +88,25 @@ export default {
 
 <style scoped>
 .v-btn {
-  margin: 10px !important;
+  margin: 10px;
   justify-content: center;
 }
+
 .v-form {
   padding: 1.25rem;
   letter-spacing: 0.15rem;
 }
+
 .v-card {
   margin: auto;
   margin-top: 8%;
-  max-width: 600px !important;
+  max-width: 600px;
 }
+
 .v-text-field {
   padding-top: 1.2rem;
 }
+
 .login-fields {
   text-align: center;
 }

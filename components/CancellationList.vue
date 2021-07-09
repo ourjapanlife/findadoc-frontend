@@ -246,20 +246,23 @@ export default {
 
 <style lang="scss" scoped>
 .v-sheet.v-card {
-  padding-left: 20px !important;
-  padding-right: 20px !important;
+  padding-left: 20px;
+  padding-right: 20px;
 }
+
 .v-text-area {
-  margin-top: 20px !important;
-  padding-inline: 20px !important;
+  margin-top: 20px;
+  padding-inline: 20px;
 }
+
 #note {
   padding-bottom: 20px;
 }
+
 #waiting-lists-table {
   margin-bottom: 20px;
 }
-
+/* stylelint-disable */
 ::v-deep .clinics-table {
   table > thead > tr > th {
     font-size: 0.875rem;
