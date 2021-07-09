@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import { languages } from "../i18n/supported_languages.json";
+import { languages } from "@ourjapanlife/findadoc-localization/supported_languages.json";
 
 export default {
   data: () => ({

@@ -10,7 +10,7 @@
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/theyokohamalife)
 
-## Working with the submodule
+## Working with the submodule (deprecated since #195)
 
 Note this project uses a git submodule to manage translations. That repository is [here](https://github.com/ourjapanlife/findadoc-localization)
 
@@ -26,19 +26,11 @@ $ git submodule update
 
 If you have more issues with submodules, please check out [the wiki troubleshooting page](https://github.com/ourjapanlife/findadoc-frontend/wiki/Troubleshooting-%F0%9F%98%AD-%F0%9F%98%AD-%F0%9F%98%AD-%F0%9F%91%89%EF%B8%8F-%F0%9F%98%8A-%F0%9F%98%8A--%F0%9F%98%8A)
 
-## Environment Setup
-
-```bash
-$ cp .env.sample .env
-```
-
-Get the Firebase API key from the project leads and edit the `.env` file to have this value.
-
-## Build Setup
+## Getting started / Running the app
 
 ```bash
 # install dependencies
-$ yarn install
+$ yarn
 
 # serve with hot reload at localhost:3000
 $ yarn dev
@@ -50,6 +42,8 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
+
+**NOTE**: To see current environment you are connected to, check the console logs.
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
@@ -63,5 +57,6 @@ The locale files are managed through a separate repo, incorporated as a submodul
 2. Edit the `locales/en.json` to contain the new keys.
 3. If you know another language, feel free to add the same key and translation to the appropriate locale file. Omit if you don't know it; we use English as the [fallback language](https://kazupon.github.io/vue-i18n/guide/fallback.html) so nothing will break.
 4. Make a pull request to the localization repo and wait for it to be merged to `main`
-5. Update the submodule (see above) to get the latest keys
-6. Make your change in this repo with the new i18n keys and submit your PR 🎉
+5. Update the package inside `package.json` using `yarn upgrade @ourjapanlife/findadoc-localization` to get the latest keys imported
+6. Run `yarn` again
+7. Make your change in this repo with the new i18n keys and submit your PR 🎉
