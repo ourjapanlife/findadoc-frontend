@@ -19,7 +19,7 @@
       <div>
         <contributors-list />
       </div>
-    <testimonial />
+      <testimonial />
     </div>
     <div id="widgets">
       <div id="donate">
