@@ -5,7 +5,7 @@
     color="white"
   >
     <v-carousel
-      v-model="tweetIndex"
+      v-model="activeTweetIndex"
       hide-delimiters
       :show-arrows="!$vuetify.breakpoint.mobile"
       light
@@ -17,7 +17,7 @@
     <tweet-carousel-delimiter
       v-show="$vuetify.breakpoint.mobile"
       :steps="3"
-      :index="tweetIndex"
+      :index="activeTweetIndex"
     />
   </v-card>
 </template>
@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       tweets: [],
-      tweetIndex: 0,
+      activeTweetIndex: 0,
       isLoaded: false,
     };
   },
