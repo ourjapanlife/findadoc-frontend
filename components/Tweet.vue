@@ -5,7 +5,7 @@
                 <v-row>
                     <v-col class="d-flex justify-center align-center">
                       <v-card-title justify-center>
-                        <v-avatar color="white avatar-border" size="100">
+                        <v-avatar color="cyan lighten-2 avatar-border" size="100">
                             <v-img
                               class="elevation-6"
                               :alt="tweet.name"
@@ -17,7 +17,7 @@
                 </v-row>
                 <v-row>
                     <v-col class="d-flex justify-center">
-                      <v-card-text class="text-body-1" height="400px">
+                      <v-card-text class="text-body-1 tweet-content" height="400px">
                         {{ tweet.text }}
                       </v-card-text>
                     </v-col>
@@ -27,7 +27,9 @@
                       <v-card-actions>
                           <v-list-item-content>
                             <v-list-item-title>
-                                @{{ tweet.username }}
+                                <b>
+                                    @{{ tweet.username }}
+                                </b>
                             </v-list-item-title>
                           </v-list-item-content>
                         </v-list-item>
@@ -41,6 +43,9 @@
 <style>
 .avatar-border {
     border: 3px solid;
+}
+.tweet-content {
+    max-width: 75%;
 }
 </style>
 <script>

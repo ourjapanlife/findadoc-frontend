@@ -19,6 +19,7 @@
       <div>
         <contributors-list />
       </div>
+    <new-testimonial />
     </div>
     <div id="widgets">
       <div id="donate">
@@ -30,7 +31,6 @@
         ></iframe>
       </div>
       <testimonial />
-      <new-testimonial />
     </div>
   </div>
 </template>
