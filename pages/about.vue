@@ -19,7 +19,7 @@
       <div>
         <contributors-list />
       </div>
-    <new-testimonial />
+    <testimonial />
     </div>
     <div id="widgets">
       <div id="donate">
@@ -30,7 +30,6 @@
           title="theyokohamalife"
         ></iframe>
       </div>
-      <testimonial />
     </div>
   </div>
 </template>
