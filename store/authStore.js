@@ -11,6 +11,7 @@ export const authState = {
 
 export const authGetters = {
   isUserLoggedIn: (state) => {
+    logger.info(state.user.uid);
     return state.user && state.user.uid;
   },
 };
