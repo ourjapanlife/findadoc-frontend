@@ -108,6 +108,7 @@ export default {
       this.$router.push("/login");
     }
     this.getActiveClinicData();
+    logger.info(this.$store.authState.user.uid);
   },
   methods: {
     async getActiveClinicData() {
