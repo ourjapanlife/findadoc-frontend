@@ -10,20 +10,6 @@
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/theyokohamalife)
 
-## Working with the submodule (deprecated since #195)
-
-Note this project uses a git submodule to manage translations. That repository is [here](https://github.com/ourjapanlife/findadoc-localization)
-
-```bash
-# init submodules when running for the first time
-$ git submodule update --init --recursive
-```
-
-```bash
-# run this when you need to update the submodule
-$ git submodule update
-```
-
 If you have more issues with submodules, please check out [the wiki troubleshooting page](https://github.com/ourjapanlife/findadoc-frontend/wiki/Troubleshooting-%F0%9F%98%AD-%F0%9F%98%AD-%F0%9F%98%AD-%F0%9F%91%89%EF%B8%8F-%F0%9F%98%8A-%F0%9F%98%8A--%F0%9F%98%8A)
 
 ## Getting started / Running the app
@@ -51,7 +37,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 Under the hood, this project uses [nuxt/i18n](https://i18n.nuxtjs.org/) and [vue-i18n](https://kazupon.github.io/vue-i18n/).
 
-The locale files are managed through a separate repo, incorporated as a submodule. Here is the process for adding new translation keys:
+The locale files are managed through [the localization repo](https://github.com/ourjapanlife/findadoc-localization) and released as an npm package that can be updated. Here is the process for adding new translation keys:
 
 1. Clone the [findadoc-localization repo](https://github.com/ourjapanlife/findadoc-localization)
 2. Edit the `locales/en.json` to contain the new keys.
