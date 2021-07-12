@@ -2,11 +2,11 @@
   <div>
     <v-list class="tweet-carousel-delimiter">
       <v-list-item
-        v-for="(n, i) in steps"
-        :key="i"
+        v-for="(item, idx) in steps"
+        :key="idx"
         class="tweet-carousel-delimiter-item"
         color="grey-lighten-5"
-        :disabled="i !== currentStep"
+        :disabled="idx !== currentStep"
       >
         &bull;
       </v-list-item>

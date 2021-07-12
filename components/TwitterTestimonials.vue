@@ -24,6 +24,7 @@
 <script>
 import testimonialsData from "../data/testimonials.json";
 import tweetFixtures from "../fixtures/twitterTweetsApiFixture.json";
+import logger from "../services/logger";
 
 const API_URL =
   "https://api.twitter.com/2/tweets?user.fields=profile_image_url,username&expansions=author_id&ids=";
@@ -74,15 +75,20 @@ export default {
 
     let json = "";
     if (token === DEV_MODE) {
-      // eslint-disable-next-line
-      console.log(
+      logger.info(
         "Twitter instantiated using dev mode; sample tweets will be loaded from fixtures"
       );
       json = tweetFixtures;
     } else {
-      json = await fetch(`${API_URL}${testimonialsData.tweets}`, options).then(
-        (res) => res.json()
-      );
+      try {
+        const res = await fetch(
+          `${API_URL}${testimonialsData.tweets}`,
+          options
+        );
+        json = await res.json();
+      } catch (e) {
+        logger.error("Could not retrieve tweets from Twitter API", e.message);
+      }
     }
 
     const userMap = this.createUserMap(json.includes.users);

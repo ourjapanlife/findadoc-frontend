@@ -3,7 +3,7 @@
     <v-row no-wrap no-gutters>
       <v-col>
         <v-row>
-          <v-col class="d-flex justify-center align-center">
+          <v-col class="tweet-column justify-center align-center">
             <v-card-title justify-center>
               <v-avatar color="cyan lighten-2 avatar-border" size="100">
                 <v-img
@@ -16,14 +16,14 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col class="d-flex justify-center">
+          <v-col class="tweet-column justify-center">
             <v-card-text class="text-body-1 tweet-content" height="400px">
               {{ tweet.text }}
             </v-card-text>
           </v-col>
         </v-row>
         <v-row>
-          <v-col class="d-flex justify-center align-center">
+          <v-col class="tweet-column justify-center align-center">
             <v-card-actions>
               <v-list-item>
                 <v-list-item-content>
@@ -55,5 +55,8 @@ export default {
 }
 .tweet-content {
   max-width: 75%;
+}
+.tweet-column {
+  display: flex;
 }
 </style>
