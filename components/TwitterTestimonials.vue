@@ -19,6 +19,7 @@
       :steps="3"
       :index="activeTweetIndex"
     />
+    <quote-symbol :width="200" :height="200" class="quote-symbol" />
   </v-card>
 </template>
 <script>
@@ -103,19 +104,13 @@ export default {
 .tweet-widget {
   height: 600px;
 }
-.tweet-widget::after {
-  /* stylized quotes in background */
-  content: "\201d";
-  font-size: 31rem;
-  font-family: serif;
+.quote-symbol {
   position: absolute;
-  top: 2%;
-  left: 30%;
-  color: #90caf9;
-  opacity: 0.2;
+  top: 24%;
+  left: 33%;
 }
-.tweet-widget.mobile::after {
-  left: 15%;
+.mobile > .quote-symbol {
+  left: 20%;
 }
 .tweet-widget .v-window__prev,
 .tweet-widget .v-window__next {
