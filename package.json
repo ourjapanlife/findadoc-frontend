@@ -13,10 +13,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@nuxt/http": "^0.6.4",
     "@nuxtjs/firebase": "^7.6.1",
-    "@ourjapanlife/findadoc-localization": "https://github.com/ourjapanlife/findadoc-localization",
     "@nuxtjs/recaptcha": "^1.0.4",
-    "axios": "^0.21.1",
+    "@ourjapanlife/findadoc-localization": "https://github.com/ourjapanlife/findadoc-localization",
     "core-js": "^3.9.1",
     "firebase": "^8.6.7",
     "google-auth-library": "^7.2.0",

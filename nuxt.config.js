@@ -103,6 +103,7 @@ export default {
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    ["@nuxt/http"],
     [
       "@nuxtjs/firebase",
       {
@@ -145,11 +146,15 @@ export default {
       "@nuxtjs/recaptcha",
       {
         hideBadge: true,
-        siteKey: process.env.RECAPTCHA_SITE_KEY,
+        siteKey: "process.env.RECAPTCHA_SITE_KEY",
         version: 3,
       },
     ],
   ],
+
+  http: {
+    proxyHeaders: false,
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -192,6 +197,15 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config) {
+      // https://github.com/nuxt-community/dotenv-module/issues/11
+      config.node = {
+        child_process: "empty",
+        fs: "empty",
+        net: "empty",
+        tls: "empty",
+      };
+    },
     extractCSS: true,
   },
 };

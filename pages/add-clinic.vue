@@ -110,7 +110,7 @@
 <script>
 import json from "../data/prefectures.json";
 import logger from "../services/logger";
-import axios from "axios";
+import { validateRecaptcha } from "../services/recaptchaService";
 
 export default {
   async mounted() {
@@ -187,21 +187,16 @@ export default {
         };
         try {
           const token = await this.$recaptcha.execute({ action: "submit" });
-          axios
-            .get(
-              `https://us-central1-findadoc-test.cloudfunctions.net/authenticateRecaptcha?response=${token}`
-            )
-            .then((score) => {
-              logger.info("score: ", score);
-              if (score > 0.5) {
-                this.$fireModule
-                  .firestore()
-                  .collection("pending")
-                  .add(clinic)
-                  .then(() => logger.info(`Added to DB: ${clinic}`))
-                  .then(this.$router.push("/"));
-              }
-            });
+          const score = await validateRecaptcha(token);
+
+          if (score > 0.5) {
+            await this.$fireModule
+              .firestore()
+              .collection("pending")
+              .add(clinic);
+            logger.info(`Added to DB: ${clinic}`);
+            this.$router.push("/");
+          }
         } catch (err) {
           logger.error(err);
         }
