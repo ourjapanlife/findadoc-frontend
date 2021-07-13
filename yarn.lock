@@ -1697,8 +1697,8 @@
     stack-trace "0.0.10"
 
 "@ourjapanlife/findadoc-localization@https://github.com/ourjapanlife/findadoc-localization":
-  version "1.0.2"
-  resolved "https://github.com/ourjapanlife/findadoc-localization#74d6255beaa905a57bd151c7134a2aab072b26c0"
+  version "1.0.3"
+  resolved "https://github.com/ourjapanlife/findadoc-localization#d7942b29a50bfea484db6f6234a343e7655d3b4e"
 
 "@panva/asn1.js@^1.0.0":
   version "1.0.0"
