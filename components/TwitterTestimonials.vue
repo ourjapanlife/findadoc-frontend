@@ -77,7 +77,7 @@ export default {
     let json = "";
     if (token === DEV_MODE) {
       logger.info(
-        "Twitter instantiated using dev mode; sample tweets will be loaded from fixtures"
+        "Twitter instantiated using dev mode; sample tweets will be loaded from fixtures."
       );
       json = tweetFixtures;
     } else {
@@ -88,7 +88,7 @@ export default {
         );
         json = await res.json();
       } catch (e) {
-        logger.error("Could not retrieve tweets from Twitter API", e.message);
+        logger.error("Could not retrieve tweets from Twitter API.", e.message);
       }
     }
 
