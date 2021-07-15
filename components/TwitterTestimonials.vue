@@ -55,7 +55,7 @@ export default {
       return userMap;
     },
     annotateTweetsWithUsers: function (apiTweetData, userMap) {
-      /* The twitter API separates user information and tweet content. This method recombines, overwriting fields as necessary */
+      /* The twitter API separates user information and tweet content. This method recombines, overwriting fields as necessary. */
       let annotated = [];
       for (const tweet of apiTweetData) {
         const annotatedTweet = Object.assign(tweet, {
@@ -72,7 +72,7 @@ export default {
     },
   },
   async fetch() {
-    /* Automatically called on component instantiation */
+    /* Automatically called on component instantiation. */
 
     let json = "";
     if (token === DEV_MODE) {
