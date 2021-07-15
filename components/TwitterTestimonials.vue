@@ -45,6 +45,9 @@ export default {
       isLoaded: false,
     };
   },
+  mounted() {
+    fetch();
+  },
   methods: {
     createUserMap: function (apiUserData) {
       /* Maps users by id */
