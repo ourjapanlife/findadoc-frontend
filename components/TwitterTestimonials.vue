@@ -27,8 +27,8 @@ import testimonialsData from "../data/testimonials.json";
 import tweetFixtures from "../fixtures/twitterTweetsApiFixture.json";
 import logger from "../services/logger";
 
-const API_URL =
-  "https://api.twitter.com/2/tweets?user.fields=profile_image_url,username&expansions=author_id&ids=";
+// Axios requires proxies for origin changes. /twitter/ will get overwritten with https://api.twitter.com.
+const API_URL = "/twitter/2/tweets?user.fields=profile_image_url,username&expansions=author_id&ids=";
 const DEV_MODE = "DEV_MODE";
 
 const token = process.env.TWITTER_API_BEARER_TOKEN || DEV_MODE;
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     createUserMap: function (apiUserData) {
-      /* Maps users by id */
+      /* Maps users by id. */
       const userMap = {};
       for (const user of apiUserData) {
         userMap[user.id] = user;
@@ -82,11 +82,11 @@ export default {
       json = tweetFixtures;
     } else {
       try {
-        const res = await fetch(
+        const res = await this.$axios.get(
           `${API_URL}${testimonialsData.tweets}`,
           options
         );
-        json = await res.json();
+        json = res.data;
       } catch (e) {
         logger.error("Could not retrieve tweets from Twitter API.", e.message);
       }

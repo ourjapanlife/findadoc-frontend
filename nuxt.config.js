@@ -142,7 +142,8 @@ export default {
         },
       },
     ],
-    ['@nuxt/http'],
+    ['@nuxtjs/axios'],
+    ['@nuxtjs/proxy'],
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -182,6 +183,17 @@ export default {
         },
       },
     },
+  },
+
+  axios: {
+    proxy: true
+  },
+
+  proxy: {
+    '/twitter/': {
+      target: 'https://api.twitter.com',
+      pathRewrite: { "^/twitter": "/" }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

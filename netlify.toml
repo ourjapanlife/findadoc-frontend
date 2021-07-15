@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/twitter/*"
+  to = "https://api.twitter.com/:splat"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
