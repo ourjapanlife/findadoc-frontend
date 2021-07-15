@@ -1,0 +1,84 @@
+{
+  "data": [
+    {
+      "author_id": "1098076915833876480",
+      "id": "1405834015072874497",
+      "text": "TEST I’m officially half-vaccinated! I can feel the 5G flowing through my veins…\n\nAlso props to @theyokohamalife for making it so simple with her vaccine cancellation list site!"
+    },
+    {
+      "author_id": "1369534885853945857",
+      "id": "1405695255962288128",
+      "text": "TEST Updated our article on \"How to Get a COVID-19 Vaccine in Tokyo, Japan\" to point readers to the fantastic site created by @theyokohamalife, which lists open waiting lists for vaccine shots. No need for a vaccine voucher!💉👏\nLearn more:https://t.co/v6YxzFnD5o"
+    },
+    {
+      "author_id": "148159030",
+      "id": "1404959521013788676",
+      "text": "TEST @theyokohamalife Thank you LaShawn! Made my appointment!"
+    },
+    {
+      "author_id": "988059344968208384",
+      "id": "1404738062710579203",
+      "text": "TEST omfg i’m 1/2 vaxxed is this real life???? thank you to everyone who shared info for キャンセル待ち vaccines 😭😭😭"
+    },
+    {
+      "author_id": "26379689",
+      "id": "1403970628470800387",
+      "text": "TEST @theyokohamalife Thank you so much, @theyokohamalife !! Just got vaccinated thanks to your help! 🙇"
+    }
+  ],
+  "includes": {
+    "users": [
+      {
+        "id": "1098076915833876480",
+        "username": "TDRPlans",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1124420921274486784/dDt5Wz5W_normal.jpg",
+        "name": "Spencer of Tokyo"
+      },
+      {
+        "id": "1369534885853945857",
+        "username": "TokyoMate_",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1369536032794845184/1AhEfSdw_normal.jpg",
+        "name": "TokyoMate"
+      },
+      {
+        "id": "148159030",
+        "username": "hdobbin",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1361806317787095040/1jwcKeyx_normal.jpg",
+        "name": "Heather Dobbin"
+      },
+      {
+        "id": "988059344968208384",
+        "username": "paprikahhh",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1361212519243673608/RiL9Pmx2_normal.jpg",
+        "name": "𝘮𝘪𝘬𝘢"
+      },
+      {
+        "id": "26379689",
+        "username": "alebaffa",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1307206011254530048/qeqcsDRU_normal.jpg",
+        "name": "Alessandro Baffa"
+      }
+    ]
+  },
+  "errors": [
+    {
+      "value": "1407152988334923776",
+      "detail": "Could not find tweet with ids: [1407152988334923776].",
+      "title": "Not Found Error",
+      "resource_type": "tweet",
+      "parameter": "ids",
+      "resource_id": "1407152988334923776",
+      "type": "https://api.twitter.com/2/problems/resource-not-found"
+    },
+    {
+      "resource_id": "1407523834069086208",
+      "parameter": "ids",
+      "resource_type": "tweet",
+      "section": "data",
+      "title": "Authorization Error",
+      "value": "1407523834069086208",
+      "detail": "Sorry, you are not authorized to see the Tweet with ids: [1407523834069086208].",
+      "type": "https://api.twitter.com/2/problems/not-authorized-for-resource"
+    }
+  ]
+}

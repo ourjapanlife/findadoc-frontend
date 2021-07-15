@@ -100,6 +100,7 @@ export default {
   ],
   env: {
     FIREBASE_ENV: process.env.FIREBASE_ENV,
+    TWITTER_API_BEARER_TOKEN: process.env.TWITTER_API_BEARER_TOKEN
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -141,6 +142,7 @@ export default {
         },
       },
     ],
+    ['@nuxt/http'],
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

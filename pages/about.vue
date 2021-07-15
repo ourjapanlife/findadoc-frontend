@@ -19,6 +19,7 @@
       <div>
         <contributors-list />
       </div>
+      <twitter-testimonials />
     </div>
     <div id="widgets">
       <div id="donate">
@@ -29,7 +30,6 @@
           title="theyokohamalife"
         ></iframe>
       </div>
-      <testimonial />
     </div>
   </div>
 </template>

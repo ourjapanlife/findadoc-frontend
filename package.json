@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@nuxt/http": "^0.6.4",
     "@nuxtjs/firebase": "^7.6.1",
     "@ourjapanlife/findadoc-localization": "https://github.com/ourjapanlife/findadoc-localization",
     "core-js": "^3.9.1",
