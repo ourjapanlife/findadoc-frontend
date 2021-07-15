@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     createUserMap: function (apiUserData) {
-      /* Maps users by id */
+      /* Maps users by id. */
       const userMap = {};
       for (const user of apiUserData) {
         userMap[user.id] = user;
