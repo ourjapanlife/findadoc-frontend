@@ -1,5 +1,41 @@
 <template>
-  <div id="about">
+  <div
+    id="about"
+    class="about-page"
+    :class="$vuetify.breakpoint.mobile ? 'mobile' : ''"
+  >
+    <section class="about-header">
+      <h1>
+        About Find A Doc, the database reducing vaccine waste.
+      </h1>
+    </section>
+    <section class="timeline">
+      <AboutSiteTimeline />
+    </section>
+    <section class="midpage-widgets">
+        <AboutKofiWidget />
+        <div class="fake-twitter-replace-later">
+          Fake Twitter
+        </div>
+    </section>
+    <section class="trust">
+      <h3>Heading</h3>
+      <v-card>
+        Part one
+      </v-card>
+      <v-card>
+        Part two
+      </v-card>
+      <v-card>
+        Part three
+      </v-card>
+    </section>
+    <section class="meet-the-team">
+      <contributors-list />
+    </section>
+    <section class="bottom-twitter-widget">
+      <twitter-testimonials />
+    </section>
     <div id="info">
       <div align="center">
         <h1>{{ $t("about.welcome") }}</h1>
@@ -19,7 +55,7 @@
       <div>
         <contributors-list />
       </div>
-      <twitter-testimonials />
+
     </div>
     <div id="widgets">
       <div id="donate">
@@ -35,6 +71,17 @@
 </template>
 
 <style scoped>
+.about-header {
+  padding:  257px 445px 306px 255px;
+  font-size:  4rem;
+  color:  white;
+  background: #324199;
+}
+.mobile .about-header {
+  padding:  83px 40px 52px 40px;
+  font-size:  1.50rem;
+}
+
 #about {
   margin: auto;
   display: flex;
@@ -47,7 +94,11 @@
   max-width: 600px;
 }
 
-div {
-  padding: 10px;
+section {
+  width:  100%;
 }
+
+/*div {
+  padding: 10px;
+}*/
 </style>
