@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="all-news">
     <h1>Important News and Information</h1>
     <div v-for="article of articles" :key="article.slug">
       <NuxtLink
@@ -30,3 +30,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#all-news {
+  padding: 40px;
+}
+</style>

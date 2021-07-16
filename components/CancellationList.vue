@@ -259,6 +259,9 @@ export default {
   padding-bottom: 20px;
 }
 
+#waiting-lists-table {
+  margin-bottom: -40px;
+}
 /* stylelint-disable */
 ::v-deep .clinics-table {
   table > thead > tr > th {

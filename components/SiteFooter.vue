@@ -1,11 +1,12 @@
 <template>
-  <v-footer app dark color="secondary">
+  <v-footer absolute app dark color="secondary">
     <v-row id="netlify-footer">
       <a href="https://www.netlify.com/" target="_blank">
         <v-icon>mdi-flash</v-icon>
         {{ $t("footer.netlify") }}
       </a>
     </v-row>
+    <donate />
   </v-footer>
 </template>
 
@@ -19,6 +20,7 @@ a:visited {
 #netlify-footer {
   display: flex;
   justify-content: flex-end;
-  padding: 20px;
+  padding: 10px;
+  margin: 0px;
 }
 </style>
