@@ -1695,7 +1695,7 @@
 
 "@ourjapanlife/findadoc-localization@https://github.com/ourjapanlife/findadoc-localization":
   version "1.0.3"
-  resolved "https://github.com/ourjapanlife/findadoc-localization#2acef37f7bfbcc9a1f315b5035d17ca8c16a375f"
+  resolved "https://github.com/ourjapanlife/findadoc-localization#29e2b2ce6dcbf24f1f29e761807bd4f37c6d2ae3"
 
 "@panva/asn1.js@^1.0.0":
   version "1.0.0"
