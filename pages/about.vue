@@ -5,30 +5,17 @@
     :class="$vuetify.breakpoint.mobile ? 'mobile' : ''"
   >
     <section class="about-header">
-      <h1>
-        About Find A Doc, the database reducing vaccine waste.
-      </h1>
+      <h1>About Find A Doc, the database reducing vaccine waste.</h1>
     </section>
     <section class="timeline">
       <AboutSiteTimeline />
     </section>
     <section class="midpage-widgets">
-        <AboutKofiWidget />
-        <div class="fake-twitter-replace-later">
-          Fake Twitter
-        </div>
+      <AboutKofiWidget />
+      <div class="fake-twitter-replace-later">Fake Twitter</div>
     </section>
     <section class="trust">
-      <h3>Heading</h3>
-      <v-card>
-        Part one
-      </v-card>
-      <v-card>
-        Part two
-      </v-card>
-      <v-card>
-        Part three
-      </v-card>
+      <AboutTrust />
     </section>
     <section class="meet-the-team">
       <contributors-list />
@@ -55,7 +42,6 @@
       <div>
         <contributors-list />
       </div>
-
     </div>
     <div id="widgets">
       <div id="donate">
@@ -72,14 +58,14 @@
 
 <style scoped>
 .about-header {
-  padding:  257px 445px 306px 255px;
-  font-size:  4rem;
-  color:  white;
+  padding: 257px 445px 306px 255px;
+  font-size: 4rem;
+  color: white;
   background: #324199;
 }
 .mobile .about-header {
-  padding:  83px 40px 52px 40px;
-  font-size:  1.50rem;
+  padding: 83px 40px 52px 40px;
+  font-size: 1.5rem;
 }
 
 #about {
@@ -95,7 +81,7 @@
 }
 
 section {
-  width:  100%;
+  width: 100%;
 }
 
 /*div {
