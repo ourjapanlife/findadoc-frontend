@@ -100,10 +100,10 @@ export default {
   ],
   env: {
     FIREBASE_ENV: process.env.FIREBASE_ENV,
+    TWITTER_API_BEARER_TOKEN: process.env.TWITTER_API_BEARER_TOKEN,
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    "@nuxt/content",
     [
       "@nuxtjs/firebase",
       {
@@ -142,6 +142,8 @@ export default {
         },
       },
     ],
+    ["@nuxtjs/axios"],
+    ["@nuxtjs/proxy"],
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -180,6 +182,17 @@ export default {
           alertButton: colors.cyan.lighten1,
         },
       },
+    },
+  },
+
+  axios: {
+    proxy: true,
+  },
+
+  proxy: {
+    "/twitter/": {
+      target: "https://api.twitter.com",
+      pathRewrite: { "^/twitter": "/" },
     },
   },
 

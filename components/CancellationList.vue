@@ -260,7 +260,6 @@ export default {
 }
 
 #waiting-lists-table {
-  margin-top: 20px;
   margin-bottom: 20px;
 }
 /* stylelint-disable */
