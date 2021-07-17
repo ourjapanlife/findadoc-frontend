@@ -8,6 +8,7 @@
       v-model="activeTweetIndex"
       hide-delimiters
       :show-arrows="!$vuetify.breakpoint.mobile"
+      class="tweet-carousel"
       light
     >
       <v-carousel-item v-for="(tweet, i) in tweets" :key="tweet.id">
@@ -105,6 +106,7 @@ export default {
   height: 600px;
 }
 .quote-symbol {
+  z-index: 1;
   position: absolute;
   top: 24%;
   left: 33%;
@@ -115,5 +117,8 @@ export default {
 .tweet-widget .v-window__prev,
 .tweet-widget .v-window__next {
   background: inherit;
+}
+.tweet-carousel {
+  z-index: 2;
 }
 </style>
