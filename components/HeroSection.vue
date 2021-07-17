@@ -1,55 +1,79 @@
 <template>
-  <div id="homepage-header">
-    <div id="hero-img">
-      <img src="/header-img.jpg" alt="" />
+  <div>
+    <div
+      id="hero-cta"
+      class="secondary white--text"
+      v-if="$vuetify.breakpoint.mobile"
+    >
+      <h1 id="page-title">Get vaccinated with or without a voucher</h1>
+      <div id="lead-text">
+        <i>Helping residents of Japan find essential healthcare</i>
+      </div>
+      <nuxt-link to="/about">
+        <v-btn color="accent" class="black--text mt-8">Learn more</v-btn>
+      </nuxt-link>
     </div>
-    <div id="hero-cta" class="secondary white--text">
-      <div class="white--text">
-        <h1 id="page-title" class="font-weight-medium">
+    <div v-else class="desktop-header-section">
+      <div class="desktop-header-img">
+        <img src="header-img.jpg" />
+      </div>
+      <div id="desktop-header-text" class="secondary white--text">
+        <h1 class="desktop-header-title">
           Get vaccinated with or without a voucher
         </h1>
-      </div>
-      <div id="lead-text">
-        <i>It shouldn't be hard to secure your appointment</i>
-      </div>
-      <div class="mt-6">
-        <v-btn color="accent" class="black--text">Find a clinic</v-btn>
+        <div class="desktop-lead-text">
+          <i>Helping residents of Japan find essential healthcare</i>
+        </div>
+        <nuxt-link to="/about">
+          <v-btn color="accent" class="black--text mt-8">Learn more</v-btn>
+        </nuxt-link>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-h1 {
-  font-family: Montserrat;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 60px;
-  line-height: 73px;
-  width: 740px;
-  height: 146px;
+a {
+  text-decoration: none;
 }
+
 #hero-cta {
-  padding-top: 32px;
-  padding-left: 60px;
-  min-width: 100%;
-  height: 452px;
+  padding: 30px;
 }
-#hero-img {
-  position: relative;
-  top: 0px;
-  left: 0px;
-}
-#homepage-header {
+.desktop-header-section {
   display: flex;
-  height: 452px;
 }
-#lead-text {
-  font-family: Roboto;
+.desktop-header-img {
+  height: 452px;
+  width: 40%;
+  background-color: #2640e1;
+}
+
+#desktop-hero {
+  width: 60%;
+}
+
+#desktop-header-text {
+  padding: 80px;
+}
+.desktop-header-title {
+  font-size: 50px;
+  font-weight: 400;
+  font-family: Arial;
+}
+.desktop-lead-text {
   font-weight: 500;
-  font-size: 20px;
-  line-height: 27px;
-  margin: 32px 0px;
   letter-spacing: 0.06em;
+  padding-top: 20px;
+}
+
+#lead-text {
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding-top: 20px;
+}
+
+#page-title {
+  font-weight: 500;
 }
 </style>

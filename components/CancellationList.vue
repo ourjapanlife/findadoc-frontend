@@ -260,7 +260,8 @@ export default {
 }
 
 #waiting-lists-table {
-  margin-bottom: -40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 /* stylelint-disable */
 ::v-deep .clinics-table {

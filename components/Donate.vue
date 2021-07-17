@@ -10,6 +10,6 @@
     target="_blank"
   >
     <v-icon color="red">mdi-heart</v-icon>
-    Support Find a Doc
+    Support me
   </v-btn>
 </template>
