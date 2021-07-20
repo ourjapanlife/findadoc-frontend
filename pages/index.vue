@@ -19,6 +19,7 @@
     </div>
     <featured-news /> -->
     <v-container>
+      <alerts-list />
       <cancellation-list />
     </v-container>
   </div>
