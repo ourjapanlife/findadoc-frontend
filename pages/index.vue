@@ -2,6 +2,7 @@
   <div>
     <hero-section />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <div id="news-and-featured">
       <div class="latest-news">
@@ -11,46 +12,58 @@
             <v-list-item two-line>
               <v-list-item-content>
                 <v-list-item-title class="text-h6 mb-1">
+=======
+    <v-container>
+      <div id="news-and-featured">
+        <div class="latest-news">
+          <h2 class="news-section-title">Latest News</h2>
+          <div
+            class="article-section"
+            v-for="article of articles"
+            :key="article.slug"
+          >
+            <v-card elevation="0" outlined>
+              <v-card-title>
+                <NuxtLink
+                  :to="
+                    localePath({
+                      name: 'news-slug',
+                      params: { slug: article.slug },
+                    })
+                  "
+                >
+>>>>>>> bd99c00 (create news card)
                   {{ article.title }}
-                </v-list-item-title>
-                <v-list-item-subtitle>
-                  {{ article.description }}
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-            <v-card-actions>
-              <NuxtLink
-                :to="
-                  localePath({
-                    name: 'news-slug',
-                    params: { slug: article.slug },
-                  })
-                "
-              >
+                </NuxtLink>
+              </v-card-title>
+              <v-card-subtitle>
+                {{ article.description }}
+              </v-card-subtitle>
+              <v-card-actions>
                 <v-btn text color="teal accent-4"> Read More </v-btn>
-              </NuxtLink>
-            </v-card-actions>
-          </v-card>
+              </v-card-actions>
+            </v-card>
+          </div>
         </div>
-        <div class="news-link">
-          <nuxt-link to="/news">View all news</nuxt-link>
-        </div>
-      </div>
-      <div class="featured-news">
+        <!-- <div class="featured-news">
         <featured-news />
+      </div> -->
       </div>
+<<<<<<< HEAD
     </div>
 >>>>>>> 270074a (create cards for news)
     <v-container>
+=======
+>>>>>>> bd99c00 (create news card)
       <cancellation-list />
     </v-container>
   </div>
 </template>
 
 <script>
-import FeaturedNews from "../components/FeaturedNews.vue";
+// import FeaturedNews from "../components/FeaturedNews.vue";
 export default {
-  components: { FeaturedNews },
+  // components: { FeaturedNews },
   async asyncData({ $content }) {
     const articles = await $content("articles")
       .only(["title", "description", "img", "slug", "author"])
@@ -68,12 +81,24 @@ export default {
 a {
   text-decoration: none;
 }
+.article-title {
+  margin-top: 20px;
+}
+.article-description {
+  margin-top: 15px;
+}
+.article-readmore-btn {
+  margin: 0px;
+}
+.article-section {
+  margin-top: 20px;
+}
 .featured-news {
   width: 40%;
 }
 .latest-news {
-  padding-left: 80px;
-  padding-top: 30px;
+  padding-top: 40px;
+  padding-bottom: 30px;
 }
 
 .latest-news-title {
@@ -87,6 +112,6 @@ a {
 }
 
 .news-section-title {
-  font-weight: 400;
+  font-weight: 600;
 }
 </style>
