@@ -1,0 +1,8 @@
+{
+  "prevaccinationScreening": {
+    "title": "Required Prevaccination Screening",
+    "description": "A prevaccination screening form is required before you can receive the vaccine. Only the Japanese form is accepted, but translations are available",
+    "buttonText": "Get the document",
+    "link": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_tagengo.html"
+  }
+}
