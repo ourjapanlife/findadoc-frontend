@@ -9,7 +9,6 @@
         </p>
         <p class="font-italic">{{ article.description }}</p>
         <nuxt-content :document="article" />
-
         <author :author="article.author" />
       </article>
     </v-container>
