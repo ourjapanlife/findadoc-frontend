@@ -20,10 +20,10 @@
                     color="teal"
                     size="112px"
                 >
-                  <span color="white">{{ card.avatar }}</span>
+                  <component :is="card.avatar" />
                 </v-avatar>
             </v-card-title>
-            <v-card-text>
+            <v-card-text class="card-text">
                 {{ card.text }}
             </v-card-text>
           </v-card>
@@ -35,7 +35,7 @@
                 This is an open-source project, and we are not liable for any damages that may be incurred from the use of Find a Doc.
             </h5>
             <h6>
-                <a href="http://example.com">
+                <a href="https://github.com/ourjapanlife/findadoc-frontend/blob/main/LICENSE">
                     Read more about it in our license.
                 </a>
             </h6>
@@ -50,15 +50,15 @@ export default {
     return {
       cards: [
       {
-        avatar: "1",
+        avatar: "AboutSvgDocumentsIcon",
         text: "All links lead to official resources such as clinic and government websites. Read them thoroughly before registering your personal information with them."
       },
       {
-        avatar: "2",
+        avatar: "AboutSvgDiversityIcon",
         text: "Anyone in the community can submit content to the database. As a result, is not possible for us to guarantee that accuracy. If you notice any errors, please report the issue to moderators."
       },
       {
-        avatar: "3",
+        avatar: "AboutSvgSearchIcon",
         text: "Our moderators try their best to detect fraudulent information. Even so, research any service that you find on here before visiting the location or submitting your personal information to a third-party website."
       }
       ]
@@ -79,6 +79,21 @@ export default {
 .trust-widget h4 {
     font-size:  1.3rem;
     text-transform: uppercase;
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
 
+.trust-widget h5 {
+    font-size: 1.25rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.trust-widget h6 {
+    font-size: 0.87rem;
+}
+
+.trust-widget .card-text {
+    margin-top:  50px;
+}
 </style>
