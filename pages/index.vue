@@ -1,7 +1,7 @@
 <template>
   <div>
     <hero-section />
-    <div id="news-and-featured">
+    <div :id="$vuetify.breakpoint.mobile ? 'mobile-news' : 'desktop-news'">
       <div class="latest-news">
         <h2 class="news-section-title">Latest News</h2>
         <div
@@ -40,7 +40,13 @@
           </v-card>
         </div>
       </div>
-      <div class="featured-news">
+      <div
+        :class="
+          $vuetify.breakpoint.mobile
+            ? 'mobile-featured-news'
+            : 'desktop-featured-news'
+        "
+      >
         <featured-news />
       </div>
     </div>
@@ -82,13 +88,26 @@ a {
 .article-section {
   margin-top: 20px;
 }
-.featured-news {
+.desktop-featured-news {
   width: 40%;
 }
+.mobile-featured-news {
+  margin-top: 20px;
+}
 .latest-news {
+  /* flex-flow: column; */
+  /* margin-top: auto;
+  margin-bottom: auto; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+#desktop-news {
   display: flex;
-  flex-flow: column;
-  margin: auto;
+  justify-content: space-between;
+}
+#mobile-news {
+  margin: 20px;
 }
 #news-and-featured {
   display: flex;
