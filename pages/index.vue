@@ -40,7 +40,18 @@
                 {{ article.description }}
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn text color="teal accent-4"> Read More </v-btn>
+                <NuxtLink
+                  :to="
+                    localePath({
+                      name: 'news-slug',
+                      params: { slug: article.slug },
+                    })
+                  "
+                >
+                  <v-btn text color="teal accent-4">
+                    Read More
+                  </v-btn></NuxtLink
+                >
               </v-card-actions>
             </v-card>
           </div>

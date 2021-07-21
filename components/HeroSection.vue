@@ -15,7 +15,8 @@
     </div>
     <div v-else class="desktop-header-section">
       <div class="desktop-header-img">
-        <img src="header-img.jpg" />
+        <!-- Image wouldn't work in news section without full path -->
+        <img src="http://findadoc.jp/header-img.jpg" />
       </div>
       <div id="desktop-header-text" class="secondary white--text">
         <h1 class="desktop-header-title">
