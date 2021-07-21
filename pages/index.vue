@@ -2,7 +2,7 @@
   <div>
     <hero-section />
     <div :id="$vuetify.breakpoint.mobile ? 'mobile-news' : 'desktop-news'">
-      <div class="latest-news">
+      <div :class="$vuetify.breakpoint.mobile ? '' : 'latest-news'">
         <h2 class="news-section-title">Latest News</h2>
         <div
           class="article-section"
@@ -95,12 +95,8 @@ a {
   margin-top: 20px;
 }
 .latest-news {
-  /* flex-flow: column; */
-  /* margin-top: auto;
-  margin-bottom: auto; */
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
+  margin-left: 80px;
+  margin-top: 60px;
 }
 #desktop-news {
   display: flex;
