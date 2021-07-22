@@ -19,3 +19,7 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+@import '~vuetify/src/styles/styles.sass'
+</style>

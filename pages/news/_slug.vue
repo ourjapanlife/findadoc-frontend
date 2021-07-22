@@ -1,18 +1,15 @@
 <template>
-  <div>
-    <hero-section />
-    <v-container>
-      <article class="pa-4">
-        <h1 class="text-uppercase">{{ article.title }}</h1>
-        <p class="grey--text text--darken-1">
-          Updated: {{ formatDate(article.updatedAt) }}
-        </p>
-        <p class="font-italic">{{ article.description }}</p>
-        <nuxt-content :document="article" />
-        <author :author="article.author" />
-      </article>
-    </v-container>
-  </div>
+  <v-container>
+    <article class="pa-4">
+      <h1 class="text-uppercase">{{ article.title }}</h1>
+      <p class="grey--text text--darken-1">
+        Updated: {{ formatDate(article.updatedAt) }}
+      </p>
+      <p class="font-italic">{{ article.description }}</p>
+      <nuxt-content :document="article" />
+      <author :author="article.author" />
+    </article>
+  </v-container>
 </template>
 
 <script>
