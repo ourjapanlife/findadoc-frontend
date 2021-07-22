@@ -1,28 +1,50 @@
 <template>
+  <!-- <v-col v-if="$vuetify.breakpoint.mobile"> -->
   <div>
-    <div
-      id="hero-cta"
-      class="secondary white--text"
-      v-if="$vuetify.breakpoint.mobile"
-    >
-      <h1 id="page-title">Get vaccinated with or without a voucher</h1>
-      <div id="lead-text">
-        <i>Helping residents of Japan find essential healthcare</i>
-      </div>
-      <nuxt-link to="/about">
-        <v-btn color="accent" class="black--text mt-8">Learn more</v-btn>
-      </nuxt-link>
-    </div>
-    <div v-else class="desktop-header-section">
-      <div class="desktop-header-img">
-        <!-- Image wouldn't work in news section without full path -->
+    <v-card flat>
+      <v-img
+        placeholder
+        height="70px"
+        src="/purple-dots.png"
+        position="top 0px right -30px"
+        contain
+      >
+      </v-img>
+      <v-card-title class="text-h4 font-weight-bold pt-0">
+        Get vaccinated with or without a voucher
+      </v-card-title>
+      <v-card-subtitle
+        class="text-h6 font-italic font-weight-medium black--text mt-8"
+      >
+        Helping residents of Japan find essential healthcare
+      </v-card-subtitle>
+      <v-img
+        src="green-dots-purple-circle.png"
+        height="200px"
+        position="top 0px left -90px"
+        contain
+      >
+        <v-card-actions>
+          <nuxt-link to="/about">
+            <v-btn
+              color="secondary"
+              class="custom-transform-class text-none ml-3"
+              >Find a doc</v-btn
+            >
+          </nuxt-link>
+        </v-card-actions>
+      </v-img>
+    </v-card>
+  </div>
+  <!-- </v-col> -->
+  <!--
+    <div v-else>
+      <div>
         <img src="https://findadoc.jp/header-img.jpg" />
       </div>
-      <div id="desktop-header-text" class="secondary white--text">
-        <h1 class="desktop-header-title">
-          Get vaccinated with or without a voucher
-        </h1>
-        <div class="desktop-lead-text">
+      <div class="white--text">
+        <h1>Get vaccinated with or without a voucher</h1>
+        <div>
           <i>Helping residents of Japan find essential healthcare</i>
         </div>
         <nuxt-link to="/about">
@@ -30,53 +52,13 @@
         </nuxt-link>
       </div>
     </div>
-  </div>
+     -->
 </template>
 
 <style scoped>
-a {
-  text-decoration: none;
-}
-
-#hero-cta {
-  padding: 30px;
-}
-.desktop-header-section {
-  display: flex;
-}
-.desktop-header-img {
-  display: flex;
-  height: 452px;
-  width: 40%;
-  background-color: #2640e1;
-  justify-content: center;
-}
-
-#desktop-header-text {
-  width: 60%;
-}
-
-#desktop-header-text {
-  padding: 80px;
-}
-.desktop-header-title {
-  font-size: 50px;
-  font-weight: 400;
-  font-family: Arial;
-}
-.desktop-lead-text {
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  padding-top: 20px;
-}
-
-#lead-text {
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  padding-top: 20px;
-}
-
-#page-title {
-  font-weight: 500;
+.purple-dots {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 </style>
