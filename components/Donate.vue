@@ -1,15 +1,18 @@
 <template>
   <v-btn
-    color="accent"
-    class="black--text"
+    color="blue lighten-1"
+    class="custom-transform-class text-none ml-3"
     dark
     fixed
     bottom
+    rounded
     left
     href="https://ko-fi.com/theyokohamalife"
     target="_blank"
   >
-    <v-icon color="red">mdi-heart</v-icon>
-    Support me
+    <div class="mr-1">
+      <v-icon color="red">mdi-heart</v-icon>
+    </div>
+    <div>Support me</div>
   </v-btn>
 </template>

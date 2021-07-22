@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <article class="pa-4">
+      {{ article.tag }}
       <h1 class="text-uppercase">{{ article.title }}</h1>
       <p class="grey--text text--darken-1">
         Updated: {{ formatDate(article.updatedAt) }}
