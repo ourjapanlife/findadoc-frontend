@@ -5,10 +5,19 @@
         <v-card flat v-show="!$vuetify.breakpoint.mobile">
           <v-img
             height="600px"
-            lazy-src="/desktop-user.png"
+            src="/desktop-user.png"
             position="top 0px left 0px"
             contain
+            aspect-ratio="1.7778"
           >
+            <template v-slot:placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular
+                  indeterminate
+                  color="blue"
+                ></v-progress-circular>
+              </v-row>
+            </template>
           </v-img>
         </v-card>
       </v-col>
@@ -16,10 +25,19 @@
         <v-card flat>
           <v-img
             height="70px"
-            lazy-src="/purple-dots.png"
+            src="/purple-dots.png"
             position="top 0px right -30px"
             contain
+            aspect-ratio="1.7778"
           >
+            <template v-slot:placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular
+                  indeterminate
+                  color="blue"
+                ></v-progress-circular>
+              </v-row>
+            </template>
           </v-img>
           <v-card-title
             :class="
