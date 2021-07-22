@@ -17,10 +17,11 @@ $heading-font-family: "Montserrat";
   .text-h1,
   .text-h2,
   .text-h3,
-  .text-h4 {
+  .text-h4,
+  .text-h5 {
     font-family: $heading-font-family !important;
   }
-  .text-h5 {
+  .text-h6 {
     font-family: $heading-font-family !important;
     letter-spacing: 0.06em;
   }
