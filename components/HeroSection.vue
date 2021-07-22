@@ -41,7 +41,7 @@
         <v-card-title
           :class="
             $vuetify.breakpoint.mobile
-              ? 'text-h3 font-weight-bold pt-0'
+              ? 'text-h4 font-weight-bold pt-0'
               : 'text-h1 font-weight-bold pt-0'
           "
         >

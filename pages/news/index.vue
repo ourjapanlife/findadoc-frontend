@@ -1,23 +1,26 @@
 <template>
-  <v-container>
-    <div id="all-news">
-      <h1>Important News and Information</h1>
-      <div v-for="article of articles" :key="article.slug">
-        <NuxtLink
-          :to="
-            localePath({ name: 'news-slug', params: { slug: article.slug } })
-          "
-        >
-          <img :src="article.img" />
-          <div>
-            <h2>{{ article.title }}</h2>
-            <p>by {{ article.author.name }}</p>
-            <p>{{ article.description }}</p>
-          </div>
-        </NuxtLink>
+  <div>
+    <v-container>
+      <div id="all-news">
+        <h1>Important News and Information</h1>
+        <div v-for="article of articles" :key="article.slug">
+          <NuxtLink
+            :to="
+              localePath({ name: 'news-slug', params: { slug: article.slug } })
+            "
+          >
+            <img :src="article.img" />
+            <div>
+              <h2>{{ article.title }}</h2>
+              <p>by {{ article.author.name }}</p>
+              <p>{{ article.description }}</p>
+            </div>
+            <v-btn text color="accent"> Read More </v-btn>
+          </NuxtLink>
+        </div>
       </div>
-    </div>
-  </v-container>
+    </v-container>
+  </div>
 </template>
 
 <script>

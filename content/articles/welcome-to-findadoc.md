@@ -1,4 +1,5 @@
 ---
+tag: News
 title: Welcome to Find a Doc
 description: Thanks to community efforts, thousands have been vaccinated across Japan!
 author:
