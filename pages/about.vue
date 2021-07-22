@@ -11,8 +11,14 @@
       <AboutSiteTimeline />
     </section>
     <section class="midpage-widgets">
-      <AboutKofiWidget />
-      <div class="fake-twitter-replace-later">Fake Twitter</div>
+      <v-row>
+        <v-col sm="12" md="6">
+          <AboutKofiWidget />
+        </v-col>
+        <v-col sm="12" md="6">
+          <twitter-testimonials :tweets="tweets" />
+        </v-col>
+      </v-row>
     </section>
     <section class="trust">
       <AboutTrust />
@@ -21,11 +27,27 @@
       <AboutTeam />
     </section>
     <section class="bottom-twitter-widget">
-      <twitter-testimonials />
+      <twitter-testimonials :tweets="tweets" />
     </section>
   </div>
 </template>
+<script>
 
+import twitter from "../services/twitter";
+
+export default {
+  data() {
+    return {
+      tweets: []
+    }
+  },
+  async fetch() {
+    const tweets = await twitter.fetchAnnotatedTweets();
+    console.log("got this on the about page:", tweets);
+    this.tweets = tweets;
+  }
+};
+</script>
 <style scoped>
 .about-header {
   padding: 257px 445px 306px 255px;
@@ -53,8 +75,4 @@
 section {
   width: 100%;
 }
-
-/*div {
-  padding: 10px;
-}*/
 </style>
