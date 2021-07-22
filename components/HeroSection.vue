@@ -4,9 +4,8 @@
       <v-col>
         <v-card flat v-show="!$vuetify.breakpoint.mobile">
           <v-img
-            placeholder
             height="600px"
-            src="/desktop-user.png"
+            lazy-src="/desktop-user.png"
             position="top 0px left 0px"
             contain
           >
@@ -16,9 +15,8 @@
       <v-col :cols="$vuetify.breakpoint.mobile ? '12' : '8'">
         <v-card flat>
           <v-img
-            placeholder
             height="70px"
-            src="/purple-dots.png"
+            lazy-src="/purple-dots.png"
             position="top 0px right -30px"
             contain
           >
