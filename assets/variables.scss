@@ -20,6 +20,10 @@ $heading-font-family: "Montserrat";
   .text-h4 {
     font-family: $heading-font-family !important;
   }
+  .text-h5 {
+    font-family: $heading-font-family !important;
+    letter-spacing: 0.06em;
+  }
   a {
     text-decoration: none !important;
   }
