@@ -67,6 +67,11 @@ export default {
 };
 </script>
 <style>
+.trust-widget {
+    padding-top: 100px;
+    padding-bottom:  50px;
+}
+
 .trust-widget h3, .trust-widget h4, .trust-widget h5, .trust-widget h6 {
     text-align:  center;
 }

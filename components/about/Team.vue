@@ -18,9 +18,11 @@
           </v-col>
           <v-col sm="12" md="6" lg="6">
             <div class="about-team-more-contributors">
-              <h3>Plus many more members who have lent us a helping hand!</h3>
-              <br />
-              <h3>Find them on our <a href="https://github.com/ourjapanlife/findadoc-frontend">front end</a> and <a href="https://github.com/ourjapanlife/findadoc-localization">localization</a> Github contributors pages</h3>
+              <div>
+                <h3>Plus many more members who have lent us a helping hand!</h3>
+                <br />
+                <h3>Find them on our <a href="https://github.com/ourjapanlife/findadoc-frontend">front end</a> and <a href="https://github.com/ourjapanlife/findadoc-localization">localization</a> Github contributors pages</h3>
+              </div>
             </div>
           </v-col>
         </v-row>
@@ -81,6 +83,9 @@ export default {
   }
 
   .about-team-more-contributors {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
   }
 

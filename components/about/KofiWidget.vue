@@ -1,13 +1,39 @@
 <template>  
-  <div class="new-kofi-widget">
-    <h3>Buy us coffee</h3>
-    <div>
-      We are running this database after our 9-5 jobs. Help us stay awake!
-      <br/>
-      Consider supporting us if you find this project helped you or someone in your network.
-    </div>
-    <button href="https://ko-fi.com/theyokohamalife">
-      Donate a cuppa
-    </button>
+  <div class="kofi-widget">
+    <v-container>
+      <v-row>
+        <v-col sm="2">
+        </v-col>
+        <v-col sm="7">
+          <v-row>
+            <h2>Buy us coffee ☕</h2>
+          </v-row>
+          <v-row>
+            <p>We are running this database after our 9-5 jobs. Help us stay awake!</p>
+          </v-row>
+          <v-row>
+            <p>Consider supporting us if you find this project helped you or someone in your network.</p>
+          </v-row>
+          <v-row>
+            <v-btn link elevation="0" color="cyan" href="https://ko-fi.com/theyokohamalife">
+              Donate a cuppa
+            </v-btn>
+          </v-row>
+        </v-col>
+        <v-col sm="2">
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
+<style>
+  .kofi-widget {
+    background-color: rgba(49, 184, 211, 0.1); /* #32B9D3 at 10% opacity */
+    height: 100%;
+    padding-top: 25%;
+  }
+
+  .kofi-widget h2, p {
+    padding-bottom:  10px;
+  }
+</style>

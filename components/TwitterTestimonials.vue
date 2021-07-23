@@ -1,27 +1,29 @@
 <template>
-  <v-card
+  <div
     class="mx-auto tweet-widget"
-    :class="$vuetify.breakpoint.mobile ? 'mobile' : ''"
-    color="white"
+    :class="getClasses(turquoise)"
   >
-    <v-carousel
-      v-model="activeTweetIndex"
-      hide-delimiters
-      :show-arrows="!$vuetify.breakpoint.mobile"
-      class="tweet-carousel"
-      light
-    >
-      <v-carousel-item v-for="(tweet, i) in tweets" :key="tweet.id">
-        <tweet :tweet="tweets[i]" />
-      </v-carousel-item>
-    </v-carousel>
-    <tweet-carousel-delimiter
-      v-show="$vuetify.breakpoint.mobile"
-      :steps="3"
-      :index="activeTweetIndex"
-    />
-    <quote-symbol :width="200" :height="200" class="quote-symbol" />
-  </v-card>
+    <div class="tweet-wrapper">
+      <div class="tweet-carousel">
+        <v-carousel
+          v-model="activeTweetIndex"
+          hide-delimiters
+          :show-arrows="!$vuetify.breakpoint.mobile"
+          light
+        >
+          <v-carousel-item v-for="(tweet, i) in tweets" :key="tweet.id">
+            <tweet :tweet="tweets[i]" :turquoise="turquoise" />
+          </v-carousel-item>
+        </v-carousel>
+        <tweet-carousel-delimiter
+          v-show="$vuetify.breakpoint.mobile"
+          :steps="3"
+          :index="activeTweetIndex"
+        />
+      </div>
+      <quote-symbol v-if="!turquoise" :width="200" :height="200" class="quote-symbol" />
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -29,6 +31,10 @@ export default {
     tweets: {
       type: Array,
       required: true
+    },
+    turquoise: {
+      type: Boolean,
+      required: false
     }
   },
   data() {
@@ -36,6 +42,14 @@ export default {
       activeTweetIndex: 0,
       isLoaded: false,
     };
+  },
+  methods: {
+    getClasses(turquoise) {
+      return {
+        mobile: this.$vuetify.breakpoint.mobile,
+        turquoise: turquoise
+      }
+    }
   }
 };
 </script>
@@ -43,11 +57,30 @@ export default {
 .tweet-widget {
   height: 600px;
 }
+.tweet-widget.turquoise {
+  background: #32B9D3;
+}
+
+.tweet-wrapper {
+  width: 100%;
+  height: 100%;
+  position:  relative;
+}
+
+.tweet-carousel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
 .quote-symbol {
   z-index: 1;
   position: absolute;
-  top: 24%;
-  left: 33%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
 }
 .mobile > .quote-symbol {
   left: 20%;

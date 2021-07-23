@@ -11,12 +11,12 @@
       <AboutSiteTimeline />
     </section>
     <section class="midpage-widgets">
-      <v-row>
+      <v-row class="no-gutters">
         <v-col sm="12" md="6">
           <AboutKofiWidget />
         </v-col>
         <v-col sm="12" md="6">
-          <twitter-testimonials :tweets="tweets" />
+          <twitter-testimonials :tweets="tweets" turquoise />
         </v-col>
       </v-row>
     </section>
@@ -43,7 +43,6 @@ export default {
   },
   async fetch() {
     const tweets = await twitter.fetchAnnotatedTweets();
-    console.log("got this on the about page:", tweets);
     this.tweets = tweets;
   }
 };
@@ -66,10 +65,6 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-}
-
-#info {
-  max-width: 600px;
 }
 
 section {
