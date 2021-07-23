@@ -24,7 +24,8 @@
                 </v-avatar>
             </v-card-title>
             <v-card-text class="card-text">
-                {{ card.text }}
+                <p>{{ card.text.line1 }}</p>
+                <p>{{ card.text.line2 }}</p>
             </v-card-text>
           </v-card>
         </v-col>
@@ -51,15 +52,24 @@ export default {
       cards: [
       {
         avatar: "AboutSvgDocumentsIcon",
-        text: "All links lead to official resources such as clinic and government websites. Read them thoroughly before registering your personal information with them."
+        text: {
+            line1: "All links lead to official resources such as clinic and government websites.",
+            line2: "Read them thoroughly before registering your personal information with them."
+        }
       },
       {
         avatar: "AboutSvgDiversityIcon",
-        text: "Anyone in the community can submit content to the database. As a result, is not possible for us to guarantee that accuracy. If you notice any errors, please report the issue to moderators."
+        text: {
+            line1: "Anyone in the community can submit content to the database.",
+            line2: "As a result, is not possible for us to guarantee that accuracy. If you notice any errors, please report the issue to moderators."
+        }
       },
       {
         avatar: "AboutSvgSearchIcon",
-        text: "Our moderators try their best to detect fraudulent information. Even so, research any service that you find on here before visiting the location or submitting your personal information to a third-party website."
+        text: {
+            line1: "Our moderators try their best to detect fraudulent information.",
+            line2: "Even so, research any service that you find on here before visiting the location or submitting your personal information to a third-party website."
+        }
       }
       ]
     }
@@ -96,6 +106,10 @@ export default {
 
 .trust-widget h6 {
     font-size: 0.87rem;
+}
+
+.trust-widget h6 {
+    text-decoration: underline;
 }
 
 .trust-widget .card-text {

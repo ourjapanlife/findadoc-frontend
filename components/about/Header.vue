@@ -28,4 +28,8 @@
   max-width: 700px;
   transform: translateX(-20%);
 }
+.mobile .header-widget-content {
+  transform: translateX(0);
+  padding-left: 20px;
+}
 </style>

@@ -74,7 +74,10 @@ export default {
 .team-member {
   color:  white;
   background: #324199;
-  /*max-width: 344px;*/
+}
+
+.mobile .team-member {
+  padding-bottom:  30px;
 }
 
 .team-member h3 {
@@ -89,6 +92,10 @@ export default {
   top: 50%;
   transform: translateY(23%);
   position: absolute;
+}
+
+.mobile .team-member-detail-content {
+  transform: translateY(10%);
 }
 
 .team-member-detail-content h3, .team-member-detail-content h4, .team-member-detail-content div {

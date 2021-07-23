@@ -7,7 +7,7 @@
           <h2>Meet the Team</h2>
         </v-row>
         <v-row>
-          <v-col sm="12" md="6" lg="6" v-for="lead in leads" :key="lead.name">
+          <v-col cols="12" sm="12" md="6" lg="6" v-for="lead in leads" :key="lead.name">
             <AboutTeamMember
               :github-handle="lead.githubHandle"
               :twitter-handle="lead.twitterHandle"
@@ -88,6 +88,14 @@ export default {
     flex-direction: column;
     justify-content: center;
   }
+
+.mobile .about-team-more-contributors {
+  padding-bottom: 50px;
+}
+
+.mobile .about-team-more-contributors a, .mobile .about-team-join a {
+  text-decoration: underline !important; /* Required, as .v-application a is specified as no decoration */
+}
 
   .about-team-join {
     justify-content: center;

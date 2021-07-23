@@ -12,10 +12,10 @@
     </section>
     <section class="midpage-widgets">
       <v-row class="no-gutters">
-        <v-col sm="12" md="6">
+        <v-col cols="12" xs="12" md="6">
           <AboutKofiWidget />
         </v-col>
-        <v-col sm="12" md="6">
+        <v-col cols="12" xs="12" md="6">
           <twitter-testimonials :tweets="tweets" turquoise />
         </v-col>
       </v-row>
@@ -58,5 +58,9 @@ export default {
 
 section {
   width: 100%;
+}
+
+.mobile .bottom-twitter-widget {
+  margin-bottom: 100px;
 }
 </style>

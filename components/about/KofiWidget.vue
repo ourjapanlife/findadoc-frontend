@@ -2,9 +2,9 @@
   <div class="kofi-widget">
     <v-container>
       <v-row>
-        <v-col sm="2">
+        <v-col v-if="$vuetify.breakpoint.md" md="2">
         </v-col>
-        <v-col sm="7">
+        <v-col sm="12" md="7">
           <v-row>
             <h2>Buy us coffee ☕</h2>
           </v-row>
@@ -20,7 +20,7 @@
             </v-btn>
           </v-row>
         </v-col>
-        <v-col sm="2">
+        <v-col v-if="$vuetify.breakpoint.md" md="2">
         </v-col>
       </v-row>
     </v-container>
@@ -35,5 +35,9 @@
 
   .kofi-widget h2, p {
     padding-bottom:  10px;
+  }
+
+  .mobile .kofi-widget {
+    padding: 100px 30px 100px 30px;
   }
 </style>
