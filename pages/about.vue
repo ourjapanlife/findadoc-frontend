@@ -16,7 +16,7 @@
           <AboutKofiWidget />
         </v-col>
         <v-col cols="12" xs="12" md="6">
-          <twitter-testimonials :tweets="tweets" turquoise />
+          <AboutTwitterTestimonials :tweets="tweets" turquoise />
         </v-col>
       </v-row>
     </section>
@@ -27,7 +27,7 @@
       <AboutTeam />
     </section>
     <section class="bottom-twitter-widget">
-      <twitter-testimonials :tweets="tweets" />
+      <AboutTwitterTestimonials :tweets="tweets" />
     </section>
   </div>
 </template>

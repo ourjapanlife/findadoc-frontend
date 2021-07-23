@@ -12,16 +12,16 @@
           light
         >
           <v-carousel-item v-for="(tweet, i) in tweets" :key="tweet.id">
-            <tweet :tweet="tweets[i]" :turquoise="turquoise" />
+            <AboutTweet :tweet="tweets[i]" :turquoise="turquoise" />
           </v-carousel-item>
         </v-carousel>
-        <tweet-carousel-delimiter
+        <AboutTweetCarouselDelimiter
           v-show="$vuetify.breakpoint.mobile"
           :steps="3"
           :index="activeTweetIndex"
         />
       </div>
-      <quote-symbol v-if="!turquoise" :width="200" :height="200" class="quote-symbol" />
+      <AboutSvgQuoteSymbol v-if="!turquoise" :width="200" :height="200" class="quote-symbol" />
     </div>
   </div>
 </template>
