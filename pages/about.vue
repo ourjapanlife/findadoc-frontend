@@ -32,19 +32,18 @@
   </div>
 </template>
 <script>
-
 import twitter from "../services/twitter";
 
 export default {
   data() {
     return {
-      tweets: []
-    }
+      tweets: [],
+    };
   },
   async fetch() {
     const tweets = await twitter.fetchAnnotatedTweets();
     this.tweets = tweets;
-  }
+  },
 };
 </script>
 <style scoped>
