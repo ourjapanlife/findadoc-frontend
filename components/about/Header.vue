@@ -1,0 +1,31 @@
+<template>
+  <div>
+    <div class="header-widget">
+      <div class="header-widget-content">
+        <h1>About Find A Doc, the database reducing vaccine waste.</h1>
+      </div>
+    </div>
+    <AboutSvgWavyBump />
+  </div>
+</template>
+<style>
+.header-widget {
+  color: white;
+  background: #324199;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:  100%;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+.mobile .header-widget {
+  font-size: 1.5rem;
+}
+.header-widget-content {
+  max-width: 700px;
+  transform: translateX(-20%);
+}
+</style>

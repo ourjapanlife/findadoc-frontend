@@ -5,7 +5,7 @@
     :class="$vuetify.breakpoint.mobile ? 'mobile' : ''"
   >
     <section class="about-header">
-      <h1>About Find A Doc, the database reducing vaccine waste.</h1>
+      <AboutHeader />
     </section>
     <section class="timeline">
       <AboutSiteTimeline />
@@ -48,17 +48,6 @@ export default {
 };
 </script>
 <style scoped>
-.about-header {
-  padding: 257px 445px 306px 255px;
-  font-size: 4rem;
-  color: white;
-  background: #324199;
-}
-.mobile .about-header {
-  padding: 83px 40px 52px 40px;
-  font-size: 1.5rem;
-}
-
 #about {
   margin: auto;
   display: flex;
