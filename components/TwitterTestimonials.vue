@@ -29,7 +29,8 @@ import tweetFixtures from "../fixtures/twitterTweetsApiFixture.json";
 import logger from "../services/logger";
 
 // Axios requires proxies for origin changes. /twitter/ will get overwritten with https://api.twitter.com.
-const API_URL = "/twitter/2/tweets?user.fields=profile_image_url,username&expansions=author_id&ids=";
+const API_URL =
+  "/twitter/2/tweets?user.fields=profile_image_url,username&expansions=author_id&ids=";
 const DEV_MODE = "DEV_MODE";
 
 const token = process.env.TWITTER_API_BEARER_TOKEN || DEV_MODE;

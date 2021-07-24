@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <div id="all-news">
-        <h1>Important News and Information</h1>
+        <h1>{{ $t("news.important") }}</h1>
         <div v-for="article of articles" :key="article.slug">
           <NuxtLink
             :to="
@@ -12,10 +12,10 @@
             <img :src="article.img" />
             <div>
               <h2>{{ article.title }}</h2>
-              <p>by {{ article.author.name }}</p>
+              <p>{{ $t("news.by", [article.author.name]) }}</p>
               <p>{{ article.description }}</p>
             </div>
-            <v-btn text color="accent"> Read More </v-btn>
+            <v-btn text color="accent">{{ $t("general.readMore") }}</v-btn>
           </NuxtLink>
         </div>
       </div>

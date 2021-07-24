@@ -9,7 +9,7 @@
       "
     />
     <v-card-title>
-      Reported Submissions
+      {{ $t("reportedSubmissions") }}
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
@@ -29,6 +29,7 @@
       class="elevation-1"
     >
       <template v-slot:[`item.action`]="{ item }">
+        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
         <v-icon small @click="handleDeleteBtnPressed(item)">
           mdi-delete
         </v-icon>

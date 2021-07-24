@@ -69,9 +69,10 @@
           v-if="item.note && item.note.length > 1"
           class="dflex justify-center"
         >
-          <v-icon @click="showNote(item.note)" color="cyan darken-1" center
-            >mdi-note-text</v-icon
-          >
+          <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
+          <v-icon @click="showNote(item.note)" color="cyan darken-1" center>
+            mdi-note-text
+          </v-icon>
         </div>
       </template>
 
@@ -81,6 +82,7 @@
         </a>
       </template>
       <template v-slot:[`item.flag`]="{ item }" align="left">
+        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
         <v-icon @click="flagData(item)">mdi-flag</v-icon>
       </template>
     </v-data-table>

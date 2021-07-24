@@ -28,6 +28,7 @@
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>
+                    <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
                     <b> @{{ tweet.username }} </b>
                   </v-list-item-title>
                 </v-list-item-content>
