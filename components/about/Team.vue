@@ -41,12 +41,12 @@
   </div>
 </template>
 <script>
-import { leads } from "../../data/contributors.json";
+import { teamLeads } from "../../data/contributors.json";
 
 export default {
   data() {
     return {
-      leads: leads
+      leads: teamLeads
     };
   }
 };

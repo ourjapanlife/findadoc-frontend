@@ -8,7 +8,7 @@ const API_URL =
   "/twitter/2/tweets?user.fields=profile_image_url,username&expansions=author_id&ids=";
 const DEV_MODE = "DEV_MODE";
 
-class Twitter {
+class TwitterService {
 
   constructor(axios) {
     this.axios = axios;
@@ -72,7 +72,7 @@ class Twitter {
     return annotated;
   }
 
-  async get() {
+  async getTweets() {
     const tweets = await this._fetch();
     const userMap = this._createUserMap(tweets.includes.users);
     const annotatedTweets = this._annotateTweetsWithUsers(tweets.data, userMap);
@@ -81,4 +81,4 @@ class Twitter {
   }
 };
 
-export default Twitter;
+export default TwitterService;
