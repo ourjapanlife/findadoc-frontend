@@ -1,15 +1,19 @@
 /* eslint-disable no-console */
 
-import axios from "axios";
 import logger from "./logger";
 import testimonialsData from "../data/testimonials.json";
 import tweetFixtures from "../fixtures/twitterTweetsApiFixture.json";
 
 const API_URL =
-  "https://api.twitter.com/2/tweets?user.fields=profile_image_url,username&expansions=author_id&ids=";
+  "/twitter/2/tweets?user.fields=profile_image_url,username&expansions=author_id&ids=";
 const DEV_MODE = "DEV_MODE";
 
-const Twitter = {
+class Twitter {
+
+  constructor(axios) {
+    this.axios = axios;
+  }
+
   async _fetch() {
     const token = this._getToken();
     const options = {
@@ -25,7 +29,7 @@ const Twitter = {
       json = tweetFixtures;
     } else {
       try {
-        const res = await axios.get(
+        const res = await this.axios.get(
           `${API_URL}${testimonialsData.tweets}`,
           options
         );
@@ -36,11 +40,11 @@ const Twitter = {
     }
 
     return json;
-  },
+  }
 
   _getToken() {
     return process.env.TWITTER_API_BEARER_TOKEN || DEV_MODE;
-  },
+  }
 
   _createUserMap(apiUserData) {
     /* Maps users by id. */
@@ -49,7 +53,7 @@ const Twitter = {
       userMap[user.id] = user;
     }
     return userMap;
-  },
+  }
 
   _annotateTweetsWithUsers(apiTweetData, userMap) {
     /* The twitter API separates user information and tweet content. This method recombines, overwriting fields as necessary. */
@@ -66,15 +70,15 @@ const Twitter = {
       annotated.push(annotatedTweet);
     }
     return annotated;
-  },
+  }
 
-  async fetchAnnotatedTweets() {
+  async get() {
     const tweets = await this._fetch();
     const userMap = this._createUserMap(tweets.includes.users);
     const annotatedTweets = this._annotateTweetsWithUsers(tweets.data, userMap);
 
     return annotatedTweets;
-  },
+  }
 };
 
 export default Twitter;

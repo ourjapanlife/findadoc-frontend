@@ -32,7 +32,7 @@
   </div>
 </template>
 <script>
-import twitter from "../services/twitter";
+import TwitterAPI from "../services/twitter";
 
 export default {
   data() {
@@ -40,9 +40,13 @@ export default {
       tweets: [],
     };
   },
-  async fetch() {
-    const tweets = await twitter.fetchAnnotatedTweets();
-    this.tweets = tweets;
+  async asyncData({ $axios }) {
+    const twitter = new TwitterAPI($axios);
+    const tweets = await twitter.get();
+
+    return {
+      tweets: tweets
+    }
   },
 };
 </script>
