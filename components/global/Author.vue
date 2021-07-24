@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>Author</h4>
+    <h4>{{ $t("news.author") }}</h4>
     <p>{{ author.name }}</p>
     <p>{{ author.bio }}</p>
   </div>

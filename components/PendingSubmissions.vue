@@ -56,9 +56,11 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
         <v-icon small class="mr-2" @click="handleEditBtnPressed(item)">
           mdi-pencil
         </v-icon>
+        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
         <v-icon small @click="handleDeleteBtnPressed(item)">
           mdi-delete
         </v-icon>

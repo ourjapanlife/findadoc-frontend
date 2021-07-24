@@ -11,8 +11,9 @@
     target="_blank"
   >
     <div class="mr-1">
+      <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
       <v-icon color="red">mdi-heart</v-icon>
     </div>
-    <div>Support me</div>
+    <div>{{ $t("donate.supportMe") }}</div>
   </v-btn>
 </template>

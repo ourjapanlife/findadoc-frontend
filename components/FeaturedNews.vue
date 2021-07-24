@@ -6,7 +6,7 @@
           :class="$vuetify.breakpoint.mobile ? '' : 'fill-height pt-12 px-12'"
         >
           <v-col>
-            <h2>Featured</h2>
+            <h2>{{ $t("news.featured") }}</h2>
           </v-col>
           <v-col class="text-h5">{{ slides[i].article.title }}</v-col>
           <v-col>{{ slides[i].article.description }}</v-col>

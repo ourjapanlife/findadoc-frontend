@@ -21,6 +21,7 @@
 
     <v-card-actions>
       <v-btn outlined rounded text link :href="githubProfileUrl">
+        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
         <v-icon>mdi-github</v-icon>
       </v-btn>
       <v-btn
@@ -31,6 +32,7 @@
         link
         :href="twitterProfileUrl"
       >
+        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
         <v-icon>mdi-twitter</v-icon>
       </v-btn>
     </v-card-actions>

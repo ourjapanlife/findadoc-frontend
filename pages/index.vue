@@ -1,7 +1,7 @@
 <template>
   <div>
     <hero-section />
-    <div class="text-h5 ml-4">The Latest from Find a Doc</div>
+    <div class="text-h5 ml-4">{{ $t("news.latest") }}</div>
     <v-card elevation="0" v-for="article of articles" :key="article">
       <v-card-title>
         <NuxtLink
@@ -25,14 +25,16 @@
             })
           "
         >
-          <v-btn text color="teal accent-4"> Read More </v-btn></NuxtLink
+          <v-btn text color="teal accent-4"
+            >{{ $t("general.readMore") }}
+          </v-btn></NuxtLink
         >
       </v-card-subtitle>
       <v-divider></v-divider>
     </v-card>
     <div class="my-5" :align="$vuetify.breakpoint.mobile ? '' : 'center'">
       <NuxtLink to="/news">
-        <v-btn text> View all news </v-btn>
+        <v-btn text>{{ $t("index.viewAllNews") }}</v-btn>
       </NuxtLink>
     </div>
     <div

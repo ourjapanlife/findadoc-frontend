@@ -45,12 +45,12 @@
               : 'text-h1 font-weight-bold pt-0'
           "
         >
-          Get vaccinated with or without a voucher
+          {{ $t("hero.getVaccinated") }}
         </v-card-title>
         <v-card-subtitle
           class="text-h6 font-italic font-weight-medium black--text mt-8"
         >
-          Helping residents of Japan find essential healthcare
+          {{ $t("hero.helpingResidents") }}
         </v-card-subtitle>
         <div v-if="$vuetify.breakpoint.mobile">
           <v-img
@@ -64,7 +64,7 @@
                 <v-btn
                   color="secondary"
                   class="custom-transform-class text-none ml-3"
-                  >Find a doc</v-btn
+                  >{{ $t("findADoc") }}</v-btn
                 >
               </a>
             </v-card-actions>
@@ -76,7 +76,7 @@
               <v-btn
                 color="secondary"
                 class="custom-transform-class text-none ml-3"
-                >Find a doc</v-btn
+                >{{ $t("findADoc") }}</v-btn
               >
             </a>
           </v-card-actions>

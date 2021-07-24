@@ -4,9 +4,9 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>
         <!-- Set a mobile breakpoint for the name? -->
-        <nuxt-link :to="localePath({ name: 'index' })"
-          >Find a Doc</nuxt-link
-        ></v-toolbar-title
+        <nuxt-link :to="localePath({ name: 'index' })">{{
+          $t("findADoc")
+        }}</nuxt-link></v-toolbar-title
       >
       <v-spacer></v-spacer>
       <nuxt-link :to="localePath({ name: 'add-clinic' })">
@@ -46,6 +46,7 @@
           target="_blank"
         >
           <v-list-item-icon>
+            <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
             <v-icon>mdi-github</v-icon>
           </v-list-item-icon>
 

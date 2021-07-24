@@ -1,4 +1,5 @@
 <template>
+  <!--eslint-disable @intlify/vue-i18n/no-raw-text-->
   <div>
     <v-list class="tweet-carousel-delimiter">
       <v-list-item

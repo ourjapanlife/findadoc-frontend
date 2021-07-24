@@ -2,6 +2,7 @@
   <v-footer absolute app dark color="secondary">
     <v-row id="netlify-footer">
       <a href="https://www.netlify.com/" target="_blank">
+        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
         <v-icon>mdi-flash</v-icon>
         {{ $t("footer.netlify") }}
       </a>

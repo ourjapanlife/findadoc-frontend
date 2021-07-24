@@ -1,7 +1,7 @@
 <template>
   <v-container v-show="$store.getters.isUserLoggedIn">
     <v-card-title>
-      Active Clinic Data
+      {{ $t("activeClinic.data") }}
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
@@ -29,7 +29,7 @@
       <template v-slot:[`item.action`]="{ item }">
         <v-dialog v-model="dialogEdit" max-width="500px" :retain-focus="false">
           <v-card>
-            <v-card-title>Edit Clinic</v-card-title>
+            <v-card-title>{{ $t("activeClinic.editClinic") }}</v-card-title>
             <v-col cols="12">
               <v-text-field
                 v-for="(value, name) in selectedItem"
@@ -46,10 +46,10 @@
                 text
                 @click="handleApproveBtnPressed(item)"
               >
-                Approve
+                {{ $t("general.approve") }}
               </v-btn>
               <v-btn color="primary" text @click="handleCancelEditBtnPressed">
-                Cancel
+                {{ $t("general.cancel") }}
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -57,6 +57,7 @@
         <v-menu>
           <template v-slot:activator="{ attrs, on }">
             <v-btn color="indigo" icon v-bind="attrs" v-on="on">
+              <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
               <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
           </template>

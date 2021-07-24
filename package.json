@@ -13,11 +13,11 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
     "@nuxt/content": "^1.14.0",
+    "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/firebase": "^7.6.1",
     "@nuxtjs/proxy": "^2.1.0",
-    "@ourjapanlife/findadoc-localization": "https://github.com/ourjapanlife/findadoc-localization",
+    "@ourjapanlife/findadoc-localization": "https://github.com/ourjapanlife/findadoc-localization#v1.0.6",
     "core-js": "^3.9.1",
     "firebase": "^8.6.7",
     "nuxt": "^2.15.3",
@@ -26,6 +26,7 @@
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
+    "@intlify/eslint-plugin-vue-i18n": "^0.11.1",
     "@nuxtjs/vuetify": "^1.11.3",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",

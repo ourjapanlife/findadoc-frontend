@@ -4,7 +4,7 @@
       {{ article.tag }}
       <h1 class="text-uppercase">{{ article.title }}</h1>
       <p class="grey--text text--darken-1">
-        Updated: {{ formatDate(article.updatedAt) }}
+        {{ $t("news.updated", [formatDate(article.updatedAt)]) }}
       </p>
       <p class="font-italic">{{ article.description }}</p>
       <nuxt-content :document="article" />
