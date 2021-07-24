@@ -50,7 +50,7 @@
         <v-card-subtitle
           class="text-h6 font-italic font-weight-medium black--text mt-8"
         >
-          {{ $t("helpingResidents") }}
+          {{ $t("hero.helpingResidents") }}
         </v-card-subtitle>
         <div v-if="$vuetify.breakpoint.mobile">
           <v-img

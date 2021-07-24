@@ -1,7 +1,7 @@
 <template>
   <div>
     <hero-section />
-    <div class="text-h5 ml-4">{{ $t("index.latest") }}</div>
+    <div class="text-h5 ml-4">{{ $t("news.latest") }}</div>
     <v-card elevation="0" v-for="article of articles" :key="article">
       <v-card-title>
         <NuxtLink

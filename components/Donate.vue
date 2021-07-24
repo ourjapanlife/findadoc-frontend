@@ -14,6 +14,6 @@
       <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text-->
       <v-icon color="red">mdi-heart</v-icon>
     </div>
-    <div>{{ $t("donante.SupportMe") }}</div>
+    <div>{{ $t("donate.supportMe") }}</div>
   </v-btn>
 </template>
