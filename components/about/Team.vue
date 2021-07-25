@@ -7,7 +7,7 @@
           <h2>Meet the Team</h2>
         </v-row>
         <v-row>
-          <v-col cols="12" sm="12" md="6" lg="6" v-for="lead in leads" :key="lead.name">
+          <v-col cols="12" sm="12" md="6" lg="6" v-for="lead in teamLeads" :key="lead.name">
             <AboutTeamMember
               :github-handle="lead.githubHandle"
               :twitter-handle="lead.twitterHandle"
@@ -41,12 +41,12 @@
   </div>
 </template>
 <script>
-import { teamLeads } from "../../data/contributors.json";
+import { leads } from "../../data/contributors.json";
 
 export default {
   data() {
     return {
-      leads: teamLeads
+      teamLeads: leads
     };
   }
 };
