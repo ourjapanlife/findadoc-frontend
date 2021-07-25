@@ -39,11 +39,23 @@ class TwitterService {
       }
     }
 
+    if (!this._isValidResponse(json)) {
+      logger.log("Invalid response from Twitter API, loading fixtures.")
+      json = tweetFixtures;
+    }
+
     return json;
   }
 
   _getToken() {
     return process.env.TWITTER_API_BEARER_TOKEN || DEV_MODE;
+  }
+
+  _isValidResponse(response) {
+    if (!response || !response.data || !response.includes) {
+      return false;
+    }
+    return true;
   }
 
   _createUserMap(apiUserData) {
