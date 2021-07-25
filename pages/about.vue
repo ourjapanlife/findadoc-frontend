@@ -1,39 +1,55 @@
 <template>
-  <div id="about">
-    <div id="info">
-      <div align="center">
-        <h1>{{ $t("about.welcome") }}</h1>
-      </div>
-      <div>
-        <h2>{{ $t("about.whatIsThisQ") }}</h2>
-        <p v-html="$t('about.whatIsThisA')"></p>
-      </div>
-      <div>
-        <h2>{{ $t("about.trustQ") }}</h2>
-        <p v-html="$t('about.trustA')"></p>
-      </div>
-      <div>
-        <h2>{{ $t("about.supportQ") }}</h2>
-        <p v-html="$t('about.supportA')"></p>
-      </div>
-      <div>
-        <contributors-list />
-      </div>
-      <twitter-testimonials />
-    </div>
-    <div id="widgets">
-      <div id="donate">
-        <iframe
-          src="https://ko-fi.com/theyokohamalife/?hidefeed=true&widget=true&embed=true&preview=true"
-          style="border: none; width: 100%; padding: 4px; background: #f9f9f9"
-          height="650"
-          title="theyokohamalife"
-        ></iframe>
-      </div>
-    </div>
+  <div
+    id="about"
+    class="about-page"
+    :class="$vuetify.breakpoint.mobile ? 'mobile' : ''"
+  >
+    <section class="about-header">
+      <AboutHeader />
+    </section>
+    <section class="timeline">
+      <AboutSiteTimeline />
+    </section>
+    <section class="midpage-widgets">
+      <v-row class="no-gutters">
+        <v-col cols="12" xs="12" md="6">
+          <AboutKofiWidget />
+        </v-col>
+        <v-col cols="12" xs="12" md="6">
+          <AboutTwitterTestimonials :tweets="tweets" turquoise />
+        </v-col>
+      </v-row>
+    </section>
+    <section class="trust">
+      <AboutTrust />
+    </section>
+    <section class="team">
+      <AboutTeam />
+    </section>
+    <section class="bottom-twitter-widget">
+      <AboutTwitterTestimonials :tweets="tweets" />
+    </section>
   </div>
 </template>
+<script>
+import TwitterService from "../services/twitter";
 
+export default {
+  data() {
+    return {
+      tweets: [],
+    };
+  },
+  async asyncData({ $axios }) {
+    const twitter = new TwitterService($axios);
+    const tweets = await twitter.getTweets();
+
+    return {
+      tweets: tweets
+    }
+  },
+};
+</script>
 <style scoped>
 #about {
   margin: auto;
@@ -43,11 +59,11 @@
   justify-content: space-evenly;
 }
 
-#info {
-  max-width: 600px;
+section {
+  width: 100%;
 }
 
-div {
-  padding: 10px;
+.mobile .bottom-twitter-widget {
+  margin-bottom: 100px;
 }
 </style>

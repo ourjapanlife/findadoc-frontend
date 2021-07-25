@@ -23,3 +23,12 @@ export default {
 <style lang="sass">
 @import '~vuetify/src/styles/styles.sass'
 </style>
+
+<style>
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative
+}
+</style>
