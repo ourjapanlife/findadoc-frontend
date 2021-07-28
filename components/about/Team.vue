@@ -4,7 +4,7 @@
     <div class="about-team-content">
       <v-container>
         <v-row>
-          <h2>Meet the Team</h2>
+          <h2> {{ $t("about.team.header.headline") }} </h2>
         </v-row>
         <v-row>
           <v-col cols="12" sm="12" md="6" lg="6" v-for="lead in teamLeads" :key="lead.name">
@@ -19,9 +19,20 @@
           <v-col sm="12" md="6" lg="6">
             <div class="about-team-more-contributors">
               <div>
-                <h3>Plus many more members who have lent us a helping hand!</h3>
+                <h3> {{ $t("about.team.moreContributors.headline") }} </h3>
                 <br />
-                <h3>Find them on our <a href="https://github.com/ourjapanlife/findadoc-frontend">front end</a> and <a href="https://github.com/ourjapanlife/findadoc-localization">localization</a> Github contributors pages</h3>
+                <i18n path="about.team.moreContributors.action.text" tag="h3">
+                  <template v-slot:frontend>
+                    <a href="https://github.com/ourjapanlife/findadoc-frontend">
+                      {{ $t('about.team.moreContributors.action.frontend') }}
+                    </a>
+                  </template>
+                  <template v-slot:localization>
+                    <a href="https://github.com/ourjapanlife/findadoc-localization">
+                      {{ $t('about.team.moreContributors.action.localization') }}
+                    </a>
+                  </template>
+                </i18n>
               </div>
             </div>
           </v-col>
@@ -29,9 +40,9 @@
         <v-row>
           <v-col sm="12">
             <div class="about-team-join">
-              <h3>Does Find a Doc’s mission spark your interests?</h3>
-              <h3>Join us over on GitHub to see how you can contribute!</h3>
-              <h3><a href="https://github.com/ourjapanlife">✋ I want to join!</a></h3>
+              <h3> {{ $t("about.team.join.headline") }} </h3>
+              <h3> {{ $t("about.team.join.subheadline") }} </h3>
+              <h3><a href="https://github.com/ourjapanlife">✋ {{ $t("about.team.join.action") }}</a></h3>
             </div>
           </v-col>
         </v-row>
@@ -93,7 +104,8 @@ export default {
   padding-bottom: 50px;
 }
 
-.mobile .about-team-more-contributors a, .mobile .about-team-join a {
+.about-team-more-contributors a, .about-team-join a,
+.mobile .about-team-more-contributors a, .mobile .about-team-join a  {
   text-decoration: underline !important; /* Required, as .v-application a is specified as no decoration */
 }
 

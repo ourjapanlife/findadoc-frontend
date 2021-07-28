@@ -5,17 +5,17 @@
         <v-col sm="12" class="kofi-widget-content-wrap">
           <div class="kofi-widget-content">
             <v-row>
-              <h2>Buy us coffee ☕</h2>
+              <h2>{{ $t("about.kofi.headline") }} ☕</h2>
             </v-row>
             <v-row>
-              <p>We are running this database after our 9-5 jobs. Help us stay awake!</p>
+              <p> {{ $t("about.kofi.text.0") }} </p>
             </v-row>
             <v-row>
-              <p>Consider supporting us if you find this project helped you or someone in your network.</p>
+              <p> {{ $t("about.kofi.text.1") }} </p>
             </v-row>
             <v-row>
               <v-btn link elevation="0" color="cyan" href="https://ko-fi.com/theyokohamalife">
-                Donate a cuppa
+                {{ $t("about.kofi.action") }}
               </v-btn>
             </v-row>
           </div>

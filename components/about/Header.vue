@@ -2,7 +2,7 @@
   <div>
     <div class="header-widget">
       <div class="header-widget-content">
-        <h1>About Find A Doc, the database reducing vaccine waste.</h1>
+        <h1> {{ $t("about.header.headline") }} </h1>
       </div>
     </div>
     <AboutSvgWavyBump />
