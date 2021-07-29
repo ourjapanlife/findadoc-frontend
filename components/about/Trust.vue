@@ -4,8 +4,8 @@
         <v-row>
             <v-col col="12">
                 <div>
-                    <h3>Can this information be trusted?</h3>
-                    <h4>In short, yes, but do your due diligence</h4>
+                    <h3> {{ $t("about.trust.header.headline") }} </h3>
+                    <h4> {{ $t("about.trust.header.subheadline") }} </h4>
                 </div>
             </v-col>
         </v-row>
@@ -24,8 +24,8 @@
                 </v-avatar>
             </v-card-title>
             <v-card-text class="card-text">
-                <p>{{ card.text.line1 }}</p>
-                <p>{{ card.text.line2 }}</p>
+                <p>{{ $t(card.text.line1) }}</p>
+                <p>{{ $t(card.text.line2) }}</p>
             </v-card-text>
           </v-card>
         </v-col>
@@ -33,11 +33,11 @@
       <v-row>
         <v-col col="12">
             <h5>
-                This is an open-source project, and we are not liable for any damages that may be incurred from the use of Find a Doc.
+                {{ $t("about.trust.footer.headline") }}
             </h5>
             <h6>
                 <a href="https://github.com/ourjapanlife/findadoc-frontend/blob/main/LICENSE">
-                    Read more about it in our license.
+                    {{ $t("about.trust.footer.license") }}
                 </a>
             </h6>
         </v-col>
@@ -53,22 +53,22 @@ export default {
       {
         avatar: "AboutSvgDocumentsIcon",
         text: {
-            line1: "All links lead to official resources such as clinic and government websites.",
-            line2: "Read them thoroughly before registering your personal information with them."
+            line1: "about.trust.cards.0.text.0",
+            line2: "about.trust.cards.0.text.1"
         }
       },
       {
         avatar: "AboutSvgDiversityIcon",
         text: {
-            line1: "Anyone in the community can submit content to the database.",
-            line2: "As a result, is not possible for us to guarantee that accuracy. If you notice any errors, please report the issue to moderators."
+            line1: "about.trust.cards.1.text.0",
+            line2: "about.trust.cards.1.text.1"
         }
       },
       {
         avatar: "AboutSvgSearchIcon",
         text: {
-            line1: "Our moderators try their best to detect fraudulent information.",
-            line2: "Even so, research any service that you find on here before visiting the location or submitting your personal information to a third-party website."
+            line1: "about.trust.cards.2.text.0",
+            line2: "about.trust.cards.2.text.1"
         }
       }
       ]

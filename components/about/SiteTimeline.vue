@@ -11,21 +11,23 @@
         <v-row>
             <v-col :cols="$vuetify.breakpoint.mobile ? 12 : 4">
               <h2>
-                {{ item.date }}
+                {{ $t(item.date) }}
               </h2>
               <div class="timeline-date-headline">
-                {{ item.dateHeadline }}
+                {{ $t(item.dateHeadline) }}
               </div>
             </v-col>
             <v-col :cols="$vuetify.breakpoint.mobile ? 12 : 7">
               <h3>
-                &quot; {{ item.textHeadline }} &quot;
+                &quot; {{ $t(item.textHeadline) }} &quot;
               </h3>
               <div>
-                <p v-html="item.text"></p>
+                <p v-for="text in item.text" :key="text">
+                  {{ $t(text) }}
+                </p>
               </div>
               <div v-if="item.action">
-                <a :href="item.action.url">{{ item.action.title }}</a>
+                <a :href="item.action.url">{{ $t(item.action.title) }}</a>
               </div>
             </v-col>
         </v-row>
@@ -38,18 +40,24 @@ export default {
   data() {
     return {
       items: [{
-        date: "2021.06.17",
-        dateHeadline: "From idea to health database",
-        text: "On that day, LaShawn Toyoda had enough of the lack of direction from officials. A few hours later, Find a Doc is born.<br/> This database aims to better circulate the latest information on healthcare services in Japan.",
-        textHeadline: "Watch our daughter, I gotta make something.",
+        date: "about.timeline.items.0.date",
+        dateHeadline: "about.timeline.items.0.dateHeadline",
+        text: [
+          "about.timeline.items.0.text.0",
+          "about.timeline.items.0.text.1"
+        ],
+        textHeadline: "about.timeline.items.0.textHeadline",
       },
       {
-        date: "Presently",
-        dateHeadline: "A team of volunteers",
-        text: "Find a Doc is community-driven with the support of a team of volunteers. Currently, the team is focused on keeping the immigrant community informed about clinics offering waiting lists for vaccinations to reduce waste. <br> In the future, we want Find a Doc to help non-Japanese speaking residents of Japan find clinics that offer services in their native language.",
-        textHeadline: "You can fill the void by citizen action.",
+        date: "about.timeline.items.1.date",
+        dateHeadline: "about.timeline.items.1.dateHeadline",
+        text: [
+          "about.timeline.items.1.text.0",
+          "about.timeline.items.1.text.1"
+        ],
+        textHeadline: "about.timeline.items.1.textHeadline",
         action: {
-          title: "Check out &/or join the team",
+          title: "about.timeline.items.1.action",
           url: "https://github.com/ourjapanlife/findadoc-frontend"
         }
       }]
@@ -58,6 +66,11 @@ export default {
 };
 </script>
 <style>
+
+.v-timeline-item a {
+  text-decoration: underline !important; /* Because Vuetify forces this =( */
+}
+
 .timeline-widget h2, .timeline-widget h3 {
   font-family: "Montserrat";
 }

@@ -28,7 +28,16 @@ module.exports = {
     "vue/v-slot-style": 0,
     "vue/order-in-components": 0,
     "no-console": "error",
-    "@intlify/vue-i18n/no-raw-text": "error",
+    // Details here: https://eslint-plugin-vue-i18n.intlify.dev/rules/no-raw-text.html#rule-details
+    "@intlify/vue-i18n/no-raw-text": [
+    "error",
+      {
+        // Icons have literal text
+        "ignoreNodes": ["v-icon"],
+        // Ignore quotes and specific emoji used in design
+        "ignorePattern": "^[\"✋☕]"
+      }
+    ],
   },
   settings: {
     "vue-i18n": {
