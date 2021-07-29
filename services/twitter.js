@@ -9,7 +9,6 @@ const API_URL =
 const DEV_MODE = "DEV_MODE";
 
 class TwitterService {
-
   constructor(axios) {
     this.axios = axios;
   }
@@ -40,7 +39,7 @@ class TwitterService {
     }
 
     if (!this._isValidResponse(json)) {
-      logger.log("Invalid response from Twitter API, loading fixtures.")
+      logger.log("Invalid response from Twitter API, loading fixtures.");
       json = tweetFixtures;
     }
 
@@ -91,6 +90,6 @@ class TwitterService {
 
     return annotatedTweets;
   }
-};
+}
 
 export default TwitterService;

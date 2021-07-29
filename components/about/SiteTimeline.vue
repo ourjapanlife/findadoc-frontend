@@ -22,7 +22,7 @@
                 &quot; {{ $t(item.textHeadline) }} &quot;
               </h3>
               <div>
-                <p v-for="text in item.text">
+                <p v-for="text in item.text" :key="text">
                   {{ $t(text) }}
                 </p>
               </div>

@@ -45,8 +45,8 @@ export default {
     const tweets = await twitter.getTweets();
 
     return {
-      tweets: tweets
-    }
+      tweets: tweets,
+    };
   },
 };
 </script>

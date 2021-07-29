@@ -25,10 +25,11 @@ export default {
 </style>
 
 <style>
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 body {
-  position: relative
+  position: relative;
 }
 </style>
