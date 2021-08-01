@@ -4,3 +4,5 @@
 functions/*
 
 dist/*
+
+tailwind.config.js
