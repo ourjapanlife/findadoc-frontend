@@ -39,7 +39,7 @@ class TwitterService {
     }
 
     if (!this._isValidResponse(json)) {
-      logger.log("Invalid response from Twitter API, loading fixtures.");
+      logger.warn("Invalid response from Twitter API, loading fixtures.");
       json = tweetFixtures;
     }
 
