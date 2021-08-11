@@ -11,6 +11,7 @@
       :headers="headers"
       :items="items"
       :items-per-page="10"
+      :item-key="id"
       class="clinics-table elevation-2"
       :loading="loading"
       loading-text="Loading... Please wait"

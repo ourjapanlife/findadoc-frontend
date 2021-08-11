@@ -1,6 +1,6 @@
 <template>
   <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
-    <v-carousel-item v-for="(slide, i) in slides" :key="i">
+    <v-carousel-item v-for="(slide, i) in slides" :key="slide.id">
       <v-sheet :color="slides[i].color" height="100%">
         <v-col
           :class="$vuetify.breakpoint.mobile ? '' : 'fill-height pt-12 px-12'"
@@ -29,7 +29,11 @@ export default {
   data() {
     return {
       slides: [
-        { color: "#EBF8FB", article: featuredNewsData.prevaccinationScreening },
+        {
+          id: 1,
+          color: "#EBF8FB",
+          article: featuredNewsData.prevaccinationScreening,
+        },
       ],
     };
   },

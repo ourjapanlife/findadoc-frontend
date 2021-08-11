@@ -62,7 +62,11 @@
             </v-btn>
           </template>
           <v-list>
-            <v-list-item v-for="action in adminActions" :key="action" link>
+            <v-list-item
+              v-for="action in adminActions"
+              :key="action.label"
+              link
+            >
               <v-list-item-title
                 v-text="action.label"
                 @click="handleEditBtnPressed(item)"
