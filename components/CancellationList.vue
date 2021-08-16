@@ -133,18 +133,28 @@
 import logger from "../services/logger";
 
 export default {
+  props: {
+    overrideData: {
+      type: Array,
+      default: null,
+    },
+  },
   mounted() {
-    const db = this.$fireModule.firestore();
-    db.collection("clinics")
-      .get()
-      .then((snap) => {
-        snap.forEach((doc) => {
-          this.id = doc.id;
-          this.items.push(doc.data());
-          this.items[this.items.length - 1].id = this.id;
+    if (this.overrideData) {
+      this.items.push(this.overrideData);
+    } else {
+      const db = this.$fireModule.firestore();
+      db.collection("clinics")
+        .get()
+        .then((snap) => {
+          snap.forEach((doc) => {
+            this.id = doc.id;
+            this.items.push(doc.data());
+            this.items[this.items.length - 1].id = this.id;
+          });
+          this.loading = false;
         });
-        this.loading = false;
-      });
+    }
   },
   data: (vue) => ({
     showDialog: {
