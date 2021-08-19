@@ -181,8 +181,14 @@ export default {
         text: `${vue.$t("cancelList.header.prefecture")}:`,
         value: "prefecture",
       },
-      { text: `${vue.$t("cancelList.header.city")}:`, value: "city" },
-      { text: `${vue.$t("cancelList.header.ward")}:`, value: "ward" },
+      {
+        text: `${vue.$t("cancelList.header.city")}:`,
+        value: "city",
+      },
+      {
+        text: `${vue.$t("cancelList.header.ward")}:`,
+        value: "ward",
+      },
       {
         text: `${vue.$t("cancelList.header.voucherRequired")}:`,
         value: "voucherRequired",
@@ -191,7 +197,10 @@ export default {
         text: `${vue.$t("cancelList.header.wardResidencyRequired")}:`,
         value: "wardResidencyRequired",
       },
-      { text: `${vue.$t("cancelList.header.note")}:`, value: "note" },
+      {
+        text: `${vue.$t("cancelList.header.note")}:`,
+        value: "note",
+      },
       {
         text: `${vue.$t("cancelList.header.website")}:`,
         value: "website",
@@ -261,7 +270,6 @@ export default {
 #note {
   padding-bottom: 20px;
 }
-
 #waiting-lists-table {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -270,6 +278,7 @@ export default {
 ::v-deep .clinics-table {
   table > thead > tr > th {
     font-size: 0.875rem;
+    white-space: nowrap;
   }
 }
 </style>
