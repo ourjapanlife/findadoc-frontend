@@ -181,14 +181,8 @@ export default {
         text: `${vue.$t("cancelList.header.prefecture")}:`,
         value: "prefecture",
       },
-      {
-        text: `${vue.$t("cancelList.header.city")}:`,
-        value: "city",
-      },
-      {
-        text: `${vue.$t("cancelList.header.ward")}:`,
-        value: "ward",
-      },
+      { text: `${vue.$t("cancelList.header.city")}:`, value: "city" },
+      { text: `${vue.$t("cancelList.header.ward")}:`, value: "ward" },
       {
         text: `${vue.$t("cancelList.header.voucherRequired")}:`,
         value: "voucherRequired",
@@ -197,10 +191,7 @@ export default {
         text: `${vue.$t("cancelList.header.wardResidencyRequired")}:`,
         value: "wardResidencyRequired",
       },
-      {
-        text: `${vue.$t("cancelList.header.note")}:`,
-        value: "note",
-      },
+      { text: `${vue.$t("cancelList.header.note")}:`, value: "note" },
       {
         text: `${vue.$t("cancelList.header.website")}:`,
         value: "website",
