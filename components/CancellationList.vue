@@ -261,7 +261,6 @@ export default {
 #note {
   padding-bottom: 20px;
 }
-
 #waiting-lists-table {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -270,6 +269,7 @@ export default {
 ::v-deep .clinics-table {
   table > thead > tr > th {
     font-size: 0.875rem;
+    white-space: nowrap;
   }
 }
 </style>
