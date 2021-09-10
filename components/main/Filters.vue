@@ -4,14 +4,10 @@
       {{ $t("filters.doctorSpecialty") }}
     </div>
     <div class="pt-4">
-      <div>
+      <div v-for="specialty in specialties" :key="specialty">
         <label>
-          <input
-            type="checkbox"
-            class="form-checkbox text-indigo-600"
-            checked
-          />
-          <span class="ml-2">{{ $t("filters.all") }}</span>
+          <input type="checkbox" class="form-checkbox text-indigo-600" />
+          <span class="ml-2">{{ specialty }}</span>
         </label>
       </div>
     </div>
@@ -22,15 +18,22 @@
 export default {
   data() {
     return {
-      filters: [
-        "all",
-        "cardiologist",
-        "dentist",
-        "doctorSpecialty",
-        "general",
-        "gynecologist",
-        "oncologist",
-        "pediatrician",
+      specialties: [
+        "All",
+        "Cardiologist",
+        "Dentist",
+        "Dermatologist",
+        "Doctor Specialty",
+        "Endocrinologist",
+        "Family Physician",
+        "Gastroenterologist",
+        "Gynecologist",
+        "Neurologist",
+        "Oncologist",
+        "Ophthalmologist",
+        "Otolaryngologist",
+        "Pediatrician",
+        "Psychiatrist",
       ],
     };
   },
