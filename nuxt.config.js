@@ -97,6 +97,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     "@nuxtjs/vuetify",
+    "@nuxtjs/tailwindcss",
   ],
   env: {
     FIREBASE_ENV: process.env.FIREBASE_ENV,

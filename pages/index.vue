@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="flex">
     <MainFilters />
     <MainFilteredResults />
+    <MainMap />
   </div>
 </template>
