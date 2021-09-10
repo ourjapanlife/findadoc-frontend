@@ -9,9 +9,9 @@
         }}</nuxt-link></v-toolbar-title
       >
       <v-spacer></v-spacer>
-      <nuxt-link :to="localePath({ name: 'add-clinic' })">
+      <nuxt-link :to="localePath({ name: 'get-vaccine' })">
         <v-btn color="accent" class="black--text">{{
-          $t("toolbar.addClinic")
+          $t("toolbar.getVaccine")
         }}</v-btn>
       </nuxt-link>
     </v-app-bar>

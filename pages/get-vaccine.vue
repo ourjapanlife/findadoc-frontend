@@ -1,0 +1,3 @@
+<template>
+  <cancellation-list />
+</template>

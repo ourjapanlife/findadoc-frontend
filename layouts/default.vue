@@ -2,7 +2,6 @@
   <v-app>
     <toolbar app />
     <v-main>
-      <alerts-list />
       <Nuxt />
     </v-main>
     <site-footer />
