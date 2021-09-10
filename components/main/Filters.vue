@@ -1,11 +1,11 @@
 <template>
   <div class="p-8">
-    <div class="font-semibold">
+    <div class="font-semibold text-gray-900">
       {{ $t("filters.language") }}
     </div>
     <div class="mt-4">
       <label class="block">
-        <select class="form-select block w-full mt-1 p-1 border rounded">
+        <select class="form-select block w-full mt-1 p-2 border rounded">
           <option v-for="language in languages" :key="language">
             {{ language }}
           </option>
@@ -13,11 +13,11 @@
       </label>
     </div>
 
-    <div class="mt-8 font-semibold">
+    <div class="mt-8 font-semibold text-gray-900">
       {{ $t("filters.doctorSpecialty") }}
     </div>
     <div class="mt-4">
-      <div v-for="specialty in specialties" :key="specialty">
+      <div v-for="specialty in specialties" :key="specialty" class="mb-1">
         <label class="inline-flex items-center">
           <input
             type="checkbox"
