@@ -89,6 +89,3 @@ sw.*
 # Firebase
 firestore.rules
 functions
-
-# storybook
-.nuxt-storybook
