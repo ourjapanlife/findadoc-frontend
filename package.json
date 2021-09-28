@@ -11,7 +11,8 @@
     "netlify": "nuxt generate",
     "lint": "eslint . --ext .js,.vue,.json && prettier --write **/*.{js,vue,json,scss,md}",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@nuxt/content": "^1.14.0",
