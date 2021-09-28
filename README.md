@@ -18,7 +18,13 @@ Make sure you have node [`v16.4.2`](.nvmrc) installed before installing the depe
 
 If you don't have it, the easiest way to manage node versions is by using nvm. Read the [`Install NVM guide`](https://github.com/nvm-sh/nvm#installing-and-updating).
 
-After installing it, just run
+After installing it, you need to install the correct node version:
+
+```bash
+nvm install 16.4.2
+```
+
+After the installation, just use it:
 
 ```bash
 nvm use
