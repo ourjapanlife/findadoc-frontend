@@ -14,6 +14,18 @@ If you have more issues with submodules, please check out [the wiki troubleshoot
 
 ## Getting started / Running the app
 
+Make sure you have node [`v16.4.2`](.nvmrc) installed before installing the dependencies.
+
+If you don't have it, the easiest way to manage node versions is by using nvm. Read the [`Install NVM guide`](https://github.com/nvm-sh/nvm#installing-and-updating).
+
+After installing it, just run
+
+```bash
+nvm use
+```
+
+Now you're ready to install the dependencies and run the app.
+
 ```bash
 # install dependencies
 $ yarn
