@@ -14,19 +14,29 @@ If you have more issues with submodules, please check out [the wiki troubleshoot
 
 ## Getting started / Running the app
 
+Install dependencies
+
 ```bash
-# install dependencies
-$ yarn
+yarn
+```
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+Serve with hot reload at localhost:3000
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+```bash
+yarn dev
+```
 
-# generate static project
-$ yarn generate
+Build for production and launch server
+
+```bash
+yarn build
+yarn start
+```
+
+Generate static project
+
+```bash
+yarn generate
 ```
 
 **NOTE**: To see current environment you are connected to, check the console logs.
@@ -46,3 +56,7 @@ The locale files are managed through [the localization repo](https://github.com/
 5. Update the package inside `package.json` using `yarn upgrade @ourjapanlife/findadoc-localization` to get the latest keys imported
 6. Run `yarn` again
 7. Make your change in this repo with the new i18n keys and submit your PR 🎉
+
+```
+
+```
