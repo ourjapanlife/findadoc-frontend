@@ -33,12 +33,6 @@ yarn build
 yarn start
 ```
 
-Generate static project
-
-```bash
-yarn generate
-```
-
 **NOTE**: To see current environment you are connected to, check the console logs.
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
