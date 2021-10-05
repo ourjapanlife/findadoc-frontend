@@ -12,13 +12,15 @@
             color="alertButton"
             :href="buttonUrl"
             target="_blank"
-            >{{ buttonText }}</v-btn
           >
+            {{ buttonText }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-alert>
   </v-container>
 </template>
+
 <script>
 export default {
   props: {
