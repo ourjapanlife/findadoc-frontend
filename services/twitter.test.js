@@ -1,5 +1,5 @@
-import TwitterService from "../twitter";
-import { tweetsMock } from "./tweets-mock";
+import TwitterService from "./twitter";
+import { tweetsMock } from "./mocks/tweets-mock";
 
 describe("TwitterService", () => {
   it("returns the list of tweets", async () => {
