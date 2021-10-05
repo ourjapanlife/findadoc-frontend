@@ -14,37 +14,29 @@ If you have more issues with submodules, please check out [the wiki troubleshoot
 
 ## Getting started / Running the app
 
-Make sure you have node [`v16.4.2`](.nvmrc) installed before installing the dependencies.
-
-If you don't have it, the easiest way to manage node versions is by using nvm. Read the [`Install NVM guide`](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-After installing it, you need to install the correct node version:
+Install dependencies
 
 ```bash
-nvm install 16.4.2
+yarn
 ```
 
-After the installation, just use it:
+Serve with hot reload at localhost:3000
 
 ```bash
-nvm use
+yarn dev
 ```
 
-Now you're ready to install the dependencies and run the app.
+Build for production and launch server
 
 ```bash
-# install dependencies
-$ yarn
+yarn build
+yarn start
+```
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+Generate static project
 
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+```bash
+yarn generate
 ```
 
 **NOTE**: To see current environment you are connected to, check the console logs.
@@ -64,3 +56,21 @@ The locale files are managed through [the localization repo](https://github.com/
 5. Update the package inside `package.json` using `yarn upgrade @ourjapanlife/findadoc-localization` to get the latest keys imported
 6. Run `yarn` again
 7. Make your change in this repo with the new i18n keys and submit your PR 🎉
+
+## Troubleshooting
+
+Make sure you have node [`v16.4.2`](.nvmrc) installed before installing the dependencies.
+
+If you don't have it, the easiest way to manage node versions is by using nvm. Read the [`Install NVM guide`](https://github.com/nvm-sh/nvm#installing-and-updating).
+
+After installing it, you need to install the correct node version:
+
+```bash
+nvm install 16.4.2
+```
+
+After the installation, just use it:
+
+```bash
+nvm use
+```
