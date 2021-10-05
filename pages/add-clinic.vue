@@ -110,6 +110,13 @@
 <script>
 import json from "../data/prefectures.json";
 import logger from "../services/logger";
+import {
+  cityRules,
+  wardRules,
+  nameRules,
+  websiteRules,
+} from "./add-clinic-rules";
+
 export default {
   mounted() {},
   data: (vue) => ({
@@ -125,27 +132,14 @@ export default {
     prefectureList: json.prefectures,
     prefecture: "",
     city: "",
-    cityRules: [
-      (v) => !!v || "City is required",
-      (v) => (v && v.length >= 2) || "City name must be at least 2 characters",
-    ],
+    cityRules,
     ward: "",
-    wardRules: [
-      (v) => !!v || "Ward is required",
-      (v) => (v && v.length >= 2) || "Ward name must be at least 2 characters",
-    ],
+    wardRules,
     name: "",
-    nameRules: [
-      (v) => !!v || "Clinic name is required",
-      (v) =>
-        (v && v.length >= 2) || "Clinic name must be at least 2 characters",
-    ],
+    nameRules,
     note: "",
     website: "",
-    websiteRules: [
-      (v) => !!v || "Website URL is required",
-      (v) => (v && v.length >= 5) || "Please enter a valid URL",
-    ],
+    websiteRules,
   }),
   methods: {
     handleVoucherSwitch() {
