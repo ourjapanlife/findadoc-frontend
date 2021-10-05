@@ -4,6 +4,7 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
+    jest: true,
   },
   extends: [
     "eslint:recommended",
@@ -30,13 +31,13 @@ module.exports = {
     "no-console": "error",
     // Details here: https://eslint-plugin-vue-i18n.intlify.dev/rules/no-raw-text.html#rule-details
     "@intlify/vue-i18n/no-raw-text": [
-    "error",
+      "error",
       {
         // Icons have literal text
-        "ignoreNodes": ["v-icon"],
+        ignoreNodes: ["v-icon"],
         // Ignore quotes and specific emoji used in design
-        "ignorePattern": "^[\"✋☕]"
-      }
+        ignorePattern: '^["✋☕]',
+      },
     ],
   },
   settings: {
