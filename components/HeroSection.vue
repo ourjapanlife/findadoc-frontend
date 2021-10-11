@@ -38,14 +38,16 @@
             </v-row>
           </template>
         </v-img>
-        <v-card-title
-          :class="
-            $vuetify.breakpoint.mobile
-              ? 'text-h4 font-weight-bold pt-0'
-              : 'text-h1 font-weight-bold pt-0'
-          "
-        >
-          {{ $t("hero.getVaccinated") }}
+        <v-card-title class="pt-0">
+          <h1
+            :class="
+              $vuetify.breakpoint.mobile
+                ? 'text-h4 font-weight-bold'
+                : 'text-h1 font-weight-bold'
+            "
+          >
+            {{ $t("hero.getVaccinated") }}
+          </h1>
         </v-card-title>
         <v-card-subtitle
           class="text-h6 font-italic font-weight-medium black--text mt-8"
