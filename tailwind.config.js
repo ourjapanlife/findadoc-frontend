@@ -49,8 +49,9 @@ module.exports = {
       // },
     },
     fontFamily: {
-      sans: ["Graphik", "sans-serif"],
-      serif: ["Merriweather", "serif"],
+      sans: ["Montserrat", "sans-serif"],
+      serif: ["Montserrat", "serif"],
+      default: ["Montserrat", "Roboto", "sans-serif"],
     },
     fontSize: {
       subtitle: ".78rem",
