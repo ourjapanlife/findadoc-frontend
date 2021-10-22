@@ -115,7 +115,7 @@ import {
   wardRules,
   nameRules,
   websiteRules,
-} from "./add-clinic-rules";
+} from "../validationRules/add-clinic-rules";
 
 export default {
   mounted() {},
