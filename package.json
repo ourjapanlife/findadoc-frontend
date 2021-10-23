@@ -31,8 +31,10 @@
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "@intlify/eslint-plugin-vue-i18n": "^0.11.1",
+    "@nuxtjs/tailwindcss": "^4.2.1",
     "@nuxtjs/vuetify": "^1.11.3",
     "babel-jest": "^27.2.2",
+    "autoprefixer": "^10.3.1",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-json": "^3.0.0",
@@ -40,7 +42,11 @@
     "husky": "^6.0.0",
     "jest": "^27.2.2",
     "lint-staged": "^11.0.0",
-    "prettier": "2.3.1"
+    "postcss": "^8.3.6",
+    "prettier": "2.3.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "tailwindcss": "^2.2.7"
   },
   "lint-staged": {
     "**/*.{js,vue,json}": [
