@@ -95,6 +95,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    "@nuxtjs/tailwindcss",
     // https://go.nuxtjs.dev/vuetify
     "@nuxtjs/vuetify",
   ],
@@ -146,10 +147,17 @@ export default {
     ["@nuxtjs/axios"],
     ["@nuxtjs/proxy"],
   ],
-
+  //https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-vue-config
+  // vue: {
+  //   config: {
+  //     css: {
+  //       // vuetify bug hack. https://github.com/vuetifyjs/vuetify/issues/5271
+  //       extract: { ignoreOrder: true }
+  //     }
+  //   }
+  // },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ["~/assets/variables.scss"],
     theme: {
       dark: false,
       light: true,

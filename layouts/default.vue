@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <toolbar app />
-    <v-main>
+    <v-main class="font-default">
       <alerts-list />
       <Nuxt />
     </v-main>
