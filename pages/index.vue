@@ -25,10 +25,10 @@
             })
           "
         >
-          <v-btn text color="teal accent-4"
-            >{{ $t("general.readMore") }}
-          </v-btn></NuxtLink
-        >
+          <v-btn text color="secondary accent-4">
+            {{ $t("general.readMore") }}
+          </v-btn>
+        </NuxtLink>
       </v-card-subtitle>
       <v-divider></v-divider>
     </v-card>

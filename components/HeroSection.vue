@@ -38,14 +38,16 @@
             </v-row>
           </template>
         </v-img>
-        <v-card-title
-          :class="
-            $vuetify.breakpoint.mobile
-              ? 'text-h4 font-weight-bold pt-0'
-              : 'text-h1 font-weight-bold pt-0'
-          "
-        >
-          {{ $t("hero.getVaccinated") }}
+        <v-card-title class="pt-0">
+          <h1
+            :class="
+              $vuetify.breakpoint.mobile
+                ? 'text-h4 font-weight-bold'
+                : 'text-h2 font-weight-bold'
+            "
+          >
+            {{ $t("hero.getVaccinated") }}
+          </h1>
         </v-card-title>
         <v-card-subtitle
           class="text-h6 font-italic font-weight-medium black--text mt-8"
@@ -61,11 +63,9 @@
           >
             <v-card-actions>
               <a href="#waiting-lists-table">
-                <v-btn
-                  color="secondary"
-                  class="custom-transform-class text-none ml-3"
-                  >{{ $t("findADoc") }}</v-btn
-                >
+                <v-btn color="secondary" class="custom-transform-class ml-3">{{
+                  $t("findADoc")
+                }}</v-btn>
               </a>
             </v-card-actions>
           </v-img>
@@ -73,11 +73,9 @@
         <div v-else>
           <v-card-actions>
             <a href="#waiting-lists-table">
-              <v-btn
-                color="secondary"
-                class="custom-transform-class text-none ml-3"
-                >{{ $t("findADoc") }}</v-btn
-              >
+              <v-btn color="secondary" class="custom-transform-class ml-3">{{
+                $t("findADoc")
+              }}</v-btn>
             </a>
           </v-card-actions>
         </div>
