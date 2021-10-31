@@ -1,23 +1,28 @@
 <template>
   <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
     <v-carousel-item v-for="(slide, i) in slides" :key="slide.id">
-      <v-sheet :color="slides[i].color" height="100%">
-        <v-col
-          :class="$vuetify.breakpoint.mobile ? '' : 'fill-height pt-12 px-12'"
+      <v-sheet :color="slides[i].color">
+        <div
+          class="pt-6 pb-12"
+          :class="$vuetify.breakpoint.mobile ? 'px-14' : 'px-16'"
         >
-          <v-col>
+          <div class="pb-6 pt-2 px-2">
             <h2>{{ $t("news.featured") }}</h2>
-          </v-col>
-          <v-col class="text-h5">{{ slides[i].article.title }}</v-col>
-          <v-col>{{ slides[i].article.description }}</v-col>
-          <v-col>
-            <a :href="slides[i].article.link" target="_blank">
+          </div>
+          <div class="p-2 text-h5">{{ slides[i].article.title }}</div>
+          <div class="p-2">{{ slides[i].article.description }}</div>
+          <div class="px-2 pb-2 mt-6">
+            <a
+              :href="slides[i].article.link"
+              target="_blank"
+              class="no-underline"
+            >
               <v-btn color="accent" class="black--text">{{
                 slides[i].article.buttonText
               }}</v-btn>
             </a>
-          </v-col>
-        </v-col>
+          </div>
+        </div>
       </v-sheet>
     </v-carousel-item>
   </v-carousel>
@@ -39,9 +44,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-a {
-  text-decoration: none;
-}
-</style>
