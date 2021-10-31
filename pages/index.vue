@@ -3,7 +3,7 @@
     <hero-section />
     <div
       class="mb-4"
-      :class="$vuetify.breakpoint.mobile ? 'mt-2' : 'mt-20'">
+      :class="$vuetify.breakpoint.mobile ? 'mt-12' : 'mt-20'">
       <featured-news />
     </div>
     <div class="text-center">
