@@ -28,6 +28,13 @@ module.exports = {
     "vue/attributes-order": 0,
     "vue/v-slot-style": 0,
     "vue/order-in-components": 0,
+    "vue/html-closing-bracket-newline": [
+      "error",
+      {
+        singleline: "never",
+        multiline: "never",
+      },
+    ],
     "no-console": "error",
     // Details here: https://eslint-plugin-vue-i18n.intlify.dev/rules/no-raw-text.html#rule-details
     "@intlify/vue-i18n/no-raw-text": [
