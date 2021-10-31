@@ -1,11 +1,17 @@
 <template>
   <v-container>
     <v-alert dismissible color="alertCard">
-      <v-row align="center" no-gutters>
-        <v-col class="grow" :cols="$vuetify.breakpoint.xs ? '12' : auto">
+      <v-row align="center" no-gutters class="mt-1">
+        <div
+          class="grow break-normal"
+          :class="$vuetify.breakpoint.xs ? 'shrink' : 'col'"
+        >
           <slot></slot>
-        </v-col>
-        <v-col class="shrink">
+        </div>
+        <div
+          class="shrink p-2 mx-2"
+          :class="$vuetify.breakpoint.xs ? '' : 'col'"
+        >
           <v-btn
             :class="$vuetify.breakpoint.xs ? 'mt-4' : 'mt-auto'"
             light
@@ -14,7 +20,7 @@
             target="_blank"
             >{{ buttonText }}</v-btn
           >
-        </v-col>
+        </div>
       </v-row>
     </v-alert>
   </v-container>
