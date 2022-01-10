@@ -1,4 +1,3 @@
-import colors from "vuetify/es5/util/colors";
 import { languages } from "@ourjapanlife/findadoc-localization/supported_languages.json";
 
 const SITE_TITLE = "Find a Doc JAPAN";
@@ -94,11 +93,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    "@nuxtjs/tailwindcss",
-    // https://go.nuxtjs.dev/vuetify
-    "@nuxtjs/vuetify",
-  ],
+  buildModules: ["@nuxtjs/tailwindcss"],
   env: {
     FIREBASE_ENV: process.env.FIREBASE_ENV,
     TWITTER_API_BEARER_TOKEN: process.env.TWITTER_API_BEARER_TOKEN,
@@ -147,52 +142,6 @@ export default {
     ["@nuxtjs/axios"],
     ["@nuxtjs/proxy"],
   ],
-  //https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-vue-config
-  // vue: {
-  //   config: {
-  //     css: {
-  //       // vuetify bug hack. https://github.com/vuetifyjs/vuetify/issues/5271
-  //       extract: { ignoreOrder: true }
-  //     }
-  //   }
-  // },
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
-  vuetify: {
-    theme: {
-      dark: false,
-      light: true,
-      themes: {
-        dark: {
-          // material trio
-          primary: "#031525",
-          accent: colors.cyan.lighten1,
-          secondary: colors.indigo.darken2,
-          // alert colors
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-          // misc
-          alertCard: colors.cyan.lighten4,
-          alertButton: colors.cyan.lighten1,
-        },
-        light: {
-          // material trio
-          primary: "#031525",
-          accent: colors.cyan.lighten3,
-          secondary: colors.indigo.darken2,
-          // alert colors
-          info: colors.teal.darken2,
-          warning: colors.orange.darken4,
-          error: colors.red.darken4,
-          success: colors.green.darken3,
-          // misc
-          alertCard: colors.cyan.lighten4,
-          alertButton: colors.cyan.lighten1,
-        },
-      },
-    },
-  },
 
   axios: {
     proxy: true,

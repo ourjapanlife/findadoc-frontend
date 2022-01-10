@@ -1,12 +1,5 @@
 <template>
-  <v-app>
-    <toolbar app />
-    <v-main class="font-default">
-      <alerts-list />
-      <Nuxt />
-    </v-main>
-    <site-footer />
-  </v-app>
+  <Nuxt />
 </template>
 
 <script>
@@ -20,17 +13,3 @@ export default {
   },
 };
 </script>
-
-<style lang="sass">
-@import '~vuetify/src/styles/styles.sass'
-</style>
-
-<style>
-html,
-body {
-  overflow-x: hidden;
-}
-body {
-  position: relative;
-}
-</style>
