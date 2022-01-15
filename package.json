@@ -45,7 +45,7 @@
     "prettier": "2.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
-    "tailwindcss": "^2.2.7"
+    "tailwindcss": "3.0.1"
   },
   "lint-staged": {
     "**/*.{js,vue,json}": [
