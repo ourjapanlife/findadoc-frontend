@@ -1,4 +1,3 @@
-import colors from "vuetify/es5/util/colors";
 import { languages } from "@ourjapanlife/findadoc-localization/supported_languages.json";
 
 const SITE_TITLE = "Find a Doc JAPAN";
@@ -165,30 +164,10 @@ export default {
         dark: {
           // material trio
           primary: "#031525",
-          accent: colors.cyan.lighten1,
-          secondary: colors.indigo.darken2,
-          // alert colors
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-          // misc
-          alertCard: colors.cyan.lighten4,
-          alertButton: colors.cyan.lighten1,
         },
         light: {
           // material trio
           primary: "#031525",
-          accent: colors.cyan.lighten3,
-          secondary: colors.indigo.darken2,
-          // alert colors
-          info: colors.teal.darken2,
-          warning: colors.orange.darken4,
-          error: colors.red.darken4,
-          success: colors.green.darken3,
-          // misc
-          alertCard: colors.cyan.lighten4,
-          alertButton: colors.cyan.lighten1,
         },
       },
     },

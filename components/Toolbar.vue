@@ -8,12 +8,6 @@
           $t("findADoc")
         }}</nuxt-link></v-toolbar-title
       >
-      <v-spacer></v-spacer>
-      <nuxt-link :to="localePath({ name: 'add-clinic' })">
-        <v-btn color="accent" class="black--text">{{
-          $t("toolbar.addClinic")
-        }}</v-btn>
-      </nuxt-link>
     </v-app-bar>
 
     <v-navigation-drawer
